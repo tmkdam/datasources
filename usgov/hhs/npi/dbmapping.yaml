@@ -1,0 +1,449 @@
+sources:
+- name: usgov.hhs.npi
+  destinations:
+  - name: usgov_hhs_npis
+    fields:
+    - source:
+      - NPI
+      dest: id
+      type: uuid
+    - source:
+      - NPI
+      - Last Update Date
+      - NPI Deactivation Date
+      dest: revision
+      type: uuid
+    - source: NPI
+      dest: npi
+      type: bigint
+    - source: Entity Type Code
+      dest: type
+      mapping:
+        1: individual
+        2: organization
+      type: string
+      max_length: 12
+    - source: Replacement NPI
+      dest: replacement_npi
+      type: bigint
+    - source: Employer Identification Number (EIN)
+      dest: employer_identification_number
+      type: string
+      max_length: 9
+    - source: Provider Organization Name (Legal Business Name)
+      dest: business_name
+      type: string
+      max_length: 70
+    - source: Provider Last Name (Legal Name)
+      dest: last_name
+      type: string
+      max_length: 35
+    - source: Provider First Name
+      dest: first_name
+      type: string
+      max_length: 20
+    - source: Provider Middle Name
+      dest: middle_name
+      type: string
+      max_length: 20
+    - source: Provider Name Prefix Text
+      dest: name_prefix
+      type: string
+      max_length: 5
+    - source: Provider Name Suffix Text
+      dest: name_suffix
+      type: string
+      max_length: 5
+    - source: Provider Credential Text
+      dest: credential
+      type: string
+      max_length: 20
+    - source: Provider Other Organization Name
+      dest: other_name
+      type: string
+      max_length: 70
+    - source: Provider Other Organization Name Type Code
+      dest: other_name_type
+      mapping:
+        1: individual
+        2: individual
+        3: organization
+        4: organization
+        5: individual+organization
+      type: string
+      max_length: 23
+    - source: Provider Other Last Name
+      dest: other_last_name
+      type: string
+      max_length: 35
+    - source: Provider Other First Name
+      dest: other_first_name
+      type: string
+      max_length: 20
+    - source: Provider Other Middle Name
+      dest: other_middle_name
+      type: string
+      max_length: 20
+    - source: Provider Other Name Prefix Text
+      dest: other_name_prefix
+      type: string
+      max_length: 5
+    - source: Provider Other Name Suffix Text
+      dest: other_name_suffix
+      type: string
+      max_length: 5
+    - source: Provider Other Credential Text
+      dest: other_credential
+      type: string
+      max_length: 20
+    - source: Provider Other Last Name Type Code
+      dest: other_last_name_type
+      mapping:
+        1: former name
+        2: professional name
+        3: doing business as
+        4: former legal business name
+        5: other name
+      type: string
+      max_length: 26
+    - source: Provider Enumeration Date
+      dest: enumeration_date
+      type: datetime
+    - source: Last Update Date
+      dest: last_update_date
+      type: datetime
+    - source: NPI Deactivation Reason Code
+      dest: deactivation_reason
+      mapping:
+        DT: death
+        DB: disbandment
+        FR: fraud
+        OT: other
+      type: string
+      max_length: 12
+    - source: NPI Deactivation Date
+      dest: deactivation_date
+      type: datetime
+    - source: NPI Reactivation Date
+      dest: reactivation_date
+      type: datetime
+    - source: Provider Gender Code
+      dest: gender
+      mapping:
+        M: male
+        F: female
+      type: string
+      max_length: 6
+    - source: Is Sole Proprietor
+      dest: sole_proprietor
+      mapping:
+        X: not answered
+        Y: yes
+        N: no
+      type: string
+      max_length: 12
+    - source: Is Organization Subpart
+      dest: organization_subpart
+      mapping:
+        X: not answered
+        Y: yes
+        N: no
+      type: string
+      max_length: 12
+    - dest: organization_official_id
+      source:
+      - Authorized Official Last Name
+      - Authorized Official First Name
+      - Authorized Official Middle Name
+      - Authorized Official Title or Position
+      - Authorized Official Telephone Number
+      - Authorized Official Name Prefix Text
+      - Authorized Official Name Suffix Text
+      - Authorized Official Credential Text
+      type: uuid
+    - dest: parent_orgs_id
+      source:
+      - Parent Organization LBN
+      - Parent Organization TIN
+      type: uuid
+    - dest: business_location_id
+      source:
+      - Provider First Line Business Mailing Address
+      - Provider Second Line Business Mailing Address
+      - Provider Business Mailing Address City Name
+      - Provider Business Mailing Address State Name
+      - Provider Business Mailing Address Postal Code
+      - Provider Business Mailing Address Country Code (If outside U.S.)
+      - Provider Business Mailing Address Telephone Number
+      - Provider Business Mailing Address Fax Number
+      type: uuid
+    - dest: practice_location_id
+      source:
+      - Provider First Line Business Practice Location Address
+      - Provider Second Line Business Practice Location Address
+      - Provider Business Practice Location Address City Name
+      - Provider Business Practice Location Address State Name
+      - Provider Business Practice Location Address Postal Code
+      - Provider Business Practice Location Address Country Code (If outside U.S.)
+      - Provider Business Practice Location Address Telephone Number
+      - Provider Business Practice Location Address Fax Number
+      type: uuid
+  - name: usgov_hhs_npi_licenses
+    extract: Provider License Number_(\d+)
+    parent_key: npi_id
+    ignore:
+     "Healthcare Provider Taxonomy Code_{0}": ""
+    fields:
+    - dest: id
+      source:
+      - NPI
+      - Healthcare Provider Taxonomy Code_{0}
+      - Provider License Number_{0}
+      - Provider License Number State Code_{0}
+      - Healthcare Provider Primary Taxonomy Switch_{0}
+      type: uuid
+    - dest: revision
+      source:
+      - NPI
+      - Healthcare Provider Taxonomy Code_{0}
+      - Provider License Number_{0}
+      - Provider License Number State Code_{0}
+      - Healthcare Provider Primary Taxonomy Switch_{0}
+      type: uuid
+    - dest: npi_id
+      source:
+      - NPI
+      type: uuid
+    - source: Healthcare Provider Taxonomy Code_{0}
+      dest: healthcare_taxonomy_code
+      type: string
+      max_length: 10
+    - source: Provider License Number_{0}
+      dest: license_number
+      type: string
+      max_length: 20
+    - source: Provider License Number State Code_{0}
+      dest: license_number_state
+      type: string
+      max_length: 9
+    - source: Healthcare Provider Primary Taxonomy Switch_{0}
+      dest: taxonomy_switch
+      type: string
+      max_length: 12
+      mapping:
+        X: not answered
+        Y: yes
+        N: no
+  - name: usgov_hhs_npi_locations
+    extract: Provider First Line Business (\w+) Address
+    ignore:
+      "Provider First Line Business {0} Address": ""
+    fields:
+    - source:
+      - Provider First Line Business {0} Address
+      - Provider Second Line Business {0} Address
+      - Provider Business {0} Address City Name
+      - Provider Business {0} Address State Name
+      - Provider Business {0} Address Postal Code
+      - Provider Business {0} Address Country Code (If outside U.S.)
+      - Provider Business {0} Address Telephone Number
+      - Provider Business {0} Address Fax Number
+      dest: id
+      type: uuid
+    - dest: revision
+      source:
+      - Provider First Line Business {0} Address
+      - Provider Second Line Business {0} Address
+      - Provider Business {0} Address City Name
+      - Provider Business {0} Address State Name
+      - Provider Business {0} Address Postal Code
+      - Provider Business {0} Address Country Code (If outside U.S.)
+      - Provider Business {0} Address Telephone Number
+      - Provider Business {0} Address Fax Number
+      type: uuid
+    - source: Provider First Line Business {0} Address
+      dest: address_line
+      type: string
+      max_length: 55
+    - source: Provider Second Line Business {0} Address
+      dest: address_details_line
+      type: string
+      max_length: 55
+    - source: Provider Business {0} Address City Name
+      dest: city
+      type: string
+      max_length: 40
+    - source: Provider Business {0} Address State Name
+      dest: state
+      type: string
+      max_length: 40
+    - source: Provider Business {0} Address Postal Code
+      dest: zip
+      type: string
+      max_length: 20
+    - source: Provider Business {0} Address Country Code (If outside U.S.)
+      dest: country_code
+      type: string
+      max_length: 2
+    - source: Provider Business {0} Address Telephone Number
+      dest: phone
+      type: string
+      max_length: 20
+    - source: Provider Business {0} Address Fax Number
+      dest: fax
+      type: string
+      max_length: 20
+  - name: usgov_hhs_npi_organization_officials
+    ignore:
+      "Authorized Official Last Name": ""
+    fields:
+    - source:
+      - Authorized Official Last Name
+      - Authorized Official First Name
+      - Authorized Official Middle Name
+      - Authorized Official Title or Position
+      - Authorized Official Telephone Number
+      - Authorized Official Name Prefix Text
+      - Authorized Official Name Suffix Text
+      - Authorized Official Credential Text
+      dest: id
+      type: uuid
+    - dest: revision
+      source:
+        - Authorized Official Last Name
+        - Authorized Official First Name
+        - Authorized Official Middle Name
+        - Authorized Official Title or Position
+        - Authorized Official Telephone Number
+        - Authorized Official Name Prefix Text
+        - Authorized Official Name Suffix Text
+        - Authorized Official Credential Text
+      type: uuid
+    - source: Authorized Official Last Name
+      dest: last_name
+      type: string
+      max_length: 35
+    - source: Authorized Official First Name
+      dest: first_name
+      type: string
+      max_length: 20
+    - source: Authorized Official Middle Name
+      dest: middle_name
+      type: string
+      max_length: 20
+    - source: Authorized Official Title or Position
+      dest: title
+      type: string
+      max_length: 35
+    - source: Authorized Official Telephone Number
+      dest: phone
+      type: string
+      max_length: 20
+    - source: Authorized Official Name Prefix Text
+      dest: name_prefix
+      type: string
+      max_length: 5
+    - source: Authorized Official Name Suffix Text
+      dest: name_suffix
+      type: string
+      max_length: 5
+    - source: Authorized Official Credential Text
+      dest: credential
+      type: string
+      max_length: 20
+  - name: usgov_hhs_npi_other_identifiers
+    extract: Other Provider Identifier_(\d+)
+    parent_key: npi_id
+    ignore:
+      "Other Provider Identifier_{0}": ""
+    fields:
+    - source:
+      - NPI
+      - Other Provider Identifier_{0}
+      - Other Provider Identifier Type Code_{0}
+      - Other Provider Identifier State_{0}
+      - Other Provider Identifier Issuer_{0}
+      dest: id
+      type: uuid
+    - dest: revision
+      source:
+      - NPI
+      - Other Provider Identifier_{0}
+      - Other Provider Identifier Type Code_{0}
+      - Other Provider Identifier State_{0}
+      - Other Provider Identifier Issuer_{0}
+      type: uuid
+    - source:
+      - NPI
+      dest: npi_id
+      type: uuid
+    - source: Other Provider Identifier_{0}
+      dest: identifier
+      type: string
+      max_length: 20
+    - source: Other Provider Identifier Type Code_{0}
+      dest: type
+      mapping:
+        "01": other
+        "02": medicare upin
+        "04": medicare id-type unspecified
+        "05": medicaid
+        "06": medicare oscar/certification
+        "07": medicare nsc
+        "08": medicare pin
+      type: string
+      max_length: 28
+    - source: Other Provider Identifier State_{0}
+      dest: state
+      type: string
+      max_length: 2
+    - source: Other Provider Identifier Issuer_{0}
+      dest: issuer
+      type: string
+      max_length: 80
+  - name: usgov_hhs_npi_parent_orgs
+    ignore:
+      "Parent Organization LBN": ""
+    fields:
+    - dest: id
+      source:
+      - Parent Organization LBN
+      - Parent Organization TIN
+      type: uuid
+    - dest: revision
+      source:
+      - Parent Organization LBN
+      - Parent Organization TIN
+      type: uuid
+    - source: Parent Organization LBN
+      dest: business_name
+      type: string
+      max_length: 70
+    - source: Parent Organization TIN
+      dest: tax_identification_number
+      type: string
+      max_length: 9
+  - name: usgov_hhs_npi_taxonomy_groups
+    extract: Healthcare Provider Taxonomy Group_(\d+)
+    parent_key: npi_id
+    ignore:
+      "Healthcare Provider Taxonomy Group_{0}": ""
+    fields:
+    - dest: id
+      source:
+      - NPI
+      - Healthcare Provider Taxonomy Group_{0}
+      type: uuid
+    - dest: revision
+      source:
+      - NPI
+      - Healthcare Provider Taxonomy Group_{0}
+      type: uuid
+    - dest: npi_id
+      source:
+      - NPI
+      type: uuid
+    - source: Healthcare Provider Taxonomy Group_{0}
+      dest: taxonomy
+      type: string
+      max_length: 70

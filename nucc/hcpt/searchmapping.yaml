@@ -1,0 +1,26 @@
+- name: nucc.hcpt
+  pivot: nucc_hcpt
+  id: id
+  search_id: code
+  select:
+  - code
+  - type
+  - classification
+  - specialization
+- name: nucc.hcpt_classifications
+  pivot: nucc_hcpt
+  id: classification_id
+  search_id: classification_id
+  select:
+  - classification
+  - classification_id
+  relationships:
+    - include: nucc_hcpt
+      name: codes
+      type: to_many
+      source_id: classification_id
+      dest_id: classification_id
+      select:
+      - code
+      - type
+      - specialization

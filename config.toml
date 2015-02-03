@@ -1,0 +1,11 @@
+sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+searchHosts = [
+  "localhost"
+],
+sourceBinaries = [
+"./bloomsources/nucc.hcpt/hcpt",
+"./bloomsources/usgov.hhs.hcpcs/hcpcs",
+"./bloomsources/usgov.hhs.npi/npi",
+"./bloomsources/usgov.hhs.pecos/pecos",
+"./bloomsources/usgov.hhs.taxonomy_codes/taxonomy_codes",
+]

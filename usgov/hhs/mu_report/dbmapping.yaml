@@ -1,0 +1,153 @@
+sources:
+- name: usgov.hhs.mu_report
+  destinations:
+  - name: usgov_hhs_mu_ehr_certification_numbers
+    fields:
+    - source:
+      - EHR Certification Number
+      dest: id
+    - source:
+      - EHR Certification Number
+      dest: revision
+    - source: EHR Certification Number
+      dest: ehr_certification_number
+      type: string
+      max_length: 30
+  - name: usgov_hhs_mu_ehrs_to_certification_numbers
+    fields:
+    - source:
+      - EHR Certification Number
+      - Vendor Name
+      - EHR Product CHP Id
+      - EHR Product Name
+      - EHR Product Version
+      - Product Classification
+      - Product Setting
+      - Product Certification Edition Yr
+      dest: id
+    - source:
+      - EHR Certification Number
+      - Vendor Name
+      - EHR Product CHP Id
+      - EHR Product Name
+      - EHR Product Version
+      - Product Classification
+      - Product Setting
+      - Product Certification Edition Yr
+      dest: revision
+    - source:
+      - EHR Certification Number
+      dest: ehr_certification_id
+    - source:
+      - Vendor Name
+      - EHR Product CHP Id
+      - EHR Product Name
+      - EHR Product Version
+      - Product Classification
+      - Product Setting
+      - Product Certification Edition Yr
+      dest: ehr_id
+  - name: usgov_hhs_mu_ehrs
+    fields:
+    - source:
+      - Vendor Name
+      - EHR Product CHP Id
+      - EHR Product Name
+      - EHR Product Version
+      - Product Classification
+      - Product Setting
+      - Product Certification Edition Yr
+      dest: id
+    - source:
+      - Vendor Name
+      - EHR Product CHP Id
+      - EHR Product Name
+      - EHR Product Version
+      - Product Classification
+      - Product Setting
+      - Product Certification Edition Yr
+      dest: revision
+    - source: Vendor Name
+      dest: vendor_name
+      type: string
+      max_length: 126
+    - source: EHR Product CHP Id
+      dest: ehr_product_chp_id
+      type: string
+      max_length: 20
+    - source: EHR Product Name
+      dest: ehr_product_name
+      type: string
+      max_length: 506
+    - source: EHR Product Version
+      dest: ehr_product_version
+      type: string
+      max_length: 156
+    - source: Product Classification
+      dest: product_classification
+      type: string
+      max_length: 24
+    - source: Product Setting
+      dest: product_setting
+      type: string
+      max_length: 20
+    - source: Product Certification Edition Yr
+      dest: product_certification_edition_yr
+      type: int
+  - name: usgov_hhs_mu_report_attestations
+    fields:
+    - source:
+      - Attestation_ID
+      dest: id
+    - source:
+      - Attestation_ID
+      dest: revision
+    - source: Attestation_ID
+      dest: attestation_id
+      type: int
+    - source: Attestation Month
+      dest: attestation_month
+      type: int
+    - source: Attestation Year
+      dest: attestation_year
+      type: int
+    - source: Business State/Territory
+      dest: business_state_territory
+      type: string
+      max_length: 60
+    - source: Provider Type
+      dest: provider_type
+      type: string
+      max_length: 16
+    - source: Specialty
+      dest: specialty
+      type: string
+      max_length: 72
+    - source: Program Year
+      dest: program_year
+      type: int
+    - source: Payment Year
+      dest: payment_year
+      type: int
+    - source: Provider Stage Number
+      dest: provider_stage_number
+      type: string
+      max_length: 14
+    - source: Program Type
+      dest: program_type
+      type: string
+      max_length: 34
+    - source: Stage 2 Scheduled 2014
+      dest: stage_2_scheduled_2014
+      type: string
+      max_length: 2
+    - source: MU Definition 2014
+      dest: mu_definition_2014
+      type: string
+      max_length: 8
+    - source: Provider_ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider_ID
+      dest: provider_id

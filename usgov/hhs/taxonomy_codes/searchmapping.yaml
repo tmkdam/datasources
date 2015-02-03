@@ -1,0 +1,36 @@
+- name: usgov.hhs.nucc_taxonomy_codes
+  pivot: usgov_hhs_nucc_taxonomy_codes
+  id: id
+  search_id: code
+  select:
+  - taxonomy_code AS code
+  - taxonomy_description AS description
+  relationships:
+  - include: usgov_hhs_medicare_specialty_codes
+    name: medicare_specialties
+    type: to_many
+    select:
+    - medicare_specialty_code AS code
+    - medicare_specialty_description AS description
+    using:
+      table: usgov_hhs_medicare_specialty_to_nucc_taxonomy
+      source_id: nucc_taxonomy_id
+      dest_id: medicare_specialty_id
+- name: usgov.hhs.medicare_specialty_codes
+  pivot: usgov_hhs_medicare_specialty_codes
+  id: id
+  search_id: code
+  select:
+  - medicare_specialty_code AS code
+  - medicare_specialty_description AS description
+  relationships:
+  - include: usgov_hhs_nucc_taxonomy_codes
+    name: nucc_taxonomy_codes
+    type: to_many
+    select:
+    - taxonomy_code AS code
+    - taxonomy_description AS description
+    using:
+      table: usgov_hhs_medicare_specialty_to_nucc_taxonomy
+      source_id: medicare_specialty_id
+      dest_id: nucc_taxonomy_id

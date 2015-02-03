@@ -1,0 +1,43 @@
+sources:
+- name: nucc.hcpt
+  destinations:
+  - name: nucc_hcpt
+    fields:
+    - source:
+      - Code
+      dest: id
+    - source:
+      - Code
+      - Type
+      - Classification
+      - Specialization
+      - Definition
+      - Notes
+      dest: revision
+    - source: Code
+      dest: code
+      type: string
+      max_length: 20
+    - source: Type
+      dest: type
+      type: string
+      max_length: 152
+    - source:
+      - Classification
+      dest: classification_id
+    - source: Classification
+      dest: classification
+      type: string
+      max_length: 182
+    - source: Specialization
+      dest: specialization
+      type: string
+      max_length: 146
+    - source: Definition
+      dest: definition
+      type: string
+      max_length: 4000
+    - source: Notes
+      dest: notes
+      type: string
+      max_length: 2814

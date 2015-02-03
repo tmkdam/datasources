@@ -1,0 +1,2356 @@
+sources:
+- name: usgov.hhs.pos
+  destinations:
+  - name: usgov_hhs_pos
+    fields:
+    - source:
+      - PRVDR_NUM
+      dest: id
+    - source:
+      - PRVDR_CTGRY_SBTYP_CD
+      - PRVDR_CTGRY_CD
+      - CHOW_CNT
+      - CHOW_DT
+      - CITY_NAME
+      - ACPTBL_POC_SW
+      - CMPLNC_STUS_CD
+      - SSA_CNTY_CD
+      - CROSS_REF_PROVIDER_NUMBER
+      - CRTFCTN_DT
+      - ELGBLTY_SW
+      - FAC_NAME
+      - INTRMDRY_CARR_CD
+      - MDCD_VNDR_NUM
+      - ORGNL_PRTCPTN_DT
+      - CHOW_PRIOR_DT
+      - INTRMDRY_CARR_PRIOR_CD
+      - PRVDR_NUM
+      - RGN_CD
+      - SKLTN_REC_SW
+      - STATE_CD
+      - SSA_STATE_CD
+      - STATE_RGN_CD
+      - ST_ADR
+      - PHNE_NUM
+      - PGM_TRMNTN_CD
+      - TRMNTN_EXPRTN_DT
+      - CRTFCTN_ACTN_TYPE_CD
+      - GNRL_CNTL_TYPE_CD
+      - ZIP_CD
+      - FIPS_STATE_CD
+      - FIPS_CNTY_CD
+      - CBSA_URBN_RRL_IND
+      - CBSA_CD
+      - ACRDTN_EFCTV_DT
+      - ACRDTN_EXPRTN_DT
+      - ACRDTN_TYPE_CD
+      - TOT_AFLTD_AMBLNC_SRVC_CNT
+      - TOT_AFLTD_ASC_CNT
+      - TOT_COLCTD_HOSP_CNT
+      - TOT_AFLTD_ESRD_CNT
+      - TOT_AFLTD_FQHC_CNT
+      - TOT_AFLTD_HHA_CNT
+      - TOT_AFLTD_HOSPC_CNT
+      - TOT_AFLTD_OPO_CNT
+      - TOT_AFLTD_PRTF_CNT
+      - TOT_AFLTD_RHC_CNT
+      - TOT_AFLTD_SNF_CNT
+      - AFLTD_PRVDR_CNT
+      - RSDNT_PGM_ALPTHC_SW
+      - RSDNT_PGM_DNTL_SW
+      - RSDNT_PGM_OSTPTHC_SW
+      - RSDNT_PGM_OTHR_SW
+      - RSDNT_PGM_PDTRC_SW
+      - LAB_SRVC_CD
+      - PHRMCY_SRVC_CD
+      - RDLGY_SRVC_CD
+      - ASC_BGN_SRVC_DT
+      - FREESTNDNG_ASC_SW
+      - OVRRD_BED_CNT_SW
+      - CRTFD_BED_CNT
+      - ICFIID_BED_CNT
+      - MDCD_NF_BED_CNT
+      - MDCR_SNF_BED_CNT
+      - MDCR_MDCD_SNF_BED_CNT
+      - AIDS_BED_CNT
+      - ALZHMR_BED_CNT
+      - DLYS_BED_CNT
+      - DSBL_CHLDRN_BED_CNT
+      - HEAD_TRMA_BED_CNT
+      - HOSPC_BED_CNT
+      - HNTGTN_DEASE_BED_CNT
+      - REHAB_BED_CNT
+      - VNTLTR_BED_CNT
+      - BED_CNT
+      - BRNCH_CNT
+      - BRNCH_OPRTN_SW
+      - CAH_PSYCH_DPU_SW
+      - CAH_REHAB_DPU_SW
+      - CAH_SB_SW
+      - CRDC_CTHRTZTN_PRCDR_ROOMS_CNT
+      - GNRL_FAC_TYPE_CD
+      - CHOW_SW
+      - CLIA_ID_NUMBER_1
+      - CLIA_ID_NUMBER_2
+      - CLIA_ID_NUMBER_3
+      - CLIA_ID_NUMBER_4
+      - CLIA_ID_NUMBER_5
+      - COLCTN_STUS_SW
+      - RN_24_HR_WVR_SW
+      - RN_7_DAY_WVR_SW
+      - BED_PER_ROOM_WVR_SW
+      - LSC_WVR_SW
+      - ROOM_SIZE_WVR_SW
+      - ENDSCPY_PRCDR_ROOMS_CNT
+      - ESRD_NTWRK_NUM
+      - EXPRMT_RSRCH_CNDCTD_SW
+      - FAX_PHNE_NUM
+      - FY_END_MO_DAY_CD
+      - FQHC_APPROVED_RHC_PROVIDER_NUM
+      - FED_FUNDD_FQHC_SW
+      - HHA_QLFYD_OPT_SPCH_SW
+      - HH_AIDE_TRNG_PGM_CD
+      - HOME_TRNG_SPRT_ONLY_SRVC_SW
+      - MDCR_HOSPC_SW
+      - HOSP_BSD_SW
+      - INCNTR_NCTRNL_SRVC_SW
+      - LTC_CROSS_REF_PROVIDER_NUMBER
+      - MDCL_SCHL_AFLTN_CD
+      - MEDICARE_HOSPICE_PROVIDER_NUM
+      - MDCD_MDCR_PRTCPTG_PRVDR_SW
+      - MEDICARE_MEDICAID_PRVDR_NUMBER
+      - MLT_FAC_ORG_NAME
+      - MLT_OWND_FAC_ORG_SW
+      - MEET_1861_SW
+      - NPP_TYPE_CD
+      - TOT_OFSITE_CNCR_HOSP_CNT
+      - TOT_OFSITE_CHLDRN_HOSP_CNT
+      - TOT_OFSITE_EMER_DEPT_CNT
+      - TOT_OFSITE_INPTNT_LCTN_CNT
+      - TOT_OFSITE_LTC_HOSP_CNT
+      - TOT_OFSITE_OPTHLMC_SRGRY_CNT
+      - TOT_OFSITE_OTHR_LCTN_CNT
+      - TOT_OFSITE_PSYCH_HOSP_CNT
+      - TOT_OFSITE_PSYCH_UNIT_CNT
+      - TOT_OFSITE_REHAB_HOSP_CNT
+      - TOT_OFSITE_REHAB_UNIT_CNT
+      - TOT_OFSITE_URGNT_CARE_CNTR_CNT
+      - OFSITE_LCTN_CNT
+      - OPRTG_ROOM_CNT
+      - ORGNZ_FMLY_MBR_GRP_SW
+      - ORGNZ_RSDNT_GRP_SW
+      - PARENT_PROVIDER_NUMBER
+      - FQHC_APRVD_RHC_SW
+      - MDCR_PRTCPTN_OP_PT_SPCH_SW
+      - PGM_PRTCPTN_CD
+      - PRVDR_BSD_FAC_SW
+      - PRVNC_CD
+      - PSYCH_UNIT_BED_CNT
+      - PSYCH_UNIT_EFCTV_DT
+      - PSYCH_UNIT_SW
+      - PSYCH_UNIT_TRMNTN_CD
+      - PSYCH_UNIT_TRMNTN_DT
+      - REHAB_UNIT_BED_CNT
+      - REHAB_UNIT_EFCTV_DT
+      - REHAB_UNIT_SW
+      - REHAB_UNIT_TRMNTN_CD
+      - REHAB_UNIT_TRMNTN_DT
+      - RELATED_PROVIDER_NUMBER
+      - ACUTE_RNL_DLYS_SRVC_CD
+      - PSYCH_SRVC_CD
+      - HH_AIDE_SRVC_CD
+      - ALCHL_DRUG_SRVC_CD
+      - ANSTHSA_SRVC_CD
+      - APLNC_EQUIP_SRVC_CD
+      - AUDLGY_SRVC_CD
+      - BLOOD_SRVC_OFSITE_RSDNT_SW
+      - BLOOD_SRVC_ONST_NRSDNT_SW
+      - BLOOD_SRVC_ONST_RSDNT_SW
+      - BURN_CARE_UNIT_SRVC_CD
+      - CRDC_CTHRTZTN_LAB_SRVC_CD
+      - OPEN_HRT_SRGRY_SRVC_CD
+      - CARF_IP_REHAB_SRVC_CD
+      - CHMTHRPY_SRVC_CD
+      - CHRPRCTIC_SRVC_CD
+      - CL_SRVC_OFSITE_RSDNT_SW
+      - CL_SRVC_ONST_NRSDNT_SW
+      - CL_SRVC_ONST_RSDNT_SW
+      - CL_SRVC_CD
+      - CRNRY_CARE_UNIT_SRVC_CD
+      - CNSLNG_SRVC_CD
+      - CT_SCAN_SRVC_CD
+      - DNTL_SRVC_CD
+      - DNTL_SRVC_OFSITE_RSDNT_SW
+      - DNTL_SRVC_ONST_NRSDNT_SW
+      - DNTL_SRVC_ONST_RSDNT_SW
+      - SHCK_TRMA_SRVC_CD
+      - DGNSTC_RDLGY_SRVC_CD
+      - DTRY_SRVC_CD
+      - DTRY_OFSITE_RSDNT_SW
+      - DTRY_ONST_NRSDNT_SW
+      - DTRY_ONST_RSDNT_SW
+      - DCTD_ER_SRVC_CD
+      - EMER_PSYCH_SRVC_CD
+      - XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD
+      - FRNSC_PSYCH_SRVC_CD
+      - GRTRC_PSYCH_SRVC_CD
+      - GRNTLGCL_SPCLTY_SRVC_CD
+      - SP_HOME_TRNG_SPRT_HD_SW
+      - HMDLYS_SRVC_SW
+      - HMMKR_SRVC_CD
+      - HSEKPNG_SRVC_OFSITE_RSDNT_SW
+      - HSEKPNG_SRVC_ONST_NRSDNT_SW
+      - HSEKPNG_SRVC_ONST_RSDNT_SW
+      - IP_SRGCL_SRVC_CD
+      - INTRN_RSDNT_SRVC_CD
+      - MDCL_SCL_SRVC_CD
+      - MDCL_SUPLY_SRVC_CD
+      - ICU_SRVC_CD
+      - MDCR_TRNSPLNT_CNTR_SRVC_CD
+      - MENTL_HLTH_OFSITE_RSDNT_SW
+      - MENTL_HLTH_ONST_NRSDNT_SW
+      - MENTL_HLTH_ONST_RSDNT_SW
+      - MGNTC_RSNC_IMG_SRVC_CD
+      - NEONTL_ICU_SRVC_CD
+      - NEONTL_NRSRY_SRVC_CD
+      - NRSRGCL_SRVC_CD
+      - ORGN_TRNSPLNT_SRVC_CD
+      - NUCLR_MDCN_SRVC_CD
+      - NRSNG_SRVC_EMPLEE_SW
+      - NRSNG_SRVC_CNTRCTR_SW
+      - NRSNG_SRVC_ARNGMT_SW
+      - NRSNG_SRVC_CD
+      - NRSNG_SRVC_OFSITE_RSDNT_SW
+      - NRSNG_SRVC_ONST_NRSDNT_SW
+      - NRSNG_SRVC_ONST_RSDNT_SW
+      - NTRTNL_GDNC_SRVC_CD
+      - OB_SRVC_CD
+      - OPTHLMC_SRGY_SRVC_CD
+      - OPTMTRC_SRVC_CD
+      - OPRTG_ROOM_SRVC_CD
+      - ORTHPDC_SRGY_SRVC_CD
+      - ORTHTC_PRSTHTC_EMPLEE_SW
+      - ORTHTC_PRSTHTC_CNTRCTR_SW
+      - ORTHTC_PRSTHTC_ARNGMT_SW
+      - OT_EMPLEE_SW
+      - OT_CNTRCTR_SW
+      - OT_ARNGMT_SW
+      - OT_SRVC_CD
+      - OT_SRVC_OFSITE_RSDNT_SW
+      - OT_SRVC_ONST_NRSDNT_SW
+      - OT_SRVC_ONST_RSDNT_SW
+      - OTHR_SRVC_CD
+      - OP_SRVC_CD
+      - OP_PSYCH_SRVC_CD
+      - OP_REHAB_SRVC_CD
+      - OP_SRGRY_UNIT_SRVC_CD
+      - PED_SRVC_CD
+      - PED_ICU_SRVC_CD
+      - SP_HOME_TRNG_SPRT_PD_SW
+      - PRTNL_DLYS_SRVC_SW
+      - PET_SCAN_SRVC_CD
+      - PHRMCY_SRVC_OFSITE_RSDNT_SW
+      - PHRMCY_SRVC_ONST_NRSDNT_SW
+      - PHRMCY_SRVC_ONST_RSDNT_SW
+      - PHYSN_EMPLEE_SW
+      - PHYSN_CNTRCTR_SW
+      - PHYSN_ARNGMT_SW
+      - PHYSN_SRVC_CD
+      - PHYSN_EXT_SRVC_OFSITE_RSDNT_SW
+      - PHYSN_EXT_SRVC_ONST_NRSDNT_SW
+      - PHYSN_EXT_SRVC_ONST_RSDNT_SW
+      - PHYSN_SRVC_OFSITE_RSDNT_SW
+      - PHYSN_SRVC_ONST_NRSDNT_SW
+      - PHYSN_SRVC_ONST_RSDNT_SW
+      - PDTRY_SRVC_OFSITE_RSDNT_SW
+      - PDTRY_SRVC_ONST_NRSDNT_SW
+      - PDTRY_SRVC_ONST_RSDNT_SW
+      - PSTOPRTV_RCVRY_SRVC_CD
+      - CHLD_ADLSCNT_PSYCH_SRVC_CD
+      - PSYCHLGCL_EMPLEE_SW
+      - PSYCHLGCL_CNTRCTR_SW
+      - PSYCHLGCL_ARNGMT_SW
+      - PT_EMPLEE_SW
+      - PT_CNTRCTR_SW
+      - PT_ARNGMT_SW
+      - PT_SRVC_CD
+      - PT_OFSITE_RSDNT_SW
+      - PT_ONST_NRSDNT_SW
+      - PT_ONST_RSDNT_SW
+      - RCNSTRCTN_SRGY_SRVC_CD
+      - RSPRTRY_CARE_EMPLEE_SW
+      - RSPRTRY_CARE_CNTRCTR_SW
+      - RSPRTRY_CARE_ARNGMT_SW
+      - RSPRTRY_CARE_SRVC_CD
+      - SHRT_TERM_IP_SRVC_CD
+      - SCL_EMPLEE_SW
+      - SCL_CNTRCTR_SW
+      - SCL_ARNGMT_SW
+      - SCL_SRVC_CD
+      - SCL_WORK_SRVC_OFSITE_RSDNT_SW
+      - SCL_WORK_SRVC_ONST_NRSDNT_SW
+      - SCL_WORK_SRVC_ONST_RSDNT_SW
+      - SPCH_PTHLGY_EMPLEE_SW
+      - SPCH_PTHLGY_CNTRCTR_SW
+      - SPCH_PTHLGY_ARNGMT_SW
+      - SPCH_PTHLGY_SRVC_CD
+      - SPCH_PTHLGY_OFSITE_RSDNT_SW
+      - SPCH_PTHLGY_ONST_NRSDNT_SW
+      - SPCH_PTHLGY_ONST_RSDNT_SW
+      - SPCH_THRPY_SRVC_CD
+      - SRGCL_ICU_SRVC_CD
+      - ACTVTY_OTHR_OFSITE_RSDNT_SW
+      - ACTVTY_OTHR_ONST_NRSDNT_SW
+      - ACTVTY_OTHR_ONST_RSDNT_SW
+      - SCL_SRVC_OTHR_OFSITE_RSDNT_SW
+      - SCL_SRVC_OTHR_ONST_NRSDNT_SW
+      - SCL_SRVC_OTHR_ONST_RSDNT_SW
+      - ACTVTY_OFSITE_RSDNT_SW
+      - ACTVTY_ONST_NRSDNT_SW
+      - ACTVTY_ONST_RSDNT_SW
+      - THRPTC_RDLGY_SRVC_CD
+      - THRPTC_RCRTNL_OFSITE_RSDNT_SW
+      - THRPTC_RCRTNL_ONST_NRSDNT_SW
+      - THRPTC_RCRTNL_ONST_RSDNT_SW
+      - URGNT_CARE_SRVC_CD
+      - VCTNL_GDNC_SRVC_CD
+      - VCTNL_SRVC_OFSITE_RSDNT_SW
+      - VCTNL_SRVC_ONST_NRSDNT_SW
+      - VCTNL_SRVC_ONST_RSDNT_SW
+      - DGNSTC_XRAY_OFSITE_RSDNT_SW
+      - DGNSTC_XRAY_ONST_NRSDNT_SW
+      - DGNSTC_XRAY_ONST_RSDNT_SW
+      - ACUTE_RESP_CARE_CD
+      - OVRRD_STFG_SW
+      - PROFNL_ADMIN_CNTRCT_CNT
+      - PROFNL_ADMIN_FLTM_CNT
+      - PROFNL_ADMIN_PRTM_CNT
+      - HH_AIDE_EMPLEE_CNT
+      - HH_AIDE_VLNTR_CNT
+      - PRSNEL_OTHR_CNT
+      - NRS_AIDE_CNTRCT_CNT
+      - NRS_AIDE_FLTM_CNT
+      - NRS_AIDE_PRTM_CNT
+      - CNSLR_EMPLEE_CNT
+      - CNSLR_VLNTR_CNT
+      - CRNA_CNT
+      - DNTST_CNTRCT_CNT
+      - DNTST_FLTM_CNT
+      - DNTST_PRTM_CNT
+      - DIETN_CNT
+      - DIETN_CNTRCT_CNT
+      - DIETN_FLTM_CNT
+      - DIETN_PRTM_CNT
+      - DRCT_CARE_PRSNEL_CNT
+      - FOOD_SRVC_CNTRCT_CNT
+      - FOOD_SRVC_FLTM_CNT
+      - FOOD_SRVC_PRTM_CNT
+      - HH_AIDE_CNT
+      - HMMKR_EMPLEE_CNT
+      - HMMKR_VLNTR_CNT
+      - HSEKPNG_CNTRCT_CNT
+      - HSEKPNG_FLTM_CNT
+      - HSEKPNG_PRTM_CNT
+      - LAB_TCHNCN_CNT
+      - LPN_CNT
+      - LPN_LVN_CNT
+      - LPN_LVN_CNTRCT_CNT
+      - LPN_LVN_FLTM_CNT
+      - LPN_LVN_PRTM_CNT
+      - LPN_LVN_VLNTR_CNT
+      - MDCL_DRCTR_CNTRCT_CNT
+      - MDCL_DRCTR_FLTM_CNT
+      - MDCL_DRCTR_PRTM_CNT
+      - MDCL_SCL_WORKR_CNT
+      - MDCL_SCL_WORKR_VLNTR_CNT
+      - MDCL_TCHNLGST_CNT
+      - MDCTN_AIDE_CNTRCT_CNT
+      - MDCTN_AIDE_FLTM_CNT
+      - MDCTN_AIDE_PRTM_CNT
+      - MENTL_HLTH_SRVC_CNTRCT_CNT
+      - MENTL_HLTH_SRVC_FLTM_CNT
+      - MENTL_HLTH_SRVC_PRTM_CNT
+      - NUCLR_MDCN_TCHNCN_CNT
+      - NAT_CNTRCT_CNT
+      - NAT_FLTM_CNT
+      - NAT_PRTM_CNT
+      - NRS_PRCTNR_CNT
+      - NRS_ADMINV_CNTRCT_CNT
+      - NRS_ADMINV_FLTM_CNT
+      - NRS_ADMINV_PRTM_CNT
+      - OCPTNL_THRPST_CNT
+      - OCPTNL_THRPST_CNTRCT_CNT
+      - OCPTNL_THRPST_FLTM_CNT
+      - OCPTNL_THRPST_PRTM_CNT
+      - OT_AIDE_CNTRCT_CNT
+      - OT_AIDE_FLTM_CNT
+      - OT_AIDE_PRTM_CNT
+      - OT_ASTNT_CNTRCT_CNT
+      - OT_ASTNT_FLTM_CNT
+      - OT_ASTNT_PRTM_CNT
+      - VLNTR_OTHR_CNT
+      - ACTVTY_STF_OTHR_CNTRCT_CNT
+      - ACTVTY_STF_OTHR_FLTM_CNT
+      - ACTVTY_STF_OTHR_PRTM_CNT
+      - PHYSN_OTHR_CNTRCT_CNT
+      - PHYSN_OTHR_FLTM_CNT
+      - PHYSN_OTHR_PRTM_CNT
+      - SCL_SRVC_OTHR_STF_CNTRCT_CNT
+      - SCL_SRVC_OTHR_STF_FLTM_CNT
+      - SCL_SRVC_OTHR_STF_PRTM_CNT
+      - STF_OTHR_CNTRCT_CNT
+      - STF_OTHR_FLTM_CNT
+      - STF_OTHR_PRTM_CNT
+      - PHRMCST_CNTRCT_CNT
+      - PHRMCST_FLTM_CNT
+      - PHRMCST_PRTM_CNT
+      - PHYS_THRPST_CNTRCT_CNT
+      - PHYS_THRPST_FLTM_CNT
+      - PHYS_THRPST_PRTM_CNT
+      - PHYSN_CNT
+      - PHYSN_VLNTR_CNT
+      - PHYSN_ASTNT_CNT
+      - PHYSN_EXT_CNTRCT_CNT
+      - PHYSN_EXT_FLTM_CNT
+      - PHYSN_EXT_PRTM_CNT
+      - RSDNT_PHYSN_CNT
+      - PDTRST_CNTRCT_CNT
+      - PDTRST_FLTM_CNT
+      - PDTRST_PRTM_CNT
+      - PSYCHLGST_CNT
+      - PHYS_THRPST_STF_CNT
+      - PHYS_THRPST_CNT
+      - PHYS_THRPST_ARNGMT_CNT
+      - PT_AIDE_CNTRCT_CNT
+      - PT_AIDE_FLTM_CNT
+      - PT_AIDE_PRTM_CNT
+      - PT_ASTNT_CNTRCT_CNT
+      - PT_ASTNT_FLTM_CNT
+      - PT_ASTNT_PRTM_CNT
+      - ACTVTY_PROFNL_CNTRCT_CNT
+      - ACTVTY_PROFNL_FLTM_CNT
+      - ACTVTY_PROFNL_PRTM_CNT
+      - RDLGY_TCHNCN_CNT
+      - REG_PHRMCST_CNT
+      - INHLTN_THRPST_CNT
+      - RN_CNT
+      - RN_CNTRCT_CNT
+      - RN_FLTM_CNT
+      - RN_PRTM_CNT
+      - RN_VLNTR_CNT
+      - RN_DRCTR_CNTRCT_CNT
+      - RN_DRCTR_FLTM_CNT
+      - RN_DRCTR_PRTM_CNT
+      - SCL_WORKR_CNT
+      - SCL_WORKR_CNTRCT_CNT
+      - SCL_WORKR_FLTM_CNT
+      - SCL_WORKR_PRTM_CNT
+      - SPCH_PTHLGST_ARNGMT_CNT
+      - SPCH_PTHLGST_CNTRCT_CNT
+      - SPCH_PTHLGST_FLTM_CNT
+      - SPCH_PTHLGST_PRTM_CNT
+      - SPCH_PTHLGST_CNT
+      - SPCH_PTHLGST_AUDLGST_CNT
+      - TCHNCL_STF_NUM
+      - TCHNCN_CNT
+      - THRPTC_RCRTNL_CNTRCT_CNT
+      - THRPTC_RCRTNL_FLTM_CNT
+      - THRPTC_RCRTNL_PRTM_CNT
+      - EMPLEE_CNT
+      - VLNTR_CNT
+      - SBUNIT_CNT
+      - SBUNIT_SW
+      - SBUNIT_OPRTN_SW
+      - DNTL_SRGRY_SW
+      - OTLRYNGLGY_SRGRY_SW
+      - ENDSCPY_SRGRY_SW
+      - OB_GYN_SRGRY_SW
+      - OPTHMLGY_SRGRY_SW
+      - ORTHPDC_SRGRY_SW
+      - OTHR_SRGRY_SW
+      - PAIN_SRGRY_SW
+      - PLSTC_SRGRY_SW
+      - FT_SRGRY_SW
+      - SB_SW
+      - SB_SIZE_CD
+      - TCHNLGST_2_YR_RDLGC_CNT
+      - TCHNLGST_ASCT_DGR_CNT
+      - TCHNLGST_BS_BA_DGR_CNT
+      - DLYS_STN_CNT
+      dest: revision
+    - source: PRVDR_CTGRY_SBTYP_CD
+      dest: prvdr_ctgry_sbtyp_cd
+      type: string
+      max_length: 4
+    - source: PRVDR_CTGRY_CD
+      dest: prvdr_ctgry_cd
+      type: int
+    - source: CHOW_CNT
+      dest: chow_cnt
+      type: int
+    - source: CHOW_DT
+      dest: chow_dt
+      type: string
+      max_length: 16
+    - source: CITY_NAME
+      dest: city_name
+      type: string
+      max_length: 50
+    - source: ACPTBL_POC_SW
+      dest: acptbl_poc_sw
+      type: string
+      max_length: 2
+    - source: CMPLNC_STUS_CD
+      dest: cmplnc_stus_cd
+      type: string
+      max_length: 2
+    - source: SSA_CNTY_CD
+      dest: ssa_cnty_cd
+      type: string
+      max_length: 6
+    - source: CROSS_REF_PROVIDER_NUMBER
+      dest: cross_ref_provider_number
+      type: string
+      max_length: 20
+    - source: CRTFCTN_DT
+      dest: crtfctn_dt
+      type: int
+    - source: ELGBLTY_SW
+      dest: elgblty_sw
+      type: string
+      max_length: 2
+    - source: FAC_NAME
+      dest: fac_name
+      type: string
+      max_length: 100
+    - source: INTRMDRY_CARR_CD
+      dest: intrmdry_carr_cd
+      type: string
+      max_length: 10
+    - source: MDCD_VNDR_NUM
+      dest: mdcd_vndr_num
+      type: string
+      max_length: 28
+    - source: ORGNL_PRTCPTN_DT
+      dest: orgnl_prtcptn_dt
+      type: int
+    - source: CHOW_PRIOR_DT
+      dest: chow_prior_dt
+      type: string
+      max_length: 16
+    - source: INTRMDRY_CARR_PRIOR_CD
+      dest: intrmdry_carr_prior_cd
+      type: string
+      max_length: 10
+    - source: PRVDR_NUM
+      dest: prvdr_num
+      type: string
+      max_length: 20
+    - source:
+      - PRVDR_NUM
+      dest: provider_id
+    - source: RGN_CD
+      dest: rgn_cd
+      type: int
+    - source: SKLTN_REC_SW
+      dest: skltn_rec_sw
+      type: string
+      max_length: 2
+    - source: STATE_CD
+      dest: state_cd
+      type: string
+      max_length: 4
+    - source: SSA_STATE_CD
+      dest: ssa_state_cd
+      type: int
+    - source: STATE_RGN_CD
+      dest: state_rgn_cd
+      type: string
+      max_length: 6
+    - source: ST_ADR
+      dest: st_adr
+      type: string
+      max_length: 100
+    - source: PHNE_NUM
+      dest: phne_num
+      type: string
+      max_length: 20
+    - source: PGM_TRMNTN_CD
+      dest: pgm_trmntn_cd
+      type: int
+    - source: TRMNTN_EXPRTN_DT
+      dest: trmntn_exprtn_dt
+      type: string
+      max_length: 16
+    - source: CRTFCTN_ACTN_TYPE_CD
+      dest: crtfctn_actn_type_cd
+      type: string
+      max_length: 2
+    - source: GNRL_CNTL_TYPE_CD
+      dest: gnrl_cntl_type_cd
+      type: string
+      max_length: 4
+    - source: ZIP_CD
+      dest: zip_cd
+      type: string
+      max_length: 10
+    - source: FIPS_STATE_CD
+      dest: fips_state_cd
+      type: string
+      max_length: 4
+    - source: FIPS_CNTY_CD
+      dest: fips_cnty_cd
+      type: string
+      max_length: 6
+    - source: CBSA_URBN_RRL_IND
+      dest: cbsa_urbn_rrl_ind
+      type: string
+      max_length: 2
+    - source: CBSA_CD
+      dest: cbsa_cd
+      type: string
+      max_length: 10
+    - source: ACRDTN_EFCTV_DT
+      dest: acrdtn_efctv_dt
+      type: string
+      max_length: 16
+    - source: ACRDTN_EXPRTN_DT
+      dest: acrdtn_exprtn_dt
+      type: string
+      max_length: 16
+    - source: ACRDTN_TYPE_CD
+      dest: acrdtn_type_cd
+      type: string
+      max_length: 2
+    - source: TOT_AFLTD_AMBLNC_SRVC_CNT
+      dest: tot_afltd_amblnc_srvc_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_ASC_CNT
+      dest: tot_afltd_asc_cnt
+      type: string
+      max_length: 4
+    - source: TOT_COLCTD_HOSP_CNT
+      dest: tot_colctd_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_ESRD_CNT
+      dest: tot_afltd_esrd_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_FQHC_CNT
+      dest: tot_afltd_fqhc_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_HHA_CNT
+      dest: tot_afltd_hha_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_HOSPC_CNT
+      dest: tot_afltd_hospc_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_OPO_CNT
+      dest: tot_afltd_opo_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_PRTF_CNT
+      dest: tot_afltd_prtf_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_RHC_CNT
+      dest: tot_afltd_rhc_cnt
+      type: string
+      max_length: 4
+    - source: TOT_AFLTD_SNF_CNT
+      dest: tot_afltd_snf_cnt
+      type: string
+      max_length: 4
+    - source: AFLTD_PRVDR_CNT
+      dest: afltd_prvdr_cnt
+      type: string
+      max_length: 4
+    - source: RSDNT_PGM_ALPTHC_SW
+      dest: rsdnt_pgm_alpthc_sw
+      type: string
+      max_length: 2
+    - source: RSDNT_PGM_DNTL_SW
+      dest: rsdnt_pgm_dntl_sw
+      type: string
+      max_length: 2
+    - source: RSDNT_PGM_OSTPTHC_SW
+      dest: rsdnt_pgm_ostpthc_sw
+      type: string
+      max_length: 2
+    - source: RSDNT_PGM_OTHR_SW
+      dest: rsdnt_pgm_othr_sw
+      type: string
+      max_length: 2
+    - source: RSDNT_PGM_PDTRC_SW
+      dest: rsdnt_pgm_pdtrc_sw
+      type: string
+      max_length: 4
+    - source: LAB_SRVC_CD
+      dest: lab_srvc_cd
+      type: string
+      max_length: 2
+    - source: PHRMCY_SRVC_CD
+      dest: phrmcy_srvc_cd
+      type: string
+      max_length: 2
+    - source: RDLGY_SRVC_CD
+      dest: rdlgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: ASC_BGN_SRVC_DT
+      dest: asc_bgn_srvc_dt
+      type: string
+      max_length: 16
+    - source: FREESTNDNG_ASC_SW
+      dest: freestndng_asc_sw
+      type: string
+      max_length: 2
+    - source: OVRRD_BED_CNT_SW
+      dest: ovrrd_bed_cnt_sw
+      type: string
+      max_length: 2
+    - source: CRTFD_BED_CNT
+      dest: crtfd_bed_cnt
+      type: string
+      max_length: 8
+    - source: ICFIID_BED_CNT
+      dest: icfiid_bed_cnt
+      type: string
+      max_length: 8
+    - source: MDCD_NF_BED_CNT
+      dest: mdcd_nf_bed_cnt
+      type: string
+      max_length: 6
+    - source: MDCR_SNF_BED_CNT
+      dest: mdcr_snf_bed_cnt
+      type: string
+      max_length: 6
+    - source: MDCR_MDCD_SNF_BED_CNT
+      dest: mdcr_mdcd_snf_bed_cnt
+      type: string
+      max_length: 8
+    - source: AIDS_BED_CNT
+      dest: aids_bed_cnt
+      type: string
+      max_length: 6
+    - source: ALZHMR_BED_CNT
+      dest: alzhmr_bed_cnt
+      type: string
+      max_length: 6
+    - source: DLYS_BED_CNT
+      dest: dlys_bed_cnt
+      type: string
+      max_length: 6
+    - source: DSBL_CHLDRN_BED_CNT
+      dest: dsbl_chldrn_bed_cnt
+      type: string
+      max_length: 6
+    - source: HEAD_TRMA_BED_CNT
+      dest: head_trma_bed_cnt
+      type: string
+      max_length: 6
+    - source: HOSPC_BED_CNT
+      dest: hospc_bed_cnt
+      type: string
+      max_length: 6
+    - source: HNTGTN_DEASE_BED_CNT
+      dest: hntgtn_dease_bed_cnt
+      type: string
+      max_length: 6
+    - source: REHAB_BED_CNT
+      dest: rehab_bed_cnt
+      type: string
+      max_length: 6
+    - source: VNTLTR_BED_CNT
+      dest: vntltr_bed_cnt
+      type: string
+      max_length: 6
+    - source: BED_CNT
+      dest: bed_cnt
+      type: string
+      max_length: 8
+    - source: BRNCH_CNT
+      dest: brnch_cnt
+      type: string
+      max_length: 4
+    - source: BRNCH_OPRTN_SW
+      dest: brnch_oprtn_sw
+      type: string
+      max_length: 2
+    - source: CAH_PSYCH_DPU_SW
+      dest: cah_psych_dpu_sw
+      type: string
+      max_length: 4
+    - source: CAH_REHAB_DPU_SW
+      dest: cah_rehab_dpu_sw
+      type: string
+      max_length: 4
+    - source: CAH_SB_SW
+      dest: cah_sb_sw
+      type: string
+      max_length: 4
+    - source: CRDC_CTHRTZTN_PRCDR_ROOMS_CNT
+      dest: crdc_cthrtztn_prcdr_rooms_cnt
+      type: string
+      max_length: 4
+    - source: GNRL_FAC_TYPE_CD
+      dest: gnrl_fac_type_cd
+      type: string
+      max_length: 4
+    - source: CHOW_SW
+      dest: chow_sw
+      type: string
+      max_length: 2
+    - source: CLIA_ID_NUMBER_1
+      dest: clia_id_number_1
+      type: string
+      max_length: 20
+    - source: CLIA_ID_NUMBER_2
+      dest: clia_id_number_2
+      type: string
+      max_length: 20
+    - source: CLIA_ID_NUMBER_3
+      dest: clia_id_number_3
+      type: string
+      max_length: 20
+    - source: CLIA_ID_NUMBER_4
+      dest: clia_id_number_4
+      type: string
+      max_length: 20
+    - source: CLIA_ID_NUMBER_5
+      dest: clia_id_number_5
+      type: string
+      max_length: 20
+    - source: COLCTN_STUS_SW
+      dest: colctn_stus_sw
+      type: string
+      max_length: 4
+    - source: RN_24_HR_WVR_SW
+      dest: rn_24_hr_wvr_sw
+      type: string
+      max_length: 2
+    - source: RN_7_DAY_WVR_SW
+      dest: rn_7_day_wvr_sw
+      type: string
+      max_length: 2
+    - source: BED_PER_ROOM_WVR_SW
+      dest: bed_per_room_wvr_sw
+      type: string
+      max_length: 2
+    - source: LSC_WVR_SW
+      dest: lsc_wvr_sw
+      type: string
+      max_length: 2
+    - source: ROOM_SIZE_WVR_SW
+      dest: room_size_wvr_sw
+      type: string
+      max_length: 2
+    - source: ENDSCPY_PRCDR_ROOMS_CNT
+      dest: endscpy_prcdr_rooms_cnt
+      type: string
+      max_length: 4
+    - source: ESRD_NTWRK_NUM
+      dest: esrd_ntwrk_num
+      type: string
+      max_length: 4
+    - source: EXPRMT_RSRCH_CNDCTD_SW
+      dest: exprmt_rsrch_cndctd_sw
+      type: string
+      max_length: 2
+    - source: FAX_PHNE_NUM
+      dest: fax_phne_num
+      type: string
+      max_length: 20
+    - source: FY_END_MO_DAY_CD
+      dest: fy_end_mo_day_cd
+      type: string
+      max_length: 8
+    - source: FQHC_APPROVED_RHC_PROVIDER_NUM
+      dest: fqhc_approved_rhc_provider_num
+      type: string
+      max_length: 12
+    - source: FED_FUNDD_FQHC_SW
+      dest: fed_fundd_fqhc_sw
+      type: string
+      max_length: 2
+    - source: HHA_QLFYD_OPT_SPCH_SW
+      dest: hha_qlfyd_opt_spch_sw
+      type: string
+      max_length: 2
+    - source: HH_AIDE_TRNG_PGM_CD
+      dest: hh_aide_trng_pgm_cd
+      type: string
+      max_length: 2
+    - source: HOME_TRNG_SPRT_ONLY_SRVC_SW
+      dest: home_trng_sprt_only_srvc_sw
+      type: string
+      max_length: 4
+    - source: MDCR_HOSPC_SW
+      dest: mdcr_hospc_sw
+      type: string
+      max_length: 2
+    - source: HOSP_BSD_SW
+      dest: hosp_bsd_sw
+      type: string
+      max_length: 2
+    - source: INCNTR_NCTRNL_SRVC_SW
+      dest: incntr_nctrnl_srvc_sw
+      type: string
+      max_length: 4
+    - source: LTC_CROSS_REF_PROVIDER_NUMBER
+      dest: ltc_cross_ref_provider_number
+      type: string
+      max_length: 12
+    - source: MDCL_SCHL_AFLTN_CD
+      dest: mdcl_schl_afltn_cd
+      type: string
+      max_length: 2
+    - source: MEDICARE_HOSPICE_PROVIDER_NUM
+      dest: medicare_hospice_provider_num
+      type: string
+      max_length: 12
+    - source: MDCD_MDCR_PRTCPTG_PRVDR_SW
+      dest: mdcd_mdcr_prtcptg_prvdr_sw
+      type: string
+      max_length: 2
+    - source: MEDICARE_MEDICAID_PRVDR_NUMBER
+      dest: medicare_medicaid_prvdr_number
+      type: string
+      max_length: 12
+    - source: MLT_FAC_ORG_NAME
+      dest: mlt_fac_org_name
+      type: string
+      max_length: 76
+    - source: MLT_OWND_FAC_ORG_SW
+      dest: mlt_ownd_fac_org_sw
+      type: string
+      max_length: 2
+    - source: MEET_1861_SW
+      dest: meet_1861_sw
+      type: string
+      max_length: 2
+    - source: NPP_TYPE_CD
+      dest: npp_type_cd
+      type: string
+      max_length: 2
+    - source: TOT_OFSITE_CNCR_HOSP_CNT
+      dest: tot_ofsite_cncr_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_CHLDRN_HOSP_CNT
+      dest: tot_ofsite_chldrn_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_EMER_DEPT_CNT
+      dest: tot_ofsite_emer_dept_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_INPTNT_LCTN_CNT
+      dest: tot_ofsite_inptnt_lctn_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_LTC_HOSP_CNT
+      dest: tot_ofsite_ltc_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_OPTHLMC_SRGRY_CNT
+      dest: tot_ofsite_opthlmc_srgry_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_OTHR_LCTN_CNT
+      dest: tot_ofsite_othr_lctn_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_PSYCH_HOSP_CNT
+      dest: tot_ofsite_psych_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_PSYCH_UNIT_CNT
+      dest: tot_ofsite_psych_unit_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_REHAB_HOSP_CNT
+      dest: tot_ofsite_rehab_hosp_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_REHAB_UNIT_CNT
+      dest: tot_ofsite_rehab_unit_cnt
+      type: string
+      max_length: 4
+    - source: TOT_OFSITE_URGNT_CARE_CNTR_CNT
+      dest: tot_ofsite_urgnt_care_cntr_cnt
+      type: string
+      max_length: 4
+    - source: OFSITE_LCTN_CNT
+      dest: ofsite_lctn_cnt
+      type: string
+      max_length: 6
+    - source: OPRTG_ROOM_CNT
+      dest: oprtg_room_cnt
+      type: string
+      max_length: 6
+    - source: ORGNZ_FMLY_MBR_GRP_SW
+      dest: orgnz_fmly_mbr_grp_sw
+      type: string
+      max_length: 2
+    - source: ORGNZ_RSDNT_GRP_SW
+      dest: orgnz_rsdnt_grp_sw
+      type: string
+      max_length: 2
+    - source: PARENT_PROVIDER_NUMBER
+      dest: parent_provider_number
+      type: string
+      max_length: 20
+    - source: FQHC_APRVD_RHC_SW
+      dest: fqhc_aprvd_rhc_sw
+      type: string
+      max_length: 2
+    - source: MDCR_PRTCPTN_OP_PT_SPCH_SW
+      dest: mdcr_prtcptn_op_pt_spch_sw
+      type: string
+      max_length: 2
+    - source: PGM_PRTCPTN_CD
+      dest: pgm_prtcptn_cd
+      type: string
+      max_length: 2
+    - source: PRVDR_BSD_FAC_SW
+      dest: prvdr_bsd_fac_sw
+      type: string
+      max_length: 2
+    - source: PRVNC_CD
+      dest: prvnc_cd
+      type: string
+      max_length: 4
+    - source: PSYCH_UNIT_BED_CNT
+      dest: psych_unit_bed_cnt
+      type: string
+      max_length: 6
+    - source: PSYCH_UNIT_EFCTV_DT
+      dest: psych_unit_efctv_dt
+      type: string
+      max_length: 16
+    - source: PSYCH_UNIT_SW
+      dest: psych_unit_sw
+      type: string
+      max_length: 2
+    - source: PSYCH_UNIT_TRMNTN_CD
+      dest: psych_unit_trmntn_cd
+      type: string
+      max_length: 2
+    - source: PSYCH_UNIT_TRMNTN_DT
+      dest: psych_unit_trmntn_dt
+      type: string
+      max_length: 16
+    - source: REHAB_UNIT_BED_CNT
+      dest: rehab_unit_bed_cnt
+      type: string
+      max_length: 6
+    - source: REHAB_UNIT_EFCTV_DT
+      dest: rehab_unit_efctv_dt
+      type: string
+      max_length: 16
+    - source: REHAB_UNIT_SW
+      dest: rehab_unit_sw
+      type: string
+      max_length: 2
+    - source: REHAB_UNIT_TRMNTN_CD
+      dest: rehab_unit_trmntn_cd
+      type: string
+      max_length: 2
+    - source: REHAB_UNIT_TRMNTN_DT
+      dest: rehab_unit_trmntn_dt
+      type: string
+      max_length: 16
+    - source: RELATED_PROVIDER_NUMBER
+      dest: related_provider_number
+      type: string
+      max_length: 20
+    - source: ACUTE_RNL_DLYS_SRVC_CD
+      dest: acute_rnl_dlys_srvc_cd
+      type: string
+      max_length: 2
+    - source: PSYCH_SRVC_CD
+      dest: psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: HH_AIDE_SRVC_CD
+      dest: hh_aide_srvc_cd
+      type: string
+      max_length: 2
+    - source: ALCHL_DRUG_SRVC_CD
+      dest: alchl_drug_srvc_cd
+      type: string
+      max_length: 2
+    - source: ANSTHSA_SRVC_CD
+      dest: ansthsa_srvc_cd
+      type: string
+      max_length: 2
+    - source: APLNC_EQUIP_SRVC_CD
+      dest: aplnc_equip_srvc_cd
+      type: string
+      max_length: 2
+    - source: AUDLGY_SRVC_CD
+      dest: audlgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: BLOOD_SRVC_OFSITE_RSDNT_SW
+      dest: blood_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: BLOOD_SRVC_ONST_NRSDNT_SW
+      dest: blood_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: BLOOD_SRVC_ONST_RSDNT_SW
+      dest: blood_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: BURN_CARE_UNIT_SRVC_CD
+      dest: burn_care_unit_srvc_cd
+      type: string
+      max_length: 2
+    - source: CRDC_CTHRTZTN_LAB_SRVC_CD
+      dest: crdc_cthrtztn_lab_srvc_cd
+      type: string
+      max_length: 2
+    - source: OPEN_HRT_SRGRY_SRVC_CD
+      dest: open_hrt_srgry_srvc_cd
+      type: string
+      max_length: 2
+    - source: CARF_IP_REHAB_SRVC_CD
+      dest: carf_ip_rehab_srvc_cd
+      type: string
+      max_length: 2
+    - source: CHMTHRPY_SRVC_CD
+      dest: chmthrpy_srvc_cd
+      type: string
+      max_length: 2
+    - source: CHRPRCTIC_SRVC_CD
+      dest: chrprctic_srvc_cd
+      type: string
+      max_length: 2
+    - source: CL_SRVC_OFSITE_RSDNT_SW
+      dest: cl_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: CL_SRVC_ONST_NRSDNT_SW
+      dest: cl_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: CL_SRVC_ONST_RSDNT_SW
+      dest: cl_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: CL_SRVC_CD
+      dest: cl_srvc_cd
+      type: string
+      max_length: 2
+    - source: CRNRY_CARE_UNIT_SRVC_CD
+      dest: crnry_care_unit_srvc_cd
+      type: string
+      max_length: 2
+    - source: CNSLNG_SRVC_CD
+      dest: cnslng_srvc_cd
+      type: string
+      max_length: 2
+    - source: CT_SCAN_SRVC_CD
+      dest: ct_scan_srvc_cd
+      type: string
+      max_length: 2
+    - source: DNTL_SRVC_CD
+      dest: dntl_srvc_cd
+      type: string
+      max_length: 2
+    - source: DNTL_SRVC_OFSITE_RSDNT_SW
+      dest: dntl_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: DNTL_SRVC_ONST_NRSDNT_SW
+      dest: dntl_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: DNTL_SRVC_ONST_RSDNT_SW
+      dest: dntl_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SHCK_TRMA_SRVC_CD
+      dest: shck_trma_srvc_cd
+      type: string
+      max_length: 2
+    - source: DGNSTC_RDLGY_SRVC_CD
+      dest: dgnstc_rdlgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: DTRY_SRVC_CD
+      dest: dtry_srvc_cd
+      type: string
+      max_length: 2
+    - source: DTRY_OFSITE_RSDNT_SW
+      dest: dtry_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: DTRY_ONST_NRSDNT_SW
+      dest: dtry_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: DTRY_ONST_RSDNT_SW
+      dest: dtry_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: DCTD_ER_SRVC_CD
+      dest: dctd_er_srvc_cd
+      type: string
+      max_length: 2
+    - source: EMER_PSYCH_SRVC_CD
+      dest: emer_psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: XTRCRPRL_SHCK_LTHTRPTR_SRVC_CD
+      dest: xtrcrprl_shck_lthtrptr_srvc_cd
+      type: string
+      max_length: 2
+    - source: FRNSC_PSYCH_SRVC_CD
+      dest: frnsc_psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: GRTRC_PSYCH_SRVC_CD
+      dest: grtrc_psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: GRNTLGCL_SPCLTY_SRVC_CD
+      dest: grntlgcl_spclty_srvc_cd
+      type: string
+      max_length: 2
+    - source: SP_HOME_TRNG_SPRT_HD_SW
+      dest: sp_home_trng_sprt_hd_sw
+      type: string
+      max_length: 4
+    - source: HMDLYS_SRVC_SW
+      dest: hmdlys_srvc_sw
+      type: string
+      max_length: 4
+    - source: HMMKR_SRVC_CD
+      dest: hmmkr_srvc_cd
+      type: string
+      max_length: 2
+    - source: HSEKPNG_SRVC_OFSITE_RSDNT_SW
+      dest: hsekpng_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: HSEKPNG_SRVC_ONST_NRSDNT_SW
+      dest: hsekpng_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: HSEKPNG_SRVC_ONST_RSDNT_SW
+      dest: hsekpng_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: IP_SRGCL_SRVC_CD
+      dest: ip_srgcl_srvc_cd
+      type: string
+      max_length: 2
+    - source: INTRN_RSDNT_SRVC_CD
+      dest: intrn_rsdnt_srvc_cd
+      type: string
+      max_length: 2
+    - source: MDCL_SCL_SRVC_CD
+      dest: mdcl_scl_srvc_cd
+      type: string
+      max_length: 2
+    - source: MDCL_SUPLY_SRVC_CD
+      dest: mdcl_suply_srvc_cd
+      type: string
+      max_length: 2
+    - source: ICU_SRVC_CD
+      dest: icu_srvc_cd
+      type: string
+      max_length: 2
+    - source: MDCR_TRNSPLNT_CNTR_SRVC_CD
+      dest: mdcr_trnsplnt_cntr_srvc_cd
+      type: string
+      max_length: 2
+    - source: MENTL_HLTH_OFSITE_RSDNT_SW
+      dest: mentl_hlth_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: MENTL_HLTH_ONST_NRSDNT_SW
+      dest: mentl_hlth_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: MENTL_HLTH_ONST_RSDNT_SW
+      dest: mentl_hlth_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: MGNTC_RSNC_IMG_SRVC_CD
+      dest: mgntc_rsnc_img_srvc_cd
+      type: string
+      max_length: 2
+    - source: NEONTL_ICU_SRVC_CD
+      dest: neontl_icu_srvc_cd
+      type: string
+      max_length: 2
+    - source: NEONTL_NRSRY_SRVC_CD
+      dest: neontl_nrsry_srvc_cd
+      type: string
+      max_length: 2
+    - source: NRSRGCL_SRVC_CD
+      dest: nrsrgcl_srvc_cd
+      type: string
+      max_length: 2
+    - source: ORGN_TRNSPLNT_SRVC_CD
+      dest: orgn_trnsplnt_srvc_cd
+      type: string
+      max_length: 2
+    - source: NUCLR_MDCN_SRVC_CD
+      dest: nuclr_mdcn_srvc_cd
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_EMPLEE_SW
+      dest: nrsng_srvc_emplee_sw
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_CNTRCTR_SW
+      dest: nrsng_srvc_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_ARNGMT_SW
+      dest: nrsng_srvc_arngmt_sw
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_CD
+      dest: nrsng_srvc_cd
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_OFSITE_RSDNT_SW
+      dest: nrsng_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_ONST_NRSDNT_SW
+      dest: nrsng_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: NRSNG_SRVC_ONST_RSDNT_SW
+      dest: nrsng_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: NTRTNL_GDNC_SRVC_CD
+      dest: ntrtnl_gdnc_srvc_cd
+      type: string
+      max_length: 2
+    - source: OB_SRVC_CD
+      dest: ob_srvc_cd
+      type: string
+      max_length: 2
+    - source: OPTHLMC_SRGY_SRVC_CD
+      dest: opthlmc_srgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: OPTMTRC_SRVC_CD
+      dest: optmtrc_srvc_cd
+      type: string
+      max_length: 2
+    - source: OPRTG_ROOM_SRVC_CD
+      dest: oprtg_room_srvc_cd
+      type: string
+      max_length: 2
+    - source: ORTHPDC_SRGY_SRVC_CD
+      dest: orthpdc_srgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: ORTHTC_PRSTHTC_EMPLEE_SW
+      dest: orthtc_prsthtc_emplee_sw
+      type: string
+      max_length: 2
+    - source: ORTHTC_PRSTHTC_CNTRCTR_SW
+      dest: orthtc_prsthtc_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: ORTHTC_PRSTHTC_ARNGMT_SW
+      dest: orthtc_prsthtc_arngmt_sw
+      type: string
+      max_length: 2
+    - source: OT_EMPLEE_SW
+      dest: ot_emplee_sw
+      type: string
+      max_length: 2
+    - source: OT_CNTRCTR_SW
+      dest: ot_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: OT_ARNGMT_SW
+      dest: ot_arngmt_sw
+      type: string
+      max_length: 2
+    - source: OT_SRVC_CD
+      dest: ot_srvc_cd
+      type: string
+      max_length: 2
+    - source: OT_SRVC_OFSITE_RSDNT_SW
+      dest: ot_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: OT_SRVC_ONST_NRSDNT_SW
+      dest: ot_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: OT_SRVC_ONST_RSDNT_SW
+      dest: ot_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: OTHR_SRVC_CD
+      dest: othr_srvc_cd
+      type: string
+      max_length: 2
+    - source: OP_SRVC_CD
+      dest: op_srvc_cd
+      type: string
+      max_length: 2
+    - source: OP_PSYCH_SRVC_CD
+      dest: op_psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: OP_REHAB_SRVC_CD
+      dest: op_rehab_srvc_cd
+      type: string
+      max_length: 2
+    - source: OP_SRGRY_UNIT_SRVC_CD
+      dest: op_srgry_unit_srvc_cd
+      type: string
+      max_length: 2
+    - source: PED_SRVC_CD
+      dest: ped_srvc_cd
+      type: string
+      max_length: 2
+    - source: PED_ICU_SRVC_CD
+      dest: ped_icu_srvc_cd
+      type: string
+      max_length: 2
+    - source: SP_HOME_TRNG_SPRT_PD_SW
+      dest: sp_home_trng_sprt_pd_sw
+      type: string
+      max_length: 4
+    - source: PRTNL_DLYS_SRVC_SW
+      dest: prtnl_dlys_srvc_sw
+      type: string
+      max_length: 4
+    - source: PET_SCAN_SRVC_CD
+      dest: pet_scan_srvc_cd
+      type: string
+      max_length: 2
+    - source: PHRMCY_SRVC_OFSITE_RSDNT_SW
+      dest: phrmcy_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHRMCY_SRVC_ONST_NRSDNT_SW
+      dest: phrmcy_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHRMCY_SRVC_ONST_RSDNT_SW
+      dest: phrmcy_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_EMPLEE_SW
+      dest: physn_emplee_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_CNTRCTR_SW
+      dest: physn_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_ARNGMT_SW
+      dest: physn_arngmt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_SRVC_CD
+      dest: physn_srvc_cd
+      type: string
+      max_length: 2
+    - source: PHYSN_EXT_SRVC_OFSITE_RSDNT_SW
+      dest: physn_ext_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_EXT_SRVC_ONST_NRSDNT_SW
+      dest: physn_ext_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_EXT_SRVC_ONST_RSDNT_SW
+      dest: physn_ext_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_SRVC_OFSITE_RSDNT_SW
+      dest: physn_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_SRVC_ONST_NRSDNT_SW
+      dest: physn_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: PHYSN_SRVC_ONST_RSDNT_SW
+      dest: physn_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PDTRY_SRVC_OFSITE_RSDNT_SW
+      dest: pdtry_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PDTRY_SRVC_ONST_NRSDNT_SW
+      dest: pdtry_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: PDTRY_SRVC_ONST_RSDNT_SW
+      dest: pdtry_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PSTOPRTV_RCVRY_SRVC_CD
+      dest: pstoprtv_rcvry_srvc_cd
+      type: string
+      max_length: 2
+    - source: CHLD_ADLSCNT_PSYCH_SRVC_CD
+      dest: chld_adlscnt_psych_srvc_cd
+      type: string
+      max_length: 2
+    - source: PSYCHLGCL_EMPLEE_SW
+      dest: psychlgcl_emplee_sw
+      type: string
+      max_length: 2
+    - source: PSYCHLGCL_CNTRCTR_SW
+      dest: psychlgcl_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: PSYCHLGCL_ARNGMT_SW
+      dest: psychlgcl_arngmt_sw
+      type: string
+      max_length: 2
+    - source: PT_EMPLEE_SW
+      dest: pt_emplee_sw
+      type: string
+      max_length: 2
+    - source: PT_CNTRCTR_SW
+      dest: pt_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: PT_ARNGMT_SW
+      dest: pt_arngmt_sw
+      type: string
+      max_length: 2
+    - source: PT_SRVC_CD
+      dest: pt_srvc_cd
+      type: string
+      max_length: 2
+    - source: PT_OFSITE_RSDNT_SW
+      dest: pt_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: PT_ONST_NRSDNT_SW
+      dest: pt_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: PT_ONST_RSDNT_SW
+      dest: pt_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: RCNSTRCTN_SRGY_SRVC_CD
+      dest: rcnstrctn_srgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: RSPRTRY_CARE_EMPLEE_SW
+      dest: rsprtry_care_emplee_sw
+      type: string
+      max_length: 2
+    - source: RSPRTRY_CARE_CNTRCTR_SW
+      dest: rsprtry_care_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: RSPRTRY_CARE_ARNGMT_SW
+      dest: rsprtry_care_arngmt_sw
+      type: string
+      max_length: 2
+    - source: RSPRTRY_CARE_SRVC_CD
+      dest: rsprtry_care_srvc_cd
+      type: string
+      max_length: 2
+    - source: SHRT_TERM_IP_SRVC_CD
+      dest: shrt_term_ip_srvc_cd
+      type: string
+      max_length: 2
+    - source: SCL_EMPLEE_SW
+      dest: scl_emplee_sw
+      type: string
+      max_length: 2
+    - source: SCL_CNTRCTR_SW
+      dest: scl_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: SCL_ARNGMT_SW
+      dest: scl_arngmt_sw
+      type: string
+      max_length: 2
+    - source: SCL_SRVC_CD
+      dest: scl_srvc_cd
+      type: string
+      max_length: 2
+    - source: SCL_WORK_SRVC_OFSITE_RSDNT_SW
+      dest: scl_work_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SCL_WORK_SRVC_ONST_NRSDNT_SW
+      dest: scl_work_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: SCL_WORK_SRVC_ONST_RSDNT_SW
+      dest: scl_work_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_EMPLEE_SW
+      dest: spch_pthlgy_emplee_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_CNTRCTR_SW
+      dest: spch_pthlgy_cntrctr_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_ARNGMT_SW
+      dest: spch_pthlgy_arngmt_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_SRVC_CD
+      dest: spch_pthlgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_OFSITE_RSDNT_SW
+      dest: spch_pthlgy_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_ONST_NRSDNT_SW
+      dest: spch_pthlgy_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: SPCH_PTHLGY_ONST_RSDNT_SW
+      dest: spch_pthlgy_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SPCH_THRPY_SRVC_CD
+      dest: spch_thrpy_srvc_cd
+      type: string
+      max_length: 2
+    - source: SRGCL_ICU_SRVC_CD
+      dest: srgcl_icu_srvc_cd
+      type: string
+      max_length: 2
+    - source: ACTVTY_OTHR_OFSITE_RSDNT_SW
+      dest: actvty_othr_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACTVTY_OTHR_ONST_NRSDNT_SW
+      dest: actvty_othr_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACTVTY_OTHR_ONST_RSDNT_SW
+      dest: actvty_othr_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SCL_SRVC_OTHR_OFSITE_RSDNT_SW
+      dest: scl_srvc_othr_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: SCL_SRVC_OTHR_ONST_NRSDNT_SW
+      dest: scl_srvc_othr_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: SCL_SRVC_OTHR_ONST_RSDNT_SW
+      dest: scl_srvc_othr_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACTVTY_OFSITE_RSDNT_SW
+      dest: actvty_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACTVTY_ONST_NRSDNT_SW
+      dest: actvty_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACTVTY_ONST_RSDNT_SW
+      dest: actvty_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: THRPTC_RDLGY_SRVC_CD
+      dest: thrptc_rdlgy_srvc_cd
+      type: string
+      max_length: 2
+    - source: THRPTC_RCRTNL_OFSITE_RSDNT_SW
+      dest: thrptc_rcrtnl_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: THRPTC_RCRTNL_ONST_NRSDNT_SW
+      dest: thrptc_rcrtnl_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: THRPTC_RCRTNL_ONST_RSDNT_SW
+      dest: thrptc_rcrtnl_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: URGNT_CARE_SRVC_CD
+      dest: urgnt_care_srvc_cd
+      type: string
+      max_length: 2
+    - source: VCTNL_GDNC_SRVC_CD
+      dest: vctnl_gdnc_srvc_cd
+      type: string
+      max_length: 2
+    - source: VCTNL_SRVC_OFSITE_RSDNT_SW
+      dest: vctnl_srvc_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: VCTNL_SRVC_ONST_NRSDNT_SW
+      dest: vctnl_srvc_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: VCTNL_SRVC_ONST_RSDNT_SW
+      dest: vctnl_srvc_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: DGNSTC_XRAY_OFSITE_RSDNT_SW
+      dest: dgnstc_xray_ofsite_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: DGNSTC_XRAY_ONST_NRSDNT_SW
+      dest: dgnstc_xray_onst_nrsdnt_sw
+      type: string
+      max_length: 2
+    - source: DGNSTC_XRAY_ONST_RSDNT_SW
+      dest: dgnstc_xray_onst_rsdnt_sw
+      type: string
+      max_length: 2
+    - source: ACUTE_RESP_CARE_CD
+      dest: acute_resp_care_cd
+      type: string
+      max_length: 2
+    - source: OVRRD_STFG_SW
+      dest: ovrrd_stfg_sw
+      type: string
+      max_length: 2
+    - source: PROFNL_ADMIN_CNTRCT_CNT
+      dest: profnl_admin_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: PROFNL_ADMIN_FLTM_CNT
+      dest: profnl_admin_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PROFNL_ADMIN_PRTM_CNT
+      dest: profnl_admin_prtm_cnt
+      type: string
+      max_length: 12
+    - source: HH_AIDE_EMPLEE_CNT
+      dest: hh_aide_emplee_cnt
+      type: string
+      max_length: 10
+    - source: HH_AIDE_VLNTR_CNT
+      dest: hh_aide_vlntr_cnt
+      type: string
+      max_length: 10
+    - source: PRSNEL_OTHR_CNT
+      dest: prsnel_othr_cnt
+      type: string
+      max_length: 16
+    - source: NRS_AIDE_CNTRCT_CNT
+      dest: nrs_aide_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: NRS_AIDE_FLTM_CNT
+      dest: nrs_aide_fltm_cnt
+      type: string
+      max_length: 14
+    - source: NRS_AIDE_PRTM_CNT
+      dest: nrs_aide_prtm_cnt
+      type: string
+      max_length: 12
+    - source: CNSLR_EMPLEE_CNT
+      dest: cnslr_emplee_cnt
+      type: string
+      max_length: 10
+    - source: CNSLR_VLNTR_CNT
+      dest: cnslr_vlntr_cnt
+      type: string
+      max_length: 12
+    - source: CRNA_CNT
+      dest: crna_cnt
+      type: string
+      max_length: 12
+    - source: DNTST_CNTRCT_CNT
+      dest: dntst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: DNTST_FLTM_CNT
+      dest: dntst_fltm_cnt
+      type: string
+      max_length: 8
+    - source: DNTST_PRTM_CNT
+      dest: dntst_prtm_cnt
+      type: string
+      max_length: 8
+    - source: DIETN_CNT
+      dest: dietn_cnt
+      type: string
+      max_length: 14
+    - source: DIETN_CNTRCT_CNT
+      dest: dietn_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: DIETN_FLTM_CNT
+      dest: dietn_fltm_cnt
+      type: string
+      max_length: 12
+    - source: DIETN_PRTM_CNT
+      dest: dietn_prtm_cnt
+      type: string
+      max_length: 12
+    - source: DRCT_CARE_PRSNEL_CNT
+      dest: drct_care_prsnel_cnt
+      type: string
+      max_length: 12
+    - source: FOOD_SRVC_CNTRCT_CNT
+      dest: food_srvc_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: FOOD_SRVC_FLTM_CNT
+      dest: food_srvc_fltm_cnt
+      type: string
+      max_length: 12
+    - source: FOOD_SRVC_PRTM_CNT
+      dest: food_srvc_prtm_cnt
+      type: string
+      max_length: 12
+    - source: HH_AIDE_CNT
+      dest: hh_aide_cnt
+      type: string
+      max_length: 14
+    - source: HMMKR_EMPLEE_CNT
+      dest: hmmkr_emplee_cnt
+      type: string
+      max_length: 10
+    - source: HMMKR_VLNTR_CNT
+      dest: hmmkr_vlntr_cnt
+      type: string
+      max_length: 8
+    - source: HSEKPNG_CNTRCT_CNT
+      dest: hsekpng_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: HSEKPNG_FLTM_CNT
+      dest: hsekpng_fltm_cnt
+      type: string
+      max_length: 12
+    - source: HSEKPNG_PRTM_CNT
+      dest: hsekpng_prtm_cnt
+      type: string
+      max_length: 12
+    - source: LAB_TCHNCN_CNT
+      dest: lab_tchncn_cnt
+      type: string
+      max_length: 12
+    - source: LPN_CNT
+      dest: lpn_cnt
+      type: string
+      max_length: 10
+    - source: LPN_LVN_CNT
+      dest: lpn_lvn_cnt
+      type: string
+      max_length: 16
+    - source: LPN_LVN_CNTRCT_CNT
+      dest: lpn_lvn_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: LPN_LVN_FLTM_CNT
+      dest: lpn_lvn_fltm_cnt
+      type: string
+      max_length: 12
+    - source: LPN_LVN_PRTM_CNT
+      dest: lpn_lvn_prtm_cnt
+      type: string
+      max_length: 12
+    - source: LPN_LVN_VLNTR_CNT
+      dest: lpn_lvn_vlntr_cnt
+      type: string
+      max_length: 8
+    - source: MDCL_DRCTR_CNTRCT_CNT
+      dest: mdcl_drctr_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: MDCL_DRCTR_FLTM_CNT
+      dest: mdcl_drctr_fltm_cnt
+      type: string
+      max_length: 10
+    - source: MDCL_DRCTR_PRTM_CNT
+      dest: mdcl_drctr_prtm_cnt
+      type: string
+      max_length: 10
+    - source: MDCL_SCL_WORKR_CNT
+      dest: mdcl_scl_workr_cnt
+      type: string
+      max_length: 12
+    - source: MDCL_SCL_WORKR_VLNTR_CNT
+      dest: mdcl_scl_workr_vlntr_cnt
+      type: string
+      max_length: 8
+    - source: MDCL_TCHNLGST_CNT
+      dest: mdcl_tchnlgst_cnt
+      type: string
+      max_length: 12
+    - source: MDCTN_AIDE_CNTRCT_CNT
+      dest: mdctn_aide_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: MDCTN_AIDE_FLTM_CNT
+      dest: mdctn_aide_fltm_cnt
+      type: string
+      max_length: 12
+    - source: MDCTN_AIDE_PRTM_CNT
+      dest: mdctn_aide_prtm_cnt
+      type: string
+      max_length: 10
+    - source: MENTL_HLTH_SRVC_CNTRCT_CNT
+      dest: mentl_hlth_srvc_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: MENTL_HLTH_SRVC_FLTM_CNT
+      dest: mentl_hlth_srvc_fltm_cnt
+      type: string
+      max_length: 10
+    - source: MENTL_HLTH_SRVC_PRTM_CNT
+      dest: mentl_hlth_srvc_prtm_cnt
+      type: string
+      max_length: 10
+    - source: NUCLR_MDCN_TCHNCN_CNT
+      dest: nuclr_mdcn_tchncn_cnt
+      type: string
+      max_length: 10
+    - source: NAT_CNTRCT_CNT
+      dest: nat_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: NAT_FLTM_CNT
+      dest: nat_fltm_cnt
+      type: string
+      max_length: 12
+    - source: NAT_PRTM_CNT
+      dest: nat_prtm_cnt
+      type: string
+      max_length: 12
+    - source: NRS_PRCTNR_CNT
+      dest: nrs_prctnr_cnt
+      type: string
+      max_length: 12
+    - source: NRS_ADMINV_CNTRCT_CNT
+      dest: nrs_adminv_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: NRS_ADMINV_FLTM_CNT
+      dest: nrs_adminv_fltm_cnt
+      type: string
+      max_length: 12
+    - source: NRS_ADMINV_PRTM_CNT
+      dest: nrs_adminv_prtm_cnt
+      type: string
+      max_length: 10
+    - source: OCPTNL_THRPST_CNT
+      dest: ocptnl_thrpst_cnt
+      type: string
+      max_length: 10
+    - source: OCPTNL_THRPST_CNTRCT_CNT
+      dest: ocptnl_thrpst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: OCPTNL_THRPST_FLTM_CNT
+      dest: ocptnl_thrpst_fltm_cnt
+      type: string
+      max_length: 12
+    - source: OCPTNL_THRPST_PRTM_CNT
+      dest: ocptnl_thrpst_prtm_cnt
+      type: string
+      max_length: 12
+    - source: OT_AIDE_CNTRCT_CNT
+      dest: ot_aide_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: OT_AIDE_FLTM_CNT
+      dest: ot_aide_fltm_cnt
+      type: string
+      max_length: 12
+    - source: OT_AIDE_PRTM_CNT
+      dest: ot_aide_prtm_cnt
+      type: string
+      max_length: 8
+    - source: OT_ASTNT_CNTRCT_CNT
+      dest: ot_astnt_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: OT_ASTNT_FLTM_CNT
+      dest: ot_astnt_fltm_cnt
+      type: string
+      max_length: 10
+    - source: OT_ASTNT_PRTM_CNT
+      dest: ot_astnt_prtm_cnt
+      type: string
+      max_length: 10
+    - source: VLNTR_OTHR_CNT
+      dest: vlntr_othr_cnt
+      type: string
+      max_length: 10
+    - source: ACTVTY_STF_OTHR_CNTRCT_CNT
+      dest: actvty_stf_othr_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: ACTVTY_STF_OTHR_FLTM_CNT
+      dest: actvty_stf_othr_fltm_cnt
+      type: string
+      max_length: 12
+    - source: ACTVTY_STF_OTHR_PRTM_CNT
+      dest: actvty_stf_othr_prtm_cnt
+      type: string
+      max_length: 12
+    - source: PHYSN_OTHR_CNTRCT_CNT
+      dest: physn_othr_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: PHYSN_OTHR_FLTM_CNT
+      dest: physn_othr_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PHYSN_OTHR_PRTM_CNT
+      dest: physn_othr_prtm_cnt
+      type: string
+      max_length: 10
+    - source: SCL_SRVC_OTHR_STF_CNTRCT_CNT
+      dest: scl_srvc_othr_stf_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: SCL_SRVC_OTHR_STF_FLTM_CNT
+      dest: scl_srvc_othr_stf_fltm_cnt
+      type: string
+      max_length: 12
+    - source: SCL_SRVC_OTHR_STF_PRTM_CNT
+      dest: scl_srvc_othr_stf_prtm_cnt
+      type: string
+      max_length: 10
+    - source: STF_OTHR_CNTRCT_CNT
+      dest: stf_othr_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: STF_OTHR_FLTM_CNT
+      dest: stf_othr_fltm_cnt
+      type: string
+      max_length: 12
+    - source: STF_OTHR_PRTM_CNT
+      dest: stf_othr_prtm_cnt
+      type: string
+      max_length: 12
+    - source: PHRMCST_CNTRCT_CNT
+      dest: phrmcst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: PHRMCST_FLTM_CNT
+      dest: phrmcst_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PHRMCST_PRTM_CNT
+      dest: phrmcst_prtm_cnt
+      type: string
+      max_length: 12
+    - source: PHYS_THRPST_CNTRCT_CNT
+      dest: phys_thrpst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: PHYS_THRPST_FLTM_CNT
+      dest: phys_thrpst_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PHYS_THRPST_PRTM_CNT
+      dest: phys_thrpst_prtm_cnt
+      type: string
+      max_length: 12
+    - source: PHYSN_CNT
+      dest: physn_cnt
+      type: string
+      max_length: 14
+    - source: PHYSN_VLNTR_CNT
+      dest: physn_vlntr_cnt
+      type: string
+      max_length: 8
+    - source: PHYSN_ASTNT_CNT
+      dest: physn_astnt_cnt
+      type: string
+      max_length: 12
+    - source: PHYSN_EXT_CNTRCT_CNT
+      dest: physn_ext_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: PHYSN_EXT_FLTM_CNT
+      dest: physn_ext_fltm_cnt
+      type: string
+      max_length: 8
+    - source: PHYSN_EXT_PRTM_CNT
+      dest: physn_ext_prtm_cnt
+      type: string
+      max_length: 8
+    - source: RSDNT_PHYSN_CNT
+      dest: rsdnt_physn_cnt
+      type: string
+      max_length: 14
+    - source: PDTRST_CNTRCT_CNT
+      dest: pdtrst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: PDTRST_FLTM_CNT
+      dest: pdtrst_fltm_cnt
+      type: string
+      max_length: 8
+    - source: PDTRST_PRTM_CNT
+      dest: pdtrst_prtm_cnt
+      type: string
+      max_length: 8
+    - source: PSYCHLGST_CNT
+      dest: psychlgst_cnt
+      type: string
+      max_length: 10
+    - source: PHYS_THRPST_STF_CNT
+      dest: phys_thrpst_stf_cnt
+      type: string
+      max_length: 12
+    - source: PHYS_THRPST_CNT
+      dest: phys_thrpst_cnt
+      type: string
+      max_length: 12
+    - source: PHYS_THRPST_ARNGMT_CNT
+      dest: phys_thrpst_arngmt_cnt
+      type: string
+      max_length: 10
+    - source: PT_AIDE_CNTRCT_CNT
+      dest: pt_aide_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: PT_AIDE_FLTM_CNT
+      dest: pt_aide_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PT_AIDE_PRTM_CNT
+      dest: pt_aide_prtm_cnt
+      type: string
+      max_length: 10
+    - source: PT_ASTNT_CNTRCT_CNT
+      dest: pt_astnt_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: PT_ASTNT_FLTM_CNT
+      dest: pt_astnt_fltm_cnt
+      type: string
+      max_length: 12
+    - source: PT_ASTNT_PRTM_CNT
+      dest: pt_astnt_prtm_cnt
+      type: string
+      max_length: 12
+    - source: ACTVTY_PROFNL_CNTRCT_CNT
+      dest: actvty_profnl_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: ACTVTY_PROFNL_FLTM_CNT
+      dest: actvty_profnl_fltm_cnt
+      type: string
+      max_length: 12
+    - source: ACTVTY_PROFNL_PRTM_CNT
+      dest: actvty_profnl_prtm_cnt
+      type: string
+      max_length: 12
+    - source: RDLGY_TCHNCN_CNT
+      dest: rdlgy_tchncn_cnt
+      type: string
+      max_length: 12
+    - source: REG_PHRMCST_CNT
+      dest: reg_phrmcst_cnt
+      type: string
+      max_length: 14
+    - source: INHLTN_THRPST_CNT
+      dest: inhltn_thrpst_cnt
+      type: string
+      max_length: 12
+    - source: RN_CNT
+      dest: rn_cnt
+      type: string
+      max_length: 14
+    - source: RN_CNTRCT_CNT
+      dest: rn_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: RN_FLTM_CNT
+      dest: rn_fltm_cnt
+      type: string
+      max_length: 12
+    - source: RN_PRTM_CNT
+      dest: rn_prtm_cnt
+      type: string
+      max_length: 12
+    - source: RN_VLNTR_CNT
+      dest: rn_vlntr_cnt
+      type: string
+      max_length: 8
+    - source: RN_DRCTR_CNTRCT_CNT
+      dest: rn_drctr_cntrct_cnt
+      type: string
+      max_length: 8
+    - source: RN_DRCTR_FLTM_CNT
+      dest: rn_drctr_fltm_cnt
+      type: string
+      max_length: 12
+    - source: RN_DRCTR_PRTM_CNT
+      dest: rn_drctr_prtm_cnt
+      type: string
+      max_length: 12
+    - source: SCL_WORKR_CNT
+      dest: scl_workr_cnt
+      type: string
+      max_length: 12
+    - source: SCL_WORKR_CNTRCT_CNT
+      dest: scl_workr_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: SCL_WORKR_FLTM_CNT
+      dest: scl_workr_fltm_cnt
+      type: string
+      max_length: 12
+    - source: SCL_WORKR_PRTM_CNT
+      dest: scl_workr_prtm_cnt
+      type: string
+      max_length: 12
+    - source: SPCH_PTHLGST_ARNGMT_CNT
+      dest: spch_pthlgst_arngmt_cnt
+      type: string
+      max_length: 8
+    - source: SPCH_PTHLGST_CNTRCT_CNT
+      dest: spch_pthlgst_cntrct_cnt
+      type: string
+      max_length: 12
+    - source: SPCH_PTHLGST_FLTM_CNT
+      dest: spch_pthlgst_fltm_cnt
+      type: string
+      max_length: 12
+    - source: SPCH_PTHLGST_PRTM_CNT
+      dest: spch_pthlgst_prtm_cnt
+      type: string
+      max_length: 10
+    - source: SPCH_PTHLGST_CNT
+      dest: spch_pthlgst_cnt
+      type: string
+      max_length: 10
+    - source: SPCH_PTHLGST_AUDLGST_CNT
+      dest: spch_pthlgst_audlgst_cnt
+      type: string
+      max_length: 12
+    - source: TCHNCL_STF_NUM
+      dest: tchncl_stf_num
+      type: string
+      max_length: 10
+    - source: TCHNCN_CNT
+      dest: tchncn_cnt
+      type: string
+      max_length: 10
+    - source: THRPTC_RCRTNL_CNTRCT_CNT
+      dest: thrptc_rcrtnl_cntrct_cnt
+      type: string
+      max_length: 10
+    - source: THRPTC_RCRTNL_FLTM_CNT
+      dest: thrptc_rcrtnl_fltm_cnt
+      type: string
+      max_length: 12
+    - source: THRPTC_RCRTNL_PRTM_CNT
+      dest: thrptc_rcrtnl_prtm_cnt
+      type: string
+      max_length: 12
+    - source: EMPLEE_CNT
+      dest: emplee_cnt
+      type: string
+      max_length: 14
+    - source: VLNTR_CNT
+      dest: vlntr_cnt
+      type: string
+      max_length: 12
+    - source: SBUNIT_CNT
+      dest: sbunit_cnt
+      type: string
+      max_length: 4
+    - source: SBUNIT_SW
+      dest: sbunit_sw
+      type: string
+      max_length: 2
+    - source: SBUNIT_OPRTN_SW
+      dest: sbunit_oprtn_sw
+      type: string
+      max_length: 2
+    - source: DNTL_SRGRY_SW
+      dest: dntl_srgry_sw
+      type: string
+      max_length: 4
+    - source: OTLRYNGLGY_SRGRY_SW
+      dest: otlrynglgy_srgry_sw
+      type: string
+      max_length: 2
+    - source: ENDSCPY_SRGRY_SW
+      dest: endscpy_srgry_sw
+      type: string
+      max_length: 4
+    - source: OB_GYN_SRGRY_SW
+      dest: ob_gyn_srgry_sw
+      type: string
+      max_length: 2
+    - source: OPTHMLGY_SRGRY_SW
+      dest: opthmlgy_srgry_sw
+      type: string
+      max_length: 2
+    - source: ORTHPDC_SRGRY_SW
+      dest: orthpdc_srgry_sw
+      type: string
+      max_length: 2
+    - source: OTHR_SRGRY_SW
+      dest: othr_srgry_sw
+      type: string
+      max_length: 4
+    - source: PAIN_SRGRY_SW
+      dest: pain_srgry_sw
+      type: string
+      max_length: 4
+    - source: PLSTC_SRGRY_SW
+      dest: plstc_srgry_sw
+      type: string
+      max_length: 2
+    - source: FT_SRGRY_SW
+      dest: ft_srgry_sw
+      type: string
+      max_length: 2
+    - source: SB_SW
+      dest: sb_sw
+      type: string
+      max_length: 2
+    - source: SB_SIZE_CD
+      dest: sb_size_cd
+      type: string
+      max_length: 2
+    - source: TCHNLGST_2_YR_RDLGC_CNT
+      dest: tchnlgst_2_yr_rdlgc_cnt
+      type: string
+      max_length: 10
+    - source: TCHNLGST_ASCT_DGR_CNT
+      dest: tchnlgst_asct_dgr_cnt
+      type: string
+      max_length: 10
+    - source: TCHNLGST_BS_BA_DGR_CNT
+      dest: tchnlgst_bs_ba_dgr_cnt
+      type: string
+      max_length: 8
+    - source: DLYS_STN_CNT
+      dest: dlys_stn_cnt
+      type: string
+      max_length: 6

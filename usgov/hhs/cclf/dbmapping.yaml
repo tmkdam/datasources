@@ -1,0 +1,1041 @@
+sources:
+- name: usgov.hhs.cclf_parta_dx
+  destinations:
+  - name: usgov_hhs_cclf_parta_dx
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Product Type Code
+      - Claim Value Sequence Number
+      - Diagnosis Code
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Present-on-Admission Indicator
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Product Type Code
+      - Claim Value Sequence Number
+      - Diagnosis Code
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Present-on-Admission Indicator
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim Product Type Code
+      dest: claim_product_type_code
+      type: string
+      max_length: 2
+    - source: Claim Value Sequence Number
+      dest: claim_value_sequence_number
+      type: int
+    - source: Diagnosis Code
+      dest: diagnosis_code
+      type: string
+      max_length: 10
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Provider OSCAR Number
+      dest: provider_oscar_number
+      type: string
+      max_length: 12
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+    - source: Claim Present-on-Admission Indicator
+      dest: claim_present_on_admission_indicator
+      type: string
+      max_length: 2
+- name: usgov.hhs.cclf_partb_phy
+  destinations:
+  - name: usgov_hhs_cclf_partb_phy
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Rendering Provider Type Code
+      - Rendering Provider FIPS State Code
+      - Claim-Line Provider Specialty Code
+      - Claim Federal Type Service Code
+      - Claim Place of Service Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - HCPCS Code
+      - Claim Line Covered Paid Amount
+      - Claim Primary Payer Code
+      - Diagnosis Code
+      - Claim Provider Tax Number
+      - Rendering Provider NPI Number
+      - Claim Carrier Payment Denial Code
+      - Claim-Line Processing Indicator Code
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Control Number
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Line Allowed Charges Amount
+      - Claim Line Allowed Unit Quantity
+      - HCPCS First Modifier Code
+      - HCPCS Second Modifier Code
+      - HCPCS Third Modifier Code
+      - HCPCS Fourth Modifier Code
+      - HCPCS Fifth Modifier Code
+      - Claim Disposition Code
+      - Claim Diagnosis First Code
+      - Claim Diagnosis Second Code
+      - Claim Diagnosis Third Code
+      - Claim Diagnosis Fourth Code
+      - Claim Diagnosis Fifth Code
+      - Claim Diagnosis Sixth Code
+      - Claim Diagnosis Seventh Code
+      - Claim Diagnosis Eighth Code
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Rendering Provider Type Code
+      - Rendering Provider FIPS State Code
+      - Claim-Line Provider Specialty Code
+      - Claim Federal Type Service Code
+      - Claim Place of Service Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - HCPCS Code
+      - Claim Line Covered Paid Amount
+      - Claim Primary Payer Code
+      - Diagnosis Code
+      - Claim Provider Tax Number
+      - Rendering Provider NPI Number
+      - Claim Carrier Payment Denial Code
+      - Claim-Line Processing Indicator Code
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Control Number
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Line Allowed Charges Amount
+      - Claim Line Allowed Unit Quantity
+      - HCPCS First Modifier Code
+      - HCPCS Second Modifier Code
+      - HCPCS Third Modifier Code
+      - HCPCS Fourth Modifier Code
+      - HCPCS Fifth Modifier Code
+      - Claim Disposition Code
+      - Claim Diagnosis First Code
+      - Claim Diagnosis Second Code
+      - Claim Diagnosis Third Code
+      - Claim Diagnosis Fourth Code
+      - Claim Diagnosis Fifth Code
+      - Claim Diagnosis Sixth Code
+      - Claim Diagnosis Seventh Code
+      - Claim Diagnosis Eighth Code
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+    - source: Rendering Provider Type Code
+      dest: rendering_provider_type_code
+      type: string
+      max_length: 4
+    - source: Rendering Provider FIPS State Code
+      dest: rendering_provider_fips_state_code
+      type: int
+    - source: Claim-Line Provider Specialty Code
+      dest: claim_line_provider_specialty_code
+      type: int
+    - source: Claim Federal Type Service Code
+      dest: claim_federal_type_service_code
+      type: int
+    - source: Claim Place of Service Code
+      dest: claim_place_of_service_code
+      type: int
+    - source: Claim Line From Date
+      dest: claim_line_from_date
+      type: string
+      max_length: 20
+    - source: Claim Line Thru Date
+      dest: claim_line_thru_date
+      type: string
+      max_length: 20
+    - source: HCPCS Code
+      dest: hcpcs_code
+      type: string
+      max_length: 10
+    - source: Claim Line Covered Paid Amount
+      dest: claim_line_covered_paid_amount
+      type: decimal
+    - source: Claim Primary Payer Code
+      dest: claim_primary_payer_code
+      type: string
+    - source: Diagnosis Code
+      dest: diagnosis_code
+      type: string
+      max_length: 10
+    - source: Claim Provider Tax Number
+      dest: claim_provider_tax_number
+      type: int
+    - source: Rendering Provider NPI Number
+      dest: rendering_provider_npi_number
+      type: bigint
+    - source: Claim Carrier Payment Denial Code
+      dest: claim_carrier_payment_denial_code
+      type: int
+    - source: Claim-Line Processing Indicator Code
+      dest: claim_line_processing_indicator_code
+      type: string
+      max_length: 2
+    - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: int
+    - source: Claim Effective Date
+      dest: claim_effective_date
+      type: string
+      max_length: 20
+    - source: Claim IDR Load Date
+      dest: claim_idr_load_date
+      type: string
+      max_length: 20
+    - source: Claim Control Number
+      dest: claim_control_number
+      type: bigint
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Claim Line Allowed Charges Amount
+      dest: claim_line_allowed_charges_amount
+      type: decimal
+    - source: Claim Line Allowed Unit Quantity
+      dest: claim_line_allowed_unit_quantity
+      type: decimal
+    - source: HCPCS First Modifier Code
+      dest: hcpcs_first_modifier_code
+      type: string
+      max_length: 4
+    - source: HCPCS Second Modifier Code
+      dest: hcpcs_second_modifier_code
+      type: string
+    - source: HCPCS Third Modifier Code
+      dest: hcpcs_third_modifier_code
+      type: string
+    - source: HCPCS Fourth Modifier Code
+      dest: hcpcs_fourth_modifier_code
+      type: string
+    - source: HCPCS Fifth Modifier Code
+      dest: hcpcs_fifth_modifier_code
+      type: string
+      max_length: 2
+    - source: Claim Disposition Code
+      dest: claim_disposition_code
+      type: int
+    - source: Claim Diagnosis First Code
+      dest: claim_diagnosis_first_code
+      type: string
+      max_length: 10
+    - source: Claim Diagnosis Second Code
+      dest: claim_diagnosis_second_code
+      type: string
+      max_length: 10
+    - source: Claim Diagnosis Third Code
+      dest: claim_diagnosis_third_code
+      type: string
+      max_length: 10
+    - source: Claim Diagnosis Fourth Code
+      dest: claim_diagnosis_fourth_code
+      type: string
+      max_length: 10
+    - source: Claim Diagnosis Fifth Code
+      dest: claim_diagnosis_fifth_code
+      type: string
+      max_length: 2
+    - source: Claim Diagnosis Sixth Code
+      dest: claim_diagnosis_sixth_code
+      type: string
+      max_length: 2
+    - source: Claim Diagnosis Seventh Code
+      dest: claim_diagnosis_seventh_code
+      type: string
+      max_length: 2
+    - source: Claim Diagnosis Eighth Code
+      dest: claim_diagnosis_eighth_code
+      type: string
+      max_length: 2
+- name: usgov.hhs.cclf_partb_dme
+  destinations:
+  - name: usgov_hhs_cclf_partb_dme
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Federal Type Service Code
+      - Claim Place of Service Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - HCPCS Code
+      - Claim Line Covered Paid Amount
+      - Claim Primary Payer Code
+      - Pay-to Provider NPI Number
+      - Ordering Provider NPI Number
+      - Claim Carrier Payment Denial Code
+      - Claim Processing Indicator Code
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Control Number
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Line Allowed Charges Amount
+      - Claim Disposition Code
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Federal Type Service Code
+      - Claim Place of Service Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - HCPCS Code
+      - Claim Line Covered Paid Amount
+      - Claim Primary Payer Code
+      - Pay-to Provider NPI Number
+      - Ordering Provider NPI Number
+      - Claim Carrier Payment Denial Code
+      - Claim Processing Indicator Code
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Control Number
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Line Allowed Charges Amount
+      - Claim Disposition Code
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+    - source: Claim Federal Type Service Code
+      dest: claim_federal_type_service_code
+      type: string
+      max_length: 2
+    - source: Claim Place of Service Code
+      dest: claim_place_of_service_code
+      type: int
+    - source: Claim Line From Date
+      dest: claim_line_from_date
+      type: string
+      max_length: 20
+    - source: Claim Line Thru Date
+      dest: claim_line_thru_date
+      type: string
+      max_length: 20
+    - source: HCPCS Code
+      dest: hcpcs_code
+      type: string
+      max_length: 10
+    - source: Claim Line Covered Paid Amount
+      dest: claim_line_covered_paid_amount
+      type: decimal
+    - source: Claim Primary Payer Code
+      dest: claim_primary_payer_code
+      type: string
+      max_length: 2
+    - source: Pay-to Provider NPI Number
+      dest: pay_to_provider_npi_number
+      type: bigint
+    - source: Ordering Provider NPI Number
+      dest: ordering_provider_npi_number
+      type: bigint
+    - source: Claim Carrier Payment Denial Code
+      dest: claim_carrier_payment_denial_code
+      type: int
+    - source: Claim Processing Indicator Code
+      dest: claim_processing_indicator_code
+      type: string
+      max_length: 2
+    - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: int
+    - source: Claim Effective Date
+      dest: claim_effective_date
+      type: string
+      max_length: 20
+    - source: Claim IDR Load Date
+      dest: claim_idr_load_date
+      type: string
+      max_length: 20
+    - source: Claim Control Number
+      dest: claim_control_number
+      type: bigint
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Claim Line Allowed Charges Amount
+      dest: claim_line_allowed_charges_amount
+      type: decimal
+    - source: Claim Disposition Code
+      dest: claim_disposition_code
+      type: int
+- name: usgov.hhs.cclf_partd
+  destinations:
+  - name: usgov_hhs_cclf_partd
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - NDC Code
+      - Claim Type Code
+      - Claim Line From Date
+      - Provider Service Identifier Qualifier Code
+      - Claim Service Provider Generic ID Number
+      - Claim Dispensing Status Code
+      - Claim Dispense as Written (DAW) Product Selection Code
+      - Claim Line Service Unit Quantity
+      - Claim Line Days Supply Quantity
+      - Provider Prescribing ID Qualifier Code
+      - Claim Prescribing Provider Generic ID Number
+      - Claim Line Beneficiary Payment Amount
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Line Prescription Service Reference Number
+      - Claim Line Prescription Fill Number
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - NDC Code
+      - Claim Type Code
+      - Claim Line From Date
+      - Provider Service Identifier Qualifier Code
+      - Claim Service Provider Generic ID Number
+      - Claim Dispensing Status Code
+      - Claim Dispense as Written (DAW) Product Selection Code
+      - Claim Line Service Unit Quantity
+      - Claim Line Days Supply Quantity
+      - Provider Prescribing ID Qualifier Code
+      - Claim Prescribing Provider Generic ID Number
+      - Claim Line Beneficiary Payment Amount
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Claim Line Prescription Service Reference Number
+      - Claim Line Prescription Fill Number
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: NDC Code
+      dest: ndc_code
+      type: bigint
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim Line From Date
+      dest: claim_line_from_date
+      type: string
+      max_length: 20
+    - source: Provider Service Identifier Qualifier Code
+      dest: provider_service_identifier_qualifier_code
+      type: int
+    - source: Claim Service Provider Generic ID Number
+      dest: claim_service_provider_generic_id_number
+      type: bigint
+    - source: Claim Dispensing Status Code
+      dest: claim_dispensing_status_code
+      type: string
+    - source: Claim Dispense as Written (DAW) Product Selection Code
+      dest: claim_dispense_as_written_daw_product_selection_code
+      type: int
+    - source: Claim Line Service Unit Quantity
+      dest: claim_line_service_unit_quantity
+      type: decimal
+    - source: Claim Line Days Supply Quantity
+      dest: claim_line_days_supply_quantity
+      type: int
+    - source: Provider Prescribing ID Qualifier Code
+      dest: provider_prescribing_id_qualifier_code
+      type: int
+    - source: Claim Prescribing Provider Generic ID Number
+      dest: claim_prescribing_provider_generic_id_number
+      type: bigint
+    - source: Claim Line Beneficiary Payment Amount
+      dest: claim_line_beneficiary_payment_amount
+      type: decimal
+    - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: int
+    - source: Claim Effective Date
+      dest: claim_effective_date
+      type: string
+      max_length: 20
+    - source: Claim IDR Load Date
+      dest: claim_idr_load_date
+      type: string
+      max_length: 20
+    - source: Claim Line Prescription Service Reference Number
+      dest: claim_line_prescription_service_reference_number
+      type: bigint
+    - source: Claim Line Prescription Fill Number
+      dest: claim_line_prescription_fill_number
+      type: int
+- name: usgov.hhs.cclf_demographics
+  destinations:
+  - name: usgov_hhs_cclf_demographics
+    fields:
+    - source:
+      - Beneficiary HIC Number
+      - Beneficiary FIPS State Code
+      - Beneficiary FIPS County Code
+      - Beneficiary ZIP Code
+      - Beneficiary Date of Birth
+      - Beneficiary Sex Code
+      - Beneficiary Race Code
+      - Beneficiary Age
+      - Beneficiary Medicare Status Code
+      - Beneficiary Dual Status Code
+      - Beneficiary Death Date
+      - Date beneficiary enrolled in Hospice
+      - Date beneficiary ended Hospice
+      - Beneficiary First Name
+      - Beneficiary Middle Name
+      - Beneficiary Last Name
+      dest: id
+    - source:
+      - Beneficiary HIC Number
+      - Beneficiary FIPS State Code
+      - Beneficiary FIPS County Code
+      - Beneficiary ZIP Code
+      - Beneficiary Date of Birth
+      - Beneficiary Sex Code
+      - Beneficiary Race Code
+      - Beneficiary Age
+      - Beneficiary Medicare Status Code
+      - Beneficiary Dual Status Code
+      - Beneficiary Death Date
+      - Date beneficiary enrolled in Hospice
+      - Date beneficiary ended Hospice
+      - Beneficiary First Name
+      - Beneficiary Middle Name
+      - Beneficiary Last Name
+      dest: revision
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Beneficiary FIPS State Code
+      dest: beneficiary_fips_state_code
+      type: int
+    - source: Beneficiary FIPS County Code
+      dest: beneficiary_fips_county_code
+      type: int
+    - source: Beneficiary ZIP Code
+      dest: beneficiary_zip_code
+      type: int
+    - source: Beneficiary Date of Birth
+      dest: beneficiary_date_of_birth
+      type: string
+      max_length: 20
+    - source: Beneficiary Sex Code
+      dest: beneficiary_sex_code
+      type: int
+    - source: Beneficiary Race Code
+      dest: beneficiary_race_code
+      type: int
+    - source: Beneficiary Age
+      dest: beneficiary_age
+      type: int
+    - source: Beneficiary Medicare Status Code
+      dest: beneficiary_medicare_status_code
+      type: int
+    - source: Beneficiary Dual Status Code
+      dest: beneficiary_dual_status_code
+      type: string
+      max_length: 4
+    - source: Beneficiary Death Date
+      dest: beneficiary_death_date
+      type: string
+    - source: Date beneficiary enrolled in Hospice
+      dest: date_beneficiary_enrolled_in_hospice
+      type: string
+    - source: Date beneficiary ended Hospice
+      dest: date_beneficiary_ended_hospice
+      type: string
+    - source: Beneficiary First Name
+      dest: beneficiary_first_name
+      type: string
+      max_length: 10
+    - source: Beneficiary Middle Name
+      dest: beneficiary_middle_name
+      type: string
+      max_length: 2
+    - source: Beneficiary Last Name
+      dest: beneficiary_last_name
+      type: string
+      max_length: 8
+- name: usgov.hhs.cclf_bene_xref
+  destinations:
+  - name: usgov_hhs_cclf_bene_xref
+    fields:
+    - source:
+      - Current HIC Number
+      - Previous HIC Number
+      - Previous HICN Effective Date
+      - Previous HICN Obsolete Date
+      - Beneficiary Railroad Board Number
+      dest: id
+    - source:
+      - Current HIC Number
+      - Previous HIC Number
+      - Previous HICN Effective Date
+      - Previous HICN Obsolete Date
+      - Beneficiary Railroad Board Number
+      dest: revision
+    - source: Current HIC Number
+      dest: current_hic_number
+      type: string
+      max_length: 20
+    - source: Previous HIC Number
+      dest: previous_hic_number
+      type: string
+      max_length: 20
+    - source: Previous HICN Effective Date
+      dest: previous_hicn_effective_date
+      type: string
+      max_length: 20
+    - source: Previous HICN Obsolete Date
+      dest: previous_hicn_obsolete_date
+      type: string
+      max_length: 20
+    - source: Beneficiary Railroad Board Number
+      dest: beneficiary_railroad_board_number
+      type: string
+- name: usgov.hhs.cclf_parta
+  destinations:
+  - name: usgov_hhs_cclf_parta
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Provider OSCAR Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Bill Facility Type Code
+      - Claim Bill Classification Code
+      - Principal Diagnosis Code
+      - Admitting Diagnosis Code
+      - Claim Medicare Non-Payment Reason Code
+      - Claim Payment Amount
+      - Claim NCH Primary Payer Code
+      - Federal Information Processing Standards (FIPS) State Code
+      - Beneficiary Patient Status Code
+      - Diagnosis Related Group Code
+      - Claim Outpatient Service Type Code
+      - Facility Provider NPI Number
+      - Operating Provider NPI Number
+      - Attending Provider NPI Number
+      - Other Provider NPI Number
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Admission Type Code
+      - Claim Admission Source Code
+      - Claim Bill Frequency Code
+      - Claim Query Code
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Provider OSCAR Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Bill Facility Type Code
+      - Claim Bill Classification Code
+      - Principal Diagnosis Code
+      - Admitting Diagnosis Code
+      - Claim Medicare Non-Payment Reason Code
+      - Claim Payment Amount
+      - Claim NCH Primary Payer Code
+      - Federal Information Processing Standards (FIPS) State Code
+      - Beneficiary Patient Status Code
+      - Diagnosis Related Group Code
+      - Claim Outpatient Service Type Code
+      - Facility Provider NPI Number
+      - Operating Provider NPI Number
+      - Attending Provider NPI Number
+      - Other Provider NPI Number
+      - Claim Adjustment Type Code
+      - Claim Effective Date
+      - Claim IDR Load Date
+      - Beneficiary Equitable BIC HICN Number
+      - Claim Admission Type Code
+      - Claim Admission Source Code
+      - Claim Bill Frequency Code
+      - Claim Query Code
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Provider OSCAR Number
+      dest: provider_oscar_number
+      type: string
+      max_length: 12
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+    - source: Claim Bill Facility Type Code
+      dest: claim_bill_facility_type_code
+      type: int
+    - source: Claim Bill Classification Code
+      dest: claim_bill_classification_code
+      type: int
+    - source: Principal Diagnosis Code
+      dest: principal_diagnosis_code
+      type: string
+      max_length: 10
+    - source: Admitting Diagnosis Code
+      dest: admitting_diagnosis_code
+      type: string
+      max_length: 10
+    - source: Claim Medicare Non-Payment Reason Code
+      dest: claim_medicare_non_payment_reason_code
+      type: string
+      max_length: 2
+    - source: Claim Payment Amount
+      dest: claim_payment_amount
+      type: string
+      max_length: 34
+    - source: Claim NCH Primary Payer Code
+      dest: claim_nch_primary_payer_code
+      type: string
+      max_length: 2
+    - source: Federal Information Processing Standards (FIPS) State Code
+      dest: federal_information_processing_standards_fips_state_code
+      type: int
+    - source: Beneficiary Patient Status Code
+      dest: beneficiary_patient_status_code
+      type: int
+    - source: Diagnosis Related Group Code
+      dest: diagnosis_related_group_code
+      type: int
+    - source: Claim Outpatient Service Type Code
+      dest: claim_outpatient_service_type_code
+      type: string
+      max_length: 2
+    - source: Facility Provider NPI Number
+      dest: facility_provider_npi_number
+      type: bigint
+    - source: Operating Provider NPI Number
+      dest: operating_provider_npi_number
+      type: string
+      max_length: 20
+    - source: Attending Provider NPI Number
+      dest: attending_provider_npi_number
+      type: bigint
+    - source: Other Provider NPI Number
+      dest: other_provider_npi_number
+      type: string
+      max_length: 2
+    - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: int
+    - source: Claim Effective Date
+      dest: claim_effective_date
+      type: string
+      max_length: 20
+    - source: Claim IDR Load Date
+      dest: claim_idr_load_date
+      type: string
+      max_length: 20
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Claim Admission Type Code
+      dest: claim_admission_type_code
+      type: string
+      max_length: 2
+    - source: Claim Admission Source Code
+      dest: claim_admission_source_code
+      type: string
+      max_length: 2
+    - source: Claim Bill Frequency Code
+      dest: claim_bill_frequency_code
+      type: int
+    - source: Claim Query Code
+      dest: claim_query_code
+      type: int
+- name: usgov.hhs.cclf_parta_proc
+  destinations:
+  - name: usgov_hhs_cclf_parta_proc
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Value Sequence Number
+      - Procedure Code
+      - Procedure Performed Date
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Value Sequence Number
+      - Procedure Code
+      - Procedure Performed Date
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim Value Sequence Number
+      dest: claim_value_sequence_number
+      type: int
+    - source: Procedure Code
+      dest: procedure_code
+      type: int
+    - source: Procedure Performed Date
+      dest: procedure_performed_date
+      type: string
+      max_length: 20
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Provider OSCAR Number
+      dest: provider_oscar_number
+      type: int
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.cclf_parta_revenue
+  destinations:
+  - name: usgov_hhs_cclf_parta_revenue
+    fields:
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - Product Revenue Center Code
+      - Claim Line Institutional Revenue Center Date
+      - HCPCS Code
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Line Allowed Unit Quantity
+      - Claim Line Covered Paid Amount
+      - HCPCS First Modifier Code
+      - HCPCS Second Modifier Code
+      - HCPCS Third Modifier Code
+      - HCPCS Fourth Modifier Code
+      - HCPCS Fifth Modifier Code
+      dest: id
+    - source:
+      - Current Claim Unique Identifier
+      - Claim Line Number
+      - Beneficiary HIC Number
+      - Claim Type Code
+      - Claim Line From Date
+      - Claim Line Thru Date
+      - Product Revenue Center Code
+      - Claim Line Institutional Revenue Center Date
+      - HCPCS Code
+      - Beneficiary Equitable BIC HICN Number
+      - Provider OSCAR Number
+      - Claim From Date
+      - Claim Thru Date
+      - Claim Line Allowed Unit Quantity
+      - Claim Line Covered Paid Amount
+      - HCPCS First Modifier Code
+      - HCPCS Second Modifier Code
+      - HCPCS Third Modifier Code
+      - HCPCS Fourth Modifier Code
+      - HCPCS Fifth Modifier Code
+      dest: revision
+    - source: Current Claim Unique Identifier
+      dest: current_claim_unique_identifier
+      type: bigint
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: bigint
+    - source: Beneficiary HIC Number
+      dest: beneficiary_hic_number
+      type: string
+      max_length: 20
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: int
+    - source: Claim Line From Date
+      dest: claim_line_from_date
+      type: string
+      max_length: 20
+    - source: Claim Line Thru Date
+      dest: claim_line_thru_date
+      type: string
+      max_length: 20
+    - source: Product Revenue Center Code
+      dest: product_revenue_center_code
+      type: int
+    - source: Claim Line Institutional Revenue Center Date
+      dest: claim_line_institutional_revenue_center_date
+      type: string
+      max_length: 20
+    - source: HCPCS Code
+      dest: hcpcs_code
+      type: string
+      max_length: 10
+    - source: Beneficiary Equitable BIC HICN Number
+      dest: beneficiary_equitable_bic_hicn_number
+      type: string
+      max_length: 20
+    - source: Provider OSCAR Number
+      dest: provider_oscar_number
+      type: string
+      max_length: 12
+    - source: Claim From Date
+      dest: claim_from_date
+      type: string
+      max_length: 20
+    - source: Claim Thru Date
+      dest: claim_thru_date
+      type: string
+      max_length: 20
+    - source: Claim Line Allowed Unit Quantity
+      dest: claim_line_allowed_unit_quantity
+      type: decimal
+    - source: Claim Line Covered Paid Amount
+      dest: claim_line_covered_paid_amount
+      type: decimal
+    - source: HCPCS First Modifier Code
+      dest: hcpcs_first_modifier_code
+      type: string
+      max_length: 4
+    - source: HCPCS Second Modifier Code
+      dest: hcpcs_second_modifier_code
+      type: string
+    - source: HCPCS Third Modifier Code
+      dest: hcpcs_third_modifier_code
+      type: string
+    - source: HCPCS Fourth Modifier Code
+      dest: hcpcs_fourth_modifier_code
+      type: string
+    - source: HCPCS Fifth Modifier Code
+      dest: hcpcs_fifth_modifier_code
+      type: string

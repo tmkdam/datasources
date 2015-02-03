@@ -1,0 +1,5 @@
+sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+searchHosts = [
+  "localhost"
+]
+cclfDir = "/Users/untoldone/Downloads/CCLF_Example"

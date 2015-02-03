@@ -1,0 +1,184 @@
+sources:
+- name: usgov.hhs.hcris_ime_gme2013
+  destinations:
+  - name: usgov_hhs_hcris_ime_gme2013s
+    fields:
+    - source:
+      - PROVIDER_NUMBER
+      - FYB
+      - FYE
+      - STATUS
+      - HOSPITAL_Name
+      - Street_Addr
+      - Po_BOx
+      - City
+      - State
+      - Zip_Code
+      - County
+      - IME1
+      - IME2
+      - IME3
+      - DSH1
+      - DSH2
+      - DSH3
+      - DSH_SHARE_PERCENTAGE
+      - GME_PART_A
+      - GME_PART_B
+      - TOTAL_HOSPITAL_BEDS
+      - TOTAL_HOSPITAL_BED_DAYS_AVAILABLE
+      - TOTAL_HOSPITAL_MEDICARE_DAYS
+      - TOTAL_HOSPITAL_MEDICAID_DAYS
+      - TOTAL_HOSPITAL_DAYS
+      - INTERNS_AND_RESIDENTS
+      - TOTAL_HOSPITAL_EMPLOYEES_ON_PAYROL
+      - TOTAL_HOSPITAL_NON_PAID_WORKERS
+      - TOTAL_HOSPITAL_MEDICARE_DISCHARGES
+      - TOTAL_HOSPITAL_MEDICAID_DISCHARGES
+      - TOTAL_HOSPITAL_DISCHARGES
+      dest: id
+    - source:
+      - PROVIDER_NUMBER
+      - FYB
+      - FYE
+      - STATUS
+      - HOSPITAL_Name
+      - Street_Addr
+      - Po_BOx
+      - City
+      - State
+      - Zip_Code
+      - County
+      - IME1
+      - IME2
+      - IME3
+      - DSH1
+      - DSH2
+      - DSH3
+      - DSH_SHARE_PERCENTAGE
+      - GME_PART_A
+      - GME_PART_B
+      - TOTAL_HOSPITAL_BEDS
+      - TOTAL_HOSPITAL_BED_DAYS_AVAILABLE
+      - TOTAL_HOSPITAL_MEDICARE_DAYS
+      - TOTAL_HOSPITAL_MEDICAID_DAYS
+      - TOTAL_HOSPITAL_DAYS
+      - INTERNS_AND_RESIDENTS
+      - TOTAL_HOSPITAL_EMPLOYEES_ON_PAYROL
+      - TOTAL_HOSPITAL_NON_PAID_WORKERS
+      - TOTAL_HOSPITAL_MEDICARE_DISCHARGES
+      - TOTAL_HOSPITAL_MEDICAID_DISCHARGES
+      - TOTAL_HOSPITAL_DISCHARGES
+      dest: revision
+    - source: PROVIDER_NUMBER
+      dest: provider_number
+      type: int
+    - source:
+      - PROVIDER_NUMBER
+      dest: provider_id
+    - source: FYB
+      dest: fyb
+      type: string
+      max_length: 18
+    - source: FYE
+      dest: fye
+      type: string
+      max_length: 18
+    - source: STATUS
+      dest: status
+      type: string
+      max_length: 24
+    - source: HOSPITAL_Name
+      dest: hospital_name
+      type: string
+      max_length: 80
+    - source: Street_Addr
+      dest: street_addr
+      type: string
+      max_length: 80
+    - source: Po_BOx
+      dest: po_box
+      type: string
+      max_length: 80
+    - source: City
+      dest: city
+      type: string
+      max_length: 80
+    - source: State
+      dest: state
+      type: string
+      max_length: 80
+    - source: Zip_Code
+      dest: zip_code
+      type: string
+      max_length: 80
+    - source: County
+      dest: county
+      type: string
+      max_length: 80
+    - source: IME1
+      dest: ime1
+      type: string
+      max_length: 18
+    - source: IME2
+      dest: ime2
+      type: string
+      max_length: 12
+    - source: IME3
+      dest: ime3
+      type: string
+    - source: DSH1
+      dest: dsh1
+      type: string
+      max_length: 16
+    - source: DSH2
+      dest: dsh2
+      type: string
+      max_length: 12
+    - source: DSH3
+      dest: dsh3
+      type: string
+    - source: DSH_SHARE_PERCENTAGE
+      dest: dsh_share_percentage
+      type: string
+      max_length: 10
+    - source: GME_PART_A
+      dest: gme_part_a
+      type: string
+      max_length: 16
+    - source: GME_PART_B
+      dest: gme_part_b
+      type: string
+      max_length: 16
+    - source: TOTAL_HOSPITAL_BEDS
+      dest: total_hospital_beds
+      type: decimal
+    - source: TOTAL_HOSPITAL_BED_DAYS_AVAILABLE
+      dest: total_hospital_bed_days_available
+      type: decimal
+    - source: TOTAL_HOSPITAL_MEDICARE_DAYS
+      dest: total_hospital_medicare_days
+      type: decimal
+    - source: TOTAL_HOSPITAL_MEDICAID_DAYS
+      dest: total_hospital_medicaid_days
+      type: decimal
+    - source: TOTAL_HOSPITAL_DAYS
+      dest: total_hospital_days
+      type: decimal
+    - source: INTERNS_AND_RESIDENTS
+      dest: interns_and_residents
+      type: decimal
+    - source: TOTAL_HOSPITAL_EMPLOYEES_ON_PAYROL
+      dest: total_hospital_employees_on_payrol
+      type: decimal
+    - source: TOTAL_HOSPITAL_NON_PAID_WORKERS
+      dest: total_hospital_non_paid_workers
+      type: decimal
+    - source: TOTAL_HOSPITAL_MEDICARE_DISCHARGES
+      dest: total_hospital_medicare_discharges
+      type: decimal
+    - source: TOTAL_HOSPITAL_MEDICAID_DISCHARGES
+      dest: total_hospital_medicaid_discharges
+      type: decimal
+    - source: TOTAL_HOSPITAL_DISCHARGES
+      dest: total_hospital_discharges
+      type: decimal

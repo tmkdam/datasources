@@ -1,0 +1,10 @@
+sourceBinaries = [
+  "/Users/untoldone/Source/go/bin/bloomsources/hcpsc",
+  "/Users/untoldone/Source/go/bin/bloomsources/npi",
+  "/Users/untoldone/Source/go/bin/bloomsources/pecos",
+  "/Users/untoldone/Source/go/bin/bloomsources/taxonomy_codes"
+]
+sqlConnStr = "postgres://postgres:postgres@localhost/bloomapi?sslmode=disable"
+searchHosts = [
+  "localhost"
+]

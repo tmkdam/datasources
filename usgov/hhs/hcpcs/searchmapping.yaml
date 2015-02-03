@@ -1,0 +1,9 @@
+- name: usgov.hhs.hcpcs
+  pivot: usgov_hhs_hcpcses
+  id: id
+  search_id: code
+  select:
+  - healthcare_common_procedure_coding_system_code AS code
+  - hcpcs_long_description AS long_description
+  - hcpcs_short_description AS short_description
+  - hcpcs_code_added_date AS date_added

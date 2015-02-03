@@ -1,0 +1,32 @@
+- name: usgov.hhs.npi
+  pivot: usgov_hhs_npis
+  id: npi
+  relationships:
+  - include: usgov_hhs_npi_licenses
+    name: provider_details
+    type: to_many
+    dest_id: npi_id
+  - include: usgov_hhs_npi_locations
+    name: business_address
+    type: to_one
+    source_id: business_location_id
+  - include: usgov_hhs_npi_locations
+    name: practice_address
+    type: to_one
+    source_id: business_location_id
+  - include: usgov_hhs_npi_organization_officials
+    name: organization_official
+    type: to_one
+    source_id: organization_official_id
+  - include: usgov_hhs_npi_other_identifiers
+    name: other_identifiers
+    type: to_many
+    dest_id: npi_id
+  - include: usgov_hhs_npi_parent_orgs
+    name: parent_org
+    type: to_one
+    source_id: parent_orgs_id
+  - include: usgov_hhs_npi_taxonomy_groups
+    name: taxonomy_groups
+    type: to_many
+    dest_id: npi_id

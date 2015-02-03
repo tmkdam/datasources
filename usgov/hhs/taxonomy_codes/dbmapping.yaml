@@ -1,0 +1,61 @@
+sources:
+- name: usgov.hhs.medicare_specialty_codes
+  destinations:
+  - name: usgov_hhs_medicare_specialty_codes
+    fields:
+    - source:
+      - medicare_specialty_code
+      dest: id
+    - source:
+      - medicare_specialty_code
+      - medicare_specialty_description
+      dest: revision
+    - source: medicare_specialty_code
+      dest: medicare_specialty_code
+      type: string
+      max_length: 4
+    - source: medicare_specialty_description
+      dest: medicare_specialty_description
+      type: string
+      max_length: 98
+- name: usgov.hhs.nucc_taxonomy_codes
+  destinations:
+  - name: usgov_hhs_nucc_taxonomy_codes
+    fields:
+    - source:
+      - taxonomy_code
+      dest: id
+    - source:
+      - taxonomy_code
+      - taxonomy_description
+      dest: revision
+    - source: taxonomy_code
+      dest: taxonomy_code
+      type: string
+      max_length: 22
+    - source: taxonomy_description
+      dest: taxonomy_description
+      type: string
+      max_length: 262
+- name: usgov.hhs.medicare_specialty_to_nucc_taxonomy
+  destinations:
+  - name: usgov_hhs_medicare_specialty_to_nucc_taxonomy
+    fields:
+    - source:
+      - medicare_specialty_code
+      - nucc_taxonomy_code
+      dest: id
+    - source:
+      - medicare_specialty_code
+      - nucc_taxonomy_code
+      dest: revision
+    - source:
+      - medicare_specialty_code
+      dest: medicare_specialty_id
+      type: string
+      max_length: 4
+    - source:
+      - nucc_taxonomy_code
+      dest: nucc_taxonomy_id
+      type: string
+      max_length: 20
