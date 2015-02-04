@@ -1,0 +1,51 @@
+- name: usgov.hhs.cclf_beneficiary
+  pivot: usgov_hhs_cclf_demographics
+  id: hic_id
+  search_id: beneficiary_hic_number
+  relationships:
+  - include: usgov_hhs_cclf_bene_xrefs
+    name: related_beneficiaries
+    type: to_many
+    dest_id: hic_id
+- name: usgov.hhs_cclf_beneficiary.partb_claim
+  pivot: usgov_hhs_cclf_partb_phys
+  id: id
+- name: usgov.hhs_cclf_beneficiary.partb_dme_claim
+  pivot: usgov_hhs_cclf_partb_dmes
+  id: id
+- name: usgov.hhs_cclf_beneficiary.partd_claim
+  pivot: usgov_hhs_cclf_partds
+  id: id
+- name: usgov.hhs_cclf_beneficiary.parta_claim
+  pivot: usgov_hhs_cclf_partas
+  id: id
+  search_id: current_claim_unique_identifier
+  relationships:
+  - include: usgov_hhs_cclf_parta_revenues
+    name: lines
+    type: to_many
+    dest_id: claim_id
+    select:
+    - claim_from_date AS from_date
+    - claim_line_allowed_unit_quantity AS allowed_unit_quantity
+    - claim_line_covered_paid_amount AS covered_paid_amount
+    - claim_line_from_date AS from_date
+    - claim_line_institutional_revenue_center_date AS institutional_revenue_center_date
+    - claim_line_number AS number
+    - claim_line_thru_date AS thru_date
+    - product_revenue_center_code
+    - provider_oscar_number
+  - include: usgov_hhs_cclf_parta_procs
+    name: procedures
+    type: to_many
+    dest_id: claim_id
+  - include: usgov_hhs_cclf_parta_dxes
+    name: diagnoses
+    type: to_many
+    dest_id: claim_id
+    select:
+    - claim_present_on_admission_indicator AS present_on_admission_indicator
+    - claim_product_type_code AS product_type_code
+    - claim_value_sequence_number AS value_sequence_number
+    - diagnosis_code
+    - provider_oscar_number
