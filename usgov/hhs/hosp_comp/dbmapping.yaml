@@ -1,0 +1,3648 @@
+sources:
+- name: usgov.hhs.hosp_comp.hvbp_quarters
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_quarters
+    fields:
+    - source:
+      - Measure ID
+      - Performance  Period
+      dest: id
+    - source:
+      - Measure ID
+      - Measure Description
+      - Performance  Period
+      - Baseline Period
+      dest: revision
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 22
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Description
+      dest: measure_description
+      type: string
+      max_length: 270
+    - source: Performance  Period
+      dest: performance_period
+      type: string
+      max_length: 72
+    - source: Baseline Period
+      dest: baseline_period
+      type: string
+      max_length: 70
+- name: usgov.hhs.hosp_comp.measure_dates
+  destinations:
+  - name: usgov_hhs_hosp_comp_measure_dates
+    fields:
+    - source:
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure Name
+      - Measure ID
+      - Measure Start Quarter
+      - Measure Start Date
+      - Measure End Quarter
+      - Measure End Date
+      dest: revision
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 314
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 36
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Start Quarter
+      dest: measure_start_quarter
+      type: string
+      max_length: 12
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 38
+    - source: Measure End Quarter
+      dest: measure_end_quarter
+      type: string
+      max_length: 12
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 38
+- name: usgov.hhs.hosp_comp.hqi_hosp_spp
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_spp
+    fields:
+    - source:
+      - Provider ID
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 148
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 12
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 108
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp_struct
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_struct
+    fields:
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Measure Name
+      - Measure ID
+      - Measure Response
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 178
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 32
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Response
+      dest: measure_response
+      type: string
+      max_length: 78
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_national_img_avg
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_img_avg
+    fields:
+    - source:
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure ID
+      - Measure Name
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 10
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 166
+    - source: Score
+      dest: score
+      type: decimal
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hvbp_hcahps
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_hcahps
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - Communication with Nurses Achievement Points
+      - Communication with Nurses Improvement Points
+      - Communication with Nurses Dimension Score
+      - Communication with Doctors Achievement Points
+      - Communication with Doctors Improvement Points
+      - Communication with Doctors Dimension Score
+      - Responsiveness of Hospital Staff Achievement Points
+      - Responsiveness of Hospital Staff Improvement Points
+      - Responsiveness of Hospital Staff Dimension Score
+      - Pain Management Achievement Points
+      - Pain Management Improvement Points
+      - Pain Management Dimension Score
+      - Communication about Medicines Achievement Points
+      - Communication about Medicines Improvement Points
+      - Communication about Medicines Dimension Score
+      - Cleanliness and Quietness of Hospital Environment Achievement Points
+      - Cleanliness and Quietness of Hospital Environment Improvement Points
+      - Cleanliness and Quietness of Hospital Environment Dimension Score
+      - Discharge Information Achievement Points
+      - Discharge Information Improvement Points
+      - Discharge Information Dimension Score
+      - Overall Rating of Hospital Achievement Points
+      - Overall Rating of Hospital Improvement Points
+      - Overall Rating of Hospital Dimension Score
+      - HCAHPS Base Score
+      - HCAHPS Consistency Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: Communication with Nurses Achievement Points
+      dest: communication_with_nurses_achievement_points
+      type: string
+      max_length: 26
+    - source: Communication with Nurses Improvement Points
+      dest: communication_with_nurses_improvement_points
+      type: string
+      max_length: 26
+    - source: Communication with Nurses Dimension Score
+      dest: communication_with_nurses_dimension_score
+      type: string
+      max_length: 26
+    - source: Communication with Doctors Achievement Points
+      dest: communication_with_doctors_achievement_points
+      type: string
+      max_length: 26
+    - source: Communication with Doctors Improvement Points
+      dest: communication_with_doctors_improvement_points
+      type: string
+      max_length: 26
+    - source: Communication with Doctors Dimension Score
+      dest: communication_with_doctors_dimension_score
+      type: string
+      max_length: 26
+    - source: Responsiveness of Hospital Staff Achievement Points
+      dest: responsiveness_of_hospital_staff_achievement_points
+      type: string
+      max_length: 26
+    - source: Responsiveness of Hospital Staff Improvement Points
+      dest: responsiveness_of_hospital_staff_improvement_points
+      type: string
+      max_length: 26
+    - source: Responsiveness of Hospital Staff Dimension Score
+      dest: responsiveness_of_hospital_staff_dimension_score
+      type: string
+      max_length: 26
+    - source: Pain Management Achievement Points
+      dest: pain_management_achievement_points
+      type: string
+      max_length: 26
+    - source: Pain Management Improvement Points
+      dest: pain_management_improvement_points
+      type: string
+      max_length: 26
+    - source: Pain Management Dimension Score
+      dest: pain_management_dimension_score
+      type: string
+      max_length: 26
+    - source: Communication about Medicines Achievement Points
+      dest: communication_about_medicines_achievement_points
+      type: string
+      max_length: 26
+    - source: Communication about Medicines Improvement Points
+      dest: communication_about_medicines_improvement_points
+      type: string
+      max_length: 26
+    - source: Communication about Medicines Dimension Score
+      dest: communication_about_medicines_dimension_score
+      type: string
+      max_length: 26
+    - source: Cleanliness and Quietness of Hospital Environment Achievement Points
+      dest: cleanliness_and_quietness_of_hospital_environment_achievement_points
+      type: string
+      max_length: 26
+    - source: Cleanliness and Quietness of Hospital Environment Improvement Points
+      dest: cleanliness_and_quietness_of_hospital_environment_improvement_points
+      type: string
+      max_length: 26
+    - source: Cleanliness and Quietness of Hospital Environment Dimension Score
+      dest: cleanliness_and_quietness_of_hospital_environment_dimension_score
+      type: string
+      max_length: 26
+    - source: Discharge Information Achievement Points
+      dest: discharge_information_achievement_points
+      type: string
+      max_length: 26
+    - source: Discharge Information Improvement Points
+      dest: discharge_information_improvement_points
+      type: string
+      max_length: 26
+    - source: Discharge Information Dimension Score
+      dest: discharge_information_dimension_score
+      type: string
+      max_length: 26
+    - source: Overall Rating of Hospital Achievement Points
+      dest: overall_rating_of_hospital_achievement_points
+      type: string
+      max_length: 26
+    - source: Overall Rating of Hospital Improvement Points
+      dest: overall_rating_of_hospital_improvement_points
+      type: string
+      max_length: 26
+    - source: Overall Rating of Hospital Dimension Score
+      dest: overall_rating_of_hospital_dimension_score
+      type: string
+      max_length: 26
+    - source: HCAHPS Base Score
+      dest: hcahps_base_score
+      type: string
+      max_length: 26
+    - source: HCAHPS Consistency Score
+      dest: hcahps_consistency_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hvbp_pn
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_pn
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - PN-3b Performance Rate
+      - PN-3b Achievement Points
+      - PN-3b Improvement Points
+      - PN-3b Measure Score
+      - PN-6 Performance Rate
+      - PN-6 Achievement Points
+      - PN-6 Improvement Points
+      - PN-6 Measure Score
+      - PN Condition/Procedure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: PN-3b Performance Rate
+      dest: pn_3b_performance_rate
+      type: string
+      max_length: 26
+    - source: PN-3b Achievement Points
+      dest: pn_3b_achievement_points
+      type: string
+      max_length: 26
+    - source: PN-3b Improvement Points
+      dest: pn_3b_improvement_points
+      type: string
+      max_length: 26
+    - source: PN-3b Measure Score
+      dest: pn_3b_measure_score
+      type: string
+      max_length: 26
+    - source: PN-6 Performance Rate
+      dest: pn_6_performance_rate
+      type: string
+      max_length: 26
+    - source: PN-6 Achievement Points
+      dest: pn_6_achievement_points
+      type: string
+      max_length: 26
+    - source: PN-6 Improvement Points
+      dest: pn_6_improvement_points
+      type: string
+      max_length: 26
+    - source: PN-6 Measure Score
+      dest: pn_6_measure_score
+      type: string
+      max_length: 26
+    - source: PN Condition/Procedure Score
+      dest: pn_condition_procedure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hvbp_scip
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_scip
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - SCIP-Card-2 Performance Rate
+      - SCIP-Card-2 Achievement Points
+      - SCIP-Card-2 Improvement Points
+      - SCIP-Card-2 Measure Score
+      - SCIP-VTE-2 Performance Rate
+      - SCIP-VTE-2 Achievement Points
+      - SCIP-VTE-2 Improvement Points
+      - SCIP-VTE-2 Measure Score
+      - SCIP Condition/Procedure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: SCIP-Card-2 Performance Rate
+      dest: scip_card_2_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Card-2 Achievement Points
+      dest: scip_card_2_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Card-2 Improvement Points
+      dest: scip_card_2_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Card-2 Measure Score
+      dest: scip_card_2_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP-VTE-2 Performance Rate
+      dest: scip_vte_2_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-VTE-2 Achievement Points
+      dest: scip_vte_2_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-VTE-2 Improvement Points
+      dest: scip_vte_2_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-VTE-2 Measure Score
+      dest: scip_vte_2_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP Condition/Procedure Score
+      dest: scip_condition_procedure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hvbp_tps
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_tps
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - Unweighted Normalized Clinical Process of Care Domain Score
+      - Weighted Clinical Process of Care Domain Score
+      - Unweighted Patient Experience of Care Domain Score
+      - Weighted Patient Experience of Care Domain Score
+      - Unweighted Normalized Outcome Domain Score
+      - Weighted Outcome Domain Score
+      - Unweighted Normalized Efficiency Domain Score
+      - Weighted Efficiency Domain Score
+      - Total Performance Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: Unweighted Normalized Clinical Process of Care Domain Score
+      dest: unweighted_normalized_clinical_process_of_care_domain_score
+      type: string
+      max_length: 32
+    - source: Weighted Clinical Process of Care Domain Score
+      dest: weighted_clinical_process_of_care_domain_score
+      type: string
+      max_length: 30
+    - source: Unweighted Patient Experience of Care Domain Score
+      dest: unweighted_patient_experience_of_care_domain_score
+      type: string
+      max_length: 32
+    - source: Weighted Patient Experience of Care Domain Score
+      dest: weighted_patient_experience_of_care_domain_score
+      type: string
+      max_length: 30
+    - source: Unweighted Normalized Outcome Domain Score
+      dest: unweighted_normalized_outcome_domain_score
+      type: string
+      max_length: 32
+    - source: Weighted Outcome Domain Score
+      dest: weighted_outcome_domain_score
+      type: string
+      max_length: 30
+    - source: Unweighted Normalized Efficiency Domain Score
+      dest: unweighted_normalized_efficiency_domain_score
+      type: string
+      max_length: 32
+    - source: Weighted Efficiency Domain Score
+      dest: weighted_efficiency_domain_score
+      type: string
+      max_length: 30
+    - source: Total Performance Score
+      dest: total_performance_score
+      type: decimal
+- name: usgov.hhs.hosp_comp.hqi_hosp_mv
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_mv
+    fields:
+    - source:
+      - Provider ID
+      - Diagnosis Related Group
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Diagnosis Related Group
+      - Denominator
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Diagnosis Related Group
+      dest: diagnosis_related_group
+      type: string
+      max_length: 140
+    - source:
+      - Diagnosis Related Group
+      dest: drg_id
+    - source: Denominator
+      dest: denominator
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 108
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp_readm_death
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_readm_death
+    fields:
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Measure Name
+      - Measure ID
+      - Compared to National
+      - Denominator
+      - Score
+      - Lower Estimate
+      - Higher Estimate
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: string
+      max_length: 12
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 174
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 50
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Compared to National
+      dest: compared_to_national
+      type: string
+      max_length: 70
+    - source: Denominator
+      dest: denominator
+      type: string
+      max_length: 28
+    - source: Score
+      dest: score
+      type: string
+      max_length: 28
+    - source: Lower Estimate
+      dest: lower_estimate
+      type: string
+      max_length: 28
+    - source: Higher Estimate
+      dest: higher_estimate
+      type: string
+      max_length: 28
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 152
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_img_avg
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_img_avg
+    fields:
+    - source:
+      - State
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Measure ID
+      - Measure Name
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 10
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 166
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_readm_death
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_readm_death
+    fields:
+    - source:
+      - State
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Measure Name
+      - Measure ID
+      - Number of Hospitals Worse
+      - Number of Hospitals Same
+      - Number of Hospitals Better
+      - Number of Hospitals Too Few
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 174
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 50
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Number of Hospitals Worse
+      dest: number_of_hospitals_worse
+      type: string
+      max_length: 26
+    - source: Number of Hospitals Same
+      dest: number_of_hospitals_same
+      type: string
+      max_length: 26
+    - source: Number of Hospitals Better
+      dest: number_of_hospitals_better
+      type: string
+      max_length: 26
+    - source: Number of Hospitals Too Few
+      dest: number_of_hospitals_too_few
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.medicare_spending_by_claim
+  destinations:
+  - name: usgov_hhs_hosp_comp_medicare_spending_by_claim
+    fields:
+    - source:
+      - Provider Number
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider Number
+      - Period
+      - Claim Type
+      - Avg Spending Per Episode (Hospital)
+      - Avg Spending Per Episode (State)
+      - Avg Spending Per Episode (Nation)
+      - Percent of Spending (Hospital)
+      - Percent of Spending (State)
+      - Percent of Spending (Nation)
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: Period
+      dest: period
+      type: string
+      max_length: 126
+    - source: Claim Type
+      dest: claim_type
+      type: string
+      max_length: 50
+    - source: Avg Spending Per Episode (Hospital)
+      dest: avg_spending_per_episode_hospital
+      type: string
+      max_length: 16
+    - source: Avg Spending Per Episode (State)
+      dest: avg_spending_per_episode_state
+      type: string
+      max_length: 16
+    - source: Avg Spending Per Episode (Nation)
+      dest: avg_spending_per_episode_nation
+      type: string
+      max_length: 16
+    - source: Percent of Spending (Hospital)
+      dest: percent_of_spending_hospital
+      type: string
+      max_length: 14
+    - source: Percent of Spending (State)
+      dest: percent_of_spending_state
+      type: string
+      max_length: 14
+    - source: Percent of Spending (Nation)
+      dest: percent_of_spending_nation
+      type: string
+      max_length: 14
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 16
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_mv
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_mv
+    fields:
+    - source:
+      - State
+      - Diagnosis Related Group
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Diagnosis Related Group
+      - Denominator
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Diagnosis Related Group
+      dest: diagnosis_related_group
+      type: string
+      max_length: 140
+    - source:
+      - Diagnosis Related Group
+      dest: drg_id
+    - source: Denominator
+      dest: denominator
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 108
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_timelyeffective
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_timelyeffective
+    fields:
+    - source:
+      - State
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Condition
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Condition
+      dest: condition
+      type: string
+      max_length: 70
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 270
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 32
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 122
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hvbp_outcome
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_outcome
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - MORT-30-AMI Performance Rate
+      - MORT-30-AMI Achievement Points
+      - MORT-30-AMI Improvement Points
+      - MORT-30-AMI Measure Score
+      - MORT-30-HF Performance Rate
+      - MORT-30-HF Achievement Points
+      - MORT-30-HF Improvement Points
+      - MORT-30-HF Measure Score
+      - MORT-30-PN Performance Rate
+      - MORT-30-PN Achievement Points
+      - MORT-30-PN Improvement Points
+      - MORT-30-PN Measure Score
+      - PSI-90 Performance Rate
+      - PSI-90 Achievement Points
+      - PSI-90 Improvement Points
+      - PSI-90 Measure Score
+      - HAI-1 Performance Rate
+      - HAI-1 Achievement Points
+      - HAI-1 Improvement Points
+      - HAI-1 Measure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: MORT-30-AMI Performance Rate
+      dest: mort_30_ami_performance_rate
+      type: string
+      max_length: 26
+    - source: MORT-30-AMI Achievement Points
+      dest: mort_30_ami_achievement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-AMI Improvement Points
+      dest: mort_30_ami_improvement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-AMI Measure Score
+      dest: mort_30_ami_measure_score
+      type: string
+      max_length: 26
+    - source: MORT-30-HF Performance Rate
+      dest: mort_30_hf_performance_rate
+      type: string
+      max_length: 26
+    - source: MORT-30-HF Achievement Points
+      dest: mort_30_hf_achievement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-HF Improvement Points
+      dest: mort_30_hf_improvement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-HF Measure Score
+      dest: mort_30_hf_measure_score
+      type: string
+      max_length: 26
+    - source: MORT-30-PN Performance Rate
+      dest: mort_30_pn_performance_rate
+      type: string
+      max_length: 26
+    - source: MORT-30-PN Achievement Points
+      dest: mort_30_pn_achievement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-PN Improvement Points
+      dest: mort_30_pn_improvement_points
+      type: string
+      max_length: 26
+    - source: MORT-30-PN Measure Score
+      dest: mort_30_pn_measure_score
+      type: string
+      max_length: 26
+    - source: PSI-90 Performance Rate
+      dest: psi_90_performance_rate
+      type: string
+      max_length: 26
+    - source: PSI-90 Achievement Points
+      dest: psi_90_achievement_points
+      type: string
+      max_length: 26
+    - source: PSI-90 Improvement Points
+      dest: psi_90_improvement_points
+      type: string
+      max_length: 26
+    - source: PSI-90 Measure Score
+      dest: psi_90_measure_score
+      type: string
+      max_length: 26
+    - source: HAI-1 Performance Rate
+      dest: hai_1_performance_rate
+      type: string
+      max_length: 26
+    - source: HAI-1 Achievement Points
+      dest: hai_1_achievement_points
+      type: string
+      max_length: 26
+    - source: HAI-1 Improvement Points
+      dest: hai_1_improvement_points
+      type: string
+      max_length: 26
+    - source: HAI-1 Measure Score
+      dest: hai_1_measure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hosp_quart_qm_ipfqr_state
+  destinations:
+  - name: usgov_hhs_hosp_comp_hosp_quart_qm_ipfqr_state
+    fields:
+    - source:
+      - State
+      - Start_Date
+      - End_Date
+      dest: id
+    - source:
+      - State
+      - Start_Date
+      - End_Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: S_HBIPS-2_Measure_Description
+      dest: s_hbips_2_measure_description
+      type: string
+      max_length: 62
+    - source: S_HBIPS-2_Overall_Rate_Per_1000
+      dest: s_hbips_2_overall_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-2_Overall_Num
+      dest: s_hbips_2_overall_num
+      type: decimal
+    - source: S_HBIPS-2_Overall_Den
+      dest: s_hbips_2_overall_den
+      type: int
+    - source: S_HBIPS-2_1-12_Rate_Per_1000
+      dest: s_hbips_2_1_12_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-2_1-12_Num
+      dest: s_hbips_2_1_12_num
+      type: string
+      max_length: 14
+    - source: S_HBIPS-2_1-12_Den
+      dest: s_hbips_2_1_12_den
+      type: int
+    - source: S_HBIPS-2_13-17_Rate_Per_1000
+      dest: s_hbips_2_13_17_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-2_13-17_Num
+      dest: s_hbips_2_13_17_num
+      type: string
+      max_length: 14
+    - source: S_HBIPS-2_13-17_Den
+      dest: s_hbips_2_13_17_den
+      type: int
+    - source: S_HBIPS-2_18-64_Rate_Per_1000
+      dest: s_hbips_2_18_64_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-2_18-64_Num
+      dest: s_hbips_2_18_64_num
+      type: string
+      max_length: 16
+    - source: S_HBIPS-2_18-64_Den
+      dest: s_hbips_2_18_64_den
+      type: int
+    - source: S_HBIPS-2_65_Over_Rate_Per_1000
+      dest: s_hbips_2_65_over_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-2_65_Over_Num
+      dest: s_hbips_2_65_over_num
+      type: string
+      max_length: 16
+    - source: S_HBIPS-2_65_Over_Den
+      dest: s_hbips_2_65_over_den
+      type: int
+    - source: S_HBIPS-3_Measure_Description
+      dest: s_hbips_3_measure_description
+      type: string
+      max_length: 44
+    - source: S_HBIPS-3_Overall_Rate_Per_1000
+      dest: s_hbips_3_overall_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-3_Overall_Num
+      dest: s_hbips_3_overall_num
+      type: decimal
+    - source: S_HBIPS-3_Overall_Den
+      dest: s_hbips_3_overall_den
+      type: int
+    - source: S_HBIPS-3_1-12_Rate_Per_1000
+      dest: s_hbips_3_1_12_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-3_1-12_Num
+      dest: s_hbips_3_1_12_num
+      type: string
+      max_length: 14
+    - source: S_HBIPS-3_1-12_Den
+      dest: s_hbips_3_1_12_den
+      type: int
+    - source: S_HBIPS-3_13-17_Rate_Per_1000
+      dest: s_hbips_3_13_17_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-3_13-17_Num
+      dest: s_hbips_3_13_17_num
+      type: string
+      max_length: 14
+    - source: S_HBIPS-3_13-17_Den
+      dest: s_hbips_3_13_17_den
+      type: int
+    - source: S_HBIPS-3_18-64_Rate_Per_1000
+      dest: s_hbips_3_18_64_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-3_18-64_Num
+      dest: s_hbips_3_18_64_num
+      type: string
+      max_length: 16
+    - source: S_HBIPS-3_18-64_Den
+      dest: s_hbips_3_18_64_den
+      type: int
+    - source: S_HBIPS-3_65_Over_Rate_Per_1000
+      dest: s_hbips_3_65_over_rate_per_1000
+      type: decimal
+    - source: S_HBIPS-3_65_Over_Num
+      dest: s_hbips_3_65_over_num
+      type: string
+      max_length: 14
+    - source: S_HBIPS-3_65_Over_Den
+      dest: s_hbips_3_65_over_den
+      type: int
+    - source: S_HBIPS-4_Measure_Description
+      dest: s_hbips_4_measure_description
+      type: string
+      max_length: 114
+    - source: S_HBIPS-4_Overall_%_of_Total
+      dest: s_hbips_4_overall_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_Overall_Num
+      dest: s_hbips_4_overall_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_Overall_Den
+      dest: s_hbips_4_overall_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_1-12_%_of_Total
+      dest: s_hbips_4_1_12_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_1-12_Num
+      dest: s_hbips_4_1_12_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_1-12_Den
+      dest: s_hbips_4_1_12_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_13-17_%_of_Total
+      dest: s_hbips_4_13_17_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_13-17_Num
+      dest: s_hbips_4_13_17_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_13-17_Den
+      dest: s_hbips_4_13_17_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_18-64_%_of_Total
+      dest: s_hbips_4_18_64_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_18-64_Num
+      dest: s_hbips_4_18_64_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_18-64_Den
+      dest: s_hbips_4_18_64_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_65_Over_%_of_Total
+      dest: s_hbips_4_65_over_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_65_Over_Num
+      dest: s_hbips_4_65_over_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-4_65_Over_Den
+      dest: s_hbips_4_65_over_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_Measure_Description
+      dest: s_hbips_5_measure_description
+      type: string
+      max_length: 176
+    - source: S_HBIPS-5_%_of_Total
+      dest: s_hbips_5_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_Overall_Num
+      dest: s_hbips_5_overall_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_Overall_Den
+      dest: s_hbips_5_overall_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_1-12_%_of_Total
+      dest: s_hbips_5_1_12_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_1-12_Num
+      dest: s_hbips_5_1_12_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_1-12_Den
+      dest: s_hbips_5_1_12_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_13-17_%_of_Total
+      dest: s_hbips_5_13_17_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_13-17_Num
+      dest: s_hbips_5_13_17_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_13-17_Den
+      dest: s_hbips_5_13_17_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_18-64_%_of_Total
+      dest: s_hbips_5_18_64_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_18-64_Num
+      dest: s_hbips_5_18_64_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_18-64_Den
+      dest: s_hbips_5_18_64_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_65_%_of_Total
+      dest: s_hbips_5_65_of_total
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_65_Over_Num
+      dest: s_hbips_5_65_over_num
+      type: string
+      max_length: 26
+    - source: S_HBIPS-5_65_Over_Den
+      dest: s_hbips_5_65_over_den
+      type: string
+      max_length: 26
+    - source: S_HBIPS-6_Measure_Description
+      dest: s_hbips_6_measure_description
+      type: string
+      max_length: 214
+    - source: S_HBIPS-6_%_of_Total
+      dest: s_hbips_6_of_total
+      type: decimal
+    - source: S_HBIPS-6_Overall_Num
+      dest: s_hbips_6_overall_num
+      type: int
+    - source: S_HBIPS-6_Overall_Den
+      dest: s_hbips_6_overall_den
+      type: int
+    - source: S_HBIPS-6_1-12_%_of_Total
+      dest: s_hbips_6_1_12_of_total
+      type: decimal
+    - source: S_HBIPS-6_1-12_Num
+      dest: s_hbips_6_1_12_num
+      type: int
+    - source: S_HBIPS-6_1-12_Den
+      dest: s_hbips_6_1_12_den
+      type: int
+    - source: S_HBIPS-6_13-17_%_of_Total
+      dest: s_hbips_6_13_17_of_total
+      type: decimal
+    - source: S_HBIPS-6_13-17_Num
+      dest: s_hbips_6_13_17_num
+      type: int
+    - source: S_HBIPS-6_13-17_Den
+      dest: s_hbips_6_13_17_den
+      type: int
+    - source: S_HBIPS-6_18-64_%_of_Total
+      dest: s_hbips_6_18_64_of_total
+      type: decimal
+    - source: S_HBIPS-6_18-64_Num
+      dest: s_hbips_6_18_64_num
+      type: int
+    - source: S_HBIPS-6_18-64_Den
+      dest: s_hbips_6_18_64_den
+      type: int
+    - source: S_HBIPS-6_65_%_of_Total
+      dest: s_hbips_6_65_of_total
+      type: decimal
+    - source: S_HBIPS-6_65_Over_Num
+      dest: s_hbips_6_65_over_num
+      type: int
+    - source: S_HBIPS-6_65_Over_Den
+      dest: s_hbips_6_65_over_den
+      type: int
+    - source: S_HBIPS-7_Measure_Description
+      dest: s_hbips_7_measure_description
+      type: string
+      max_length: 186
+    - source: S_HBIPS-7_Overall_%_of_Total
+      dest: s_hbips_7_overall_of_total
+      type: decimal
+    - source: S_HBIPS-7_Overall_Num
+      dest: s_hbips_7_overall_num
+      type: int
+    - source: S_HBIPS-7_Overall_Den
+      dest: s_hbips_7_overall_den
+      type: int
+    - source: S_HBIPS-7_1-12_%_of_Total
+      dest: s_hbips_7_1_12_of_total
+      type: decimal
+    - source: S_HBIPS-7_1-12_Num
+      dest: s_hbips_7_1_12_num
+      type: int
+    - source: S_HBIPS-7_1-12_Den
+      dest: s_hbips_7_1_12_den
+      type: int
+    - source: S_HBIPS-7_13-17_%_of_Total
+      dest: s_hbips_7_13_17_of_total
+      type: decimal
+    - source: S_HBIPS-7_13-17_Num
+      dest: s_hbips_7_13_17_num
+      type: int
+    - source: S_HBIPS-7_13-17_Den
+      dest: s_hbips_7_13_17_den
+      type: int
+    - source: S_HBIPS-7_18-64_%_of_Total
+      dest: s_hbips_7_18_64_of_total
+      type: decimal
+    - source: S_HBIPS-7_18-64_Num
+      dest: s_hbips_7_18_64_num
+      type: int
+    - source: S_HBIPS-7_18-64_Den
+      dest: s_hbips_7_18_64_den
+      type: int
+    - source: S_HBIPS-7_65_%_of_Total
+      dest: s_hbips_7_65_of_total
+      type: decimal
+    - source: S_HBIPS-7_65_Over_Num
+      dest: s_hbips_7_65_over_num
+      type: int
+    - source: S_HBIPS-7_65_Over_Den
+      dest: s_hbips_7_65_over_den
+      type: int
+    - source: Start_Date
+      dest: start_date
+      type: string
+      max_length: 20
+    - source: End_Date
+      dest: end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp_hcahps
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_hcahps
+    fields:
+    - source:
+      - Provider ID
+      - HCAHPS Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - HCAHPS Measure ID
+      - HCAHPS Question
+      - HCAHPS Answer Description
+      - HCAHPS Answer Percent
+      - Number of Completed Surveys
+      - Survey Response Rate Percent
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: HCAHPS Measure ID
+      dest: hcahps_measure_id
+      type: string
+      max_length: 34
+    - source:
+      - HCAHPS Measure ID
+      dest: measure_id
+    - source: HCAHPS Question
+      dest: hcahps_question
+      type: string
+      max_length: 218
+    - source: HCAHPS Answer Description
+      dest: hcahps_answer_description
+      type: string
+      max_length: 220
+    - source: HCAHPS Answer Percent
+      dest: hcahps_answer_percent
+      type: string
+      max_length: 26
+    - source: Number of Completed Surveys
+      dest: number_of_completed_surveys
+      type: string
+      max_length: 38
+    - source: Survey Response Rate Percent
+      dest: survey_response_rate_percent
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 18
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp_img
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_img
+    fields:
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Name
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 10
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 166
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 112
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_hcahps
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_hcahps
+    fields:
+    - source:
+      - State
+      - HCAHPS Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - HCAHPS Question
+      - HCAHPS Measure ID
+      - HCAHPS Answer Description
+      - HCAHPS Answer Percent
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: HCAHPS Question
+      dest: hcahps_question
+      type: string
+      max_length: 218
+    - source: HCAHPS Measure ID
+      dest: hcahps_measure_id
+      type: string
+      max_length: 34
+    - source:
+      - HCAHPS Measure ID
+      dest: measure_id
+    - source: HCAHPS Answer Description
+      dest: hcahps_answer_description
+      type: string
+      max_length: 220
+    - source: HCAHPS Answer Percent
+      dest: hcahps_answer_percent
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hvbp_hai
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_hai
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - SCIP-Inf-1_Performance Rate
+      - SCIP-Inf-1_Achievement Points
+      - SCIP-Inf-1_Improvement Points
+      - SCIP-Inf-1_Measure Score
+      - SCIP-Inf-2_Performance Rate
+      - SCIP-Inf-2_Achievement Points
+      - SCIP-Inf-2_Improvement Points
+      - SCIP-Inf-2_Measure Score
+      - SCIP-Inf-3_Performance Rate
+      - SCIP-Inf-3_Achievement Points
+      - SCIP-Inf-3_Improvement Points
+      - SCIP-Inf-3_Measure Score
+      - SCIP-Inf-4_Performance Rate
+      - SCIP-Inf-4_Achievement Points
+      - SCIP-Inf-4_Improvement Points
+      - SCIP-Inf-4_Measure Score
+      - SCIP-Inf-9_Performance Rate
+      - SCIP-Inf-9_Achievement Points
+      - SCIP-Inf-9_Improvement Points
+      - Scip_Inf_9_Measure Score
+      - HAI Condition/Procedure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: SCIP-Inf-1_Performance Rate
+      dest: scip_inf_1_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-1_Achievement Points
+      dest: scip_inf_1_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-1_Improvement Points
+      dest: scip_inf_1_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-1_Measure Score
+      dest: scip_inf_1_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-2_Performance Rate
+      dest: scip_inf_2_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-2_Achievement Points
+      dest: scip_inf_2_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-2_Improvement Points
+      dest: scip_inf_2_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-2_Measure Score
+      dest: scip_inf_2_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-3_Performance Rate
+      dest: scip_inf_3_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-3_Achievement Points
+      dest: scip_inf_3_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-3_Improvement Points
+      dest: scip_inf_3_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-3_Measure Score
+      dest: scip_inf_3_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-4_Performance Rate
+      dest: scip_inf_4_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-4_Achievement Points
+      dest: scip_inf_4_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-4_Improvement Points
+      dest: scip_inf_4_improvement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-4_Measure Score
+      dest: scip_inf_4_measure_score
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-9_Performance Rate
+      dest: scip_inf_9_performance_rate
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-9_Achievement Points
+      dest: scip_inf_9_achievement_points
+      type: string
+      max_length: 26
+    - source: SCIP-Inf-9_Improvement Points
+      dest: scip_inf_9_improvement_points
+      type: string
+      max_length: 26
+    - source: Scip_Inf_9_Measure Score
+      dest: scip_inf_9_measure_score
+      type: string
+      max_length: 26
+    - source: HAI Condition/Procedure Score
+      dest: hai_condition_procedure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hqi_footnotes
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_footnotes
+    fields:
+    - source:
+      - Footnote
+      - Footnote Text
+      dest: id
+    - source:
+      - Footnote
+      - Footnote Text
+      dest: revision
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 4
+    - source: Footnote Text
+      dest: footnote_text
+      type: string
+      max_length: 448
+- name: usgov.hhs.hosp_comp.hqi_hosp_hai
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_hai
+    fields:
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Measure Name
+      - Measure ID
+      - Compared to National
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 220
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 30
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Compared to National
+      dest: compared_to_national
+      type: string
+      max_length: 82
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 360
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp_timelyeffective
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp_timelyeffective
+    fields:
+    - source:
+      - Provider ID
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Provider ID
+      - Condition
+      - Measure ID
+      - Measure Name
+      - Score
+      - Sample
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: string
+      max_length: 12
+    - source:
+      - Provider ID
+      dest: provider_id
+    - source: Condition
+      dest: condition
+      type: string
+      max_length: 70
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 32
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 270
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Sample
+      dest: sample
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 358
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_national_timelyeffective
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_timelyeffective
+    fields:
+    - source:
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure Name
+      - Measure ID
+      - Condition
+      - Category
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 440
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 32
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Condition
+      dest: condition
+      type: string
+      max_length: 70
+    - source: Category
+      dest: category
+      type: string
+      max_length: 270
+    - source: Score
+      dest: score
+      type: int
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hosp_quart_qm_ipfqr_national
+  destinations:
+  - name: usgov_hhs_hosp_comp_hosp_quart_qm_ipfqr_national
+    fields:
+    - source:
+      - Start_Date
+      - End_Date
+      dest: id
+    - source:
+      - N_HBIPS-2_Measure_Description
+      - N_HBIPS-2_Overall_Rate_Per_1000
+      - N_HBIPS-2_Overall_Num
+      - N_HBIPS-2_Overall_Den
+      - N_HBIPS-2_1-12_Rate_Per_1000
+      - N_HBIPS-2_1-12_Num
+      - N_HBIPS-2_1-12_Den
+      - N_HBIPS-2_13-17_Rate_Per_1000
+      - N_HBIPS-2_13-17_Num
+      - N_HBIPS-2_13-17_Den
+      - N_HBIPS-2_18-64_Rate_Per_1000
+      - N_HBIPS-2_18-64_Num
+      - N_HBIPS-2_18-64_Den
+      - N_HBIPS-2_65_Over_Rate_Per_1000
+      - N_HBIPS-2_65_Over_Num
+      - N_HBIPS-2_65_Over_Den
+      - N_HBIPS-3_Measure_Description
+      - N_HBIPS-3_Overall_Rate_Per_1000
+      - N_HBIPS-3_Overall_Num
+      - N_HBIPS-3_Overall_Den
+      - N_HBIPS-3_1-12_Rate_Per_1000
+      - N_HBIPS-3_1-12_Num
+      - N_HBIPS-3_1-12_Den
+      - N_HBIPS-3_13-17_Rate_Per_1000
+      - N_HBIPS-3_13-17_Num
+      - N_HBIPS-3_13-17_Den
+      - N_HBIPS-3_18-64_Rate_Per_1000
+      - N_HBIPS-3_18-64_Num
+      - N_HBIPS-3_18-64_Den
+      - N_HBIPS-3_65_Over_Rate_Per_1000
+      - N_HBIPS-3_65_Over_Num
+      - N_HBIPS-3_65_Over_Den
+      - N_HBIPS-4_Measure_Description
+      - N_HBIPS-4_Overall_%_of_Total
+      - N_HBIPS-4_Overall_Num
+      - N_HBIPS-4_Overall_Den
+      - N_HBIPS-4_1-12_%_of_Total
+      - N_HBIPS-4_1-12_Num
+      - N_HBIPS-4_1-12_Den
+      - N_HBIPS-4_13-17_%_of_Total
+      - N_HBIPS-4_13-17_Num
+      - N_HBIPS-4_13-17_Den
+      - N_HBIPS-4_18-64_%_of_Total
+      - N_HBIPS-4_18-64_Num
+      - N_HBIPS-4_18-64_Den
+      - N_HBIPS-4_65_Over_%_of_Total
+      - N_HBIPS-4_65_Over_Num
+      - N_HBIPS-4_65_Over_Den
+      - N_HBIPS-5_Measure_Description
+      - N_HBIPS-5_Overall_%_of_Total
+      - N_HBIPS-5_Overall_Num
+      - N_HBIPS-5_Overall_Den
+      - N_HBIPS-5_1-12_%_of_Total
+      - N_HBIPS-5_1-12_Num
+      - N_HBIPS-5_1-12_Den
+      - N_HBIPS-5_13-17_%_of_Total
+      - N_HBIPS-5_13-17_Num
+      - N_HBIPS-5_13-17_Den
+      - N_HBIPS-5_18-64_%_of_Total
+      - N_HBIPS-5_18-64_Num
+      - N_HBIPS-5_18-64_Den
+      - N_HBIPS-5_65_Over_%_of_Total
+      - N_HBIPS-5_65_Over_Num
+      - N_HBIPS-5_65_Over_Den
+      - N_HBIPS-6_Measure_Description
+      - N_HBIPS-6_Overall_%_of_Total
+      - N_HBIPS-6_Overall_Num
+      - N_HBIPS-6_Overall_Den
+      - N_HBIPS-6_1-12_%_of_Total
+      - N_HBIPS-6_1-12_Num
+      - N_HBIPS-6_1-12_Den
+      - N_HBIPS-6_13-17_%_of_Total
+      - N_HBIPS-6_13-17_Num
+      - N_HBIPS-6_13-17_Den
+      - N_HBIPS-6_18-64_%_of_Total
+      - N_HBIPS-6_18-64_Num
+      - N_HBIPS-6_18-64_Den
+      - N_HBIPS-6_65_Over_%_of_Total
+      - N_HBIPS-6_65_Over_Num
+      - N_HBIPS-6_65_Over_Den
+      - N_HBIPS-7_Measure_Description
+      - N_HBIPS-7_Overall_%_of_Total
+      - N_HBIPS-7_Overall_Num
+      - N_HBIPS-7_Overall_Den
+      - N_HBIPS-7_1-12_%_of_Total
+      - N_HBIPS-7_1-12_Num
+      - N_HBIPS-7_1-12_Den
+      - N_HBIPS-7_13-17_%_of_Total
+      - N_HBIPS-7_13-17_Num
+      - N_HBIPS-7_13-17_Den
+      - N_HBIPS-7_18-64_%_of_Total
+      - N_HBIPS-7_18-64_Num
+      - N_HBIPS-7_18-64_Den
+      - N_HBIPS-7_65_Over_%_of_Total
+      - N_HBIPS-7_65_Over_Num
+      - N_HBIPS-7_65_Over_Den
+      - Start_Date
+      - End_Date
+      dest: revision
+    - source: N_HBIPS-2_Measure_Description
+      dest: n_hbips_2_measure_description
+      type: string
+      max_length: 62
+    - source: N_HBIPS-2_Overall_Rate_Per_1000
+      dest: n_hbips_2_overall_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-2_Overall_Num
+      dest: n_hbips_2_overall_num
+      type: decimal
+    - source: N_HBIPS-2_Overall_Den
+      dest: n_hbips_2_overall_den
+      type: int
+    - source: N_HBIPS-2_1-12_Rate_Per_1000
+      dest: n_hbips_2_1_12_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-2_1-12_Num
+      dest: n_hbips_2_1_12_num
+      type: decimal
+    - source: N_HBIPS-2_1-12_Den
+      dest: n_hbips_2_1_12_den
+      type: int
+    - source: N_HBIPS-2_13-17_Rate_Per_1000
+      dest: n_hbips_2_13_17_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-2_13-17_Num
+      dest: n_hbips_2_13_17_num
+      type: decimal
+    - source: N_HBIPS-2_13-17_Den
+      dest: n_hbips_2_13_17_den
+      type: int
+    - source: N_HBIPS-2_18-64_Rate_Per_1000
+      dest: n_hbips_2_18_64_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-2_18-64_Num
+      dest: n_hbips_2_18_64_num
+      type: decimal
+    - source: N_HBIPS-2_18-64_Den
+      dest: n_hbips_2_18_64_den
+      type: int
+    - source: N_HBIPS-2_65_Over_Rate_Per_1000
+      dest: n_hbips_2_65_over_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-2_65_Over_Num
+      dest: n_hbips_2_65_over_num
+      type: decimal
+    - source: N_HBIPS-2_65_Over_Den
+      dest: n_hbips_2_65_over_den
+      type: int
+    - source: N_HBIPS-3_Measure_Description
+      dest: n_hbips_3_measure_description
+      type: string
+      max_length: 44
+    - source: N_HBIPS-3_Overall_Rate_Per_1000
+      dest: n_hbips_3_overall_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-3_Overall_Num
+      dest: n_hbips_3_overall_num
+      type: decimal
+    - source: N_HBIPS-3_Overall_Den
+      dest: n_hbips_3_overall_den
+      type: int
+    - source: N_HBIPS-3_1-12_Rate_Per_1000
+      dest: n_hbips_3_1_12_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-3_1-12_Num
+      dest: n_hbips_3_1_12_num
+      type: decimal
+    - source: N_HBIPS-3_1-12_Den
+      dest: n_hbips_3_1_12_den
+      type: int
+    - source: N_HBIPS-3_13-17_Rate_Per_1000
+      dest: n_hbips_3_13_17_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-3_13-17_Num
+      dest: n_hbips_3_13_17_num
+      type: decimal
+    - source: N_HBIPS-3_13-17_Den
+      dest: n_hbips_3_13_17_den
+      type: int
+    - source: N_HBIPS-3_18-64_Rate_Per_1000
+      dest: n_hbips_3_18_64_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-3_18-64_Num
+      dest: n_hbips_3_18_64_num
+      type: decimal
+    - source: N_HBIPS-3_18-64_Den
+      dest: n_hbips_3_18_64_den
+      type: int
+    - source: N_HBIPS-3_65_Over_Rate_Per_1000
+      dest: n_hbips_3_65_over_rate_per_1000
+      type: decimal
+    - source: N_HBIPS-3_65_Over_Num
+      dest: n_hbips_3_65_over_num
+      type: decimal
+    - source: N_HBIPS-3_65_Over_Den
+      dest: n_hbips_3_65_over_den
+      type: int
+    - source: N_HBIPS-4_Measure_Description
+      dest: n_hbips_4_measure_description
+      type: string
+      max_length: 114
+    - source: N_HBIPS-4_Overall_%_of_Total
+      dest: n_hbips_4_overall_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_Overall_Num
+      dest: n_hbips_4_overall_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_Overall_Den
+      dest: n_hbips_4_overall_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_1-12_%_of_Total
+      dest: n_hbips_4_1_12_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_1-12_Num
+      dest: n_hbips_4_1_12_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_1-12_Den
+      dest: n_hbips_4_1_12_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_13-17_%_of_Total
+      dest: n_hbips_4_13_17_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_13-17_Num
+      dest: n_hbips_4_13_17_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_13-17_Den
+      dest: n_hbips_4_13_17_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_18-64_%_of_Total
+      dest: n_hbips_4_18_64_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_18-64_Num
+      dest: n_hbips_4_18_64_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_18-64_Den
+      dest: n_hbips_4_18_64_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_65_Over_%_of_Total
+      dest: n_hbips_4_65_over_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_65_Over_Num
+      dest: n_hbips_4_65_over_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-4_65_Over_Den
+      dest: n_hbips_4_65_over_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_Measure_Description
+      dest: n_hbips_5_measure_description
+      type: string
+      max_length: 176
+    - source: N_HBIPS-5_Overall_%_of_Total
+      dest: n_hbips_5_overall_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_Overall_Num
+      dest: n_hbips_5_overall_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_Overall_Den
+      dest: n_hbips_5_overall_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_1-12_%_of_Total
+      dest: n_hbips_5_1_12_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_1-12_Num
+      dest: n_hbips_5_1_12_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_1-12_Den
+      dest: n_hbips_5_1_12_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_13-17_%_of_Total
+      dest: n_hbips_5_13_17_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_13-17_Num
+      dest: n_hbips_5_13_17_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_13-17_Den
+      dest: n_hbips_5_13_17_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_18-64_%_of_Total
+      dest: n_hbips_5_18_64_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_18-64_Num
+      dest: n_hbips_5_18_64_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_18-64_Den
+      dest: n_hbips_5_18_64_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_65_Over_%_of_Total
+      dest: n_hbips_5_65_over_of_total
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_65_Over_Num
+      dest: n_hbips_5_65_over_num
+      type: string
+      max_length: 26
+    - source: N_HBIPS-5_65_Over_Den
+      dest: n_hbips_5_65_over_den
+      type: string
+      max_length: 26
+    - source: N_HBIPS-6_Measure_Description
+      dest: n_hbips_6_measure_description
+      type: string
+      max_length: 214
+    - source: N_HBIPS-6_Overall_%_of_Total
+      dest: n_hbips_6_overall_of_total
+      type: decimal
+    - source: N_HBIPS-6_Overall_Num
+      dest: n_hbips_6_overall_num
+      type: int
+    - source: N_HBIPS-6_Overall_Den
+      dest: n_hbips_6_overall_den
+      type: int
+    - source: N_HBIPS-6_1-12_%_of_Total
+      dest: n_hbips_6_1_12_of_total
+      type: decimal
+    - source: N_HBIPS-6_1-12_Num
+      dest: n_hbips_6_1_12_num
+      type: int
+    - source: N_HBIPS-6_1-12_Den
+      dest: n_hbips_6_1_12_den
+      type: int
+    - source: N_HBIPS-6_13-17_%_of_Total
+      dest: n_hbips_6_13_17_of_total
+      type: decimal
+    - source: N_HBIPS-6_13-17_Num
+      dest: n_hbips_6_13_17_num
+      type: int
+    - source: N_HBIPS-6_13-17_Den
+      dest: n_hbips_6_13_17_den
+      type: int
+    - source: N_HBIPS-6_18-64_%_of_Total
+      dest: n_hbips_6_18_64_of_total
+      type: decimal
+    - source: N_HBIPS-6_18-64_Num
+      dest: n_hbips_6_18_64_num
+      type: int
+    - source: N_HBIPS-6_18-64_Den
+      dest: n_hbips_6_18_64_den
+      type: int
+    - source: N_HBIPS-6_65_Over_%_of_Total
+      dest: n_hbips_6_65_over_of_total
+      type: decimal
+    - source: N_HBIPS-6_65_Over_Num
+      dest: n_hbips_6_65_over_num
+      type: int
+    - source: N_HBIPS-6_65_Over_Den
+      dest: n_hbips_6_65_over_den
+      type: int
+    - source: N_HBIPS-7_Measure_Description
+      dest: n_hbips_7_measure_description
+      type: string
+      max_length: 186
+    - source: N_HBIPS-7_Overall_%_of_Total
+      dest: n_hbips_7_overall_of_total
+      type: decimal
+    - source: N_HBIPS-7_Overall_Num
+      dest: n_hbips_7_overall_num
+      type: int
+    - source: N_HBIPS-7_Overall_Den
+      dest: n_hbips_7_overall_den
+      type: int
+    - source: N_HBIPS-7_1-12_%_of_Total
+      dest: n_hbips_7_1_12_of_total
+      type: decimal
+    - source: N_HBIPS-7_1-12_Num
+      dest: n_hbips_7_1_12_num
+      type: int
+    - source: N_HBIPS-7_1-12_Den
+      dest: n_hbips_7_1_12_den
+      type: int
+    - source: N_HBIPS-7_13-17_%_of_Total
+      dest: n_hbips_7_13_17_of_total
+      type: decimal
+    - source: N_HBIPS-7_13-17_Num
+      dest: n_hbips_7_13_17_num
+      type: int
+    - source: N_HBIPS-7_13-17_Den
+      dest: n_hbips_7_13_17_den
+      type: int
+    - source: N_HBIPS-7_18-64_%_of_Total
+      dest: n_hbips_7_18_64_of_total
+      type: decimal
+    - source: N_HBIPS-7_18-64_Num
+      dest: n_hbips_7_18_64_num
+      type: int
+    - source: N_HBIPS-7_18-64_Den
+      dest: n_hbips_7_18_64_den
+      type: int
+    - source: N_HBIPS-7_65_Over_%_of_Total
+      dest: n_hbips_7_65_over_of_total
+      type: decimal
+    - source: N_HBIPS-7_65_Over_Num
+      dest: n_hbips_7_65_over_num
+      type: int
+    - source: N_HBIPS-7_65_Over_Den
+      dest: n_hbips_7_65_over_den
+      type: int
+    - source: Start_Date
+      dest: start_date
+      type: string
+      max_length: 20
+    - source: End_Date
+      dest: end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hvbp_ami
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_ami
+    fields:
+    - source:
+      - Provider Number
+      - AMI-7a Performance Rate
+      - AMI-7a Achievement Points
+      - AMI-7a Improvement Points
+      - AMI-7a Measure Score
+      - AMI-8a Performance Rate
+      - AMI-8a Achievement Points
+      - AMI-8a Improvement Points
+      - AMI-8a Measure Score
+      - AMI Condition/Procedure Score
+      dest: id
+    - source:
+      - Provider Number
+      - AMI-7a Performance Rate
+      - AMI-7a Achievement Points
+      - AMI-7a Improvement Points
+      - AMI-7a Measure Score
+      - AMI-8a Performance Rate
+      - AMI-8a Achievement Points
+      - AMI-8a Improvement Points
+      - AMI-8a Measure Score
+      - AMI Condition/Procedure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: AMI-7a Performance Rate
+      dest: ami_7a_performance_rate
+      type: string
+      max_length: 26
+    - source: AMI-7a Achievement Points
+      dest: ami_7a_achievement_points
+      type: string
+      max_length: 26
+    - source: AMI-7a Improvement Points
+      dest: ami_7a_improvement_points
+      type: string
+      max_length: 26
+    - source: AMI-7a Measure Score
+      dest: ami_7a_measure_score
+      type: string
+      max_length: 26
+    - source: AMI-8a Performance Rate
+      dest: ami_8a_performance_rate
+      type: string
+      max_length: 26
+    - source: AMI-8a Achievement Points
+      dest: ami_8a_achievement_points
+      type: string
+      max_length: 26
+    - source: AMI-8a Improvement Points
+      dest: ami_8a_improvement_points
+      type: string
+      max_length: 26
+    - source: AMI-8a Measure Score
+      dest: ami_8a_measure_score
+      type: string
+      max_length: 26
+    - source: AMI Condition/Procedure Score
+      dest: ami_condition_procedure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hqi_national_spp
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_spp
+    fields:
+    - source:
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure Name
+      - Measure ID
+      - Score
+      - National Median
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 148
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 12
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: decimal
+    - source: National Median
+      dest: national_median
+      type: string
+      max_length: 20
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 16
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_op_proc_vol
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_op_proc_vol
+    fields:
+    - source:
+      - Provider_ID
+      - Measure_ID
+      - START_DATE
+      - END_DATE
+      dest: id
+    - source:
+      - Provider_ID
+      - Measure_ID
+      - Gastrointestinal
+      - Eye
+      - Nervous_system
+      - Musculoskeletal
+      - Skin
+      - Genitourinary
+      - Cardiovascular
+      - START_DATE
+      - END_DATE
+      dest: revision
+    - source: Provider_ID
+      dest: provider_identifier
+      type: int
+    - source:
+      - Provider_ID
+      dest: provider_id
+    - source: Measure_ID
+      dest: measure_identifier
+      type: string
+      max_length: 10
+    - source:
+      - Measure_ID
+      dest: measure_id
+    - source: Gastrointestinal
+      dest: gastrointestinal
+      type: string
+      max_length: 26
+    - source: Eye
+      dest: eye
+      type: string
+      max_length: 26
+    - source: Nervous_system
+      dest: nervous_system
+      type: string
+      max_length: 26
+    - source: Musculoskeletal
+      dest: musculoskeletal
+      type: string
+      max_length: 26
+    - source: Skin
+      dest: skin
+      type: string
+      max_length: 26
+    - source: Genitourinary
+      dest: genitourinary
+      type: string
+      max_length: 26
+    - source: Cardiovascular
+      dest: cardiovascular
+      type: string
+      max_length: 26
+    - source: START_DATE
+      dest: start_date
+      type: string
+      max_length: 20
+    - source: END_DATE
+      dest: end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_spp
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_spp
+    fields:
+    - source:
+      - State
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 148
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 12
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 182
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hvbp_hf
+  destinations:
+  - name: usgov_hhs_hosp_comp_hvbp_hf
+    fields:
+    - source:
+      - Provider Number
+      dest: id
+    - source:
+      - Provider Number
+      - HF-1 Performance Rate
+      - HF-1 Achievement Points
+      - HF-1 Improvement Points
+      - HF-1 Measure Score
+      - HF Condition/Procedure Score
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: HF-1 Performance Rate
+      dest: hf_1_performance_rate
+      type: string
+      max_length: 26
+    - source: HF-1 Achievement Points
+      dest: hf_1_achievement_points
+      type: string
+      max_length: 26
+    - source: HF-1 Improvement Points
+      dest: hf_1_improvement_points
+      type: string
+      max_length: 26
+    - source: HF-1 Measure Score
+      dest: hf_1_measure_score
+      type: string
+      max_length: 26
+    - source: HF Condition/Procedure Score
+      dest: hf_condition_procedure_score
+      type: string
+      max_length: 26
+- name: usgov.hhs.hosp_comp.hosp_quart_qm_ipfqr_hospital
+  destinations:
+  - name: usgov_hhs_hosp_comp_hosp_quart_qm_ipfqr_hospital
+    fields:
+    - source:
+      - Provider_Number
+      - Start_Date
+      - End_Date
+      dest: id
+    - source:
+      - Provider_Number
+      - HBIPS-2_Measure_Description
+      - HBIPS-2_Overall_Rate_Per_1000
+      - HBIPS-2_Overall_Num
+      - HBIPS-2_Overall_Den
+      - HBIPS-2_Overall_Footnote
+      - HBIPS-2_1-12_Rate_Per_1000
+      - HBIPS-2_1-12_Num
+      - HBIPS-2_1-12_Den
+      - HBIPS-2_1-12_Footnote
+      - HBIPS-2_13-17_Rate_Per_1000
+      - HBIPS-2_13-17_Num
+      - HBIPS-2_13-17_Den
+      - HBIPS-2_13-17_Footnote
+      - HBIPS-2_18-64_Rate_Per_1000
+      - HBIPS-2_18-64_Num
+      - HBIPS-2_18-64_Den
+      - HBIPS-2_18-64_Footnote
+      - HBIPS-2_65_Over_Rate_Per_1000
+      - HBIPS-2_65_Over_Num
+      - HBIPS-2_65_Over_Den
+      - HBIPS-2_65_Over_Footnote
+      - HBIPS-3_Measure_Description
+      - HBIPS-3_Overall_Rate_Per_1000
+      - HBIPS-3_Overall_Num
+      - HBIPS-3_Overall_Den
+      - HBIPS-3_Overall_Footnote
+      - HBIPS-3_1-12_Rate_Per_1000
+      - HBIPS-3_1-12_Num
+      - HBIPS-3_1-12_Den
+      - HBIPS-3_1-12_Footnote
+      - HBIPS-3_13-17_Rate_Per_1000
+      - HBIPS-3_13-17_Num
+      - HBIPS-3_13-17_Den
+      - HBIPS-3_13-17_Footnote
+      - HBIPS-3_18-64_Rate_Per_1000
+      - HBIPS-3_18-64_Num
+      - HBIPS-3_18-64_Den
+      - HBIPS-3_18-64_Footnote
+      - HBIPS-3_65_Over_Rate_Per_1000
+      - HBIPS-3_65_Over_Num
+      - HBIPS-3_65_Over_Den
+      - HBIPS-3_65_Over_Footnote
+      - HBIPS-4_Measure_Description
+      - HBIPS-4_Overall_%_of_Total
+      - HBIPS-4_Overall_Num
+      - HBIPS-4_Overall_Den
+      - HBIPS-4_Overall_Footnote
+      - HBIPS-4_1-12_%_of_Total
+      - HBIPS-4_1-12_Num
+      - HBIPS-4_1-12_Den
+      - HBIPS-4_1-12_Footnote
+      - HBIPS-4_13-17_%_of_Total
+      - HBIPS-4_13-17_Num
+      - HBIPS-4_13-17_Den
+      - HBIPS-4_13-17_Footnote
+      - HBIPS-4_18-64_%_of_Total
+      - HBIPS-4_18-64_Num
+      - HBIPS-4_18-64_Den
+      - HBIPS-4_18-64_Footnote
+      - HBIPS-4_65_Over_%_of_Total
+      - HBIPS-4_65_Over_Num
+      - HBIPS-4_65_Over_Den
+      - HBIPS-4_65_Over_Footnote
+      - HBIPS-5_Measure_Description
+      - HBIPS-5_Overall_%_of_Total
+      - HBIPS-5_Overall_Num
+      - HBIPS-5_Overall_Den
+      - HBIPS-5_Overall_Footnote
+      - HBIPS-5_1-12_%_of_Total
+      - HBIPS-5_1-12_Num
+      - HBIPS-5_1-12_Den
+      - HBIPS-5_1-12_Footnote
+      - HBIPS-5_13-17_%_of_Total
+      - HBIPS-5_13-17_Num
+      - HBIPS-5_13-17_Den
+      - HBIPS-5_13-17_Footnote
+      - HBIPS-5_18-64_%_of_Total
+      - HBIPS-5_18-64_Num
+      - HBIPS-5_18-64_Den
+      - HBIPS-5_18-64_Footnote
+      - HBIPS-5_65_Over_%_of_Total
+      - HBIPS-5_65_Over_Num
+      - HBIPS-5_65_Over_Den
+      - HBIPS-5_65_Over_Footnote
+      - HBIPS-6_Measure_Description
+      - HBIPS-6_Overall_%_of_Total
+      - HBIPS-6_Overall_Num
+      - HBIPS-6_Overall_Den
+      - HBIPS-6_Overall_Footnote
+      - HBIPS-6_1-12_%_of_Total
+      - HBIPS-6_1-12_Num
+      - HBIPS-6_1-12_Den
+      - HBIPS-6_1-12_Footnote
+      - HBIPS-6_13-17_%_of_Total
+      - HBIPS-6_13-17_Num
+      - HBIPS-6_13-17_Den
+      - HBIPS-6_13-17_Footnote
+      - HBIPS-6_18-64_%_of_Total
+      - HBIPS-6_18-64_Num
+      - HBIPS-6_18-64_Den
+      - HBIPS-6_18-64_Footnote
+      - HBIPS-6_65_Over_%_of_Total
+      - HBIPS-6_65_Over_Num
+      - HBIPS-6_65_Over_Den
+      - HBIPS-6_65_Over_Footnote
+      - HBIPS-7_Measure_Description
+      - HBIPS-7_Overall_%_of_Total
+      - HBIPS-7_Overall_Num
+      - HBIPS-7_Overall_Den
+      - HBIPS-7_Overall_Footnote
+      - HBIPS-7_1-12_%_of_Total
+      - HBIPS-7_1-12_Num
+      - HBIPS-7_1-12_Den
+      - HBIPS-7_1-12_Footnote
+      - HBIPS-7_13-17_%_of_Total
+      - HBIPS-7_13-17_Num
+      - HBIPS-7_13-17_Den
+      - HBIPS-7_13-17_Footnote
+      - HBIPS-7_18-64_%_of_Total
+      - HBIPS-7_18-64_Num
+      - HBIPS-7_18-64_Den
+      - HBIPS-7_18-64_Footnote
+      - HBIPS-7_65_Over_%_of_Total
+      - HBIPS-7_65_Over_Num
+      - HBIPS-7_65_Over_Den
+      - HBIPS-7_65_Over_Footnote
+      - Start_Date
+      - End_Date
+      dest: revision
+    - source: Provider_Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider_Number
+      dest: provider_id
+    - source: HBIPS-2_Measure_Description
+      dest: hbips_2_measure_description
+      type: string
+      max_length: 62
+    - source: HBIPS-2_Overall_Rate_Per_1000
+      dest: hbips_2_overall_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-2_Overall_Num
+      dest: hbips_2_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-2_Overall_Den
+      dest: hbips_2_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-2_Overall_Footnote
+      dest: hbips_2_overall_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-2_1-12_Rate_Per_1000
+      dest: hbips_2_1_12_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-2_1-12_Num
+      dest: hbips_2_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-2_1-12_Den
+      dest: hbips_2_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-2_1-12_Footnote
+      dest: hbips_2_1_12_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-2_13-17_Rate_Per_1000
+      dest: hbips_2_13_17_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-2_13-17_Num
+      dest: hbips_2_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-2_13-17_Den
+      dest: hbips_2_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-2_13-17_Footnote
+      dest: hbips_2_13_17_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-2_18-64_Rate_Per_1000
+      dest: hbips_2_18_64_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-2_18-64_Num
+      dest: hbips_2_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-2_18-64_Den
+      dest: hbips_2_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-2_18-64_Footnote
+      dest: hbips_2_18_64_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-2_65_Over_Rate_Per_1000
+      dest: hbips_2_65_over_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-2_65_Over_Num
+      dest: hbips_2_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-2_65_Over_Den
+      dest: hbips_2_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-2_65_Over_Footnote
+      dest: hbips_2_65_over_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-3_Measure_Description
+      dest: hbips_3_measure_description
+      type: string
+      max_length: 36
+    - source: HBIPS-3_Overall_Rate_Per_1000
+      dest: hbips_3_overall_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-3_Overall_Num
+      dest: hbips_3_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-3_Overall_Den
+      dest: hbips_3_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-3_Overall_Footnote
+      dest: hbips_3_overall_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-3_1-12_Rate_Per_1000
+      dest: hbips_3_1_12_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-3_1-12_Num
+      dest: hbips_3_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-3_1-12_Den
+      dest: hbips_3_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-3_1-12_Footnote
+      dest: hbips_3_1_12_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-3_13-17_Rate_Per_1000
+      dest: hbips_3_13_17_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-3_13-17_Num
+      dest: hbips_3_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-3_13-17_Den
+      dest: hbips_3_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-3_13-17_Footnote
+      dest: hbips_3_13_17_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-3_18-64_Rate_Per_1000
+      dest: hbips_3_18_64_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-3_18-64_Num
+      dest: hbips_3_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-3_18-64_Den
+      dest: hbips_3_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-3_18-64_Footnote
+      dest: hbips_3_18_64_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-3_65_Over_Rate_Per_1000
+      dest: hbips_3_65_over_rate_per_1000
+      type: string
+      max_length: 26
+    - source: HBIPS-3_65_Over_Num
+      dest: hbips_3_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-3_65_Over_Den
+      dest: hbips_3_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-3_65_Over_Footnote
+      dest: hbips_3_65_over_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-4_Measure_Description
+      dest: hbips_4_measure_description
+      type: string
+      max_length: 114
+    - source: HBIPS-4_Overall_%_of_Total
+      dest: hbips_4_overall_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-4_Overall_Num
+      dest: hbips_4_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-4_Overall_Den
+      dest: hbips_4_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-4_Overall_Footnote
+      dest: hbips_4_overall_footnote
+      type: int
+    - source: HBIPS-4_1-12_%_of_Total
+      dest: hbips_4_1_12_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-4_1-12_Num
+      dest: hbips_4_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-4_1-12_Den
+      dest: hbips_4_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-4_1-12_Footnote
+      dest: hbips_4_1_12_footnote
+      type: int
+    - source: HBIPS-4_13-17_%_of_Total
+      dest: hbips_4_13_17_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-4_13-17_Num
+      dest: hbips_4_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-4_13-17_Den
+      dest: hbips_4_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-4_13-17_Footnote
+      dest: hbips_4_13_17_footnote
+      type: int
+    - source: HBIPS-4_18-64_%_of_Total
+      dest: hbips_4_18_64_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-4_18-64_Num
+      dest: hbips_4_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-4_18-64_Den
+      dest: hbips_4_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-4_18-64_Footnote
+      dest: hbips_4_18_64_footnote
+      type: int
+    - source: HBIPS-4_65_Over_%_of_Total
+      dest: hbips_4_65_over_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-4_65_Over_Num
+      dest: hbips_4_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-4_65_Over_Den
+      dest: hbips_4_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-4_65_Over_Footnote
+      dest: hbips_4_65_over_footnote
+      type: int
+    - source: HBIPS-5_Measure_Description
+      dest: hbips_5_measure_description
+      type: string
+      max_length: 176
+    - source: HBIPS-5_Overall_%_of_Total
+      dest: hbips_5_overall_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-5_Overall_Num
+      dest: hbips_5_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-5_Overall_Den
+      dest: hbips_5_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-5_Overall_Footnote
+      dest: hbips_5_overall_footnote
+      type: int
+    - source: HBIPS-5_1-12_%_of_Total
+      dest: hbips_5_1_12_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-5_1-12_Num
+      dest: hbips_5_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-5_1-12_Den
+      dest: hbips_5_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-5_1-12_Footnote
+      dest: hbips_5_1_12_footnote
+      type: int
+    - source: HBIPS-5_13-17_%_of_Total
+      dest: hbips_5_13_17_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-5_13-17_Num
+      dest: hbips_5_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-5_13-17_Den
+      dest: hbips_5_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-5_13-17_Footnote
+      dest: hbips_5_13_17_footnote
+      type: int
+    - source: HBIPS-5_18-64_%_of_Total
+      dest: hbips_5_18_64_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-5_18-64_Num
+      dest: hbips_5_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-5_18-64_Den
+      dest: hbips_5_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-5_18-64_Footnote
+      dest: hbips_5_18_64_footnote
+      type: int
+    - source: HBIPS-5_65_Over_%_of_Total
+      dest: hbips_5_65_over_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-5_65_Over_Num
+      dest: hbips_5_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-5_65_Over_Den
+      dest: hbips_5_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-5_65_Over_Footnote
+      dest: hbips_5_65_over_footnote
+      type: int
+    - source: HBIPS-6_Measure_Description
+      dest: hbips_6_measure_description
+      type: string
+      max_length: 86
+    - source: HBIPS-6_Overall_%_of_Total
+      dest: hbips_6_overall_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-6_Overall_Num
+      dest: hbips_6_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-6_Overall_Den
+      dest: hbips_6_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-6_Overall_Footnote
+      dest: hbips_6_overall_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-6_1-12_%_of_Total
+      dest: hbips_6_1_12_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-6_1-12_Num
+      dest: hbips_6_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-6_1-12_Den
+      dest: hbips_6_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-6_1-12_Footnote
+      dest: hbips_6_1_12_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-6_13-17_%_of_Total
+      dest: hbips_6_13_17_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-6_13-17_Num
+      dest: hbips_6_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-6_13-17_Den
+      dest: hbips_6_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-6_13-17_Footnote
+      dest: hbips_6_13_17_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-6_18-64_%_of_Total
+      dest: hbips_6_18_64_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-6_18-64_Num
+      dest: hbips_6_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-6_18-64_Den
+      dest: hbips_6_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-6_18-64_Footnote
+      dest: hbips_6_18_64_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-6_65_Over_%_of_Total
+      dest: hbips_6_65_over_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-6_65_Over_Num
+      dest: hbips_6_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-6_65_Over_Den
+      dest: hbips_6_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-6_65_Over_Footnote
+      dest: hbips_6_65_over_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-7_Measure_Description
+      dest: hbips_7_measure_description
+      type: string
+      max_length: 194
+    - source: HBIPS-7_Overall_%_of_Total
+      dest: hbips_7_overall_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-7_Overall_Num
+      dest: hbips_7_overall_num
+      type: string
+      max_length: 26
+    - source: HBIPS-7_Overall_Den
+      dest: hbips_7_overall_den
+      type: string
+      max_length: 26
+    - source: HBIPS-7_Overall_Footnote
+      dest: hbips_7_overall_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-7_1-12_%_of_Total
+      dest: hbips_7_1_12_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-7_1-12_Num
+      dest: hbips_7_1_12_num
+      type: string
+      max_length: 26
+    - source: HBIPS-7_1-12_Den
+      dest: hbips_7_1_12_den
+      type: string
+      max_length: 26
+    - source: HBIPS-7_1-12_Footnote
+      dest: hbips_7_1_12_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-7_13-17_%_of_Total
+      dest: hbips_7_13_17_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-7_13-17_Num
+      dest: hbips_7_13_17_num
+      type: string
+      max_length: 26
+    - source: HBIPS-7_13-17_Den
+      dest: hbips_7_13_17_den
+      type: string
+      max_length: 26
+    - source: HBIPS-7_13-17_Footnote
+      dest: hbips_7_13_17_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-7_18-64_%_of_Total
+      dest: hbips_7_18_64_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-7_18-64_Num
+      dest: hbips_7_18_64_num
+      type: string
+      max_length: 26
+    - source: HBIPS-7_18-64_Den
+      dest: hbips_7_18_64_den
+      type: string
+      max_length: 26
+    - source: HBIPS-7_18-64_Footnote
+      dest: hbips_7_18_64_footnote
+      type: string
+      max_length: 2
+    - source: HBIPS-7_65_Over_%_of_Total
+      dest: hbips_7_65_over_of_total
+      type: string
+      max_length: 26
+    - source: HBIPS-7_65_Over_Num
+      dest: hbips_7_65_over_num
+      type: string
+      max_length: 26
+    - source: HBIPS-7_65_Over_Den
+      dest: hbips_7_65_over_den
+      type: string
+      max_length: 26
+    - source: HBIPS-7_65_Over_Footnote
+      dest: hbips_7_65_over_footnote
+      type: string
+      max_length: 2
+    - source: Start_Date
+      dest: start_date
+      type: string
+      max_length: 20
+    - source: End_Date
+      dest: end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_hosp
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_hosp
+    fields:
+    - source:
+      - Provider ID
+      dest: id
+    - source:
+      - Provider ID
+      - Hospital Name
+      - Address
+      - City
+      - State
+      - ZIP Code
+      - County Name
+      - Phone Number
+      - Hospital Type
+      - Hospital Ownership
+      - Emergency Services
+      dest: revision
+    - source: Provider ID
+      dest: provider_identifier
+      type: string
+      max_length: 12
+    - source: Hospital Name
+      dest: hospital_name
+      type: string
+      max_length: 100
+    - source: Address
+      dest: address
+      type: string
+      max_length: 100
+    - source: City
+      dest: city
+      type: string
+      max_length: 40
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: ZIP Code
+      dest: zip_code
+      type: int
+    - source: County Name
+      dest: county_name
+      type: string
+      max_length: 40
+    - source: Phone Number
+      dest: phone_number
+      type: bigint
+    - source: Hospital Type
+      dest: hospital_type
+      type: string
+      max_length: 72
+    - source: Hospital Ownership
+      dest: hospital_ownership
+      type: string
+      max_length: 86
+    - source: Emergency Services
+      dest: emergency_services
+      type: string
+      max_length: 6
+- name: usgov.hhs.hosp_comp.hqi_national_hai
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_hai
+    fields:
+    - source:
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 220
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 18
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: int
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_national_readm_death
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_readm_death
+    fields:
+    - source:
+      - Measure Name
+      - Measure ID
+      - National Rate
+      - Number of Hospitals Worse
+      - Number of Hospitals Same
+      - Number of Hospitals Better
+      - Number of Hospitals Too Few
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Measure Name
+      - Measure ID
+      - National Rate
+      - Number of Hospitals Worse
+      - Number of Hospitals Same
+      - Number of Hospitals Better
+      - Number of Hospitals Too Few
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 174
+    - source: Measure ID
+      dest: measure_id
+      type: string
+      max_length: 50
+    - source: National Rate
+      dest: national_rate
+      type: string
+      max_length: 18
+    - source: Number of Hospitals Worse
+      dest: number_of_hospitals_worse
+      type: int
+    - source: Number of Hospitals Same
+      dest: number_of_hospitals_same
+      type: int
+    - source: Number of Hospitals Better
+      dest: number_of_hospitals_better
+      type: int
+    - source: Number of Hospitals Too Few
+      dest: number_of_hospitals_too_few
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_readm_reduction
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_readm_reduction
+    fields:
+    - source:
+      - Provider Number
+      - Start Date
+      - End Date
+      dest: id
+    - source:
+      - Provider Number
+      - Measure Name
+      - Number of Discharges
+      - Footnote
+      - Excess Readmission Ratio
+      - Predicted Readmission Rate
+      - Expected Readmission Rate
+      - Number of Readmissions
+      - Start Date
+      - End Date
+      dest: revision
+    - source: Provider Number
+      dest: provider_number
+      type: int
+    - source:
+      - Provider Number
+      dest: provider_id
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 44
+    - source: Number of Discharges
+      dest: number_of_discharges
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 2
+    - source: Excess Readmission Ratio
+      dest: excess_readmission_ratio
+      type: string
+      max_length: 26
+    - source: Predicted Readmission Rate
+      dest: predicted_readmission_rate
+      type: string
+      max_length: 26
+    - source: Expected Readmission Rate
+      dest: expected_readmission_rate
+      type: string
+      max_length: 26
+    - source: Number of Readmissions
+      dest: number_of_readmissions
+      type: string
+      max_length: 34
+    - source: Start Date
+      dest: start_date
+      type: string
+      max_length: 20
+    - source: End Date
+      dest: end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_national_hcahps
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_hcahps
+    fields:
+    - source:
+      - HCAHPS Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - HCAHPS Measure ID
+      - HCAHPS Question
+      - HCAHPS Answer Description
+      - HCAHPS Answer Percent
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: HCAHPS Measure ID
+      dest: hcahps_measure_id
+      type: string
+      max_length: 34
+    - source:
+      - HCAHPS Measure ID
+      dest: measure_id
+    - source: HCAHPS Question
+      dest: hcahps_question
+      type: string
+      max_length: 218
+    - source: HCAHPS Answer Description
+      dest: hcahps_answer_description
+      type: string
+      max_length: 220
+    - source: HCAHPS Answer Percent
+      dest: hcahps_answer_percent
+      type: int
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_national_mv
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_national_mv
+    fields:
+    - source:
+      - Diagnosis Related Group
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - Diagnosis Related Group
+      - Denominator
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: Diagnosis Related Group
+      dest: diagnosis_related_group
+      type: string
+      max_length: 140
+    - source:
+      - Diagnosis Related Group
+      dest: drg_id
+    - source: Denominator
+      dest: denominator
+      type: int
+    - source: Footnote
+      dest: footnote
+      type: string
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20
+- name: usgov.hhs.hosp_comp.hqi_state_hai
+  destinations:
+  - name: usgov_hhs_hosp_comp_hqi_state_hai
+    fields:
+    - source:
+      - State
+      - Measure ID
+      - Measure Start Date
+      - Measure End Date
+      dest: id
+    - source:
+      - State
+      - Measure Name
+      - Measure ID
+      - Score
+      - Footnote
+      - Measure Start Date
+      - Measure End Date
+      dest: revision
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Measure Name
+      dest: measure_name
+      type: string
+      max_length: 220
+    - source: Measure ID
+      dest: measure_identifier
+      type: string
+      max_length: 28
+    - source:
+      - Measure ID
+      dest: measure_id
+    - source: Score
+      dest: score
+      type: string
+      max_length: 26
+    - source: Footnote
+      dest: footnote
+      type: string
+      max_length: 152
+    - source: Measure Start Date
+      dest: measure_start_date
+      type: string
+      max_length: 20
+    - source: Measure End Date
+      dest: measure_end_date
+      type: string
+      max_length: 20

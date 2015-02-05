@@ -1,0 +1,37 @@
+- name: usgov.hhs.hosp_comp_hospitals
+  pivot: usgov_hhs_hosp_comp_hqi_hosp
+  id: id
+  search_id: provider_identifier
+  relationships:
+  - include: usgov_hhs_hosp_comp_hqi_hosp_spp
+    name: spending_per_patient
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_hai
+    name: infections
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_hcahps
+    name: consumer_assessments
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_img
+    name: imaging
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_mv
+    name: medicare_volumes
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_readm_death
+    name: readmissions
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_struct
+    name: structural_measures
+    type: to_many
+    dest_id: provider_id
+  - include: usgov_hhs_hosp_comp_hqi_hosp_timelyeffective
+    name: timely_care
+    type: to_many
+    dest_id: provider_id
