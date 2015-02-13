@@ -1,0 +1,40 @@
+- name: usgov.hhs.ahrq.md_sid_2011
+  pivot: usgov_hhs_ahrq_md_sid_2011_observations
+  id: id
+  search_id: id
+  relationships:
+  - include: usgov_hhs_ahrq_md_sid_2011_chgs
+    name: charges
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_dxs
+    name: dxs
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_causes
+    name: causes
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_procedures
+    name: procs
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_group_causes
+    name: group_causes
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_group_procedures
+    name: group_procs
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_group_diagnoses
+    name: group_dx
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_groups
+    name: group
+    type: to_many
+    dest_id: sid_id
+  - include: usgov_hhs_ahrq_md_sid_2011_severity
+    name: severity
+    type: to_one

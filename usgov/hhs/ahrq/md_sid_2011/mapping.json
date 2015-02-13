@@ -1,0 +1,590 @@
+{
+   "mappings": {
+      "usgov.hhs.ahrq.md_sid_2011": {
+         "properties": {
+            "age": {
+               "type": "string"
+            },
+            "ageday": {
+               "type": "string"
+            },
+            "agemonth": {
+               "type": "string"
+            },
+            "amonth": {
+               "type": "long"
+            },
+            "asource": {
+               "type": "string"
+            },
+            "asource_x": {
+               "type": "long"
+            },
+            "atype": {
+               "type": "string"
+            },
+            "aweekend": {
+               "type": "long"
+            },
+            "ayear": {
+               "type": "long"
+            },
+            "bmonth": {
+               "type": "string"
+            },
+            "bwt": {
+               "type": "string"
+            },
+            "byear": {
+               "type": "string"
+            },
+            "causes": {
+               "properties": {
+                  "ccs_ecode": {
+                     "type": "string"
+                  },
+                  "ecode": {
+                     "type": "string"
+                  },
+                  "present_on_admission": {
+                     "type": "string"
+                  }
+               }
+            },
+            "charges": {
+               "properties": {
+                  "detailed_charges": {
+                     "type": "string"
+                  },
+                  "key": {
+                     "type": "double"
+                  },
+                  "revenue_code": {
+                     "type": "string"
+                  },
+                  "units": {
+                     "type": "string"
+                  }
+               }
+            },
+            "daysburnunit": {
+               "type": "string"
+            },
+            "daysccu": {
+               "type": "string"
+            },
+            "daysicu": {
+               "type": "string"
+            },
+            "daysnicu": {
+               "type": "string"
+            },
+            "dayspicu": {
+               "type": "string"
+            },
+            "daysshockunit": {
+               "type": "string"
+            },
+            "died": {
+               "type": "string"
+            },
+            "disp_x": {
+               "type": "long"
+            },
+            "dispuniform": {
+               "type": "string"
+            },
+            "dqtr": {
+               "type": "long"
+            },
+            "drg": {
+               "type": "long"
+            },
+            "drg24": {
+               "type": "long"
+            },
+            "drg_nopoa": {
+               "type": "long"
+            },
+            "drgver": {
+               "type": "long"
+            },
+            "dshospid": {
+               "type": "long"
+            },
+            "dxs": {
+               "properties": {
+                  "ccs_dx": {
+                     "type": "string"
+                  },
+                  "dx": {
+                     "type": "string"
+                  },
+                  "present_on_admission": {
+                     "type": "string"
+                  }
+               }
+            },
+            "female": {
+               "type": "string"
+            },
+            "group": {
+               "properties": {
+                  "injury": {
+                     "type": "long"
+                  },
+                  "injury_cut": {
+                     "type": "long"
+                  },
+                  "injury_drown": {
+                     "type": "long"
+                  },
+                  "injury_fall": {
+                     "type": "long"
+                  },
+                  "injury_fire": {
+                     "type": "long"
+                  },
+                  "injury_firearm": {
+                     "type": "long"
+                  },
+                  "injury_machinery": {
+                     "type": "long"
+                  },
+                  "injury_mvt": {
+                     "type": "long"
+                  },
+                  "injury_nature": {
+                     "type": "long"
+                  },
+                  "injury_poison": {
+                     "type": "long"
+                  },
+                  "injury_struck": {
+                     "type": "long"
+                  },
+                  "injury_suffocation": {
+                     "type": "long"
+                  },
+                  "intent_assault": {
+                     "type": "long"
+                  },
+                  "intent_self_harm": {
+                     "type": "long"
+                  },
+                  "intent_unintentional": {
+                     "type": "long"
+                  },
+                  "key": {
+                     "type": "double"
+                  },
+                  "multinjury": {
+                     "type": "long"
+                  },
+                  "u_blood": {
+                     "type": "long"
+                  },
+                  "u_cath": {
+                     "type": "long"
+                  },
+                  "u_ccu": {
+                     "type": "long"
+                  },
+                  "u_chestxray": {
+                     "type": "long"
+                  },
+                  "u_ctscan": {
+                     "type": "long"
+                  },
+                  "u_dialysis": {
+                     "type": "long"
+                  },
+                  "u_echo": {
+                     "type": "long"
+                  },
+                  "u_ed": {
+                     "type": "long"
+                  },
+                  "u_eeg": {
+                     "type": "long"
+                  },
+                  "u_ekg": {
+                     "type": "long"
+                  },
+                  "u_epo": {
+                     "type": "long"
+                  },
+                  "u_icu": {
+                     "type": "long"
+                  },
+                  "u_lithotripsy": {
+                     "type": "long"
+                  },
+                  "u_mhsa": {
+                     "type": "long"
+                  },
+                  "u_mrt": {
+                     "type": "long"
+                  },
+                  "u_newbn2l": {
+                     "type": "long"
+                  },
+                  "u_newbn3l": {
+                     "type": "long"
+                  },
+                  "u_newbn4l": {
+                     "type": "long"
+                  },
+                  "u_nucmed": {
+                     "type": "long"
+                  },
+                  "u_observation": {
+                     "type": "long"
+                  },
+                  "u_occtherapy": {
+                     "type": "long"
+                  },
+                  "u_organacq": {
+                     "type": "long"
+                  },
+                  "u_othimplants": {
+                     "type": "long"
+                  },
+                  "u_pacemaker": {
+                     "type": "long"
+                  },
+                  "u_phytherapy": {
+                     "type": "long"
+                  },
+                  "u_radtherapy": {
+                     "type": "long"
+                  },
+                  "u_resptherapy": {
+                     "type": "long"
+                  },
+                  "u_speechtherapy": {
+                     "type": "long"
+                  },
+                  "u_stress": {
+                     "type": "long"
+                  },
+                  "u_ultrasound": {
+                     "type": "long"
+                  }
+               }
+            },
+            "group_causes": {
+               "properties": {
+                  "ecode": {
+                     "type": "string"
+                  }
+               }
+            },
+            "group_dx": {
+               "properties": {
+                  "body_system": {
+                     "type": "string"
+                  },
+                  "chronic_condition": {
+                     "type": "string"
+                  },
+                  "diagnosis": {
+                     "type": "string"
+                  }
+               }
+            },
+            "group_procs": {
+               "properties": {
+                  "class": {
+                     "type": "string"
+                  },
+                  "procedure": {
+                     "type": "string"
+                  }
+               }
+            },
+            "hcup_ed": {
+               "type": "long"
+            },
+            "hcup_os": {
+               "type": "long"
+            },
+            "hcup_surgery_broad": {
+               "type": "long"
+            },
+            "hcup_surgery_narrow": {
+               "type": "long"
+            },
+            "hispanic_x": {
+               "type": "long"
+            },
+            "hospbrth": {
+               "type": "long"
+            },
+            "hospitalunit": {
+               "type": "string"
+            },
+            "hospst": {
+               "type": "string"
+            },
+            "id": {
+               "type": "string"
+            },
+            "key": {
+               "type": "double"
+            },
+            "los": {
+               "type": "string"
+            },
+            "los_x": {
+               "type": "long"
+            },
+            "maritalstatus_x": {
+               "type": "long"
+            },
+            "maritalstatusub04": {
+               "type": "string"
+            },
+            "mdc": {
+               "type": "long"
+            },
+            "mdc24": {
+               "type": "long"
+            },
+            "mdc_nopoa": {
+               "type": "long"
+            },
+            "mdnum1_r": {
+               "type": "string"
+            },
+            "mdnum2_r": {
+               "type": "string"
+            },
+            "medincstq": {
+               "type": "string"
+            },
+            "mrn_r": {
+               "type": "long"
+            },
+            "nchronic": {
+               "type": "long"
+            },
+            "ndx": {
+               "type": "long"
+            },
+            "necode": {
+               "type": "long"
+            },
+            "neomat": {
+               "type": "long"
+            },
+            "npr": {
+               "type": "long"
+            },
+            "orproc": {
+               "type": "long"
+            },
+            "os_time": {
+               "type": "long"
+            },
+            "p7edsrc_x": {
+               "type": "long"
+            },
+            "pay1": {
+               "type": "string"
+            },
+            "pay1_x": {
+               "type": "long"
+            },
+            "pay2": {
+               "type": "string"
+            },
+            "pay2_x": {
+               "type": "long"
+            },
+            "payer1_x": {
+               "type": "string"
+            },
+            "payer2_x": {
+               "type": "string"
+            },
+            "pl_cbsa": {
+               "type": "string"
+            },
+            "pl_msa1993": {
+               "type": "string"
+            },
+            "pl_nchs2006": {
+               "type": "string"
+            },
+            "pl_ruca10_2005": {
+               "type": "string"
+            },
+            "pl_ruca2005": {
+               "type": "string"
+            },
+            "pl_ruca4_2005": {
+               "type": "string"
+            },
+            "pl_rucc2003": {
+               "type": "string"
+            },
+            "pl_uic2003": {
+               "type": "string"
+            },
+            "pl_ur_cat4": {
+               "type": "string"
+            },
+            "procs": {
+               "properties": {
+                  "ccs_proc": {
+                     "type": "string"
+                  },
+                  "days_from_admission_to_proc": {
+                     "type": "string"
+                  },
+                  "proc": {
+                     "type": "string"
+                  }
+               }
+            },
+            "proctype": {
+               "type": "long"
+            },
+            "pstate": {
+               "type": "string"
+            },
+            "pstco": {
+               "type": "string"
+            },
+            "pstco2": {
+               "type": "string"
+            },
+            "race": {
+               "type": "string"
+            },
+            "race_x": {
+               "type": "long"
+            },
+            "readmit": {
+               "type": "string"
+            },
+            "severity": {
+               "properties": {
+                  "cm_aids": {
+                     "type": "long"
+                  },
+                  "cm_alcohol": {
+                     "type": "long"
+                  },
+                  "cm_anemdef": {
+                     "type": "long"
+                  },
+                  "cm_arth": {
+                     "type": "long"
+                  },
+                  "cm_bldloss": {
+                     "type": "long"
+                  },
+                  "cm_chf": {
+                     "type": "long"
+                  },
+                  "cm_chrnlung": {
+                     "type": "long"
+                  },
+                  "cm_coag": {
+                     "type": "long"
+                  },
+                  "cm_depress": {
+                     "type": "long"
+                  },
+                  "cm_dm": {
+                     "type": "long"
+                  },
+                  "cm_dmcx": {
+                     "type": "long"
+                  },
+                  "cm_drug": {
+                     "type": "long"
+                  },
+                  "cm_htn_c": {
+                     "type": "long"
+                  },
+                  "cm_hypothy": {
+                     "type": "long"
+                  },
+                  "cm_liver": {
+                     "type": "long"
+                  },
+                  "cm_lymph": {
+                     "type": "long"
+                  },
+                  "cm_lytes": {
+                     "type": "long"
+                  },
+                  "cm_mets": {
+                     "type": "long"
+                  },
+                  "cm_neuro": {
+                     "type": "long"
+                  },
+                  "cm_obese": {
+                     "type": "long"
+                  },
+                  "cm_para": {
+                     "type": "long"
+                  },
+                  "cm_perivasc": {
+                     "type": "long"
+                  },
+                  "cm_psych": {
+                     "type": "long"
+                  },
+                  "cm_pulmcirc": {
+                     "type": "long"
+                  },
+                  "cm_renlfail": {
+                     "type": "long"
+                  },
+                  "cm_tumor": {
+                     "type": "long"
+                  },
+                  "cm_ulcer": {
+                     "type": "long"
+                  },
+                  "cm_valve": {
+                     "type": "long"
+                  },
+                  "cm_wghtloss": {
+                     "type": "long"
+                  },
+                  "key": {
+                     "type": "double"
+                  }
+               }
+            },
+            "totchg": {
+               "type": "string"
+            },
+            "totchg_x": {
+               "type": "string"
+            },
+            "tran_in": {
+               "type": "string"
+            },
+            "tran_out": {
+               "type": "string"
+            },
+            "year": {
+               "type": "long"
+            },
+            "zip3": {
+               "type": "string"
+            },
+            "zipinc_qrtl": {
+               "type": "string"
+            }
+         }
+      }
+   }
+}

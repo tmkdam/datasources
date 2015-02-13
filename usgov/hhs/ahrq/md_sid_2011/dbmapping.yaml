@@ -1,0 +1,758 @@
+sources:
+- name: usgov.hhs.ahrq.md_sid_2011.chgs
+  destinations:
+  - name: usgov_hhs_ahrq_md_sid_2011_chgs
+    extract: REVCD(\d+)
+    ignore:
+      "REVCD{0}":
+      - ""
+    fields:
+    - source:
+      - KEY
+      - REVCD{0}
+      dest: id
+    - source:
+      - KEY
+      - REVCD{0}
+      dest: revision
+    - source: KEY
+      dest: key
+      type: bigint
+    - source:
+      - KEY
+      dest: sid_id
+    - source: REVCD{0}
+      dest: revenue_code
+      type: string
+      max_length: 8
+    - source: REVCHG{0}
+      dest: detailed_charges
+      type: string
+      max_length: 24
+    - source: UNIT{0}
+      dest: units
+      type: string
+      max_length: 16
+- name: usgov.hhs.ahrq.md_sid_2011.core
+  destinations:
+  - name: usgov_hhs_ahrq_md_sid_2011_dxs
+    extract: DX(\d+)
+    ignore:
+      "DX{0}":
+      - ""
+    fields:
+    - source:
+      - KEY
+      - DX{0}
+      dest: id
+    - source:
+      - KEY
+      - DX{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: DX{0}
+      dest: dx
+    - source: DXCCS{0}
+      dest: ccs_dx
+    - source: DXPOA{0}
+      dest: present_on_admission
+  - name: usgov_hhs_ahrq_md_sid_2011_causes
+    extract: ECODE(\d+)
+    ignore:
+      "ECODE{0}":
+      - ""
+    fields:
+    - source:
+      - KEY
+      - ECODE{0}
+      dest: id
+    - source:
+      - KEY
+      - ECODE{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: ECODE{0}
+      dest: ecode
+    - source: E_CCS{0}
+      dest: ccs_ecode
+    - source: E_POA{0}
+      dest: present_on_admission
+  - name: usgov_hhs_ahrq_md_sid_2011_procedures
+    extract: PR(\d+)
+    ignore:
+      "PR{0}":
+      - ""
+    fields:
+    - source:
+      - KEY
+      - PR{0}
+      dest: id
+    - source:
+      - KEY
+      - PR{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: PR{0}
+      dest: proc
+    - source: PRCCS{0}
+      dest: ccs_proc
+    - source: PRDAY{0}
+      dest: days_from_admission_to_proc
+  - name: usgov_hhs_ahrq_md_sid_2011_observations
+    fields:
+    - source:
+      - KEY
+      dest: id
+    - source:
+      - KEY
+      dest: revision
+    - source: AGE
+      dest: age
+      type: int
+      mapping:
+        "-99": ""
+        "-66": ""
+    - source: AGEDAY
+      dest: ageday
+      type: int
+      mapping:
+        "-99": ""
+        "-66": ""
+    - source: AGEMONTH
+      dest: agemonth
+      type: int
+      mapping:
+        "-99": ""
+        "-66": ""
+    - source: AMONTH
+      dest: amonth
+      type: int
+    - source: ASOURCE
+      dest: asource
+      type: int
+      mapping:
+        "-9": ""
+    - source: ASOURCE_X
+      dest: asource_x
+      type: int
+    - source: ATYPE
+      dest: atype
+      type: string
+      max_length: 4
+    - source: AWEEKEND
+      dest: aweekend
+      type: int
+    - source: BWT
+      dest: bwt
+      type: string
+      max_length: 8
+    - source: DIED
+      dest: died
+      type: string
+      max_length: 4
+    - source: DISPUNIFORM
+      dest: dispuniform
+      type: string
+      max_length: 4
+    - source: DISP_X
+      dest: disp_x
+      type: int
+    - source: DQTR
+      dest: dqtr
+      type: int
+    - source: DRG
+      dest: drg
+      type: int
+    - source: DRG24
+      dest: drg24
+      type: int
+    - source: DRGVER
+      dest: drgver
+      type: int
+    - source: DRG_NoPOA
+      dest: drg_nopoa
+      type: int
+    - source: DSHOSPID
+      dest: dshospid
+      type: int
+    - source: DaysBurnUnit
+      dest: daysburnunit
+      type: string
+      max_length: 6
+    - source: DaysCCU
+      dest: daysccu
+      type: string
+      max_length: 6
+    - source: DaysICU
+      dest: daysicu
+      type: string
+      max_length: 6
+    - source: DaysNICU
+      dest: daysnicu
+      type: string
+      max_length: 6
+    - source: DaysPICU
+      dest: dayspicu
+      type: string
+      max_length: 6
+    - source: DaysShockUnit
+      dest: daysshockunit
+      type: string
+      max_length: 6
+    - source: FEMALE
+      dest: female
+      type: string
+      max_length: 4
+    - source: HCUP_ED
+      dest: hcup_ed
+      type: int
+    - source: HCUP_OS
+      dest: hcup_os
+      type: int
+    - source: HCUP_SURGERY_BROAD
+      dest: hcup_surgery_broad
+      type: int
+    - source: HCUP_SURGERY_NARROW
+      dest: hcup_surgery_narrow
+      type: int
+    - source: HISPANIC_X
+      dest: hispanic_x
+      type: int
+    - source: HOSPBRTH
+      dest: hospbrth
+      type: int
+    - source: HOSPST
+      dest: hospst
+      type: string
+      max_length: 4
+    - source: HospitalUnit
+      dest: hospitalunit
+      type: string
+      max_length: 4
+    - source: KEY
+      dest: key
+      type: bigint
+    - source: LOS
+      dest: los
+      type: string
+      max_length: 10
+    - source: LOS_X
+      dest: los_x
+      type: int
+    - source: MARITALSTATUSUB04
+      dest: maritalstatusub04
+      type: string
+      max_length: 2
+    - source: MARITALSTATUS_X
+      dest: maritalstatus_x
+      type: int
+    - source: MDC
+      dest: mdc
+      type: int
+    - source: MDC24
+      dest: mdc24
+      type: int
+    - source: MDC_NoPOA
+      dest: mdc_nopoa
+      type: int
+    - source: MDNUM1_R
+      dest: mdnum1_r
+      type: string
+      max_length: 18
+    - source: MDNUM2_R
+      dest: mdnum2_r
+      type: string
+      max_length: 18
+    - source: MEDINCSTQ
+      dest: medincstq
+      type: string
+      max_length: 4
+    - source: MRN_R
+      dest: mrn_r
+      type: int
+    - source: NCHRONIC
+      dest: nchronic
+      type: int
+    - source: NDX
+      dest: ndx
+      type: int
+    - source: NECODE
+      dest: necode
+      type: int
+    - source: NEOMAT
+      dest: neomat
+      type: int
+    - source: NPR
+      dest: npr
+      type: int
+    - source: ORPROC
+      dest: orproc
+      type: int
+    - source: OS_TIME
+      dest: os_time
+      type: int
+    - source: P7EDSRC_X
+      dest: p7edsrc_x
+      type: int
+    - source: PAY1
+      dest: pay1
+      type: string
+      max_length: 4
+    - source: PAY1_X
+      dest: pay1_x
+      type: int
+    - source: PAY2
+      dest: pay2
+      type: string
+      max_length: 4
+    - source: PAY2_X
+      dest: pay2_x
+      type: int
+    - source: PAYER1_X
+      dest: payer1_x
+      type: string
+      max_length: 4
+    - source: PAYER2_X
+      dest: payer2_x
+      type: string
+      max_length: 4
+    - source: PL_CBSA
+      dest: pl_cbsa
+      type: string
+      max_length: 6
+    - source: PL_MSA1993
+      dest: pl_msa1993
+      type: string
+      max_length: 6
+    - source: PL_NCHS2006
+      dest: pl_nchs2006
+      type: string
+      max_length: 4
+    - source: PL_RUCA10_2005
+      dest: pl_ruca10_2005
+      type: string
+      max_length: 4
+    - source: PL_RUCA2005
+      dest: pl_ruca2005
+      type: string
+      max_length: 8
+    - source: PL_RUCA4_2005
+      dest: pl_ruca4_2005
+      type: string
+      max_length: 4
+    - source: PL_RUCC2003
+      dest: pl_rucc2003
+      type: string
+      max_length: 4
+    - source: PL_UIC2003
+      dest: pl_uic2003
+      type: string
+      max_length: 4
+    - source: PL_UR_CAT4
+      dest: pl_ur_cat4
+      type: string
+      max_length: 4
+    - source: PROCTYPE
+      dest: proctype
+      type: int
+    - source: PSTATE
+      dest: pstate
+      type: string
+      max_length: 4
+    - source: PSTCO
+      dest: pstco
+      type: string
+      max_length: 10
+    - source: PSTCO2
+      dest: pstco2
+      type: string
+      max_length: 10
+    - source: RACE
+      dest: race
+      type: string
+      max_length: 4
+    - source: RACE_X
+      dest: race_x
+      type: int
+    - source: READMIT
+      dest: readmit
+      type: string
+      max_length: 4
+    - source: TOTCHG
+      dest: totchg
+      type: string
+      max_length: 20
+    - source: TOTCHG_X
+      dest: totchg_x
+      type: string
+      max_length: 30
+    - source: TRAN_IN
+      dest: tran_in
+      type: string
+      max_length: 4
+    - source: TRAN_OUT
+      dest: tran_out
+      type: string
+      max_length: 4
+    - source: YEAR
+      dest: year
+      type: int
+    - source: ZIP3
+      dest: zip3
+      type: string
+      max_length: 6
+    - source: ZIPINC_QRTL
+      dest: zipinc_qrtl
+      type: string
+      max_length: 6
+    - source: AYEAR
+      dest: ayear
+      type: int
+    - source: BMONTH
+      dest: bmonth
+      type: string
+      max_length: 4
+    - source: BYEAR
+      dest: byear
+      type: string
+      max_length: 8
+- name: usgov.hhs.ahrq.md_sid_2011.dx_pr_grps
+  destinations:
+  - name: usgov_hhs_ahrq_md_sid_2011_group_causes
+    extract: E_MCCS(\d+)
+    ignore:
+      "E_MCCS{0}":
+      - ""
+    fields:
+    - source:
+      - KEY
+      - E_MCCS{0}
+      dest: id
+    - source:
+      - KEY
+      - E_MCCS{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: E_MCCS{0}
+      dest: ecode
+      type: string
+      max_length: 10
+  - name: usgov_hhs_ahrq_md_sid_2011_group_procedures
+    extract: PCLASS(\d+)
+    ignore:
+      "PCLASS{0}":
+      - ""
+      - "-9"
+    fields:
+    - source:
+      - KEY
+      - PCLASS{0}
+      dest: id
+    - source:
+      - KEY
+      - PCLASS{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: PCLASS{0}
+      dest: class
+      type: string
+      max_length: 4
+    - source: PRMCCS{0}
+      dest: procedure
+      type: string
+      max_length: 16
+  - name: usgov_hhs_ahrq_md_sid_2011_group_diagnoses
+    extract: CHRON(\d+)
+    ignore:
+      "CHRON{0}":
+      - ""
+      - "-9"
+    fields:
+    - source:
+      - KEY
+      - CHRON{0}
+      dest: id
+    - source:
+      - KEY
+      - CHRON{0}
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: CHRON{0}
+      dest: chronic_condition
+      type: string
+      max_length: 4
+    - source: CHRONB{0}
+      dest: body_system
+      type: string
+      max_length: 4
+    - source: DXMCCS{0}
+      dest: diagnosis
+      type: string
+      max_length: 22
+  - name: usgov_hhs_ahrq_md_sid_2011_groups
+    fields:
+    - source:
+      - KEY
+      dest: id
+    - source:
+      - KEY
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: INJURY
+      dest: injury
+      type: int
+    - source: INJURY_CUT
+      dest: injury_cut
+      type: int
+    - source: INJURY_DROWN
+      dest: injury_drown
+      type: int
+    - source: INJURY_FALL
+      dest: injury_fall
+      type: int
+    - source: INJURY_FIRE
+      dest: injury_fire
+      type: int
+    - source: INJURY_FIREARM
+      dest: injury_firearm
+      type: int
+    - source: INJURY_MACHINERY
+      dest: injury_machinery
+      type: int
+    - source: INJURY_MVT
+      dest: injury_mvt
+      type: int
+    - source: INJURY_NATURE
+      dest: injury_nature
+      type: int
+    - source: INJURY_POISON
+      dest: injury_poison
+      type: int
+    - source: INJURY_STRUCK
+      dest: injury_struck
+      type: int
+    - source: INJURY_SUFFOCATION
+      dest: injury_suffocation
+      type: int
+    - source: INTENT_ASSAULT
+      dest: intent_assault
+      type: int
+    - source: INTENT_SELF_HARM
+      dest: intent_self_harm
+      type: int
+    - source: INTENT_UNINTENTIONAL
+      dest: intent_unintentional
+      type: int
+    - source: KEY
+      dest: key
+      type: bigint
+    - source: MULTINJURY
+      dest: multinjury
+      type: int
+    - source: U_BLOOD
+      dest: u_blood
+      type: int
+    - source: U_CATH
+      dest: u_cath
+      type: int
+    - source: U_CCU
+      dest: u_ccu
+      type: int
+    - source: U_CHESTXRAY
+      dest: u_chestxray
+      type: int
+    - source: U_CTSCAN
+      dest: u_ctscan
+      type: int
+    - source: U_DIALYSIS
+      dest: u_dialysis
+      type: int
+    - source: U_ECHO
+      dest: u_echo
+      type: int
+    - source: U_ED
+      dest: u_ed
+      type: int
+    - source: U_EEG
+      dest: u_eeg
+      type: int
+    - source: U_EKG
+      dest: u_ekg
+      type: int
+    - source: U_EPO
+      dest: u_epo
+      type: int
+    - source: U_ICU
+      dest: u_icu
+      type: int
+    - source: U_LITHOTRIPSY
+      dest: u_lithotripsy
+      type: int
+    - source: U_MHSA
+      dest: u_mhsa
+      type: int
+    - source: U_MRT
+      dest: u_mrt
+      type: int
+    - source: U_NEWBN2L
+      dest: u_newbn2l
+      type: int
+    - source: U_NEWBN3L
+      dest: u_newbn3l
+      type: int
+    - source: U_NEWBN4L
+      dest: u_newbn4l
+      type: int
+    - source: U_NUCMED
+      dest: u_nucmed
+      type: int
+    - source: U_OBSERVATION
+      dest: u_observation
+      type: int
+    - source: U_OCCTHERAPY
+      dest: u_occtherapy
+      type: int
+    - source: U_ORGANACQ
+      dest: u_organacq
+      type: int
+    - source: U_OTHIMPLANTS
+      dest: u_othimplants
+      type: int
+    - source: U_PACEMAKER
+      dest: u_pacemaker
+      type: int
+    - source: U_PHYTHERAPY
+      dest: u_phytherapy
+      type: int
+    - source: U_RADTHERAPY
+      dest: u_radtherapy
+      type: int
+    - source: U_RESPTHERAPY
+      dest: u_resptherapy
+      type: int
+    - source: U_SPEECHTHERAPY
+      dest: u_speechtherapy
+      type: int
+    - source: U_STRESS
+      dest: u_stress
+      type: int
+    - source: U_ULTRASOUND
+      dest: u_ultrasound
+      type: int
+- name: usgov.hhs.ahrq.md_sid_2011.severity
+  destinations:
+  - name: usgov_hhs_ahrq_md_sid_2011_severity
+    fields:
+    - source:
+      - KEY
+      dest: id
+    - source:
+      - KEY
+      dest: revision
+    - source:
+      - KEY
+      dest: sid_id
+    - source: KEY
+      dest: key
+      type: bigint
+    - source: CM_AIDS
+      dest: cm_aids
+      type: int
+    - source: CM_ALCOHOL
+      dest: cm_alcohol
+      type: int
+    - source: CM_ANEMDEF
+      dest: cm_anemdef
+      type: int
+    - source: CM_ARTH
+      dest: cm_arth
+      type: int
+    - source: CM_BLDLOSS
+      dest: cm_bldloss
+      type: int
+    - source: CM_CHF
+      dest: cm_chf
+      type: int
+    - source: CM_CHRNLUNG
+      dest: cm_chrnlung
+      type: int
+    - source: CM_COAG
+      dest: cm_coag
+      type: int
+    - source: CM_DEPRESS
+      dest: cm_depress
+      type: int
+    - source: CM_DM
+      dest: cm_dm
+      type: int
+    - source: CM_DMCX
+      dest: cm_dmcx
+      type: int
+    - source: CM_DRUG
+      dest: cm_drug
+      type: int
+    - source: CM_HTN_C
+      dest: cm_htn_c
+      type: int
+    - source: CM_HYPOTHY
+      dest: cm_hypothy
+      type: int
+    - source: CM_LIVER
+      dest: cm_liver
+      type: int
+    - source: CM_LYMPH
+      dest: cm_lymph
+      type: int
+    - source: CM_LYTES
+      dest: cm_lytes
+      type: int
+    - source: CM_METS
+      dest: cm_mets
+      type: int
+    - source: CM_NEURO
+      dest: cm_neuro
+      type: int
+    - source: CM_OBESE
+      dest: cm_obese
+      type: int
+    - source: CM_PARA
+      dest: cm_para
+      type: int
+    - source: CM_PERIVASC
+      dest: cm_perivasc
+      type: int
+    - source: CM_PSYCH
+      dest: cm_psych
+      type: int
+    - source: CM_PULMCIRC
+      dest: cm_pulmcirc
+      type: int
+    - source: CM_RENLFAIL
+      dest: cm_renlfail
+      type: int
+    - source: CM_TUMOR
+      dest: cm_tumor
+      type: int
+    - source: CM_ULCER
+      dest: cm_ulcer
+      type: int
+    - source: CM_VALVE
+      dest: cm_valve
+      type: int
+    - source: CM_WGHTLOSS
+      dest: cm_wghtloss
+      type: int

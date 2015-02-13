@@ -1,0 +1,5 @@
+sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+searchHosts = [
+  "localhost"
+]
+mdSid2011Dir = "/Users/untoldone/working/HCUP-MD-2011/SID"

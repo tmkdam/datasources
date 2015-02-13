@@ -14,9 +14,9 @@ func showUsage() {
 	fmt.Printf("Usage: %s <command>\n", os.Args[0])
 	fmt.Println("=============================\n")
 	fmt.Println("Avaialable commands:")
-	fmt.Printf("%s bootstrap    # setup datasource in BloomAPI\n", os.Args[0])
-	fmt.Printf("%s update       # fetch/index latest data and add to BloomAPI\n", os.Args[0])
-	fmt.Printf("%s drop         # drop all sources\n", os.Args[0])
+	fmt.Printf("%s bootstrap   # setup datasource in BloomAPI\n", os.Args[0])
+	fmt.Printf("%s fetch       # fetch data\n", os.Args[0])
+	fmt.Printf("%s update      # fetch/index latest data and add to BloomAPI\n", os.Args[0])
 }
 
 func main() {

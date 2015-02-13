@@ -192,7 +192,8 @@ sources:
     extract: Provider License Number_(\d+)
     parent_key: npi_id
     ignore:
-     "Healthcare Provider Taxonomy Code_{0}": ""
+     "Healthcare Provider Taxonomy Code_{0}":
+     - ""
     fields:
     - dest: id
       source:
@@ -235,9 +236,10 @@ sources:
         Y: yes
         N: no
   - name: usgov_hhs_npi_locations
-    extract: Provider First Line Business (\w+) Address
+    extract: Provider First Line Business (.+) Address
     ignore:
-      "Provider First Line Business {0} Address": ""
+      "Provider First Line Business {0} Address":
+      - ""
     fields:
     - source:
       - Provider First Line Business {0} Address
@@ -295,7 +297,8 @@ sources:
       max_length: 20
   - name: usgov_hhs_npi_organization_officials
     ignore:
-      "Authorized Official Last Name": ""
+      "Authorized Official Last Name":
+      - ""
     fields:
     - source:
       - Authorized Official Last Name
@@ -355,7 +358,8 @@ sources:
     extract: Other Provider Identifier_(\d+)
     parent_key: npi_id
     ignore:
-      "Other Provider Identifier_{0}": ""
+      "Other Provider Identifier_{0}":
+      - ""
     fields:
     - source:
       - NPI
@@ -403,7 +407,8 @@ sources:
       max_length: 80
   - name: usgov_hhs_npi_parent_orgs
     ignore:
-      "Parent Organization LBN": ""
+      "Parent Organization LBN":
+      - ""
     fields:
     - dest: id
       source:
@@ -427,7 +432,8 @@ sources:
     extract: Healthcare Provider Taxonomy Group_(\d+)
     parent_key: npi_id
     ignore:
-      "Healthcare Provider Taxonomy Group_{0}": ""
+      "Healthcare Provider Taxonomy Group_{0}":
+      - ""
     fields:
     - dest: id
       source:

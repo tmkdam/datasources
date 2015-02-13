@@ -1,6 +1,7 @@
 - name: usgov.hhs.npi
   pivot: usgov_hhs_npis
-  id: npi
+  id: id
+  search_id: npi
   relationships:
   - include: usgov_hhs_npi_licenses
     name: provider_details
@@ -13,7 +14,7 @@
   - include: usgov_hhs_npi_locations
     name: practice_address
     type: to_one
-    source_id: business_location_id
+    source_id: practice_location_id
   - include: usgov_hhs_npi_organization_officials
     name: organization_official
     type: to_one
