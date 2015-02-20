@@ -2,6 +2,7 @@
   pivot: usgov_hhs_npis
   id: id
   search_id: npi
+  public: true
   relationships:
   - include: usgov_hhs_npi_licenses
     name: provider_details

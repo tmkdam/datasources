@@ -2,6 +2,7 @@
   pivot: usgov_hhs_hcpcses
   id: id
   search_id: code
+  public: true
   select:
   - healthcare_common_procedure_coding_system_code AS code
   - hcpcs_long_description AS long_description

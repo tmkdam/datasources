@@ -2,6 +2,7 @@
   pivot: usgov_hhs_medicare_specialty_codes
   id: id
   search_id: code
+  public: true
   select:
   - medicare_specialty_code AS code
   - medicare_specialty_description AS description

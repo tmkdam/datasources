@@ -2,6 +2,7 @@
   pivot: nucc_hcpt
   id: id
   search_id: code
+  public: true
   select:
   - code
   - type
