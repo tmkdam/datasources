@@ -1,0 +1,655 @@
+{
+   "admission_month": {
+      "type": "long"
+   },
+   "admission_on_weekend": {
+      "type": "long"
+   },
+   "admission_source_source": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "admission_source_uniform": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "admission_type": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "admission_year": {
+      "type": "long"
+   },
+   "age": {
+      "type": "long"
+   },
+   "age_days": {
+      "type": "long"
+   },
+   "age_months": {
+      "type": "long"
+   },
+   "birth_in_hospital": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "birth_month": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "birth_weight_grams": {
+      "type": "long"
+   },
+   "birth_year": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "calendar_year": {
+      "type": "long"
+   },
+   "causes": {
+      "properties": {
+         "ccs_ecode": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "ecode": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "present_on_admission": {
+            "type": "string",
+"index": "not_analyzed"
+         }
+      }
+   },
+   "charges": {
+      "properties": {
+         "detailed_charges": {
+            "type": "long"
+         },
+         "key": {
+            "type": "double"
+         },
+         "revenue_code": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "units": {
+            "type": "long"
+         }
+      }
+   },
+   "condition_code_p7": {
+      "type": "long"
+   },
+   "core_based_statistical_area": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "days_in_burn": {
+      "type": "long"
+   },
+   "days_in_coronary": {
+      "type": "long"
+   },
+   "days_in_icu": {
+      "type": "long"
+   },
+   "days_in_neonetal": {
+      "type": "long"
+   },
+   "days_in_pediatric": {
+      "type": "long"
+   },
+   "days_in_shock_trauma": {
+      "type": "long"
+   },
+   "diagnoses": {
+      "properties": {
+         "ccs_dx": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "code": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "present_on_admission": {
+            "type": "string",
+"index": "not_analyzed"
+         }
+      }
+   },
+   "dicharge_quarter": {
+      "type": "long"
+   },
+   "died_while_hospitalized": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "discharge_special_unit_acute_care": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "drg_24": {
+      "type": "long"
+   },
+   "drg_grouper_version_on_discharge": {
+      "type": "long"
+   },
+   "drg_in_effect_on_discharge": {
+      "type": "long"
+   },
+   "drg_on_discharge_no_poa": {
+      "type": "long"
+   },
+   "gender": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "group": {
+      "properties": {
+         "injury": {
+            "type": "long"
+         },
+         "injury_cut": {
+            "type": "long"
+         },
+         "injury_drown": {
+            "type": "long"
+         },
+         "injury_fall": {
+            "type": "long"
+         },
+         "injury_fire": {
+            "type": "long"
+         },
+         "injury_firearm": {
+            "type": "long"
+         },
+         "injury_machinery": {
+            "type": "long"
+         },
+         "injury_mvt": {
+            "type": "long"
+         },
+         "injury_nature": {
+            "type": "long"
+         },
+         "injury_poison": {
+            "type": "long"
+         },
+         "injury_struck": {
+            "type": "long"
+         },
+         "injury_suffocation": {
+            "type": "long"
+         },
+         "intent_assault": {
+            "type": "long"
+         },
+         "intent_self_harm": {
+            "type": "long"
+         },
+         "intent_unintentional": {
+            "type": "long"
+         },
+         "key": {
+            "type": "double"
+         },
+         "multinjury": {
+            "type": "long"
+         },
+         "utilized_blood": {
+            "type": "long"
+         },
+         "utilized_cardiac_cath_lab": {
+            "type": "long"
+         },
+         "utilized_cardiac_stress_test": {
+            "type": "long"
+         },
+         "utilized_chest_xray": {
+            "type": "long"
+         },
+         "utilized_computed_tomography": {
+            "type": "long"
+         },
+         "utilized_coronary_care_unit": {
+            "type": "long"
+         },
+         "utilized_echocardiology": {
+            "type": "long"
+         },
+         "utilized_electroencephalogram": {
+            "type": "long"
+         },
+         "utilized_emergency_room": {
+            "type": "long"
+         },
+         "utilized_epo": {
+            "type": "long"
+         },
+         "utilized_icu": {
+            "type": "long"
+         },
+         "utilized_lithotripsy": {
+            "type": "long"
+         },
+         "utilized_medical_resonance_tech": {
+            "type": "long"
+         },
+         "utilized_metal_health_substance_abuse": {
+            "type": "long"
+         },
+         "utilized_nuclear_medicine": {
+            "type": "long"
+         },
+         "utilized_nursery_level_2": {
+            "type": "long"
+         },
+         "utilized_nursery_level_3": {
+            "type": "long"
+         },
+         "utilized_nursery_level_4": {
+            "type": "long"
+         },
+         "utilized_observation_room": {
+            "type": "long"
+         },
+         "utilized_occupational_therapy": {
+            "type": "long"
+         },
+         "utilized_organ_aquisition": {
+            "type": "long"
+         },
+         "utilized_other_implants": {
+            "type": "long"
+         },
+         "utilized_pacemaker": {
+            "type": "long"
+         },
+         "utilized_physical_therapy": {
+            "type": "long"
+         },
+         "utilized_radiology_therapeutic_or_chemo": {
+            "type": "long"
+         },
+         "utilized_renal_dialysis": {
+            "type": "long"
+         },
+         "utilized_respiratory_services": {
+            "type": "long"
+         },
+         "utilized_speech_lang_pathology": {
+            "type": "long"
+         },
+         "utilized_ultrasound": {
+            "type": "long"
+         }
+      }
+   },
+   "group_causes": {
+      "properties": {
+         "ecode": {
+            "type": "string",
+"index": "not_analyzed"
+         }
+      }
+   },
+   "group_dx": {
+      "properties": {
+         "body_system": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "chronic_condition": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "diagnosis": {
+            "type": "string",
+"index": "not_analyzed"
+         }
+      }
+   },
+   "group_procs": {
+      "properties": {
+         "class": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "procedure": {
+            "type": "string",
+"index": "not_analyzed"
+         }
+      }
+   },
+   "hcup_emergency_service": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "hcup_observation_stay": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "hcup_surgery_broad": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "hcup_surgery_narrow": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "hispanic_ethnicity": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "hospital_id": {
+      "type": "long"
+   },
+   "hospital_state_postal_code": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "id": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "key": {
+      "type": "double"
+   },
+   "length_of_stay_days": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "length_of_stay_days_source": {
+      "type": "long"
+   },
+   "major_operating_room_procedure": {
+      "type": "long"
+   },
+   "marital_status_source": {
+      "type": "long"
+   },
+   "marital_status_ub04": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "mdc24": {
+      "type": "long"
+   },
+   "mdc_in_effect": {
+      "type": "long"
+   },
+   "mdc_wo_poa": {
+      "type": "long"
+   },
+   "median_household_income_for_patient_zip": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "median_income_patient_zip": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "medical_record_id": {
+      "type": "double"
+   },
+   "msa": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "nchronic": {
+      "type": "long"
+   },
+   "nchs_urban_rural_code_v2006": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "ndx": {
+      "type": "long"
+   },
+   "necode": {
+      "type": "long"
+   },
+   "neonatal_materal_dx_or_px": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "npr": {
+      "type": "long"
+   },
+   "patient_disposition_source": {
+      "type": "long"
+   },
+   "patient_disposition_uniform": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "patient_zip_first_3": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_plan_primary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_plan_primary_type": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_plan_secondary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_plan_secondary_type": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_primary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_primary_source": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_secondary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "payer_secondary_source": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "physician_primary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "physician_secondary": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "proc_type": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "procedures": {
+      "properties": {
+         "ccs_proc": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "code": {
+            "type": "string",
+"index": "not_analyzed"
+         },
+         "days_from_admission_to_proc": {
+            "type": "long"
+         }
+      }
+   },
+   "race": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "race_source": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "readmission": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "ruca": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "ruca_levels_10": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "ruca_levels_2": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "rucc_2003": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "severity": {
+      "properties": {
+         "aids": {
+            "type": "long"
+         },
+         "alcohol_abuse": {
+            "type": "long"
+         },
+         "arthritis_autoimmune": {
+            "type": "long"
+         },
+         "blood_loss_anemia": {
+            "type": "long"
+         },
+         "chronic_pulmonary_disease": {
+            "type": "long"
+         },
+         "coagulophathy": {
+            "type": "long"
+         },
+         "congestive_heard_failure": {
+            "type": "long"
+         },
+         "deficiency_anemias": {
+            "type": "long"
+         },
+         "depression": {
+            "type": "long"
+         },
+         "diabetes_chronic": {
+            "type": "long"
+         },
+         "diabetes_uncomplicated": {
+            "type": "long"
+         },
+         "drug_abuse": {
+            "type": "long"
+         },
+         "fluid_electrolyte_disorders": {
+            "type": "long"
+         },
+         "hypertension": {
+            "type": "long"
+         },
+         "hypothyroidism": {
+            "type": "long"
+         },
+         "key": {
+            "type": "double"
+         },
+         "liver_disease": {
+            "type": "long"
+         },
+         "lymphoma": {
+            "type": "long"
+         },
+         "metastatic_cancer": {
+            "type": "long"
+         },
+         "obesity": {
+            "type": "long"
+         },
+         "other_neurologoical_disorders": {
+            "type": "long"
+         },
+         "paralysis": {
+            "type": "long"
+         },
+         "peptic_ulcer_disease_excluding_bleeding": {
+            "type": "long"
+         },
+         "peripheral_vascular_disorders": {
+            "type": "long"
+         },
+         "psychoses": {
+            "type": "long"
+         },
+         "pulmonary_circulation_disorders": {
+            "type": "long"
+         },
+         "renal_failure": {
+            "type": "long"
+         },
+         "solid_tumor_without_metastasis": {
+            "type": "long"
+         },
+         "valvular_disease": {
+            "type": "long"
+         },
+         "weight_loss": {
+            "type": "long"
+         }
+      }
+   },
+   "state_fips_code": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "state_fips_from_zip": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "state_postal_code": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "stay_time": {
+      "type": "long"
+   },
+   "totchg": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "totchg_x": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "transfer_in": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "transfer_out": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "urban_influence_code_2003": {
+      "type": "string",
+"index": "not_analyzed"
+   },
+   "urban_rural_4_categories": {
+      "type": "string",
+"index": "not_analyzed"
+   }
+}

@@ -8,7 +8,7 @@
     type: to_many
     dest_id: sid_id
   - include: usgov_hhs_ahrq_md_sid_2011_dxs
-    name: dxs
+    name: diagnoses
     type: to_many
     dest_id: sid_id
   - include: usgov_hhs_ahrq_md_sid_2011_causes
@@ -16,7 +16,7 @@
     type: to_many
     dest_id: sid_id
   - include: usgov_hhs_ahrq_md_sid_2011_procedures
-    name: procs
+    name: procedures
     type: to_many
     dest_id: sid_id
   - include: usgov_hhs_ahrq_md_sid_2011_group_causes

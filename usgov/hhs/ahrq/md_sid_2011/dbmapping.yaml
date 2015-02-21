@@ -27,12 +27,13 @@ sources:
       max_length: 8
     - source: REVCHG{0}
       dest: detailed_charges
-      type: string
+      type: decimal
       max_length: 24
     - source: UNIT{0}
       dest: units
-      type: string
-      max_length: 16
+      type: int
+      mapping:
+        "-9999999": ""
 - name: usgov.hhs.ahrq.md_sid_2011.core
   destinations:
   - name: usgov_hhs_ahrq_md_sid_2011_dxs
@@ -53,11 +54,26 @@ sources:
       - KEY
       dest: sid_id
     - source: DX{0}
-      dest: dx
+      dest: code
+      type: string
+      max_length: 10
     - source: DXCCS{0}
       dest: ccs_dx
+      type: string
+      max_length: 10
     - source: DXPOA{0}
       dest: present_on_admission
+      mapping:
+        "Y": "Yes"
+        "N": "No"
+        "U": "Documentation is insufficient"
+        "W": "Clinically undetermined"
+        "E": "Exempt from POA reporting"
+        "1": "Exempt from POA reporting"
+        "X": "Hospital exempt from POA reporting"
+        "": "Missing/Invalid"
+      type: string
+      max_length: 35
   - name: usgov_hhs_ahrq_md_sid_2011_causes
     extract: ECODE(\d+)
     ignore:
@@ -77,10 +93,25 @@ sources:
       dest: sid_id
     - source: ECODE{0}
       dest: ecode
+      type: string
+      max_length: 8
     - source: E_CCS{0}
       dest: ccs_ecode
+      type: string
+      max_length: 8
     - source: E_POA{0}
       dest: present_on_admission
+      mapping:
+        "Y": "Yes"
+        "N": "No"
+        "U": "Documentation is insufficient"
+        "W": "Clinically undetermined"
+        "E": "Exempt from POA reporting"
+        "1": "Exempt from POA reporting"
+        "X": "Hospital exempt from POA reporting"
+        "": "Missing/Invalid"
+      type: string
+      max_length: 35
   - name: usgov_hhs_ahrq_md_sid_2011_procedures
     extract: PR(\d+)
     ignore:
@@ -99,11 +130,16 @@ sources:
       - KEY
       dest: sid_id
     - source: PR{0}
-      dest: proc
+      dest: code
+      type: string
+      max_length: 10
     - source: PRCCS{0}
       dest: ccs_proc
+      type: string
+      max_length: 10
     - source: PRDAY{0}
       dest: days_from_admission_to_proc
+      type: int
   - name: usgov_hhs_ahrq_md_sid_2011_observations
     fields:
     - source:
@@ -119,162 +155,276 @@ sources:
         "-99": ""
         "-66": ""
     - source: AGEDAY
-      dest: ageday
+      dest: age_days
       type: int
       mapping:
         "-99": ""
         "-66": ""
     - source: AGEMONTH
-      dest: agemonth
+      dest: age_months
       type: int
       mapping:
         "-99": ""
         "-66": ""
     - source: AMONTH
-      dest: amonth
+      dest: admission_month
       type: int
     - source: ASOURCE
-      dest: asource
-      type: int
-      mapping:
-        "-9": ""
-    - source: ASOURCE_X
-      dest: asource_x
-      type: int
-    - source: ATYPE
-      dest: atype
+      dest: admission_source_uniform
       type: string
-      max_length: 4
+      max_length: 50
+      mapping:
+        "1": "Emergency department"
+        "2": "Another hospital"
+        "3": "Another health facility including long term care"
+        "4": "Court/Law enforcement"
+        "5": "Routine, birth, and other"
+    - source: ASOURCE_X
+      dest: admission_source_source
+      type: string
+      max_length: 115
+      mapping:
+        "20": "Trans from on-site acute care unit to on-site rehabilitation unit"
+        "24": "Trans from on-site acute care unit to chronic care"
+        "26": "Trans from acute care to on-site psychiatric unit"
+        "40": "Admit from another acute general hospital to miems-designated facility"
+        "41": "Admit from another acute care hospital inpatient service for any reason"
+        "21": "Transferred from on-site rehabilitation unit to acute care unit"
+        "22": "Transferred from on-site rehabilitation unit to chronic unit"
+        "23": "Transferred from chronic unit to on-site rehabilitation unit"
+        "25": "Transferred from on-site chronic unit to acute care unit"
+        "27": "Transferred from on-site psychiatric unit to acute care unit"
+        "28": "Transferred from on-site sub-acute unit to acute care unit"
+        "42": "Admit from rehab. Hospital or unit of another acute care hospital"
+        "43": "Admit from private psych. Hospital or unit of another acute care hospital"
+        "44": "Admit from chronic hospital"
+        "45": "Admit from other facility at which subacute services were provided"
+        "46": "Admit within 72 hours from off-site amb. surg. / care of another facility"
+        "47": "Admit from any other health institution (domiciliary, mental, halfway)"
+        "61": "Admit from a nursing home"
+        "29": "Admitted within 72 hours from on-site ambulatory/outpatient surgery unit in which ambulatory surgery is performed"
+        "30": "Newborn (Patient born in hospital)"
+        "60": "Admit from home, physician's office, noninstitutional source"
+        "99": "Source of admission is missing or unknown"
+    - source: ATYPE
+      dest: admission_type
+      type: string
+      max_length: 15
+      mapping:
+        "1": "Emergency"
+        "2": "Urgent"
+        "3": "Elective"
+        "4": "Newborn"
+        "5": "Trauma Center"
+        "6": "Other"
+        ".": "Missing"
+        ".A": "Invalid"
     - source: AWEEKEND
-      dest: aweekend
+      dest: admission_on_weekend
       type: int
     - source: BWT
-      dest: bwt
-      type: string
-      max_length: 8
+      dest: birth_weight_grams
+      type: int
+      mapping:
+        "-999": ""
     - source: DIED
-      dest: died
+      dest: died_while_hospitalized
       type: string
-      max_length: 4
+      max_length: 10
+      mapping:
+        "0": "false"
+        "1": "true"
+        ".": "missing"
+        ".A": "invalid"
     - source: DISPUNIFORM
-      dest: dispuniform
+      dest: patient_disposition_uniform
       type: string
       max_length: 4
     - source: DISP_X
-      dest: disp_x
+      dest: patient_disposition_source
       type: int
     - source: DQTR
-      dest: dqtr
+      dest: dicharge_quarter
       type: int
     - source: DRG
-      dest: drg
+      dest: drg_in_effect_on_discharge
       type: int
     - source: DRG24
-      dest: drg24
+      dest: drg_24
       type: int
     - source: DRGVER
-      dest: drgver
+      dest: drg_grouper_version_on_discharge
       type: int
     - source: DRG_NoPOA
-      dest: drg_nopoa
+      dest: drg_on_discharge_no_poa
       type: int
     - source: DSHOSPID
-      dest: dshospid
-      type: int
+      dest: hospital_id
+      type: string
+      length: 15
     - source: DaysBurnUnit
-      dest: daysburnunit
-      type: string
-      max_length: 6
+      dest: days_in_burn
+      type: int
+      mapping:
+        "-99": ""
     - source: DaysCCU
-      dest: daysccu
-      type: string
-      max_length: 6
+      dest: days_in_coronary
+      type: int
+      mapping:
+        "-99": ""
     - source: DaysICU
-      dest: daysicu
-      type: string
-      max_length: 6
+      dest: days_in_icu
+      type: int
+      mapping:
+        "-99": ""
     - source: DaysNICU
-      dest: daysnicu
-      type: string
-      max_length: 6
+      dest: days_in_neonetal
+      type: int
+      mapping:
+        "-99": ""
     - source: DaysPICU
-      dest: dayspicu
-      type: string
-      max_length: 6
+      dest: days_in_pediatric
+      type: int
+      mapping:
+        "-99": ""
     - source: DaysShockUnit
-      dest: daysshockunit
+      dest: days_in_shock_trauma
+      type: int
+      mapping:
+        "-99": ""
+    - source: FEMALE
+      dest: gender
       type: string
       max_length: 6
-    - source: FEMALE
-      dest: female
-      type: string
-      max_length: 4
+      mapping:
+        "1": "Female"
+        "0": "Male"
     - source: HCUP_ED
-      dest: hcup_ed
-      type: int
+      dest: hcup_emergency_service
+      type: string
+      max_length: 95
+      mapping:
+        "0": "Record does not meet any HCUP Emergency Department criteria"
+        "1": "Emergency Department revenue code on record"
+        "2": "Positive Emergency Department charge (when revenue center codes are not available)"
+        "3": "Emergency Department CPT procedure code on record"
+        "4": "Condition code P7 indication of ED admission, point of origin of ED, or admission source of ED"
     - source: HCUP_OS
-      dest: hcup_os
-      type: int
+      dest: hcup_observation_stay
+      type: string
+      max_length: 80
+      mapping:
+        "0": "Record does not meet any HCUP Observation Stay criteria"
+        "1": "Observation Stay revenue code on record"
+        "2": "Positive Observation Stay charge (when revenue center codes are not available)"
+        "3": "Revenue code 760 with observation stay CPT/HCPCS procedure code"
+        "4": "Observation Stay CPT procedure code on record"
     - source: HCUP_SURGERY_BROAD
       dest: hcup_surgery_broad
-      type: int
+      type: string
+      max_length: 90
+      mapping:
+        "0": "No surgery reported"
+        "1": "At least one procedure reported on record qualifies as a surgery using a broad definition"
     - source: HCUP_SURGERY_NARROW
       dest: hcup_surgery_narrow
-      type: int
+      type: string
+      max_length: 90
+      mapping:
+        "0": "No surgery reported"
+        "1": "At least one procedure reported on record qualifies as a surgery using a narrow definition"
     - source: HISPANIC_X
-      dest: hispanic_x
-      type: int
+      dest: hispanic_ethnicity
+      type: string
+      max_length: 30
+      mapping:
+        "1": "Spanish/Hispanic origin"
+        "2": "Not of Spanish/Hispanic origin"
+        "9": "Unknown"
     - source: HOSPBRTH
-      dest: hospbrth
-      type: int
+      dest: birth_in_hospital
+      type: string
+      max_length: 5
+      mapping:
+        "0": "false"
+        "1": "true"
     - source: HOSPST
-      dest: hospst
+      dest: hospital_state_postal_code
       type: string
       max_length: 4
     - source: HospitalUnit
-      dest: hospitalunit
+      dest: discharge_special_unit_acute_care
       type: string
-      max_length: 4
+      max_length: 15
+      mapping:
+        "1": "Medicine"
+        "2": "Surgery"
+        "3": "Obstetrics"
+        "4": "Newborn"
+        "5": "Pediatric"
+        "6": "Psychiatric"
+        "7": "Other"
+        "8": "Rehabilitation"
+        "10": "Chronic"
+        "09": "Missing"
+        "99": "Missing"
+        ".": "Missing"
+        ".A": "Invalid"
     - source: KEY
       dest: key
       type: bigint
     - source: LOS
-      dest: los
+      dest: length_of_stay_days
       type: string
       max_length: 10
     - source: LOS_X
-      dest: los_x
+      dest: length_of_stay_days_source
       type: int
     - source: MARITALSTATUSUB04
-      dest: maritalstatusub04
+      dest: marital_status_ub04
       type: string
-      max_length: 2
+      max_length: 45
+      mapping:
+        "I": "Single"
+        "M": "Married"
+        "A": "Common Law"
+        "B": "Registered Domestic Partner"
+        "S": "Separated"
+        "X": "Legally Separated"
+        "D": "Divorced"
+        "W": "Widowed"
+        "U": "Unmarried (single or divorced or widowed)"
+        "": "Unknown, not applicable, missing, or invalid"
     - source: MARITALSTATUS_X
-      dest: maritalstatus_x
+      dest: marital_status_source
       type: int
     - source: MDC
-      dest: mdc
+      dest: mdc_in_effect
       type: int
     - source: MDC24
       dest: mdc24
       type: int
     - source: MDC_NoPOA
-      dest: mdc_nopoa
+      dest: mdc_wo_poa
       type: int
     - source: MDNUM1_R
-      dest: mdnum1_r
+      dest: physician_primary
       type: string
       max_length: 18
+      mapping:
+        "-99999999": ""
     - source: MDNUM2_R
-      dest: mdnum2_r
+      dest: physician_secondary
       type: string
       max_length: 18
+      mapping:
+        "-99999999": ""
     - source: MEDINCSTQ
-      dest: medincstq
+      dest: median_income_patient_zip
       type: string
       max_length: 4
     - source: MRN_R
-      dest: mrn_r
+      dest: medical_record_id
       type: int
     - source: NCHRONIC
       dest: nchronic
@@ -286,140 +436,468 @@ sources:
       dest: necode
       type: int
     - source: NEOMAT
-      dest: neomat
-      type: int
+      dest: neonatal_materal_dx_or_px
+      type: string
+      max_length: 75
+      mapping:
+        "0": "No neonatal or maternal diagnosis or procedure on record"
+        "1": "Maternal diagnosis or procedure on record"
+        "2": "Neonatal diagnosis on record"
+        "3": "Neonatal diagnosis and maternal diagnoses or procedures on the same record"
     - source: NPR
       dest: npr
       type: int
     - source: ORPROC
-      dest: orproc
+      dest: major_operating_room_procedure
       type: int
     - source: OS_TIME
-      dest: os_time
+      dest: stay_time
       type: int
     - source: P7EDSRC_X
-      dest: p7edsrc_x
+      dest: condition_code_p7
       type: int
     - source: PAY1
-      dest: pay1
+      dest: payer_primary
       type: string
-      max_length: 4
+      max_length: 17
+      mapping:
+        "1": "Medicare"
+        "2": "Medicaid"
+        "3": "Private insurance"
+        "4": "Self-pay"
+        "5": "No charge"
+        "6": "Other"
+        ".": "Missing"
+        ".A": "Invalid"
     - source: PAY1_X
-      dest: pay1_x
-      type: int
+      dest: payer_primary_source
+      type: string
+      max_length: 45
+      mapping:
+        "01": "Medicare"
+        "15": "Medicare HMO"
+        "02": "Medicaid"
+        "14": "Medicaid HMO"
+        "04": "Blue Cross of MD"
+        "16": "Blue Cross of the National Capital Area (HMO)"
+        "17": "Blue Cross (other state)"
+        "05": "Commercial/PPO"
+        "12": "Managed Care"
+        "08": "Self-pay"
+        "09": "Charity - no charge"
+        "03": "Title V"
+        "06": "Other government program"
+        "07": "Worker's Compensation"
+        "10": "Other"
+        "11": "Donor"
+        "99": "Unknown"
+        "": "Missing"
+        ".A": "Invalid"
+        "27": "Unknown/invalid values"
+        "29": "Unknown/invalid values"
+        "37": "Unknown/invalid values"
+        "67": "Unknown/invalid values"
+        "77": "Unknown/invalid values"
     - source: PAY2
-      dest: pay2
+      dest: payer_secondary
       type: string
-      max_length: 4
+      max_length: 17
+      mapping:
+        "1": "Medicare"
+        "2": "Medicaid"
+        "3": "Private insurance"
+        "4": "Self-pay"
+        "5": "No charge"
+        "6": "Other"
+        ".": "Missing"
+        ".A": "Invalid"
     - source: PAY2_X
-      dest: pay2_x
-      type: int
+      dest: payer_secondary_source
+      type: string
+      max_length: 45
+      mapping:
+        "01": "Medicare"
+        "15": "Medicare HMO"
+        "02": "Medicaid"
+        "14": "Medicaid HMO"
+        "04": "Blue Cross of MD"
+        "16": "Blue Cross of the National Capital Area (HMO)"
+        "17": "Blue Cross (other state)"
+        "05": "Commercial/PPO"
+        "12": "Managed Care"
+        "08": "Self-pay"
+        "09": "Charity - no charge"
+        "03": "Title V"
+        "06": "Other government program"
+        "07": "Worker's Compensation"
+        "10": "Other"
+        "11": "Donor"
+        "99": "Unknown"
+        "": "Missing"
+        ".A": "Invalid"
+        "27": "Unknown/invalid values"
+        "29": "Unknown/invalid values"
+        "37": "Unknown/invalid values"
+        "67": "Unknown/invalid values"
+        "77": "Unknown/invalid values"
     - source: PAYER1_X
-      dest: payer1_x
+      dest: payer_plan_primary
       type: string
-      max_length: 4
+      max_length: 115
+      mapping:
+        "01": "Amerigroup"
+        "02": "Jai Medical Group"
+        "03": "Maryland Physicians Care"
+        "04": "Priority Partners"
+        "05": "United HealthCare"
+        "30": "Aetna Health Plans"
+        "31": "CareFirst Blue Choice"
+        "32": "Cigna Healthcare of Mid-Atlantic"
+        "33": "Coventry Health Plan of Delaware"
+        "34": "Kaiser Permanente"
+        "35": "MAMSI"
+        "36": "United Healthcare"
+        "37": "Other HMO/POS"
+        "42": "Amerigroup"
+        "43": "Coventry Health Plan of Delaware (Diamond Plan)"
+        "44": "Helix Family Choice, Inc."
+        "45": "JAI Medical Group"
+        "46": "Medicaid/Uninsured APS Maryland (psychiatric payer)"
+        "47": "Maryland Physicians Care"
+        "48": "Priority Partners"
+        "49": "United Healthcare (Americhoice)"
+        "50": "Other Medicaid MCO/HMO"
+        "55": "Aetna (Golden Choice)"
+        "56": "ElderHealth"
+        "57": "United Healthcare (Evercare)"
+        "58": "Other Medicare HMO"
+        "65": "Aetna"
+        "66": "CareFirst- CareFirst of Maryland, Inc (BC/BS Plan #190/690)"
+        "67": "CareFirst- Group Hospitalization and Medical Services Inc (Non HMO) (BC/BS Plan #080/580) Federal Employee Program"
+        "68": "CCN/First Health"
+        "69": "Cigna"
+        "70": "Employer Health Plan (EHP)"
+        "71": "Fidelity Benefits Administrator"
+        "72": "Great West One Plan"
+        "73": "Kaiser Permanente"
+        "74": "MAMSI (that is, Alliance PPO and MAMSI Life and Health)"
+        "75": "National Capital PPO (NCPPO)"
+        "76": "Private Health Care Systems (PHCS)"
+        "77": "Other Commercial, PPO, PPN, TPA"
+        "85": "American Psychiatric Systems (APS)"
+        "86": "Cigna Behavioral Health"
+        "87": "ComPsych"
+        "88": "Magellan"
+        "89": "Managed Health Network"
+        "90": "United Behavioral Health"
+        "91": "Value Options"
+        "92": "Other Behavioral Health"
+        "93": "MD Health Insurance Plan (MHIP) EPO"
+        "94": "MD Health Insurance Plan (MHIP) PPO"
+        "95": "Tricare - example: Health Net"
+        "96": "Uniformed Services Family Health Plan (USFHP)"
+        "97": "Other miscellaneous government programs"
+        "00": "Not applicable"
+        "99": "Unknown"
     - source: PAYER2_X
-      dest: payer2_x
+      dest: payer_plan_secondary
       type: string
-      max_length: 4
+      max_length: 115
+      mapping:
+        "01": "Amerigroup"
+        "02": "Jai Medical Group"
+        "03": "Maryland Physicians Care"
+        "04": "Priority Partners"
+        "05": "United HealthCare"
+        "30": "Aetna Health Plans"
+        "31": "CareFirst Blue Choice"
+        "32": "Cigna Healthcare of Mid-Atlantic"
+        "33": "Coventry Health Plan of Delaware"
+        "34": "Kaiser Permanente"
+        "35": "MAMSI"
+        "36": "United Healthcare"
+        "37": "Other HMO/POS"
+        "42": "Amerigroup"
+        "43": "Coventry Health Plan of Delaware (Diamond Plan)"
+        "44": "Helix Family Choice, Inc."
+        "45": "JAI Medical Group"
+        "46": "Medicaid/Uninsured APS Maryland (psychiatric payer)"
+        "47": "Maryland Physicians Care"
+        "48": "Priority Partners"
+        "49": "United Healthcare (Americhoice)"
+        "50": "Other Medicaid MCO/HMO"
+        "55": "Aetna (Golden Choice)"
+        "56": "ElderHealth"
+        "57": "United Healthcare (Evercare)"
+        "58": "Other Medicare HMO"
+        "65": "Aetna"
+        "66": "CareFirst- CareFirst of Maryland, Inc (BC/BS Plan #190/690)"
+        "67": "CareFirst- Group Hospitalization and Medical Services Inc (Non HMO) (BC/BS Plan #080/580) Federal Employee Program"
+        "68": "CCN/First Health"
+        "69": "Cigna"
+        "70": "Employer Health Plan (EHP)"
+        "71": "Fidelity Benefits Administrator"
+        "72": "Great West One Plan"
+        "73": "Kaiser Permanente"
+        "74": "MAMSI (that is, Alliance PPO and MAMSI Life and Health)"
+        "75": "National Capital PPO (NCPPO)"
+        "76": "Private Health Care Systems (PHCS)"
+        "77": "Other Commercial, PPO, PPN, TPA"
+        "85": "American Psychiatric Systems (APS)"
+        "86": "Cigna Behavioral Health"
+        "87": "ComPsych"
+        "88": "Magellan"
+        "89": "Managed Health Network"
+        "90": "United Behavioral Health"
+        "91": "Value Options"
+        "92": "Other Behavioral Health"
+        "93": "MD Health Insurance Plan (MHIP) EPO"
+        "94": "MD Health Insurance Plan (MHIP) PPO"
+        "95": "Tricare - example: Health Net"
+        "96": "Uniformed Services Family Health Plan (USFHP)"
+        "97": "Other miscellaneous government programs"
+        "00": "Not applicable"
+        "99": "Unknown"
+    - source: PAYER1_X
+      dest: payer_plan_primary_type
+      mapping:
+        "01": "Primary Adult Care (PAC) MCO"
+        "02": "Primary Adult Care (PAC) MCO"
+        "03": "Primary Adult Care (PAC) MCO"
+        "04": "Primary Adult Care (PAC) MCO"
+        "05": "Primary Adult Care (PAC) MCO"
+        "30": "HMO/POS"
+        "31": "HMO/POS"
+        "32": "HMO/POS"
+        "33": "HMO/POS"
+        "34": "HMO/POS"
+        "35": "HMO/POS"
+        "36": "HMO/POS"
+        "37": "HMO/POS"
+        "42": "Medicaid MCO/HMO"
+        "43": "Medicaid MCO/HMO"
+        "44": "Medicaid MCO/HMO"
+        "45": "Medicaid MCO/HMO"
+        "46": "Medicaid MCO/HMO"
+        "47": "Medicaid MCO/HMO"
+        "48": "Medicaid MCO/HMO"
+        "49": "Medicaid MCO/HMO"
+        "50": "Medicaid MCO/HMO"
+        "55": "Medicare HMO"
+        "56": "Medicare HMO"
+        "57": "Medicare HMO"
+        "58": "Medicare HMO"
+        "65": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "66": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "67": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "68": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "69": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "70": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "71": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "72": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "73": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "74": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "75": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "76": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "77": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "85": "Behavioral Health"
+        "86": "Behavioral Health"
+        "87": "Behavioral Health"
+        "88": "Behavioral Health"
+        "89": "Behavioral Health"
+        "90": "Behavioral Health"
+        "91": "Behavioral Health"
+        "92": "Behavioral Health"
+        "93": "Other Government Programs"
+        "94": "Other Government Programs"
+        "95": "Other Government Programs"
+        "96": "Other Government Programs"
+        "97": "Other Government Programs"
+        "00": "Other Government Programs"
+        "99": "Other Government Programs"
+    - source: PAYER2_X
+      dest: payer_plan_secondary_type
+      mapping:
+        "01": "Primary Adult Care (PAC) MCO"
+        "02": "Primary Adult Care (PAC) MCO"
+        "03": "Primary Adult Care (PAC) MCO"
+        "04": "Primary Adult Care (PAC) MCO"
+        "05": "Primary Adult Care (PAC) MCO"
+        "30": "HMO/POS"
+        "31": "HMO/POS"
+        "32": "HMO/POS"
+        "33": "HMO/POS"
+        "34": "HMO/POS"
+        "35": "HMO/POS"
+        "36": "HMO/POS"
+        "37": "HMO/POS"
+        "42": "Medicaid MCO/HMO"
+        "43": "Medicaid MCO/HMO"
+        "44": "Medicaid MCO/HMO"
+        "45": "Medicaid MCO/HMO"
+        "46": "Medicaid MCO/HMO"
+        "47": "Medicaid MCO/HMO"
+        "48": "Medicaid MCO/HMO"
+        "49": "Medicaid MCO/HMO"
+        "50": "Medicaid MCO/HMO"
+        "55": "Medicare HMO"
+        "56": "Medicare HMO"
+        "57": "Medicare HMO"
+        "58": "Medicare HMO"
+        "65": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "66": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "67": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "68": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "69": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "70": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "71": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "72": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "73": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "74": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "75": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "76": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "77": "Commercial (Indemnity), PPO/PPN/Third Party Administrators (TPAs)"
+        "85": "Behavioral Health"
+        "86": "Behavioral Health"
+        "87": "Behavioral Health"
+        "88": "Behavioral Health"
+        "89": "Behavioral Health"
+        "90": "Behavioral Health"
+        "91": "Behavioral Health"
+        "92": "Behavioral Health"
+        "93": "Other Government Programs"
+        "94": "Other Government Programs"
+        "95": "Other Government Programs"
+        "96": "Other Government Programs"
+        "97": "Other Government Programs"
+        "00": "Other Government Programs"
+        "99": "Other Government Programs"
     - source: PL_CBSA
-      dest: pl_cbsa
+      dest: core_based_statistical_area
       type: string
-      max_length: 6
+      max_length: 30
+      mapping:
+        "0": "Non-CBSA"
+        "1": "Micropolitan Statistical Area"
+        "2": "Metropolitan Statistical Area"
+        ".": "Missing"
     - source: PL_MSA1993
-      dest: pl_msa1993
+      dest: msa
       type: string
       max_length: 6
     - source: PL_NCHS2006
-      dest: pl_nchs2006
+      dest: nchs_urban_rural_code_v2006
       type: string
       max_length: 4
     - source: PL_RUCA10_2005
-      dest: pl_ruca10_2005
+      dest: ruca_levels_10
       type: string
       max_length: 4
     - source: PL_RUCA2005
-      dest: pl_ruca2005
+      dest: ruca
       type: string
       max_length: 8
     - source: PL_RUCA4_2005
-      dest: pl_ruca4_2005
+      dest: ruca_levels_2
       type: string
       max_length: 4
     - source: PL_RUCC2003
-      dest: pl_rucc2003
+      dest: rucc_2003
       type: string
       max_length: 4
     - source: PL_UIC2003
-      dest: pl_uic2003
+      dest: urban_influence_code_2003
       type: string
       max_length: 4
     - source: PL_UR_CAT4
-      dest: pl_ur_cat4
+      dest: urban_rural_4_categories
       type: string
       max_length: 4
     - source: PROCTYPE
-      dest: proctype
-      type: int
+      dest: proc_type
+      type: string
+      max_length: 70
+      mapping:
+        "0": "No ICD-9-CM or CPT procedures"
+        "1": "At least one ICD-9-CM procedure; no CPT/HCPCS procedures"
+        "2": "At least one CPT/HCPCS procedure; no ICD-9-CM procedures"
+        "3": "At least one ICD-9-CM procedure and at least one CPT/HCPCS procedure"
     - source: PSTATE
-      dest: pstate
+      dest: state_postal_code
       type: string
       max_length: 4
     - source: PSTCO
-      dest: pstco
+      dest: state_fips_code
       type: string
       max_length: 10
     - source: PSTCO2
-      dest: pstco2
+      dest: state_fips_from_zip
       type: string
       max_length: 10
     - source: RACE
       dest: race
       type: string
-      max_length: 4
+      max_length: 25
+      mapping:
+        "1": "White"
+        "2": "Black"
+        "3": "Hispanic"
+        "4": "Asian or Pacific Islander"
+        "5": "Native American"
+        "6": "Other"
+        ".": "Missing"
+        ".A": "Invalid"
     - source: RACE_X
-      dest: race_x
-      type: int
+      dest: race_source
+      type: string
+      max_length: 30
+      mapping:
+        "1": "White"
+        "2": "African American"
+        "3": "Asian or Pacific Islander"
+        "4": "American Indian, Eskimo, Aleut"
+        "5": "Other"
+        "6": "Bi-racial"
+        "9": "Unknown"
+        "": "Missing"
     - source: READMIT
-      dest: readmit
+      dest: readmission
       type: string
       max_length: 4
     - source: TOTCHG
-      dest: totchg
-      type: string
-      max_length: 20
+      dest: total_charges
+      type: decimal
     - source: TOTCHG_X
-      dest: totchg_x
-      type: string
-      max_length: 30
+      dest: total_charges_source
+      type: decimal
     - source: TRAN_IN
-      dest: tran_in
+      dest: transfer_in
       type: string
       max_length: 4
     - source: TRAN_OUT
-      dest: tran_out
+      dest: transfer_out
       type: string
       max_length: 4
     - source: YEAR
-      dest: year
+      dest: calendar_year
       type: int
     - source: ZIP3
-      dest: zip3
+      dest: patient_zip_first_3
       type: string
       max_length: 6
     - source: ZIPINC_QRTL
-      dest: zipinc_qrtl
+      dest: median_household_income_for_patient_zip
       type: string
       max_length: 6
     - source: AYEAR
-      dest: ayear
+      dest: admission_year
       type: int
     - source: BMONTH
-      dest: bmonth
+      dest: birth_month
       type: string
       max_length: 4
     - source: BYEAR
-      dest: byear
+      dest: birth_year
       type: string
       max_length: 8
 - name: usgov.hhs.ahrq.md_sid_2011.dx_pr_grps
@@ -564,94 +1042,94 @@ sources:
       dest: multinjury
       type: int
     - source: U_BLOOD
-      dest: u_blood
+      dest: utilized_blood
       type: int
     - source: U_CATH
-      dest: u_cath
+      dest: utilized_cardiac_cath_lab
       type: int
     - source: U_CCU
-      dest: u_ccu
+      dest: utilized_coronary_care_unit
       type: int
     - source: U_CHESTXRAY
-      dest: u_chestxray
+      dest: utilized_chest_xray
       type: int
     - source: U_CTSCAN
-      dest: u_ctscan
+      dest: utilized_computed_tomography
       type: int
     - source: U_DIALYSIS
-      dest: u_dialysis
+      dest: utilized_renal_dialysis
       type: int
     - source: U_ECHO
-      dest: u_echo
+      dest: utilized_echocardiology
       type: int
     - source: U_ED
-      dest: u_ed
+      dest: utilized_emergency_room
       type: int
     - source: U_EEG
-      dest: u_eeg
+      dest: utilized_electroencephalogram
       type: int
-    - source: U_EKG
+    - source: utilized_electrocardiogram
       dest: u_ekg
       type: int
     - source: U_EPO
-      dest: u_epo
+      dest: utilized_epo
       type: int
     - source: U_ICU
-      dest: u_icu
+      dest: utilized_icu
       type: int
     - source: U_LITHOTRIPSY
-      dest: u_lithotripsy
+      dest: utilized_lithotripsy
       type: int
     - source: U_MHSA
-      dest: u_mhsa
+      dest: utilized_metal_health_substance_abuse
       type: int
     - source: U_MRT
-      dest: u_mrt
+      dest: utilized_medical_resonance_tech
       type: int
     - source: U_NEWBN2L
-      dest: u_newbn2l
+      dest: utilized_nursery_level_2
       type: int
     - source: U_NEWBN3L
-      dest: u_newbn3l
+      dest: utilized_nursery_level_3
       type: int
     - source: U_NEWBN4L
-      dest: u_newbn4l
+      dest: utilized_nursery_level_4
       type: int
     - source: U_NUCMED
-      dest: u_nucmed
+      dest: utilized_nuclear_medicine
       type: int
     - source: U_OBSERVATION
-      dest: u_observation
+      dest: utilized_observation_room
       type: int
     - source: U_OCCTHERAPY
-      dest: u_occtherapy
+      dest: utilized_occupational_therapy
       type: int
     - source: U_ORGANACQ
-      dest: u_organacq
+      dest: utilized_organ_aquisition
       type: int
     - source: U_OTHIMPLANTS
-      dest: u_othimplants
+      dest: utilized_other_implants
       type: int
     - source: U_PACEMAKER
-      dest: u_pacemaker
+      dest: utilized_pacemaker
       type: int
     - source: U_PHYTHERAPY
-      dest: u_phytherapy
+      dest: utilized_physical_therapy
       type: int
     - source: U_RADTHERAPY
-      dest: u_radtherapy
+      dest: utilized_radiology_therapeutic_or_chemo
       type: int
     - source: U_RESPTHERAPY
-      dest: u_resptherapy
+      dest: utilized_respiratory_services
       type: int
     - source: U_SPEECHTHERAPY
-      dest: u_speechtherapy
+      dest: utilized_speech_lang_pathology
       type: int
     - source: U_STRESS
-      dest: u_stress
+      dest: utilized_cardiac_stress_test
       type: int
     - source: U_ULTRASOUND
-      dest: u_ultrasound
+      dest: utilized_ultrasound
       type: int
 - name: usgov.hhs.ahrq.md_sid_2011.severity
   destinations:
@@ -670,89 +1148,89 @@ sources:
       dest: key
       type: bigint
     - source: CM_AIDS
-      dest: cm_aids
+      dest: aids
       type: int
     - source: CM_ALCOHOL
-      dest: cm_alcohol
+      dest: alcohol_abuse
       type: int
     - source: CM_ANEMDEF
-      dest: cm_anemdef
+      dest: deficiency_anemias
       type: int
     - source: CM_ARTH
-      dest: cm_arth
+      dest: arthritis_autoimmune
       type: int
     - source: CM_BLDLOSS
-      dest: cm_bldloss
+      dest: blood_loss_anemia
       type: int
     - source: CM_CHF
-      dest: cm_chf
+      dest: congestive_heard_failure
       type: int
     - source: CM_CHRNLUNG
-      dest: cm_chrnlung
+      dest: chronic_pulmonary_disease
       type: int
     - source: CM_COAG
-      dest: cm_coag
+      dest: coagulophathy
       type: int
     - source: CM_DEPRESS
-      dest: cm_depress
+      dest: depression
       type: int
     - source: CM_DM
-      dest: cm_dm
+      dest: diabetes_uncomplicated
       type: int
     - source: CM_DMCX
-      dest: cm_dmcx
+      dest: diabetes_chronic
       type: int
     - source: CM_DRUG
-      dest: cm_drug
+      dest: drug_abuse
       type: int
     - source: CM_HTN_C
-      dest: cm_htn_c
+      dest: hypertension
       type: int
     - source: CM_HYPOTHY
-      dest: cm_hypothy
+      dest: hypothyroidism
       type: int
     - source: CM_LIVER
-      dest: cm_liver
+      dest: liver_disease
       type: int
     - source: CM_LYMPH
-      dest: cm_lymph
+      dest: lymphoma
       type: int
     - source: CM_LYTES
-      dest: cm_lytes
+      dest: fluid_electrolyte_disorders
       type: int
     - source: CM_METS
-      dest: cm_mets
+      dest: metastatic_cancer
       type: int
     - source: CM_NEURO
-      dest: cm_neuro
+      dest: other_neurologoical_disorders
       type: int
     - source: CM_OBESE
-      dest: cm_obese
+      dest: obesity
       type: int
     - source: CM_PARA
-      dest: cm_para
+      dest: paralysis
       type: int
     - source: CM_PERIVASC
-      dest: cm_perivasc
+      dest: peripheral_vascular_disorders
       type: int
     - source: CM_PSYCH
-      dest: cm_psych
+      dest: psychoses
       type: int
     - source: CM_PULMCIRC
-      dest: cm_pulmcirc
+      dest: pulmonary_circulation_disorders
       type: int
     - source: CM_RENLFAIL
-      dest: cm_renlfail
+      dest: renal_failure
       type: int
     - source: CM_TUMOR
-      dest: cm_tumor
+      dest: solid_tumor_without_metastasis
       type: int
     - source: CM_ULCER
-      dest: cm_ulcer
+      dest: peptic_ulcer_disease_excluding_bleeding
       type: int
     - source: CM_VALVE
-      dest: cm_valve
+      dest: valvular_disease
       type: int
     - source: CM_WGHTLOSS
-      dest: cm_wghtloss
+      dest: weight_loss
       type: int
