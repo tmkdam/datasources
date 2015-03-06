@@ -4,6 +4,8 @@ searchHosts = [
 ]
 sourceBinaries = [
 "./sources/nucc.hcpt/hcpt",
+"./sources/usgov.hhs.aco/aco",
+"./sources/usgov.hhs.ahrq.md_sid_2011/md_sid_2011",
 "./sources/usgov.hhs.hcpcs/hcpcs",
 "./sources/usgov.hhs.npi/npi",
 "./sources/usgov.hhs.pecos/pecos",

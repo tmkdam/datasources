@@ -17,7 +17,6 @@ var ignoreList = []string {
 	"github.com/gocodo/bloomsources/usgov/hhs/mu_attestation",
 	"github.com/gocodo/bloomsources/usgov/hhs/mu_report",
 	"github.com/gocodo/bloomsources/usgov/hhs/pos",
-	"github.com/gocodo/bloomsources/usgov/hhs/ahrq/md_sid_2011",
 }
 
 func searchDir(path string) []string {

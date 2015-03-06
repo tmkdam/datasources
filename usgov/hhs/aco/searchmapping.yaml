@@ -1,0 +1,19 @@
+- name: usgov.hhs.aco
+  pivot: usgov_hhs_aco
+  id: id
+  relationships:
+  - include: usgov_hhs_aco_year1
+    name: first_year
+    type: to_one
+    dest_id: aco_id
+    source_id: aco_id
+  - include: usgov_hhs_aco_puf
+    name: stats
+    type: to_one
+    dest_id: aco_id
+    source_id: aco_id
+  - include: usgov_hhs_aco_contacts
+    name: contacts
+    type: to_one
+    dest_id: aco_id
+    source_id: aco_id
