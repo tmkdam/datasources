@@ -17,3 +17,39 @@
     type: to_one
     dest_id: aco_id
     source_id: aco_id
+- name: usgov.hhs.aco_benchmarks
+  pivot: usgov_hhs_aco_benchmark_years
+  id: id
+  select:
+  - usgov_hhs_aco_benchmark_years.year AS year
+  - usgov_hhs_aco_benchmarks.benchmark AS benchmark
+  - usgov_hhs_aco_benchmarks.domain AS domain
+  - usgov_hhs_aco_benchmarks.py1 AS py1
+  - usgov_hhs_aco_benchmarks.py2 AS py2
+  - usgov_hhs_aco_benchmarks.py3 AS py3
+  - usgov_hhs_aco_benchmarks.p30th AS p30th
+  - usgov_hhs_aco_benchmarks.p40th AS p40th
+  - usgov_hhs_aco_benchmarks.p50th AS p50th
+  - usgov_hhs_aco_benchmarks.p60th AS p60th
+  - usgov_hhs_aco_benchmarks.p70th AS p70th
+  - usgov_hhs_aco_benchmarks.p80th AS p80th
+  - usgov_hhs_aco_benchmarks.p90th AS p90th
+  - usgov_hhs_aco_benchmarks.higher_better AS higher_better
+  - usgov_hhs_aco_benchmarks.points AS points
+  relationships:
+  - include: usgov_hhs_aco_measures
+    select:
+      - two.measure AS measure
+      - two.description AS description
+    name: measures
+    type: to_many
+    source_id: benchmark_id
+    dest_id: measure_id
+    using:
+      table: usgov_hhs_aco_benchmark_measures
+      source_id: benchmark_id
+      dest_id: measure_id
+  joins:
+  - join: usgov_hhs_aco_benchmarks
+    dest_id: id
+    source_id: benchmark_id

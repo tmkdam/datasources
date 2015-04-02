@@ -1,10 +1,76 @@
 sources:
+- name: usgov.hhs.aco
+  destinations:
+  - name: usgov_hhs_aco
+    fields:
+    - source:
+      - Name
+      dest: id
+    - source:
+      - Name
+      dest: revision
+    - source: Name
+      dest: name
+      type: string
+      max_length: 134
+    - source:
+      - Name
+      dest: aco_id
 - name: usgov.hhs.aco_year1
   destinations:
   - name: usgov_hhs_aco_year1
     fields:
     - source:
       - ACO Join Name
+      - 'ACO Name (LBN or DBA if applicable) '
+      - 'States Where Beneficiaries Reside '
+      - Agreement Start Date
+      - Track
+      - 'Participate in Advance Payment Model '
+      - Total Assigned Beneficiaries
+      - Total Benchmark Expenditures
+      - Total Expenditures
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
+        as % of Total Benchmark
+      - Generated Savings/Losses1/2
+      - Earned Shared Savings Payments/Owe Losses3/4
+      - Successfully Reported Quality5
+      - ACO-1
+      - ACO-2
+      - ACO-3
+      - ACO-4
+      - ACO-5
+      - ACO-6
+      - ACO-7
+      - ACO-8^
+      - ACO-9^
+      - ACO-10^
+      - ACO-11
+      - ACO-12
+      - ACO-13
+      - ACO-14
+      - ACO-15
+      - ACO-16
+      - ACO-17
+      - ACO-18
+      - ACO-19
+      - ACO-20
+      - ACO-21
+      - DM Comp-osite
+      - ACO-22
+      - ACO-23
+      - ACO-24
+      - ACO-25
+      - ACO-26
+      - ACO-27^
+      - ACO-28
+      - ACO-29
+      - ACO-30
+      - ACO-31
+      - CAD Comp-osite
+      - ACO-32
+      - ACO-33
       dest: id
     - source:
       - ACO Join Name
@@ -75,8 +141,7 @@ sources:
       max_length: 198
     - source: Agreement Start Date
       dest: agreement_start_date
-      type: string
-      max_length: 20
+      type: datetime
     - source: Track
       dest: track
       type: string
@@ -90,179 +155,228 @@ sources:
       type: int
     - source: Total Benchmark Expenditures
       dest: total_benchmark_expenditures
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total Expenditures
       dest: total_expenditures
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
       dest: total_bench_expend_minus_total_assigned_beneficiary_expend
-      type: string
-      max_length: 20
+      type: int
     - source: Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
         as % of Total Benchmark
       dest: total_bench_expend_minus_total_assigned_beneficiary_expend_as_of_total_bench
-      type: string
-      max_length: 12
+      type: decimal
     - source: Generated Savings/Losses1/2
       dest: generated_savings_losses1_2
-      type: string
-      max_length: 18
+      type: int
     - source: Earned Shared Savings Payments/Owe Losses3/4
       dest: earned_shared_savings_payments_owe_losses3_4
-      type: string
-      max_length: 18
+      type: int
     - source: Successfully Reported Quality5
       dest: successfully_reported_quality5
       type: string
       max_length: 6
     - source: ACO-1
       dest: aco_1
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-2
       dest: aco_2
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-3
       dest: aco_3
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-4
       dest: aco_4
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-5
       dest: aco_5
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-6
       dest: aco_6
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-7
       dest: aco_7
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-8^
       dest: aco_8
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-9^
       dest: aco_9
-      type: string
-      max_length: 8
+      type: decimal
     - source: ACO-10^
       dest: aco_10
-      type: string
-      max_length: 8
+      type: decimal
     - source: ACO-11
       dest: aco_11
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-12
       dest: aco_12
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-13
       dest: aco_13
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-14
       dest: aco_14
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-15
       dest: aco_15
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-16
       dest: aco_16
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-17
       dest: aco_17
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-18
       dest: aco_18
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-19
       dest: aco_19
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-20
       dest: aco_20
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-21
       dest: aco_21
-      type: string
-      max_length: 10
+      type: decimal
     - source: DM Comp-osite
       dest: dm_comp_osite
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-22
       dest: aco_22
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-23
       dest: aco_23
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-24
       dest: aco_24
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-25
       dest: aco_25
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-26
       dest: aco_26
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-27^
       dest: aco_27
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-28
       dest: aco_28
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-29
       dest: aco_29
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-30
       dest: aco_30
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-31
       dest: aco_31
-      type: string
-      max_length: 10
+      type: decimal
     - source: CAD Comp-osite
       dest: cad_comp_osite
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-32
       dest: aco_32
-      type: string
-      max_length: 10
+      type: decimal
     - source: ACO-33
       dest: aco_33
-      type: string
-      max_length: 10
+      type: decimal
+    - source: Actual Savings per Beneficiary
+      dest: actual_savings_per_beneficiary
+      type: decimal
+    - source: Expenditure per Beneficiary
+      dest: expenditure_per_beneficiary
+      type: decimal
+    - source: Total Measure Points
+      dest: total_points
+      type: decimal
 - name: usgov.hhs.aco_puf
   destinations:
   - name: usgov_hhs_aco_puf
     fields:
     - source:
       - ACO Join Name
+      - ACO Identifier
+      - ACO Name
+      - Start Date
+      - Track 2 ACO
+      - Advance pay status
+      - Interim payment election
+      - Advanced payment amount
+      - Quality Score
+      - Quality Performance Sharing Rate
+      - Final sharing rate
+      - Minimum Loss Rate (%)
+      - Minimum Savings Rate (%)
+      - Total benchmark expenditures ()
+      - Total savings/losses ()
+      - Shared Savings ()
+      - Shared Losses ()
+      - Total number of assigned beneficiaries
+      - Total assigned beneficiary person years
+      - Total number of ESRD assigned beneficiary person years
+      - Total number of DISABLED  assigned beneficiary person years
+      - Total number of AGED/DUAL assigned beneficiary person years
+      - Total number of AGED/NON-DUAL assigned beneficiary person years
+      - Total number of assigned beneficiaries, age 0-64
+      - Total number of assigned beneficiaries, age 65-74
+      - Total number of assigned beneficiaries, age 75-84
+      - Total number of assigned beneficiaries, age 85+
+      - Total number of assigned beneficiaries, Female
+      - Total number of assigned beneficiaries, Male
+      - Total number of assigned beneficiaries, Non-Hispanic White
+      - Total number of assigned beneficiaries, Black
+      - Total number of assigned beneficiaries, Asian
+      - Total number of assigned beneficiaries, Hispanic
+      - Total number of assigned beneficiaries, North American Native
+      - Total number of assigned beneficiaries, Other
+      - Total performance year spending per assigned beneficiary
+      - Total expenditures per assigned ESRD beneficiary
+      - Total expenditures per assigned DISABLED beneficiary
+      - Total expenditures per assigned AGED/DUAL beneficiary
+      - Total expenditures per assigned AGED/NON-DUAL beneficiary
+      - Total inpatient spending per assigned beneficiary
+      - Acute care hospital (IPPS/CAH) spending per assigned beneficiary
+      - Long-term care hospital spending per assigned beneficiary
+      - Inpatient rehabilitation facility (IRF) spending per assigned beneficiary
+      - Inpatient psychiatric hospital spending per assigned beneficiary
+      - Hospice spending per assigned beneficiary
+      - Skilled nursing facility spending per assigned beneficiary
+      - Other inpatient spending per assigned beneficiary
+      - Physician/supplier spending per assigned beneficiary
+      - Ambulance spending per assigned beneficiary
+      - Home health spending per assigned beneficiary
+      - Durable medical equipment spending per assigned beneficiary
+      - Inpatient hospital discharges per 1,000 person years
+      - Acute care hospital discharges per 1,000 person years
+      - LTCH discharges per 1,000 person years
+      - IRF discharges per 1,000 person years
+      - IPF discharges per 1,000 person years
+      - CHF (PQI8) discharges  per 1,000 person years
+      - COPD/Asthma (PQI5) discharges per 1,000 person years
+      - Bacterial Pneumonia (PQI11) discharges per 1,000 person years
+      - Acute care readmissions (all-cause 30 day) per 1,000 discharges
+      - Post-acute care discharge provider visits (30 day)  per 1,000 discharges
+      - Skilled nursing facility discharges per 1,000 person years
+      - Outpatient ED visits per 1,000 person years
+      - Inpatient ED visits per 1,000 person years
+      - Computed tomography (CT) events per 1,000 person years
+      - Magnetic resonance imaging (MRI) events per 1,000 person years
+      - Primary care services per 1,000 person years
+      - Primary care services with a PCP per 1,000 person years
+      - Primary care services with a specialist per 1,000 person years
+      - Primary care services with a NP/PA/CNS per 1,000 person years
+      - Primary care services with a FQHC/RHC per 1,000 person years
+      - Number of CAH IIs
+      - Number of FQHCs
+      - Number of RHCs
+      - Number of ETA hospitals
+      - Number of other facility types
+      - Number of participating PCPs
+      - Number of participating specialists
+      - Number of participating nurse practitioners
+      - Number of participating physician assistants
+      - Number of participating clinical nurse specialist
       dest: id
     - source:
       - ACO Join Name
@@ -278,10 +392,10 @@ sources:
       - Final sharing rate
       - Minimum Loss Rate (%)
       - Minimum Savings Rate (%)
-      - Total benchmark expenditures ($)
-      - Total savings/losses ($)
-      - Shared Savings ($)
-      - Shared Losses ($)
+      - Total benchmark expenditures ()
+      - Total savings/losses ()
+      - Shared Savings ()
+      - Shared Losses ()
       - Total number of assigned beneficiaries
       - Total assigned beneficiary person years
       - Total number of ESRD assigned beneficiary person years
@@ -365,8 +479,7 @@ sources:
       max_length: 146
     - source: Start Date
       dest: start_date
-      type: string
-      max_length: 12
+      type: datetime
     - source: Track 2 ACO
       dest: track_2_aco
       type: int
@@ -375,12 +488,10 @@ sources:
       type: int
     - source: Interim payment election
       dest: interim_payment_election
-      type: string
-      max_length: 2
+      type: int
     - source: Advanced payment amount
       dest: advanced_payment_amount
-      type: string
-      max_length: 14
+      type: int
     - source: Quality Score
       dest: quality_score
       type: int
@@ -389,55 +500,43 @@ sources:
       type: decimal
     - source: Final sharing rate
       dest: final_sharing_rate
-      type: string
-      max_length: 6
+      type: decimal
     - source: Minimum Loss Rate (%)
       dest: minimum_loss_rate
-      type: string
-      max_length: 12
+      type: int
     - source: Minimum Savings Rate (%)
       dest: minimum_savings_rate
-      type: string
-      max_length: 24
-    - source: Total benchmark expenditures ($)
+      type: decimal
+    - source: Total benchmark expenditures ()
       dest: total_benchmark_expenditures
-      type: string
-      max_length: 28
-    - source: Total savings/losses ($)
+      type: decimal
+    - source: Total savings/losses ()
       dest: total_savings_losses
-      type: string
-      max_length: 24
-    - source: Shared Savings ($)
+      type: decimal
+    - source: Shared Savings ()
       dest: shared_savings
-      type: string
-      max_length: 24
-    - source: Shared Losses ($)
+      type: decimal
+    - source: Shared Losses ()
       dest: shared_losses
-      type: string
-      max_length: 24
+      type: decimal
     - source: Total number of assigned beneficiaries
       dest: total_number_of_assigned_beneficiaries
       type: int
     - source: Total assigned beneficiary person years
       dest: total_assigned_beneficiary_person_years
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total number of ESRD assigned beneficiary person years
       dest: total_number_of_esrd_assigned_beneficiary_person_years
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total number of DISABLED  assigned beneficiary person years
       dest: total_number_of_disabled_assigned_beneficiary_person_years
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total number of AGED/DUAL assigned beneficiary person years
       dest: total_number_of_aged_dual_assigned_beneficiary_person_years
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total number of AGED/NON-DUAL assigned beneficiary person years
       dest: total_number_of_aged_non_dual_assigned_beneficiary_person_years
-      type: string
-      max_length: 22
+      type: decimal
     - source: Total number of assigned beneficiaries, age 0-64
       dest: total_number_of_assigned_beneficiaries_age_0_64
       type: int
@@ -476,72 +575,55 @@ sources:
       type: int
     - source: Total performance year spending per assigned beneficiary
       dest: total_performance_year_spending_per_assigned_beneficiary
-      type: string
-      max_length: 28
+      type: decimal
     - source: Total expenditures per assigned ESRD beneficiary
       dest: total_expenditures_per_assigned_esrd_beneficiary
-      type: string
-      max_length: 20
+      type: decimal
     - source: Total expenditures per assigned DISABLED beneficiary
       dest: total_expenditures_per_assigned_disabled_beneficiary
-      type: string
-      max_length: 18
+      type: decimal
     - source: Total expenditures per assigned AGED/DUAL beneficiary
       dest: total_expenditures_per_assigned_aged_dual_beneficiary
-      type: string
-      max_length: 18
+      type: decimal
     - source: Total expenditures per assigned AGED/NON-DUAL beneficiary
       dest: total_expenditures_per_assigned_aged_non_dual_beneficiary
-      type: string
-      max_length: 18
+      type: decimal
     - source: Total inpatient spending per assigned beneficiary
       dest: total_inpatient_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Acute care hospital (IPPS/CAH) spending per assigned beneficiary
       dest: acute_care_hospital_ipps_cah_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Long-term care hospital spending per assigned beneficiary
       dest: long_term_care_hospital_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Inpatient rehabilitation facility (IRF) spending per assigned beneficiary
       dest: inpatient_rehabilitation_facility_irf_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Inpatient psychiatric hospital spending per assigned beneficiary
       dest: inpatient_psychiatric_hospital_spending_per_assigned_beneficiary
-      type: string
-      max_length: 14
+      type: decimal
     - source: Hospice spending per assigned beneficiary
       dest: hospice_spending_per_assigned_beneficiary
-      type: string
-      max_length: 14
+      type: decimal
     - source: Skilled nursing facility spending per assigned beneficiary
       dest: skilled_nursing_facility_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Other inpatient spending per assigned beneficiary
       dest: other_inpatient_spending_per_assigned_beneficiary
-      type: string
-      max_length: 12
+      type: decimal
     - source: Physician/supplier spending per assigned beneficiary
       dest: physician_supplier_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Ambulance spending per assigned beneficiary
       dest: ambulance_spending_per_assigned_beneficiary
-      type: string
-      max_length: 14
+      type: decimal
     - source: Home health spending per assigned beneficiary
       dest: home_health_spending_per_assigned_beneficiary
-      type: string
-      max_length: 16
+      type: decimal
     - source: Durable medical equipment spending per assigned beneficiary
       dest: durable_medical_equipment_spending_per_assigned_beneficiary
-      type: string
-      max_length: 14
+      type: decimal
     - source: Inpatient hospital discharges per 1,000 person years
       dest: inpatient_hospital_discharges_per_1_000_person_years
       type: decimal
@@ -604,50 +686,50 @@ sources:
       type: decimal
     - source: Number of CAH IIs
       dest: number_of_cah_iis
-      type: string
-      max_length: 2
+      type: int
     - source: Number of FQHCs
       dest: number_of_fqhcs
-      type: string
-      max_length: 4
+      type: int
     - source: Number of RHCs
       dest: number_of_rhcs
-      type: string
-      max_length: 4
+      type: int
     - source: Number of ETA hospitals
       dest: number_of_eta_hospitals
-      type: string
-      max_length: 2
+      type: int
     - source: Number of other facility types
       dest: number_of_other_facility_types
-      type: string
-      max_length: 6
+      type: int
     - source: Number of participating PCPs
       dest: number_of_participating_pcps
-      type: string
-      max_length: 8
+      type: int
     - source: Number of participating specialists
       dest: number_of_participating_specialists
-      type: string
-      max_length: 8
+      type: int
     - source: Number of participating nurse practitioners
       dest: number_of_participating_nurse_practitioners
-      type: string
-      max_length: 6
+      type: int
     - source: Number of participating physician assistants
       dest: number_of_participating_physician_assistants
-      type: string
-      max_length: 4
+      type: int
     - source: Number of participating clinical nurse specialist
       dest: number_of_participating_clinical_nurse_specialist
-      type: string
-      max_length: 4
+      type: int
 - name: usgov.hhs.aco_contacts
   destinations:
   - name: usgov_hhs_aco_contacts
     fields:
     - source:
       - ACO Legal or Name/Doing Business As
+      - ACO Address
+      - ACO Service Area
+      - ACO Website Address
+      - ACO Executive Name
+      - ACO Executive Email
+      - ACO Executive Phone
+      - Public Contact Name
+      - Public Contact Email
+      - Public Contact Phone
+      - Location 1
       dest: id
     - source:
       - ACO Legal or Name/Doing Business As
@@ -662,13 +744,13 @@ sources:
       - Public Contact Phone
       - Location 1
       dest: revision
-    - source:
-      - ACO Legal or Name/Doing Business As
-      dest: aco_id
     - source: ACO Legal or Name/Doing Business As
       dest: aco_legal_or_name_doing_business_as
       type: string
       max_length: 134
+    - source:
+      - ACO Legal or Name/Doing Business As
+      dest: aco_id
     - source: ACO Address
       dest: aco_address
       type: string
@@ -709,20 +791,144 @@ sources:
       dest: location_1
       type: string
       max_length: 204
-- name: usgov.hhs.aco
+- name: usgov.hhs.aco_measures
   destinations:
-  - name: usgov_hhs_aco
+  - name: usgov_hhs_aco_measures
     fields:
     - source:
-      - Name
+      - Measure
       dest: id
     - source:
-      - Name
+      - Measure
+      - Description
       dest: revision
-    - source: Name
-      dest: name
+    - source: Measure
+      dest: measure
       type: string
-      max_length: 134
+      max_length: 12
     - source:
-      - Name
-      dest: aco_id
+      - Measure
+      dest: measure_id
+    - source: Description
+      dest: description
+      type: string
+      max_length: 176
+- name: usgov.hhs.aco_benchmark_years
+  destinations:
+  - name: usgov_hhs_aco_benchmark_years
+    fields:
+    - source:
+      - Benchmark
+      - Year
+      dest: id
+    - source:
+      - Benchmark
+      - Year
+      dest: revision
+    - source: Benchmark
+      dest: benchmark
+      type: string
+      max_length: 24
+    - source:
+      - Benchmark
+      dest: benchmark_id
+    - source: Year
+      dest: year
+      type: int
+- name: usgov.hhs.aco_benchmark_measures
+  destinations:
+  - name: usgov_hhs_aco_benchmark_measures
+    fields:
+    - source:
+      - Benchmark
+      - Measure
+      dest: id
+    - source:
+      - Benchmark
+      - Measure
+      dest: revision
+    - source: Benchmark
+      dest: benchmark
+      type: string
+      max_length: 24
+    - source:
+      - Benchmark
+      dest: benchmark_id
+    - source: Measure
+      dest: measure
+      type: string
+      max_length: 12
+    - source:
+      - Measure
+      dest: measure_id
+- name: usgov.hhs.aco_benchmarks
+  destinations:
+  - name: usgov_hhs_aco_benchmarks
+    fields:
+    - source:
+      - Benchmark
+      dest: id
+    - source:
+      - Benchmark
+      - Domain
+      - PY1
+      - PY2
+      - PY3
+      - 30th
+      - 40th
+      - 50th
+      - 60th
+      - 70th
+      - 80th
+      - 90th
+      - Higher Better
+      - Points
+      dest: revision
+    - source: Benchmark
+      dest: benchmark
+      type: string
+      max_length: 24
+    - source:
+      - Benchmark
+      dest: benchmark_id
+    - source: Domain
+      dest: domain
+      type: string
+      max_length: 64
+    - source: PY1
+      dest: py1
+      type: boolean
+    - source: PY2
+      dest: py2
+      type: boolean
+    - source: PY3
+      dest: py3
+      type: boolean
+    - source: 30th
+      dest: p30th
+      type: decimal
+    - source: 40th
+      dest: p40th
+      type: decimal
+    - source: 50th
+      dest: p50th
+      type: decimal
+    - source: 60th
+      dest: p60th
+      type: decimal
+    - source: 70th
+      dest: p70th
+      type: decimal
+    - source: 80th
+      dest: p80th
+      type: decimal
+    - source: 90th
+      dest: p90th
+      type: decimal
+    - source: Higher Better
+      dest: higher_better
+      type: boolean
+      max_length: 10
+    - source: Points
+      dest: points
+      type: int

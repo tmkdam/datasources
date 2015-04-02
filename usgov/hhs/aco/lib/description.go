@@ -14,6 +14,10 @@ var sourceUris = map[string]string {
   "usgov.hhs.aco_puf": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_puf.csv",
   "usgov.hhs.aco_year1": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_year1.csv",
   "usgov.hhs.aco": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_names.csv",
+  "usgov.hhs.aco_benchmarks": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_benchmarks.csv",
+  "usgov.hhs.aco_measures": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_measures.csv",
+  "usgov.hhs.aco_benchmark_years": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_benchmark_years.csv",
+  "usgov.hhs.aco_benchmark_measures": "https://s3.amazonaws.com/gocodo/usgov/hhs/aco/aco_benchmark_measures.csv",
 }
 
 func (d *Description) Available() ([]bloomsource.Source, error) {
@@ -32,6 +36,22 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
     },
     bloomsource.Source{
       Name: "usgov.hhs.aco",
+      Version: "2015-00",
+    },
+    bloomsource.Source{
+      Name: "usgov.hhs.aco_benchmarks",
+      Version: "2015-00",
+    },
+    bloomsource.Source{
+      Name: "usgov.hhs.aco_measures",
+      Version: "2015-00",
+    },
+    bloomsource.Source{
+      Name: "usgov.hhs.aco_benchmark_years",
+      Version: "2015-00",
+    },
+    bloomsource.Source{
+      Name: "usgov.hhs.aco_benchmark_measures",
       Version: "2015-00",
     },
   }, nil
