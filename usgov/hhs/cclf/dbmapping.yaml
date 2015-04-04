@@ -89,8 +89,7 @@ sources:
       dest: claim_id
     - source: Claim Line Number
       dest: claim_line_number
-      type: string
-      max_length: 20
+      type: int
     - source: Claim-Line Provider Specialty Code
       dest: claim_line_provider_specialty_code
       type: string
@@ -121,8 +120,8 @@ sources:
     extract: HCPCS (\w+) Modifier Code
     ignore:
       "HCPCS {0} Modifier Code":
-        - ""
         - "~"
+        - ""
     fields:
     - source:
       - Current Claim Unique Identifier
@@ -147,8 +146,8 @@ sources:
     extract: Claim Diagnosis (\w+) Code
     ignore: 
       "Claim Diagnosis {0} Code":
-      - ""
       - "~"
+      - ""
     fields:
     - source:
       - Current Claim Unique Identifier
@@ -316,8 +315,7 @@ sources:
       dest: claim_id
     - source: Claim Line Number
       dest: claim_line_number
-      type: string
-      max_length: 20
+      type: int
     - source: Claim Line From Date
       dest: claim_line_from_date
       type: datetime
@@ -482,7 +480,8 @@ sources:
       max_length: 20
     - source: Claim Dispensing Status Code
       dest: claim_dispensing_status_code
-      type: datetime
+      type: string
+      max_length: 10
     - source: Claim Dispense as Written (DAW) Product Selection Code
       dest: claim_dispense_as_written_daw_product_selection
       type: string
