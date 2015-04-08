@@ -1,5 +1,5 @@
 - name: usgov.hhs.cclf_beneficiaries
-  pivot: usgov_hhs_cclf_demographics
+  pivot: usgov_hhs_cclf_beneficiaries
   id: hic_id
   search_id: beneficiary_hic_number
   relationships:
@@ -15,56 +15,18 @@
 - name: usgov.hhs.cclf_beneficiaries.partb_claims
   pivot: usgov_hhs_cclf_partb_phys
   id: id
-  select:
-  - beneficiary_equitable_bic_hicn_number
-  - beneficiary_hic_number
-  - claim_adjustment_type_code
-  - claim_carrier_payment_denial_code
-  - claim_control_number
-  - claim_disposition_code
-  - claim_effective_date
-  - claim_federal_type_service_code
-  - claim_from_date
-  - claim_idr_load_date
-  - claim_place_of_service_code
-  - claim_provider_tax_number
-  - claim_thru_date
-  - claim_type_code
-  - current_claim_unique_identifier
-  - diagnosis_code
-  - hcpcs_code
-  - rendering_provider_fips_state_code
-  - rendering_provider_npi_number
-  - rendering_provider_type_code
-  - usgov_hhs_hcpcses.hcpcs_long_description AS hcpcs_desc
-  - usgov_hhs_npis.first_name AS provider_first_name
-  - usgov_hhs_npis.last_name AS provider_last_name
-  joins:
-  - join: usgov_hhs_hcpcses
-    source_id: hcpcs_id
-  - join: usgov_hhs_npis
-    source_id: npi_id
   relationships:
-    - include: usgov_hhs_cclf_partb_phy_lines
-      name: lines
-      type: to_many
-      dest_id: claim_id
     - include: usgov_hhs_cclf_partb_phy_dx_codes
       name: dx_codes
       type: to_many
-      dest_id: claim_id
+      dest_id: partb_phy_id
     - include: usgov_hhs_cclf_partb_phy_hcpcs_modifiers
       name: hcpcs_modifiers
       type: to_many
-      dest_id: claim_id
+      dest_id: partb_phy_id
 - name: usgov.hhs.cclf_beneficiaries.partb_dme_claims
   pivot: usgov_hhs_cclf_partb_dmes
   id: id
-  relationships:
-  - include: usgov_hhs_cclf_partb_dme_lines
-    name: lines
-    type: to_many
-    dest_id: claim_id
 - name: usgov.hhs.cclf_beneficiaries.partd_claims
   pivot: usgov_hhs_cclf_partds
   id: id

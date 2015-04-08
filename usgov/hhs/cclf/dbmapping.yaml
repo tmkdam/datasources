@@ -28,6 +28,10 @@ sources:
       - Beneficiary HIC Number
       dest: hic_id
     - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
+    - source: Claim Type Code
       dest: claim_type
       type: string
       max_length: 100
@@ -70,52 +74,6 @@ sources:
       max_length: 2
 - name: usgov.hhs.cclf_partb_phy
   destinations:
-  - name: usgov_hhs_cclf_partb_phy_lines
-    fields:
-    - source:
-      - Current Claim Unique Identifier
-      - Claim Line Number
-      dest: id
-    - source:
-      - Current Claim Unique Identifier
-      - Claim Line Number
-      dest: revision
-    - source: Current Claim Unique Identifier
-      dest: current_claim_unique_identifier
-      type: string
-      max_length: 26
-    - source:
-      - Current Claim Unique Identifier
-      dest: claim_id
-    - source: Claim Line Number
-      dest: claim_line_number
-      type: int
-    - source: Claim-Line Provider Specialty Code
-      dest: claim_line_provider_specialty_code
-      type: string
-      max_length: 4
-    - source: Claim Line From Date
-      dest: claim_line_from_date
-      type: datetime
-    - source: Claim Line Thru Date
-      dest: claim_line_thru_date
-      type: datetime
-    - source: Claim Line Covered Paid Amount
-      dest: claim_line_covered_paid_amount
-      type: decimal
-    - source: Claim-Line Processing Indicator Code
-      dest: claim_line_processing_indicator_code
-      type: string
-      max_length: 4
-    - source: Claim Line Allowed Charges Amount
-      dest: claim_line_allowed_charges_amount
-      type: decimal
-    - source: Claim Line Allowed Unit Quantity
-      dest: claim_line_allowed_unit_quantity
-      type: decimal
-    - source: Claim Line Service Unit Quantity
-      dest: claim_line_service_unit_quantity
-      type: decimal
   - name: usgov_hhs_cclf_partb_phy_hcpcs_modifiers
     extract: HCPCS (\w+) Modifier Code
     ignore:
@@ -125,19 +83,25 @@ sources:
     fields:
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       - HCPCS {0} Modifier Code
       dest: id
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       - HCPCS {0} Modifier Code
       dest: revision
     - source: Current Claim Unique Identifier
       dest: current_claim_unique_identifier
       type: string
       max_length: 26
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: int
     - source:
       - Current Claim Unique Identifier
-      dest: claim_id
+      - Claim Line Number
+      dest: partb_phy_id
     - source: HCPCS {0} Modifier Code
       dest: modifier_code
       type: string
@@ -151,19 +115,25 @@ sources:
     fields:
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       - Claim Diagnosis {0} Code
       dest: id
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       - Claim Diagnosis {0} Code
       dest: revision
     - source: Current Claim Unique Identifier
       dest: current_claim_unique_identifier
       type: string
       max_length: 26
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: int
     - source:
       - Current Claim Unique Identifier
-      dest: claim_id
+      - Claim Line Number
+      dest: partb_phy_id
     - source: Claim Diagnosis {0} Code
       dest: dx_code
       type: string
@@ -172,9 +142,11 @@ sources:
     fields:
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       dest: id
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       dest: revision
     - source: Current Claim Unique Identifier
       dest: current_claim_unique_identifier
@@ -191,6 +163,10 @@ sources:
       - Beneficiary HIC Number
       dest: hic_id
     - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
+    - source: Claim Type Code
       dest: claim_type
       type: string
       mapping:
@@ -203,6 +179,10 @@ sources:
     - source: Claim Thru Date
       dest: claim_thru_date
       type: datetime
+    - source: Rendering Provider Type Code
+      dest: rendering_provider_type_code
+      type: string
+      max_length: 4
     - source: Rendering Provider Type Code
       dest: rendering_provider_type
       type: string
@@ -234,13 +214,6 @@ sources:
       dest: claim_place_of_service_code
       type: string
       max_length: 4
-    - source: HCPCS Code
-      dest: hcpcs_code
-      type: string
-      max_length: 10
-    - source:
-      - HCPCS Code
-      dest: hcpcs_id
     - source: Claim Primary Payer Code
       dest: claim_primary_payer_code
       type: string
@@ -262,6 +235,10 @@ sources:
       dest: npi_id
     - source: Claim Carrier Payment Denial Code
       dest: claim_carrier_payment_denial_code
+      type: string
+      max_length: 4
+    - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
       type: string
       max_length: 4
     - source: Claim Adjustment Type Code
@@ -287,6 +264,10 @@ sources:
       type: string
       max_length: 22
     - source: Claim Disposition Code
+      dest: claim_disposition_code
+      type: string
+      max_length: 4
+    - source: Claim Disposition Code
       dest: claim_disposition
       type: string
       max_length: 40
@@ -294,28 +275,13 @@ sources:
         "01": "Debit accepted"
         "02": "Debit accepted (automatic adjustment)"
         "03": "Cancel accepted"
-- name: usgov.hhs.cclf_partb_dme
-  destinations:
-  - name: usgov_hhs_cclf_partb_dme_lines
-    fields:
-    - source:
-      - Current Claim Unique Identifier
-      - Claim Line Number
-      dest: id
-    - source:
-      - Current Claim Unique Identifier
-      - Claim Line Number
-      dest: revision
-    - source: Current Claim Unique Identifier
-      dest: current_claim_unique_identifier
-      type: string
-      max_length: 26
-    - source:
-      - Current Claim Unique Identifier
-      dest: claim_id
     - source: Claim Line Number
       dest: claim_line_number
       type: int
+    - source: Claim-Line Provider Specialty Code
+      dest: claim_line_provider_specialty_code
+      type: string
+      max_length: 4
     - source: Claim Line From Date
       dest: claim_line_from_date
       type: datetime
@@ -325,24 +291,42 @@ sources:
     - source: Claim Line Covered Paid Amount
       dest: claim_line_covered_paid_amount
       type: decimal
+    - source: Claim-Line Processing Indicator Code
+      dest: claim_line_processing_indicator_code
+      type: string
+      max_length: 4
     - source: Claim Line Allowed Charges Amount
       dest: claim_line_allowed_charges_amount
       type: decimal
+    - source: Claim Line Allowed Unit Quantity
+      dest: claim_line_allowed_unit_quantity
+      type: decimal
+    - source: Claim Line Service Unit Quantity
+      dest: claim_line_service_unit_quantity
+      type: decimal
+    - source: HCPCS Code
+      dest: hcpcs_code
+      type: string
+      max_length: 10
+    - source:
+      - HCPCS Code
+      dest: hcpcs_id
+- name: usgov.hhs.cclf_partb_dme
+  destinations:
   - name: usgov_hhs_cclf_partb_dmes
     fields:
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       dest: id
     - source:
       - Current Claim Unique Identifier
+      - Claim Line Number
       dest: revision
     - source: Current Claim Unique Identifier
       dest: current_claim_unique_identifier
       type: string
       max_length: 26
-    - source:
-      - Current Claim Unique Identifier
-      dest: claim_id
     - source: Beneficiary HIC Number
       dest: beneficiary_hic_number
       type: string
@@ -350,6 +334,10 @@ sources:
     - source:
       - Beneficiary HIC Number
       dest: hic_id
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
     - source: Claim Type Code
       dest: claim_type
       type: string
@@ -395,6 +383,10 @@ sources:
       type: string
       max_length: 4
     - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: string
+      max_length: 4
+    - source: Claim Adjustment Type Code
       dest: claim_adjustment_type
       type: string
       max_length: 12
@@ -416,6 +408,10 @@ sources:
       type: string
       max_length: 22
     - source: Claim Disposition Code
+      dest: claim_disposition_code
+      type: string
+      max_length: 4
+    - source: Claim Disposition Code
       dest: claim_disposition
       type: string
       max_length: 40
@@ -423,6 +419,21 @@ sources:
         "01": "Debit accepted"
         "02": "Debit accepted (automatic adjustment)"
         "03": "Cancel accepted"
+    - source: Claim Line Number
+      dest: claim_line_number
+      type: int
+    - source: Claim Line From Date
+      dest: claim_line_from_date
+      type: datetime
+    - source: Claim Line Thru Date
+      dest: claim_line_thru_date
+      type: datetime
+    - source: Claim Line Covered Paid Amount
+      dest: claim_line_covered_paid_amount
+      type: decimal
+    - source: Claim Line Allowed Charges Amount
+      dest: claim_line_allowed_charges_amount
+      type: decimal
 - name: usgov.hhs.cclf_partd
   destinations:
   - name: usgov_hhs_cclf_partds
@@ -452,6 +463,10 @@ sources:
       type: string
       max_length: 22
     - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
+    - source: Claim Type Code
       dest: claim_type
       type: string
       max_length: 35
@@ -463,6 +478,10 @@ sources:
     - source: Claim Line From Date
       dest: claim_line_from_date
       type: datetime
+    - source: Provider Service Identifier Qualifier Code
+      dest: provider_service_identifier_qualifier_code
+      type: string
+      max_length: 4
     - source: Provider Service Identifier Qualifier Code
       dest: provider_service_identifier_qualifier
       type: string
@@ -483,6 +502,10 @@ sources:
       type: string
       max_length: 10
     - source: Claim Dispense as Written (DAW) Product Selection Code
+      dest: claim_dispense_as_written_daw_product_selection_code
+      type: string
+      max_length: 4
+    - source: Claim Dispense as Written (DAW) Product Selection Code
       dest: claim_dispense_as_written_daw_product_selection
       type: string
       max_length: 65
@@ -502,8 +525,11 @@ sources:
       type: decimal
     - source: Claim Line Days Supply Quantity
       dest: claim_line_days_supply_quantity
+      type: int
+    - source: Provider Prescribing ID Qualifier Code
+      dest: provider_prescribing_id_qualifier_code
       type: string
-      max_length: 18
+      max_length: 4
     - source: Provider Prescribing ID Qualifier Code
       dest: provider_prescribing_id_qualifier
       type: string
@@ -524,6 +550,10 @@ sources:
       dest: claim_line_beneficiary_payment_amount
       type: decimal
     - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: string
+      max_length: 4
+    - source: Claim Adjustment Type Code
       dest: claim_adjustment_type
       type: string
       max_length: 12
@@ -543,11 +573,10 @@ sources:
       max_length: 24
     - source: Claim Line Prescription Fill Number
       dest: claim_line_prescription_fill_number
-      type: string
-      max_length: 18
-- name: usgov.hhs.cclf_demographics
+      type: int
+- name: usgov.hhs.cclf_beneficiary
   destinations:
-  - name: usgov_hhs_cclf_demographics
+  - name: usgov_hhs_cclf_beneficiaries
     fields:
     - source:
       - Beneficiary HIC Number
@@ -582,6 +611,10 @@ sources:
       dest: beneficiary_date_of_birth
       type: datetime
     - source: Beneficiary Sex Code
+      dest: beneficiary_sex_code
+      type: string
+      max_length: 4
+    - source: Beneficiary Sex Code
       dest: beneficiary_sex
       type: string
       max_length: 10
@@ -589,6 +622,10 @@ sources:
         "1": "Male"
         "2": "Female"
         "0": "Unknown"
+    - source: Beneficiary Race Code
+      dest: beneficiary_race_code
+      type: string
+      max_length: 4
     - source: Beneficiary Race Code
       dest: beneficiary_race
       type: string
@@ -604,6 +641,10 @@ sources:
     - source: Beneficiary Age
       dest: beneficiary_age
       type: int
+    - source: Beneficiary Medicare Status Code
+      dest: beneficiary_medicare_status_code
+      type: string
+      max_length: 4
     - source: Beneficiary Medicare Status Code
       dest: beneficiary_medicare_status
       type: string
@@ -640,6 +681,10 @@ sources:
       type: string
       max_length: 40
     - source: Beneficiary Original Entitlement Reason Code
+      dest: beneficiary_original_entitlement_reason_code
+      type: string
+      max_length: 4
+    - source: Beneficiary Original Entitlement Reason Code
       dest: beneficiary_original_entitlement_reason
       type: string
       max_length: 40
@@ -649,6 +694,10 @@ sources:
         "2": "ESRD"
         "3": "Both DIB and ESRD"
         "4": "Unknown"
+    - source: Beneficiary Entitlement Buy-in Indicator
+      dest: beneficiary_entitlement_buy_in_indicator
+      type: string
+      max_length: 4
     - source: Beneficiary Entitlement Buy-in Indicator
       dest: beneficiary_entitlement_buy_in
       type: string
@@ -727,6 +776,10 @@ sources:
       - Beneficiary HIC Number
       dest: hic_id
     - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
+    - source: Claim Type Code
       dest: claim_type
       type: string
       max_length: 100
@@ -744,6 +797,10 @@ sources:
     - source: Claim Thru Date
       dest: claim_thru_date
       type: datetime
+    - source: Claim Bill Facility Type Code
+      dest: claim_bill_facility_type_code
+      type: string
+      max_length: 4
     - source: Claim Bill Facility Type Code
       dest: claim_bill_facility_type
       type: string
@@ -793,6 +850,10 @@ sources:
       type: string
       max_length: 8
     - source: Claim Outpatient Service Type Code
+      dest: claim_outpatient_service_type_code
+      type: string
+      max_length: 4
+    - source: Claim Outpatient Service Type Code
       dest: claim_outpatient_service_type
       type: string
       max_length: 100
@@ -825,6 +886,10 @@ sources:
       type: string
       max_length: 20
     - source: Claim Adjustment Type Code
+      dest: claim_adjustment_type_code
+      type: string
+      max_length: 4
+    - source: Claim Adjustment Type Code
       dest: claim_adjustment_type
       type: string
       max_length: 100
@@ -842,6 +907,10 @@ sources:
       dest: beneficiary_equitable_bic_hicn_number
       type: string
       max_length: 22
+    - source: Claim Admission Type Code
+      dest: claim_admission_type_code
+      type: string
+      max_length: 4
     - source: Claim Admission Type Code
       dest: claim_admission_type
       type: string
@@ -865,6 +934,10 @@ sources:
       dest: claim_bill_frequency_code
       type: string
       max_length: 2
+    - source: Claim Query Code
+      dest: claim_query_code
+      type: string
+      max_length: 4
     - source: Claim Query Code
       dest: claim_query
       type: string
@@ -902,6 +975,10 @@ sources:
     - source:
       - Beneficiary HIC Number
       dest: hic_id
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
     - source: Claim Type Code
       dest: claim_type
       type: string
@@ -967,6 +1044,10 @@ sources:
     - source:
       - Beneficiary HIC Number
       dest: hic_id
+    - source: Claim Type Code
+      dest: claim_type_code
+      type: string
+      max_length: 4
     - source: Claim Type Code
       dest: claim_type
       type: string
