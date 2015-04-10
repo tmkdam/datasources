@@ -1,4 +1,4 @@
-- name: usgov.hhs.cclf_beneficiaries
+- name: usgov.hhs.cclf.beneficiaries
   pivot: usgov_hhs_cclf_beneficiaries
   id: hic_id
   search_id: beneficiary_hic_number
@@ -12,7 +12,7 @@
     - previous_hicn_effective_date AS effective_date
     - previous_hicn_obsolete_date AS obsolete_date
     - beneficiary_railroad_board_number AS railroad_board_number
-- name: usgov.hhs.cclf_beneficiaries.partb_claims
+- name: usgov.hhs.cclf.partb_claims
   pivot: usgov_hhs_cclf_partb_phys
   id: id
   relationships:
@@ -24,48 +24,17 @@
       name: hcpcs_modifiers
       type: to_many
       dest_id: partb_phy_id
-- name: usgov.hhs.cclf_beneficiaries.partb_dme_claims
+- name: usgov.hhs.cclf.partb_dme_claims
   pivot: usgov_hhs_cclf_partb_dmes
   id: id
-- name: usgov.hhs.cclf_beneficiaries.partd_claims
+- name: usgov.hhs.cclf.partd_claims
   pivot: usgov_hhs_cclf_partds
   id: id
-- name: usgov.hhs.cclf_beneficiaries.parta_claims
+- name: usgov.hhs.cclf.parta_claims
   pivot: usgov_hhs_cclf_partas
   id: id
   search_id: current_claim_unique_identifier
-  select:
-  - admitting_diagnosis_code
-  - attending_provider_npi_number
-  - beneficiary_equitable_bic_hicn_number
-  - beneficiary_hic_number
-  - beneficiary_patient_status_code
-  - claim_adjustment_type
-  - claim_admission_source_code
-  - claim_admission_type
-  - claim_bill_classification_code
-  - claim_bill_facility_type
-  - claim_bill_frequency_code
-  - claim_effective_date
-  - claim_from_date
-  - claim_idr_load_date
-  - claim_outpatient_service_type
-  - claim_payment_amount
-  - claim_query
-  - claim_thru_date
-  - claim_type
-  - current_claim_unique_identifier
-  - diagnosis_related_group_code
-  - facility_provider_npi_number
-  - federal_information_processing_standards_fips_state_code
-  - operating_provider_npi_number
-  - other_provider_npi_number
-  - principal_diagnosis_code
-  - provider_oscar_number
-  - usgov_hhs_npis.business_name AS facility_name
   joins:
-  - join: usgov_hhs_npis
-    source_id: facility_npi_id
   relationships:
   - include: usgov_hhs_cclf_parta_revenues
     name: lines
