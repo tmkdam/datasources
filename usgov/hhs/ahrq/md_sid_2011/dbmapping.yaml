@@ -259,9 +259,12 @@ sources:
       dest: drg_on_discharge_no_poa
       type: int
     - source: DSHOSPID
-      dest: hospital_id
+      dest: hospital_identifer
       type: string
       length: 15
+    - source:
+      - DSHOSPID
+      dest: hospital_id
     - source: DaysBurnUnit
       dest: days_in_burn
       type: int
@@ -375,8 +378,7 @@ sources:
       type: bigint
     - source: LOS
       dest: length_of_stay_days
-      type: string
-      max_length: 10
+      type: int
     - source: LOS_X
       dest: length_of_stay_days_source
       type: int

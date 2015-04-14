@@ -16,26 +16,47 @@
   pivot: usgov_hhs_cclf_partb_phys
   id: id
   relationships:
-    - include: usgov_hhs_cclf_partb_phy_dx_codes
-      name: dx_codes
-      type: to_many
-      dest_id: partb_phy_id
-    - include: usgov_hhs_cclf_partb_phy_hcpcs_modifiers
-      name: hcpcs_modifiers
-      type: to_many
-      dest_id: partb_phy_id
+  - include: usgov_hhs_cclf_partb_phy_dx_codes
+    name: dx_codes
+    type: to_many
+    dest_id: partb_phy_id
+  - include: usgov_hhs_cclf_partb_phy_hcpcs_modifiers
+    name: hcpcs_modifiers
+    type: to_many
+    dest_id: partb_phy_id
+  - include: usgov_hhs_cclf_beneficiaries
+    name: beneficiary
+    type: to_one
+    source_id: hic_id
+    dest_id: hic_id
 - name: usgov.hhs.cclf.partb_dme_claims
   pivot: usgov_hhs_cclf_partb_dmes
   id: id
+  relationships:
+  - include: usgov_hhs_cclf_beneficiaries
+    name: beneficiary
+    type: to_one
+    source_id: hic_id
+    dest_id: hic_id
 - name: usgov.hhs.cclf.partd_claims
   pivot: usgov_hhs_cclf_partds
   id: id
+  relationships:
+  - include: usgov_hhs_cclf_beneficiaries
+    name: beneficiary
+    type: to_one
+    source_id: hic_id
+    dest_id: hic_id
 - name: usgov.hhs.cclf.parta_claims
   pivot: usgov_hhs_cclf_partas
   id: id
   search_id: current_claim_unique_identifier
-  joins:
   relationships:
+  - include: usgov_hhs_cclf_beneficiaries
+    name: beneficiary
+    type: to_one
+    source_id: hic_id
+    dest_id: hic_id
   - include: usgov_hhs_cclf_parta_revenues
     name: lines
     type: to_many
