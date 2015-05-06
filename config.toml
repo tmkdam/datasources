@@ -7,7 +7,11 @@ sourceBinaries = [
 "./sources/usgov.hhs.aco/aco",
 "./sources/usgov.hhs.ahrq.md_sid_2011/md_sid_2011",
 "./sources/usgov.hhs.hcpcs/hcpcs",
+"./sources/usgov.hhs.medicare_utilization/medicare_utilization",
 "./sources/usgov.hhs.npi/npi",
 "./sources/usgov.hhs.pecos/pecos",
+"./sources/usgov.hhs.phycomp/phycomp",
+"./sources/usgov.hhs.phyreferral/phyreferral",
+"./sources/usgov.hhs.pos/pos",
 "./sources/usgov.hhs.taxonomy_codes/taxonomy_codes",
 ]

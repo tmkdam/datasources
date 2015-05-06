@@ -1,0 +1,45 @@
+sources:
+- name: usgov.hhs.phyreferral
+  destinations:
+  - name: usgov_hhs_phyreferral
+    fields:
+    - source:
+      - NPI Number1
+      dest: id
+    - source:
+      - NPI Number1
+      dest: revision
+    - source: NPI Number1
+      dest: source_npi
+      type: bigint
+  - name: usgov_hhs_phyreferral_counts
+    fields:
+    - source:
+      - NPI Number1
+      - NPI Number2
+      dest: id
+    - source:
+      - NPI Number1
+      - NPI Number2
+      - Pair Count
+      - Bene Count
+      - Same Day Count
+      dest: revision
+    - source: NPI Number1
+      dest: source_npi
+      type: bigint
+    - source:
+      - NPI Number1
+      dest: source_npi_id
+    - source: NPI Number2
+      dest: dest_npi
+      type: bigint
+    - source: Pair Count
+      dest: pair_count
+      type: int
+    - source: Bene Count
+      dest: beneficiaries_count
+      type: int
+    - source: Same Day Count
+      dest: same_day_count
+      type: int

@@ -1,0 +1,14 @@
+- name: usgov.hhs.phyreferral
+  pivot: usgov_hhs_phyreferral
+  id: id
+  search_id: source_npi
+  relationships:
+  - include: usgov_hhs_phyreferral_counts
+    name: referrals
+    type: to_many
+    dest_id: source_npi_id
+    select:
+    - beneficiaries_count
+    - dest_npi
+    - pair_count
+    - same_day_count

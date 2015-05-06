@@ -1,0 +1,72 @@
+{
+               "bene_count": {
+                  "type": "long"
+               },
+               "bene_count_ge65": {
+                  "type": "long"
+               },
+               "bene_count_ge65_redact_flag": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "description_flag": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "drug_name": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "ge65_redact_flag": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "generic_name": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "id": {
+                  "type": "string"
+               },
+               "npi": {
+                  "type": "double"
+               },
+               "nppes_provider_city": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "nppes_provider_first_name": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "nppes_provider_last_org_name": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "nppes_provider_state": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "specialty_desc": {
+                  "type": "string",
+"index": "not_analyzed"
+               },
+               "total_claim_count": {
+                  "type": "long"
+               },
+               "total_claim_count_ge65": {
+                  "type": "long"
+               },
+               "total_day_supply": {
+                  "type": "long"
+               },
+               "total_day_supply_ge65": {
+                  "type": "long"
+               },
+               "total_drug_cost": {
+                  "type": "double"
+               },
+               "total_drug_cost_ge65": {
+                  "type": "double"
+               }
+            }

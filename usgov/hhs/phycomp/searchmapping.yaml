@@ -1,0 +1,13 @@
+- name: usgov.hhs.phycomp
+  pivot: usgov_hhs_phycomp
+  id: id
+  search_id: npi
+  relationships:
+  - include: usgov_hhs_phycomp_secondary_specialties
+    name: specialties
+    type: to_many
+    dest_id: npi_id
+  - include: usgov_hhs_phycomp_affiliations
+    name: affiliations
+    type: to_many
+    dest_id: npi_id

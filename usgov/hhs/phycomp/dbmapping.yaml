@@ -1,0 +1,213 @@
+sources:
+- name: usgov.hhs.phycomp
+  destinations:
+  - name: usgov_hhs_phycomp_secondary_specialties
+    extract: Secondary specialty (.+)
+    ignore:
+      "Secondary specialty {0}":
+      - ""
+    fields:
+    - source:
+      - NPI
+      - Secondary specialty {0}
+      dest: id
+    - source:
+      - NPI
+      - Secondary specialty {0}
+      dest: revision
+    - source:
+      - npi
+      dest: npi_id
+    - source: Secondary specialty {0}
+      dest: secondary_specialty
+      type: string
+      max_length: 72
+  - name: usgov_hhs_phycomp_affiliations
+    extract: Claims based hospital affiliation CCN (.+)
+    ignore:
+      "Claims based hospital affiliation CCN {0}":
+      - ""
+    fields:
+    - source:
+      - NPI
+      - Claims based hospital affiliation CCN {0}
+      dest: id
+    - source:
+      - NPI
+      - Claims based hospital affiliation CCN {0}
+      - Claims based hospital affiliation LBN {0}
+      dest: revision
+    - source:
+      - npi
+      dest: npi_id
+    - source: Claims based hospital affiliation CCN {0}
+      dest: ccn
+      type: string
+      max_length: 12
+    - source: Claims based hospital affiliation LBN {0}
+      dest: name
+      type: string
+      max_length: 140
+  - name: usgov_hhs_phycomp
+    fields:
+    - source:
+      - NPI
+      dest: id
+    - source:
+      - NPI
+      - PAC ID
+      - Professional Enrollment ID
+      - Last Name
+      - First Name
+      - Middle Name
+      - Suffix
+      - Gender
+      - Credential
+      - Medical school name
+      - Graduation year
+      - Primary specialty
+      - Secondary specialty 1
+      - Secondary specialty 2
+      - Secondary specialty 3
+      - Secondary specialty 4
+      - All secondary specialties
+      - Organization legal name
+      - Organization DBA name
+      - Group Practice PAC ID
+      - Number of Group Practice members
+      - Line 1 Street Address
+      - Line 2 Street Address
+      - Marker of address line 2 suppression
+      - City
+      - State
+      - Zip Code
+      - Claims based hospital affiliation CCN 1
+      - Claims based hospital affiliation LBN 1
+      - Claims based hospital affiliation CCN 2
+      - Claims based hospital affiliation LBN 2
+      - Claims based hospital affiliation CCN 3
+      - Claims based hospital affiliation LBN 3
+      - Claims based hospital affiliation CCN 4
+      - Claims based hospital affiliation LBN 4
+      - Claims based hospital affiliation CCN 5
+      - Claims based hospital affiliation LBN 5
+      - Professional accepts Medicare Assignment
+      - Participating in eRx
+      - Participating in PQRS
+      - Participating in EHR
+      - Received PQRS Maintenance of Certification Program Incentive
+      - Participated in Million Hearts
+      dest: revision
+    - source: NPI
+      dest: npi
+      type: bigint
+    - source: PAC ID
+      dest: pac_id
+      type: string
+      max_length: 20
+    - source: Professional Enrollment ID
+      dest: professional_enrollment_id
+      type: string
+      max_length: 30
+    - source: Last Name
+      dest: last_name
+      type: string
+      max_length: 54
+    - source: First Name
+      dest: first_name
+      type: string
+      max_length: 50
+    - source: Middle Name
+      dest: middle_name
+      type: string
+      max_length: 50
+    - source: Suffix
+      dest: suffix
+      type: string
+      max_length: 6
+    - source: Gender
+      dest: gender
+      type: string
+      max_length: 2
+    - source: Credential
+      dest: credential
+      type: string
+      max_length: 6
+    - source: Medical school name
+      dest: medical_school_name
+      type: string
+      max_length: 186
+    - source: Graduation year
+      dest: graduation_year
+      type: int
+    - source: Primary specialty
+      dest: primary_specialty
+      type: string
+      max_length: 98
+    - source: All secondary specialties
+      dest: all_secondary_specialties
+      type: string
+      max_length: 252
+    - source: Organization legal name
+      dest: organization_legal_name
+      type: string
+      max_length: 140
+    - source: Organization DBA name
+      dest: organization_dba_name
+      type: string
+      max_length: 140
+    - source: Group Practice PAC ID
+      dest: group_practice_pac_id
+      type: string
+      max_length: 20
+    - source: Number of Group Practice members
+      dest: number_of_group_practice_members
+      type: int
+    - source: Line 1 Street Address
+      dest: line_1_street_address
+      type: string
+      max_length: 104
+    - source: Line 2 Street Address
+      dest: line_2_street_address
+      type: string
+      max_length: 116
+    - source: Marker of address line 2 suppression
+      dest: marker_of_address_line_2_suppression
+      type: string
+      max_length: 2
+    - source: City
+      dest: city
+      type: string
+      max_length: 50
+    - source: State
+      dest: state
+      type: string
+      max_length: 4
+    - source: Zip Code
+      dest: zip_code
+      type: string
+      max_length: 18
+    - source: Professional accepts Medicare Assignment
+      dest: professional_accepts_medicare_assignment
+      type: string
+      max_length: 2
+    - source: Participating in eRx
+      dest: participating_in_erx
+      type: string
+      max_length: 2
+    - source: Participating in PQRS
+      dest: participating_in_pqrs
+      type: string
+      max_length: 2
+    - source: Participating in EHR
+      dest: participating_in_ehr
+      type: string
+      max_length: 2
+    - source: Received PQRS Maintenance of Certification Program Incentive
+      dest: received_pqrs_maintenance_of_certification_program_incentive
+      type: string
+      max_length: 2
+    - source: Participated in Million Hearts
+      dest: participated_in_million_hearts
+      type: string
+      max_length: 2

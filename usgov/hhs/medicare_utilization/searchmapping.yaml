@@ -1,0 +1,9 @@
+- name: usgov.hhs.medicare_utilization
+  pivot: usgov_hhs_medicare_utilization
+  id: id
+  search_id: npi
+  relationships:
+  - include: usgov_hhs_medicare_utilization_procs
+    name: procedures
+    type: to_many
+    dest_id: npi_id

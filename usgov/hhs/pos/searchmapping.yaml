@@ -1,0 +1,12 @@
+- name: usgov.hhs.pos
+  pivot: usgov_hhs_pos
+  id: id
+  search_id: ccn
+  select:
+  - prvdr_num AS ccn
+  - fac_name AS name
+  - city_name AS city
+  - state_cd AS state
+  - st_adr AS address
+  - phne_num AS phone
+  - zip_cd AS zip

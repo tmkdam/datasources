@@ -1,0 +1,114 @@
+sources:
+- name: usgov.hhs.partd_utilization
+  destinations:
+  - name: usgov_hhs_partd_utilization
+    fields:
+    - source:
+      - NPI
+      - NPPES_PROVIDER_LAST_ORG_NAME
+      - NPPES_PROVIDER_FIRST_NAME
+      - NPPES_PROVIDER_CITY
+      - NPPES_PROVIDER_STATE
+      - SPECIALTY_DESC
+      - DESCRIPTION_FLAG
+      - DRUG_NAME
+      - GENERIC_NAME
+      - BENE_COUNT
+      - TOTAL_CLAIM_COUNT
+      - TOTAL_DAY_SUPPLY
+      - TOTAL_DRUG_COST
+      - BENE_COUNT_GE65
+      - BENE_COUNT_GE65_REDACT_FLAG
+      - TOTAL_CLAIM_COUNT_GE65
+      - GE65_REDACT_FLAG
+      - TOTAL_DAY_SUPPLY_GE65
+      - TOTAL_DRUG_COST_GE65
+      dest: id
+    - source:
+      - NPI
+      - NPPES_PROVIDER_LAST_ORG_NAME
+      - NPPES_PROVIDER_FIRST_NAME
+      - NPPES_PROVIDER_CITY
+      - NPPES_PROVIDER_STATE
+      - SPECIALTY_DESC
+      - DESCRIPTION_FLAG
+      - DRUG_NAME
+      - GENERIC_NAME
+      - BENE_COUNT
+      - TOTAL_CLAIM_COUNT
+      - TOTAL_DAY_SUPPLY
+      - TOTAL_DRUG_COST
+      - BENE_COUNT_GE65
+      - BENE_COUNT_GE65_REDACT_FLAG
+      - TOTAL_CLAIM_COUNT_GE65
+      - GE65_REDACT_FLAG
+      - TOTAL_DAY_SUPPLY_GE65
+      - TOTAL_DRUG_COST_GE65
+      dest: revision
+    - source: NPI
+      dest: npi
+      type: bigint
+    - source: NPPES_PROVIDER_LAST_ORG_NAME
+      dest: nppes_provider_last_org_name
+      type: string
+      max_length: 134
+    - source: NPPES_PROVIDER_FIRST_NAME
+      dest: nppes_provider_first_name
+      type: string
+      max_length: 40
+    - source: NPPES_PROVIDER_CITY
+      dest: nppes_provider_city
+      type: string
+      max_length: 56
+    - source: NPPES_PROVIDER_STATE
+      dest: nppes_provider_state
+      type: string
+      max_length: 4
+    - source: SPECIALTY_DESC
+      dest: specialty_desc
+      type: string
+      max_length: 182
+    - source: DESCRIPTION_FLAG
+      dest: description_flag
+      type: string
+      max_length: 2
+    - source: DRUG_NAME
+      dest: drug_name
+      type: string
+      max_length: 60
+    - source: GENERIC_NAME
+      dest: generic_name
+      type: string
+      max_length: 60
+    - source: BENE_COUNT
+      dest: bene_count
+      type: int
+    - source: TOTAL_CLAIM_COUNT
+      dest: total_claim_count
+      type: int
+    - source: TOTAL_DAY_SUPPLY
+      dest: total_day_supply
+      type: int
+    - source: TOTAL_DRUG_COST
+      dest: total_drug_cost
+      type: decimal
+    - source: BENE_COUNT_GE65
+      dest: bene_count_ge65
+      type: int
+    - source: BENE_COUNT_GE65_REDACT_FLAG
+      dest: bene_count_ge65_redact_flag
+      type: string
+      max_length: 2
+    - source: TOTAL_CLAIM_COUNT_GE65
+      dest: total_claim_count_ge65
+      type: int
+    - source: GE65_REDACT_FLAG
+      dest: ge65_redact_flag
+      type: string
+      max_length: 2
+    - source: TOTAL_DAY_SUPPLY_GE65
+      dest: total_day_supply_ge65
+      type: int
+    - source: TOTAL_DRUG_COST_GE65
+      dest: total_drug_cost_ge65
+      type: decimal
