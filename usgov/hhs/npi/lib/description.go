@@ -7,8 +7,8 @@ import (
   "encoding/csv"
   "strings"
   "regexp"
-  "github.com/gocodo/bloomsource"
-  "github.com/gocodo/bloomsource/helpers"
+  "bitbucket.org/gocodo/bloomsource"
+  "bitbucket.org/gocodo/bloomsource/helpers"
 )
 
 type Description struct {}

@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"github.com/gocodo/bloomdb"
-	"github.com/gocodo/bloomsource"
+	"bitbucket.org/gocodo/bloomsource"
 	"gopkg.in/yaml.v2"
 	"github.com/spf13/viper"
 	"io/ioutil"

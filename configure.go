@@ -10,13 +10,13 @@ import (
 )
 
 var ignoreList = []string {
-	"github.com/gocodo/bloomsources/runner",
-	"github.com/gocodo/bloomsources/usgov/hhs/cclf",
-	"github.com/gocodo/bloomsources/usgov/hhs/hcris",
-	"github.com/gocodo/bloomsources/usgov/hhs/hosp_comp",
-	"github.com/gocodo/bloomsources/usgov/hhs/mu_attestation",
-	"github.com/gocodo/bloomsources/usgov/hhs/mu_report",
-	"github.com/gocodo/bloomsources/usgov/hhs/pos",
+	"bitbucket.org/gocodo/bloomsources/runner",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/cclf",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/hcris",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/hosp_comp",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/mu_attestation",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/mu_report",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/pos",
 }
 
 func searchDir(path string) []string {
@@ -78,11 +78,11 @@ func main() {
   file.WriteString("export PATH := /usr/local/gonative/go/bin:$(PATH)\n\n")
 	file.WriteString("all:\n")
 	file.WriteString("\tmkdir -p $(GOPATH)/bin/linux_amd64/bloomsources/\n")
-	file.WriteString("\tcp $(GOPATH)/src/github.com/gocodo/bloomsources/config.toml $(GOPATH)/bin/linux_amd64/bloomsources\n")
-	file.WriteString("\tgox -osarch=\"linux/amd64\" -output $(GOPATH)/bin/linux_amd64/bloomsources/runner github.com/gocodo/bloomsources/runner\n")
+	file.WriteString("\tcp $(GOPATH)/src/bitbucket.org/gocodo/bloomsources/config.toml $(GOPATH)/bin/linux_amd64/bloomsources\n")
+	file.WriteString("\tgox -osarch=\"linux/amd64\" -output $(GOPATH)/bin/linux_amd64/bloomsources/runner bitbucket.org/gocodo/bloomsources/runner\n")
 
 	for _, packageName := range packages {
-		folderName := strings.Replace(packageName, "github.com/gocodo/bloomsources/", "", 1)
+		folderName := strings.Replace(packageName, "bitbucket.org/gocodo/bloomsources/", "", 1)
 		folderName = strings.Replace(folderName, "/", ".", -1)
 		parts := strings.Split(packageName, "/")
 		execName := parts[len(parts) - 1]
@@ -95,10 +95,10 @@ func main() {
 	file.WriteString("\n")
 	file.WriteString("native:\n")
 	file.WriteString("\tmkdir -p /$(GOPATH)/bin/bloomsources/\n")
-	file.WriteString("\tcp $(GOPATH)/src/github.com/gocodo/bloomsources/config.toml $(GOPATH)/bin/bloomsources\n")
-	file.WriteString("\tgo build -o $(GOPATH)/bin/bloomsources/runner github.com/gocodo/bloomsources/runner\n")
+	file.WriteString("\tcp $(GOPATH)/src/bitbucket.org/gocodo/bloomsources/config.toml $(GOPATH)/bin/bloomsources\n")
+	file.WriteString("\tgo build -o $(GOPATH)/bin/bloomsources/runner bitbucket.org/gocodo/bloomsources/runner\n")
 	for _, packageName := range packages {
-		folderName := strings.Replace(packageName, "github.com/gocodo/bloomsources/", "", 1)
+		folderName := strings.Replace(packageName, "bitbucket.org/gocodo/bloomsources/", "", 1)
 		folderName = strings.Replace(folderName, "/", ".", -1)
 		parts := strings.Split(packageName, "/")
 		execName := parts[len(parts) - 1]
@@ -129,7 +129,7 @@ sourceBinaries = [
 `)
 
 	for _, packageName := range packages {
-		folderName := strings.Replace(packageName, "github.com/gocodo/bloomsources/", "", 1)
+		folderName := strings.Replace(packageName, "bitbucket.org/gocodo/bloomsources/", "", 1)
 		folderName = strings.Replace(folderName, "/", ".", -1)
 		parts := strings.Split(packageName, "/")
 		execName := parts[len(parts) - 1]

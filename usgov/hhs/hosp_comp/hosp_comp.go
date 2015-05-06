@@ -1,8 +1,8 @@
 package main
 
 import (
-  "github.com/gocodo/bloomsource"
-  "github.com/gocodo/bloomsources/usgov/hhs/hosp_comp/lib"
+  "bitbucket.org/gocodo/bloomsource"
+  "bitbucket.org/gocodo/bloomsources/usgov/hhs/hosp_comp/lib"
 )
 
 func main() {

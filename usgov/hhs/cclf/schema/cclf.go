@@ -2,7 +2,7 @@ package schema
 
 import (
 	"sort"
-	"github.com/gocodo/bloomsource/helpers"
+	"bitbucket.org/gocodo/bloomsource/helpers"
 )
 
 type Cclf struct {

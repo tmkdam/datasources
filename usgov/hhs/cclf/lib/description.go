@@ -5,9 +5,9 @@ import (
   "path/filepath"
   "os"
   "regexp"
-  "github.com/gocodo/bloomsource"
-  "github.com/gocodo/bloomsource/helpers"
-  "github.com/gocodo/bloomsources/usgov/hhs/cclf/schema"
+  "bitbucket.org/gocodo/bloomsource"
+  "bitbucket.org/gocodo/bloomsource/helpers"
+  "bitbucket.org/gocodo/bloomsources/usgov/hhs/cclf/schema"
  	"github.com/spf13/viper"
  	"errors"
 )

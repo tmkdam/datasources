@@ -1,8 +1,8 @@
 package main
 
 import (
-  "github.com/gocodo/bloomsource"
-  "github.com/gocodo/bloomsources/usgov/hhs/partd_utilization/lib"
+  "bitbucket.org/gocodo/bloomsource"
+  "bitbucket.org/gocodo/bloomsources/usgov/hhs/partd_utilization/lib"
 )
 
 func main() {

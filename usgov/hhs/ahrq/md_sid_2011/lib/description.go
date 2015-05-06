@@ -2,8 +2,8 @@ package lib
 
 import (
 	"os"
-  "github.com/gocodo/bloomsource"
-  "github.com/gocodo/bloomsource/helpers"
+  "bitbucket.org/gocodo/bloomsource"
+  "bitbucket.org/gocodo/bloomsource/helpers"
  	"github.com/spf13/viper"
 )
 

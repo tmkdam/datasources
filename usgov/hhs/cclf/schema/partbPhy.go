@@ -1,6 +1,6 @@
 package schema
 
-import "github.com/gocodo/bloomsource/helpers"
+import "bitbucket.org/gocodo/bloomsource/helpers"
 
 var PartbPhy = &Cclf{
 	Versions: []string{
