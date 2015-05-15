@@ -89,7 +89,7 @@ sources:
   - name: usgov_hhs_hcpcs_xrefs
     extract: XREF(\d+)
     ignore:
-      "MCM{0}":
+      "XREF{0}":
       - ""
     fields:
     - source:
