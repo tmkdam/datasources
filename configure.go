@@ -16,7 +16,7 @@ var ignoreList = []string {
 	"bitbucket.org/gocodo/bloomsources/usgov/hhs/hosp_comp",
 	"bitbucket.org/gocodo/bloomsources/usgov/hhs/mu_attestation",
 	"bitbucket.org/gocodo/bloomsources/usgov/hhs/mu_report",
-	"bitbucket.org/gocodo/bloomsources/usgov/hhs/pos",
+	"bitbucket.org/gocodo/bloomsources/usgov/hhs/partd_utilization",
 }
 
 func searchDir(path string) []string {
