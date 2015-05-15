@@ -1,10 +1,30 @@
 - name: usgov.hhs.hcpcs
-  pivot: usgov_hhs_hcpcses
+  pivot: usgov_hhs_hcpcs
   id: id
   search_id: code
   public: true
-  select:
-  - healthcare_common_procedure_coding_system_code AS code
-  - hcpcs_long_description AS long_description
-  - hcpcs_short_description AS short_description
-  - hcpcs_code_added_date AS date_added
+  relationships:
+  - include: usgov_hhs_hcpcs_pricing_codes
+    name: pricing_codes
+    type: to_many
+    dest_id: hcpcs_id
+  - include: usgov_hhs_hcpcs_coverage_refs
+    name: coverage_manual_references
+    type: to_many
+    dest_id: hcpcs_id
+  - include: usgov_hhs_hcpcs_carrier_refs
+    name: carrier_manual_references
+    type: to_many
+    dest_id: hcpcs_id
+  - include: usgov_hhs_hcpcs_lab_certs
+    name: lab_certification_codes
+    type: to_many
+    dest_id: hcpcs_id
+  - include: usgov_hhs_hcpcs_xrefs
+    name: replacement_hcpcs_codes
+    type: to_many
+    dest_id: hcpcs_id
+  - include: usgov_hhs_hcpcs_tos
+    name: type_of_service_codes
+    type: to_many
+    dest_id: hcpcs_id

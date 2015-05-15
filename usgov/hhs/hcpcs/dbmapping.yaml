@@ -1,146 +1,207 @@
 sources:
 - name: usgov.hhs.hcpcs
   destinations:
-  - name: usgov_hhs_hcpcses
+  - name: usgov_hhs_hcpcs_pricing_codes
+    extract: PRICE_CD(\d+)
+    ignore:
+      "PRICE_CD{0}":
+      - ""
     fields:
     - source:
-      - Healthcare Common Procedure Coding System Code
+      - HCPC
+      - PRICE_CD{0}
       dest: id
     - source:
-      - Healthcare Common Procedure Coding System Code
-      - HCPCS Code Redefinition Group
-      - HCPCS Modifier Code
-      - HCPCS Sequence Number
-      - HCPCS Record Identification Code
-      - HCPCS Long Description
-      - HCPCS Short Description
-      - HCPCS Pricing Indicator Code
-      - HCPCS Multiple Pricing Indicator Code
-      - HCPCS Coverage Issues Manual Reference Section Number
-      - HCPCS Medicare Carriers Manual Reference Section Number
-      - HCPCS Statute Number
-      - HCPCS Lab Certification Code
-      - HCPCS Cross Reference Code
-      - HCPCS Coverage Code
-      - HCPCS ASC Payment Group Code
-      - HCPCS ASC Payment Group Effective Date
-      - HCPCS MOG Payment Group Code
-      - HCPCS MOG Payment Policy Indicator
-      - HCPCS MOG Effective Date
-      - HCPCS Processing Note Number
-      - HCPCS Berenson-Eggers Type Of Service Code
-      - HCPCS Type Of Service Code
-      - HCPCS Anesthesia Base Unit Quantity
-      - HCPCS Code Added Date
-      - HCPCS Action Effective Date
-      - HCPCS Termination Date
-      - HCPCS Action Code
+      - HCPC
+      - PRICE_CD{0}
       dest: revision
-    - source: Healthcare Common Procedure Coding System Code
-      dest: healthcare_common_procedure_coding_system_code
-      type: string
-      max_length: 10
-    - source: HCPCS Code Redefinition Group
-      dest: hcpcs_code_redefinition_group
-      type: string
-      max_length: 10
-    - source: HCPCS Modifier Code
-      dest: hcpcs_modifier_code
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: PRICE_CD{0}
+      dest: code
       type: string
       max_length: 4
-    - source: HCPCS Sequence Number
-      dest: hcpcs_sequence_number
-      type: string
-      max_length: 10
-    - source: HCPCS Record Identification Code
-      dest: hcpcs_record_identification_code
-      type: string
-      max_length: 2
-    - source: HCPCS Long Description
-      dest: hcpcs_long_description
-      type: string
-      max_length: 160
-    - source: HCPCS Short Description
-      dest: hcpcs_short_description
-      type: string
-      max_length: 56
-    - source: HCPCS Pricing Indicator Code
-      dest: hcpcs_pricing_indicator_code
-      type: string
-      max_length: 4
-    - source: HCPCS Multiple Pricing Indicator Code
-      dest: hcpcs_multiple_pricing_indicator_code
-      type: string
-      max_length: 2
-    - source: HCPCS Coverage Issues Manual Reference Section Number
-      dest: hcpcs_coverage_issues_manual_reference_section_number
+  - name: usgov_hhs_hcpcs_coverage_refs
+    extract: CIM(\d+)
+    ignore:
+      "CIM{0}":
+      - ""
+    fields:
+    - source:
+      - HCPC
+      - CIM{0}
+      dest: id
+    - source:
+      - HCPC
+      - CIM{0}
+      dest: revision
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: CIM{0}
+      dest: section_number
       type: string
       max_length: 12
-    - source: HCPCS Medicare Carriers Manual Reference Section Number
-      dest: hcpcs_medicare_carriers_manual_reference_section_number
+  - name: usgov_hhs_hcpcs_carrier_refs
+    extract: MCM(\d+)
+    ignore:
+      "MCM{0}":
+      - ""
+    fields:
+    - source:
+      - HCPC
+      - MCM{0}
+      dest: id
+    - source:
+      - HCPC
+      - MCM{0}
+      dest: revision
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: MCM{0}
+      dest: section_number
       type: string
-      max_length: 14
-    - source: HCPCS Statute Number
-      dest: hcpcs_statute_number
-      type: string
-      max_length: 20
-    - source: HCPCS Lab Certification Code
-      dest: hcpcs_lab_certification_code
+      max_length: 16
+  - name: usgov_hhs_hcpcs_lab_certs
+    fields:
+    extract: LAB_CERT_CD(\d+)
+    ignore:
+      "LAB_CERT_CD{0}":
+      - ""
+    fields:
+    - source:
+      - HCPC
+      - LAB_CERT_CD{0}
+      dest: id
+    - source:
+      - HCPC
+      - LAB_CERT_CD{0}
+      dest: revision
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: LAB_CERT_CD{0}
+      dest: code
       type: string
       max_length: 6
-    - source: HCPCS Cross Reference Code
-      dest: hcpcs_cross_reference_code
+  - name: usgov_hhs_hcpcs_xrefs
+    extract: XREF(\d+)
+    ignore:
+      "MCM{0}":
+      - ""
+    fields:
+    - source:
+      - HCPC
+      - XREF{0}
+      dest: id
+    - source:
+      - HCPC
+      - XREF{0}
+      dest: revision
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: XREF{0}
+      dest: code
       type: string
       max_length: 10
-    - source: HCPCS Coverage Code
-      dest: hcpcs_coverage_code
+  - name: usgov_hhs_hcpcs_tos
+    extract: TOS(\d+)
+    ignore:
+      "TOS{0}":
+      - ""
+    fields:
+    - source:
+      - HCPC
+      - TOS{0}
+      dest: id
+    - source:
+      - HCPC
+      - TOS{0}
+      dest: revision
+    - source:
+      - HCPC
+      dest: hcpcs_id
+    - source: TOS{0}
+      dest: code
       type: string
       max_length: 2
-    - source: HCPCS ASC Payment Group Code
-      dest: hcpcs_asc_payment_group_code
+  - name: usgov_hhs_hcpcs
+    fields:
+    - source:
+      - HCPC
+      dest: id
+    - source:
+      - ADD_DATE
+      - TERM_DT
+      - LONG DESCRIPTION
+      - MULTI_PI
+      - COV_CODE
+      - HCPC
+      - BETOS
+      - ACTION_CODE
+      - ANES_UNIT
+      - ACT_EFF_DT
+      - STATUTE
+      - ASC_GPCD
+      - PROC_NOTE
+      - SHORT DESCRIPTION
+      - ASC_EFF_DT
+      dest: revision
+    - source: ADD_DATE
+      dest: added_date
+      type: datetime
+    - source: TERM_DT
+      dest: termination_date
+      type: datetime
+    - source: LONG DESCRIPTION
+      dest: long_description
       type: string
-      max_length: 4
-    - source: HCPCS ASC Payment Group Effective Date
-      dest: hcpcs_asc_payment_group_effective_date
+      max_length: 1816
+    - source: MULTI_PI
+      dest: multiple_pricing_indicator_code
       type: string
-      max_length: 16
-    - source: HCPCS MOG Payment Group Code
-      dest: hcpcs_mog_payment_group_code
+      max_length: 2
+    - source: COV_CODE
+      dest: coverage_code
       type: string
-    - source: HCPCS MOG Payment Policy Indicator
-      dest: hcpcs_mog_payment_policy_indicator
+      max_length: 2
+    - source: HCPC
+      dest: code
       type: string
-    - source: HCPCS MOG Effective Date
-      dest: hcpcs_mog_effective_date
-      type: string
-    - source: HCPCS Processing Note Number
-      dest: hcpcs_processing_note_number
-      type: string
-      max_length: 8
-    - source: HCPCS Berenson-Eggers Type Of Service Code
-      dest: hcpcs_berenson_eggers_type_of_service_code
+      max_length: 10
+    - source: BETOS
+      dest: betos_code
       type: string
       max_length: 6
-    - source: HCPCS Type Of Service Code
-      dest: hcpcs_type_of_service_code
+    - source: ACTION_CODE
+      dest: action_code
       type: string
       max_length: 2
-    - source: HCPCS Anesthesia Base Unit Quantity
-      dest: hcpcs_anesthesia_base_unit_quantity
-      type: string
-      max_length: 2
-    - source: HCPCS Code Added Date
-      dest: hcpcs_code_added_date
+    - source: ANES_UNIT
+      dest: anesthesia_unit_quantity
+      type: int
+    - source: ACT_EFF_DT
+      dest: action_effective_date
       type: datetime
-    - source: HCPCS Action Effective Date
-      dest: hcpcs_action_effective_date
+    - source: STATUTE
+      dest: statute
       type: string
-      max_length: 16
-    - source: HCPCS Termination Date
-      dest: hcpcs_termination_date
+      max_length: 20
+    - source: ASC_GPCD
+      dest: asc_payment_group_code
       type: string
-      max_length: 16
-    - source: HCPCS Action Code
-      dest: hcpcs_action_code
+      max_length: 4
+    - source: PROC_NOTE
+      dest: processing_note
       type: string
-      max_length: 2
+      max_length: 8
+    - source: SHORT DESCRIPTION
+      dest: short_description
+      type: string
+      max_length: 56
+    - source: ASC_EFF_DT
+      dest: asc_effective_date
+      type: datetime
