@@ -10,3 +10,4 @@
   - st_adr AS address
   - phne_num AS phone
   - zip_cd AS zip
+  - fax_phne_num AS fax
