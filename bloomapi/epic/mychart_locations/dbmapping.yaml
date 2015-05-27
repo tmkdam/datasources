@@ -1,0 +1,58 @@
+sources:
+- name: bloomapi.epic.mychart_locations
+  destinations:
+  - name: bloomapi_epic_mychart_locations
+    fields:
+    - source:
+      - org Id
+      dest: id
+    - source:
+      - name
+      - org Id
+      - myChart Branding
+      - myChart User Label
+      - timezone
+      dest: revision
+    - source: name
+      dest: name
+      type: string
+      max_length: 96
+    - source: org Id
+      dest: org_id
+      type: string
+      max_length: 10
+    - source: myChart Branding
+      dest: mychart_branding
+      type: string
+      max_length: 70
+    - source: myChart User Label
+      dest: mychart_user_label
+      type: string
+      max_length: 48
+    - source: timezone
+      dest: timezone
+      type: string
+      max_length: 38
+- name: bloomapi.epic.mychart_location_states
+  destinations:
+  - name: bloomapi_epic_mychart_location_states
+    fields:
+    - source:
+      - org Id
+      - state
+      dest: id
+    - source:
+      - org Id
+      - state
+      dest: revision
+    - source:
+      - org Id
+      dest: org_id
+    - source: org Id
+      dest: org_identifier
+      type: string
+      max_length: 10
+    - source: state
+      dest: state
+      type: string
+      max_length: 28

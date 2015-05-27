@@ -1,0 +1,12 @@
+- name: bloomapi.epic.mychart_locations
+  pivot: bloomapi_epic_mychart_locations
+  id: id
+  search_id: org_id
+  relationships:
+  - include: bloomapi_epic_mychart_location_states
+    name: states
+    type: to_many
+    source_id: id
+    dest_id: org_id
+    select:
+    - state AS name

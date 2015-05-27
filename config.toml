@@ -3,6 +3,7 @@ searchHosts = [
   "localhost"
 ]
 sourceBinaries = [
+"./sources/bloomapi.epic.mychart_locations/mychart_locations",
 "./sources/nucc.hcpt/hcpt",
 "./sources/usgov.hhs.aco/aco",
 "./sources/usgov.hhs.ahrq.md_sid_2011/md_sid_2011",
