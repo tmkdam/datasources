@@ -1129,3 +1129,147 @@ sources:
       dest: modifier_code
       type: string
       max_length: 20
+- name: usgov.hhs.cclf.uid_to_hicn
+  destinations:
+  - name: usgov_hhs_cclf_uid_to_hicn
+    fields:
+    - source:
+      - uid
+      - hicn
+      dest: id
+    - source:
+      - uid
+      - hicn
+      dest: revision
+    - source: uid
+      dest: uid
+      type: string
+      max_length: 30
+    - source:
+      - uid
+      dest: uid_id
+    - source: hicn
+      dest: hicn
+      type: string
+      max_length: 22
+    - source:
+      - hicn
+      dest: hicn_id
+- name: usgov.hhs.cclf.uid_beneficiaries
+  destinations:
+  - name: usgov_hhs_cclf_uid_beneficiaries
+    fields:
+    - source:
+      - uid
+      dest: id
+    - source:
+      - uid
+      - beneficiary_fips_state_code
+      - beneficiary_fips_county_code
+      - beneficiary_zip_code
+      - beneficiary_date_of_birth
+      - beneficiary_sex_code
+      - beneficiary_sex
+      - beneficiary_race_code
+      - beneficiary_race
+      - beneficiary_age
+      - beneficiary_medicare_status_code
+      - beneficiary_medicare_status
+      - beneficiary_dual_status_code
+      - beneficiary_death_date
+      - date_beneficiary_enrolled_in_hospice
+      - date_beneficiary_ended_hospice
+      - beneficiary_first_name
+      - beneficiary_middle_name
+      - beneficiary_last_name
+      - beneficiary_original_entitlement_reason_code
+      - beneficiary_original_entitlement_reason
+      - beneficiary_entitlement_buy_in_indicator
+      - beneficiary_entitlement_buy_in
+      dest: revision
+    - source: uid
+      dest: uid
+      type: string
+      max_length: 30
+    - source: beneficiary_fips_state_code
+      dest: beneficiary_fips_state_code
+      type: string
+      max_length: 4
+    - source: beneficiary_fips_county_code
+      dest: beneficiary_fips_county_code
+      type: string
+      max_length: 6
+    - source: beneficiary_zip_code
+      dest: beneficiary_zip_code
+      type: string
+      max_length: 10
+    - source: beneficiary_date_of_birth
+      dest: beneficiary_date_of_birth
+      type: datetime
+    - source: beneficiary_sex_code
+      dest: beneficiary_sex_code
+      type: int
+    - source: beneficiary_sex
+      dest: beneficiary_sex
+      type: string
+      max_length: 12
+    - source: beneficiary_race_code
+      dest: beneficiary_race_code
+      type: string
+      max_length: 2
+    - source: beneficiary_race
+      dest: beneficiary_race
+      type: string
+      max_length: 42
+    - source: beneficiary_age
+      dest: beneficiary_age
+      type: int
+    - source: beneficiary_medicare_status_code
+      dest: beneficiary_medicare_status_code
+      type: string
+      max_length: 4
+    - source: beneficiary_medicare_status
+      dest: beneficiary_medicare_status
+      type: string
+      max_length: 42
+    - source: beneficiary_dual_status_code
+      dest: beneficiary_dual_status_code
+      type: string
+      max_length: 4
+    - source: beneficiary_death_date
+      dest: beneficiary_death_date
+      type: datetime
+    - source: date_beneficiary_enrolled_in_hospice
+      dest: date_beneficiary_enrolled_in_hospice
+      type: datetime
+    - source: date_beneficiary_ended_hospice
+      dest: date_beneficiary_ended_hospice
+      type: datetime
+    - source: beneficiary_first_name
+      dest: beneficiary_first_name
+      type: string
+      max_length: 30
+    - source: beneficiary_middle_name
+      dest: beneficiary_middle_name
+      type: string
+      max_length: 2
+    - source: beneficiary_last_name
+      dest: beneficiary_last_name
+      type: string
+      max_length: 40
+    - source: beneficiary_original_entitlement_reason_code
+      dest: beneficiary_original_entitlement_reason_code
+      type: string
+      max_length: 2
+    - source: beneficiary_original_entitlement_reason
+      dest: beneficiary_original_entitlement_reason
+      type: string
+      max_length: 76
+    - source: beneficiary_entitlement_buy_in_indicator
+      dest: beneficiary_entitlement_buy_in_indicator
+      type: string
+      max_length: 2
+    - source: beneficiary_entitlement_buy_in
+      dest: beneficiary_entitlement_buy_in
+      type: string
+      max_length: 54

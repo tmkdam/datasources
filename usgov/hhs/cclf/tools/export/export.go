@@ -70,7 +70,7 @@ func main() {
 
 	bloomdb := bloomdb.CreateDB()
 
-	file, err := ioutil.ReadFile("../dbmapping.yaml")
+	file, err := ioutil.ReadFile("../../dbmapping.yaml")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -95,8 +95,22 @@ func main() {
 		return
 	}
 
+	beneColumns := []string{}
+	beneInfos, err := tableColumns(conn, "usgov_hhs_cclf_beneficiaries")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	for _, info := range beneInfos {
+		if info.Type != "uuid" && !strings.HasPrefix(info.Name, "bloom_") {
+			beneColumns = append(beneColumns, info.Name)
+		}
+	}
+
 	for _, table := range tableNames {
 		fmt.Println("Exporting " + table)
+		foundHicn := false
 		csvfile, err := os.Create(table + ".csv")
 		if err != nil {
 			fmt.Println(err)
@@ -113,14 +127,35 @@ func main() {
 		}
 
 		for _, info := range infos {
-			if info.Type != "uuid" && !strings.HasPrefix(info.Name, "bloom_") {
-				columns = append(columns, info.Name)
+			if info.Name == "hic_id" && table != "usgov_hhs_cclf_beneficiaries" {
+				foundHicn = true
 			}
+			if info.Type != "uuid" && !strings.HasPrefix(info.Name, "bloom_") {
+				columns = append(columns, table + "." + info.Name)
+			}
+		}
+
+		var query string
+		if foundHicn {
+			for _, name := range beneColumns {
+				columns = append(columns, "usgov_hhs_cclf_beneficiaries." + name)
+			}
+			query = "SELECT " + strings.Join(columns, ",") + " FROM " + table + `
+join usgov_hhs_cclf_beneficiaries
+on usgov_hhs_cclf_beneficiaries.id =  (
+	select id from usgov_hhs_cclf_beneficiaries
+	where usgov_hhs_cclf_beneficiaries.hic_id = ` + table + `.hic_id
+	order by date_beneficiary_enrolled_in_hospice
+	limit 1
+)
+			`
+		} else {
+			query = "SELECT " + strings.Join(columns, ",") + " FROM " + table
 		}
 
 		writer.Write(columns)
 
-		rows, err := conn.Query("SELECT " + strings.Join(columns, ",") + " FROM " + table)
+		rows, err := conn.Query(query)
 		if err != nil {
 			fmt.Println(err)
 			return

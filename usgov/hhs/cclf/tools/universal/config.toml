@@ -1,0 +1,5 @@
+sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+searchHosts = [
+  "localhost"
+]
+cclfDir = "/Users/untoldone/working/Collaborative Health Data/CCLF Files/"

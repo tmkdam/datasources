@@ -1,9 +1,9 @@
 package lib
 
 import (
-  "io"
   "path/filepath"
   "os"
+  "encoding/csv"
   "regexp"
   "bitbucket.org/gocodo/bloomsource"
   "bitbucket.org/gocodo/bloomsource/helpers"
@@ -87,62 +87,108 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 		return nil, err
 	}
 
+	if _, err := os.Stat(cclfDir + "/uid_to_hicn.csv"); err == nil {
+		sources = append(sources, bloomsource.Source{
+				Name: "usgov.hhs.cclf.uid_to_hicn",
+				Version: "2015-01",
+				Action: "sync",
+			})
+	}
+
+	if _, err := os.Stat(cclfDir + "/uid_beneficiaries.csv"); err == nil {
+		sources = append(sources, bloomsource.Source{
+				Name: "usgov.hhs.cclf.uid_beneficiaries",
+				Version: "2015-01",
+				Action: "sync",
+			})
+	}
+
 	return sources, nil
 }
 
 func (d *Description) FieldNames(sourceName string) ([]string, error) {
-	fields := sourceFields[sourceName].FieldNames()
-	names := make([]string, len(fields))
+	cclfDir := viper.GetString("cclfDir")
+	var path string
+	
+	switch sourceName {
+	case "usgov.hhs.cclf.uid_to_hicn":
+		path = cclfDir + "/uid_to_hicn.csv"
+	case "usgov.hhs.cclf.uid_beneficiaries":
+		path = cclfDir + "/uid_beneficiaries.csv"
+	default:
+		fields := sourceFields[sourceName].FieldNames()
+		names := make([]string, len(fields))
 
-	for i, field := range fields {
-		names[i] = field
+		for i, field := range fields {
+			names[i] = field
+		}
+
+		return names, nil
 	}
 
-	return names, nil
-}
-
-func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
-  path, err := downloader.Fetch(uri)
+  fileReader, err := os.Open(path)
   if err != nil {
     return nil, err
   }
 
-  reader, err := helpers.OpenExtractZipReader(path, zipPattern)
+  csvReader := csv.NewReader(fileReader)
   if err != nil {
     return nil, err
   }
 
-  return reader, nil
+  columns, err := csvReader.Read()
+  if err != nil {
+    return nil, err
+  }
+
+  return columns, nil
 }
 
 func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-	fileIndex := fileIndexes[source.Name]
-  fileRegex := regexp.MustCompile(`ACO\.CCLF` + fileIndex + `\.` + source.Version)
-
 	cclfDir := viper.GetString("cclfDir")
-	var sourcePath string
+	var path string
 
-	err := filepath.Walk(cclfDir, func (path string, file os.FileInfo, err error) error {
-			if fileRegex.MatchString(file.Name()) {
-				sourcePath = path
-			}
+	switch source.Name {
+	case "usgov.hhs.cclf.uid_to_hicn":
+		path = cclfDir + "/uid_to_hicn.csv"
+	case "usgov.hhs.cclf.uid_beneficiaries":
+		path = cclfDir + "/uid_beneficiaries.csv"
+	default:
+		fileIndex := fileIndexes[source.Name]
+	  fileRegex := regexp.MustCompile(`ACO\.CCLF` + fileIndex + `\.` + source.Version)
 
-			return nil
-		})
+		var sourcePath string
 
-	if err != nil {
-		return nil, err
+		err := filepath.Walk(cclfDir, func (path string, file os.FileInfo, err error) error {
+				if fileRegex.MatchString(file.Name()) {
+					sourcePath = path
+				}
+
+				return nil
+			})
+
+		if err != nil {
+			return nil, err
+		}
+
+		if sourcePath == "" {
+			return nil, errors.New("Source " + source.Name + " with version " + source.Version + " not found.")
+		}
+
+		file, err := os.Open(sourcePath)
+		if err != nil {
+			return nil, err
+		}
+
+		return helpers.NewTabReader(file, sourceFields[source.Name].Fields(source.Version)), nil
 	}
 
-	if sourcePath == "" {
-		return nil, errors.New("Source " + source.Name + " with version " + source.Version + " not found.")
-	}
+  fileReader, err := os.Open(path)
+  if err != nil {
+    return nil, err
+  }
 
-	file, err := os.Open(sourcePath)
-	if err != nil {
-		return nil, err
-	}
+  csvReader := helpers.NewCsvReader(fileReader)
 
-	return helpers.NewTabReader(file, sourceFields[source.Name].Fields(source.Version)), nil
+  return csvReader, nil
 }
