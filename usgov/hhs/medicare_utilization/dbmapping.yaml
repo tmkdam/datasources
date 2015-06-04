@@ -4,102 +4,106 @@ sources:
   - name: usgov_hhs_medicare_utilization
     fields:
     - source:
-      - npi
+      - NPI
       dest: id
     - source:
-      - npi
+      - NPI
       dest: revision
-    - source: npi
+    - source: NPI
       dest: npi
-      type: string
-      max_length: 20
+      type: bigint
   - name: usgov_hhs_medicare_utilization_procs
     fields:
     - source:
-      - npi
-      - provider_type
-      - medicare_participation_indicator
-      - place_of_service
-      - hcpcs_code
-      - hcpcs_description
-      - line_srvc_cnt
-      - bene_unique_cnt
-      - bene_day_srvc_cnt
-      - average_Medicare_allowed_amt
-      - stdev_Medicare_allowed_amt
-      - average_submitted_chrg_amt
-      - stdev_submitted_chrg_amt
-      - average_Medicare_payment_amt
-      - stdev_Medicare_payment_amt
+      - NPI
+      - PROVIDER_TYPE
+      - MEDICARE_PARTICIPATION_INDICATOR
+      - PLACE_OF_SERVICE
+      - HCPCS_CODE
+      - HCPCS_DESCRIPTION
+      - HCPCS_DRUG_INDICATOR
+      - LINE_SRVC_CNT
+      - BENE_UNIQUE_CNT
+      - BENE_DAY_SRVC_CNT
+      - AVERAGE_MEDICARE_ALLOWED_AMT
+      - STDEV_MEDICARE_ALLOWED_AMT
+      - AVERAGE_SUBMITTED_CHRG_AMT
+      - STDEV_SUBMITTED_CHRG_AMT
+      - AVERAGE_MEDICARE_PAYMENT_AMT
+      - STDEV_MEDICARE_PAYMENT_AMT
       dest: id
     - source:
-      - npi
-      - provider_type
-      - medicare_participation_indicator
-      - place_of_service
-      - hcpcs_code
-      - hcpcs_description
-      - line_srvc_cnt
-      - bene_unique_cnt
-      - bene_day_srvc_cnt
-      - average_Medicare_allowed_amt
-      - stdev_Medicare_allowed_amt
-      - average_submitted_chrg_amt
-      - stdev_submitted_chrg_amt
-      - average_Medicare_payment_amt
-      - stdev_Medicare_payment_amt
+      - NPI
+      - PROVIDER_TYPE
+      - MEDICARE_PARTICIPATION_INDICATOR
+      - PLACE_OF_SERVICE
+      - HCPCS_CODE
+      - HCPCS_DESCRIPTION
+      - HCPCS_DRUG_INDICATOR
+      - LINE_SRVC_CNT
+      - BENE_UNIQUE_CNT
+      - BENE_DAY_SRVC_CNT
+      - AVERAGE_MEDICARE_ALLOWED_AMT
+      - STDEV_MEDICARE_ALLOWED_AMT
+      - AVERAGE_SUBMITTED_CHRG_AMT
+      - STDEV_SUBMITTED_CHRG_AMT
+      - AVERAGE_MEDICARE_PAYMENT_AMT
+      - STDEV_MEDICARE_PAYMENT_AMT
       dest: revision
-    - source: npi
+    - source: NPI
       dest: npi
-      type: string
-      max_length: 20
+      type: bigint
     - source:
-      - npi
+      - NPI
       dest: npi_id
-    - source: provider_type
+    - source: PROVIDER_TYPE
       dest: provider_type
       type: string
       max_length: 86
-    - source: medicare_participation_indicator
+    - source: MEDICARE_PARTICIPATION_INDICATOR
       dest: medicare_participation_indicator
       type: string
       max_length: 2
-    - source: place_of_service
+    - source: PLACE_OF_SERVICE
       dest: place_of_service
       type: string
       max_length: 2
-    - source: hcpcs_code
+    - source: HCPCS_CODE
       dest: hcpcs_code
       type: string
       max_length: 10
-    - source: hcpcs_description
+    - source: HCPCS_DESCRIPTION
       dest: hcpcs_description
       type: string
-      max_length: 56
-    - source: line_srvc_cnt
+      max_length: 512
+    - source: HCPCS_DRUG_INDICATOR
+      dest: hcpcs_drug_indicator
+      type: string
+      max_length: 2
+    - source: LINE_SRVC_CNT
       dest: line_srvc_cnt
       type: decimal
-    - source: bene_unique_cnt
+    - source: BENE_UNIQUE_CNT
       dest: bene_unique_cnt
       type: int
-    - source: bene_day_srvc_cnt
+    - source: BENE_DAY_SRVC_CNT
       dest: bene_day_srvc_cnt
-      type: decimal
-    - source: average_Medicare_allowed_amt
+      type: int
+    - source: AVERAGE_MEDICARE_ALLOWED_AMT
       dest: average_medicare_allowed_amt
       type: decimal
-    - source: stdev_Medicare_allowed_amt
+    - source: STDEV_MEDICARE_ALLOWED_AMT
       dest: stdev_medicare_allowed_amt
       type: decimal
-    - source: average_submitted_chrg_amt
+    - source: AVERAGE_SUBMITTED_CHRG_AMT
       dest: average_submitted_chrg_amt
       type: decimal
-    - source: stdev_submitted_chrg_amt
+    - source: STDEV_SUBMITTED_CHRG_AMT
       dest: stdev_submitted_chrg_amt
       type: decimal
-    - source: average_Medicare_payment_amt
+    - source: AVERAGE_MEDICARE_PAYMENT_AMT
       dest: average_medicare_payment_amt
       type: decimal
-    - source: stdev_Medicare_payment_amt
+    - source: STDEV_MEDICARE_PAYMENT_AMT
       dest: stdev_medicare_payment_amt
       type: decimal

@@ -14,14 +14,15 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
   return []bloomsource.Source{
     bloomsource.Source{
       Name: "usgov.hhs.medicare_utilization",
-      Version: "2012-00",
+      Version: "2013-00",
     },
   }, nil
 }
 
 func (d *Description) FieldNames(sourceName string) ([]string, error) {
-  fileMatch := regexp.MustCompile(`Medicare-Physician-and-Other-Supplier-PUF-CY2012.txt$`)
-  reader, err := getFileReader("http://download.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Downloads/Medicare-Physician-and-Other-Supplier-PUF-CY2012.zip?agree=yes&next=Accept", fileMatch)
+  fileMatch := regexp.MustCompile(`Medicare_Provider_Util_Payment_PUF_CY2013.txt$`)
+
+  reader, err := getFileReader("http://download.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Downloads/Medicare_Provider_Util_Payment_PUF_CY2013.zip?agree=yes&next=Accept", fileMatch)
   if err != nil {
     return nil, err
   }
@@ -57,8 +58,8 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
 }
 
 func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-  fileMatch := regexp.MustCompile(`Medicare-Physician-and-Other-Supplier-PUF-CY2012.txt$`)
-  reader, err := getFileReader("http://download.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Downloads/Medicare-Physician-and-Other-Supplier-PUF-CY2012.zip?agree=yes&next=Accept", fileMatch)
+  fileMatch := regexp.MustCompile(`Medicare_Provider_Util_Payment_PUF_CY2013.txt$`)
+  reader, err := getFileReader("http://download.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Downloads/Medicare_Provider_Util_Payment_PUF_CY2013.zip?agree=yes&next=Accept", fileMatch)
   if err != nil {
     return nil, err
   }
