@@ -1,0 +1,28 @@
+sources:
+- name: usgov.hhs.icd_10_cm
+  destinations:
+  - name: usgov_hhs_icd_10_cm
+    fields:
+    - source:
+      - code
+      dest: id
+    - source:
+      - code
+      - short_description
+      - long_description
+      dest: revision
+    - source: code
+      dest: code
+      type: string
+      max_length: 7
+    - source:
+      - code
+      dest: code_id
+    - source: short_description
+      dest: short_description
+      type: string
+      max_length: 120
+    - source: long_description
+      dest: long_description
+      type: string
+      max_length: 456

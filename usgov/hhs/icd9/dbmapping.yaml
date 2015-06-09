@@ -1,0 +1,28 @@
+sources:
+- name: usgov.hhs.icd_9_cm
+  destinations:
+  - name: usgov_hhs_icd_9_cm
+    fields:
+    - source:
+      - DIAGNOSIS CODE
+      dest: id
+    - source:
+      - DIAGNOSIS CODE
+      - LONG DESCRIPTION
+      - SHORT DESCRIPTION
+      dest: revision
+    - source: DIAGNOSIS CODE
+      dest: code
+      type: string
+      max_length: 5
+    - source:
+      - code
+      dest: code_id
+    - source: SHORT DESCRIPTION
+      dest: short_description
+      type: string
+      max_length: 48
+    - source: LONG DESCRIPTION
+      dest: long_description
+      type: string
+      max_length: 444

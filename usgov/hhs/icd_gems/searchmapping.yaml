@@ -1,0 +1,8 @@
+- name: usgov.hhs.icd_9_gems
+  pivot: usgov_hhs_icd_9_gems
+  id: id
+  search_id: id
+- name: usgov.hhs.icd_10_gems
+  pivot: usgov_hhs_icd_10_gems
+  id: id
+  search_id: id

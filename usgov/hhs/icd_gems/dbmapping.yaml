@@ -1,0 +1,121 @@
+sources:
+- name: usgov.hhs.icd_9_gems
+  destinations:
+  - name: usgov_hhs_icd_9_gems
+    fields:
+    - source:
+      - icd9
+      - icd10
+      - approximate
+      - no_map
+      - combination
+      - scenario
+      - choice_list
+      dest: id
+    - source:
+      - icd9
+      - icd10
+      - approximate
+      - no_map
+      - combination
+      - scenario
+      - choice_list
+      dest: revision
+    - source: icd9
+      dest: icd9
+      type: string
+      max_length: 5
+    - source:
+      - icd9
+      dest: icd9_id
+    - source: icd10
+      dest: icd10
+      type: string
+      max_length: 7
+    - source:
+      - icd10
+      dest: icd10_id
+    - source: approximate
+      dest: approximate
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: no_map
+      dest: no_map
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: combination
+      dest: combination
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: scenario
+      dest: scenario
+      type: int
+    - source: choice_list
+      dest: choice_list
+      type: int
+- name: usgov.hhs.icd_10_gems
+  destinations:
+  - name: usgov_hhs_icd_10_gems
+    fields:
+    - source:
+      - icd9
+      - icd10
+      - approximate
+      - no_map
+      - combination
+      - scenario
+      - choice_list
+      dest: id
+    - source:
+      - icd9
+      - icd10
+      - approximate
+      - no_map
+      - combination
+      - scenario
+      - choice_list
+      dest: revision
+    - source: icd9
+      dest: icd9
+      type: string
+      max_length: 5
+    - source:
+      - icd9
+      dest: icd9_id
+    - source: icd10
+      dest: icd10
+      type: string
+      max_length: 7
+    - source:
+      - icd10
+      dest: icd10_id
+    - source: approximate
+      dest: approximate
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: no_map
+      dest: no_map
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: combination
+      dest: combination
+      mapping:
+        "0": "false"
+        "1": "true"
+      type: boolean
+    - source: scenario
+      dest: scenario
+      type: int
+    - source: choice_list
+      dest: choice_list
+      type: int

@@ -1,0 +1,4 @@
+- name: usgov.hhs.icd_9_cm
+  pivot: usgov_hhs_icd_9_cm
+  id: id
+  search_id: code
