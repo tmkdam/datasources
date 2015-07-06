@@ -1,0 +1,853 @@
+sources:
+- name: usgov.hhs.mu_eh_stage1_attestation
+  destinations:
+  - name: usgov_hhs_mu_eh_stage1_attestation
+    fields:
+    - source:
+      - NPI
+      - Program Year
+      - Payment Year
+      - Attestation Success Date
+      - EHR Certification Number
+      - CCN
+      - CM1 - Numerator
+      - CM1 - Denominator
+      - CM1  Percentage
+      - CM2
+      - CM3 - Numerator
+      - CM3 - Denominator
+      - CM3 - Percentage
+      - CM4 - Numerator
+      - CM4 - Denominator
+      - CM4 - Percentage
+      - CM5 - Numerator
+      - CM5 - Denominator
+      - CM5 - Percentage
+      - CM6 - Numerator
+      - CM6 - Denominator
+      - CM6 - Percentage
+      - CM7 - Numerator
+      - CM7 - Denominator
+      - CM7 - Percentage
+      - CM8 - Numerator
+      - CM8 - Denominator
+      - CM8  Percentage
+      - CM8 - Exclusions
+      - CM9
+      - CM10
+      - CM11 - Numerator
+      - CM11 - Denominator
+      - CM11 - Percentage
+      - CM11 - Exclusions
+      - CM12 - Numerator
+      - CM12 - Denominator
+      - CM12 - Percentage
+      - CM12 - Exclusions
+      - CM13
+      - CM14
+      - MM1
+      - MM2 - Numerator
+      - MM2 - Denominator
+      - MM2 - Percentage
+      - MM2 - Exclusions
+      - MM3 - Numerator
+      - MM3 - Denominator
+      - MM3 - Percentage
+      - MM4
+      - MM5 - Numerator
+      - MM5 - Denominator
+      - MM5 - Percentage
+      - MM6 - Numerator
+      - MM6 - Denominator
+      - MM6 - Percentage
+      - MM7 - Numerator
+      - MM7 - Denominator
+      - MM7 - Percentage
+      - MM8
+      - MM8 - Exclusions
+      - MM9
+      - MM9 - Exclusions
+      - MM10
+      - MM10 - Exclusions
+      dest: id
+    - source:
+      - NPI
+      - Program Year
+      - Payment Year
+      - Attestation Success Date
+      - EHR Certification Number
+      - CCN
+      - CM1 - Numerator
+      - CM1 - Denominator
+      - CM1  Percentage
+      - CM2
+      - CM3 - Numerator
+      - CM3 - Denominator
+      - CM3 - Percentage
+      - CM4 - Numerator
+      - CM4 - Denominator
+      - CM4 - Percentage
+      - CM5 - Numerator
+      - CM5 - Denominator
+      - CM5 - Percentage
+      - CM6 - Numerator
+      - CM6 - Denominator
+      - CM6 - Percentage
+      - CM7 - Numerator
+      - CM7 - Denominator
+      - CM7 - Percentage
+      - CM8 - Numerator
+      - CM8 - Denominator
+      - CM8  Percentage
+      - CM8 - Exclusions
+      - CM9
+      - CM10
+      - CM11 - Numerator
+      - CM11 - Denominator
+      - CM11 - Percentage
+      - CM11 - Exclusions
+      - CM12 - Numerator
+      - CM12 - Denominator
+      - CM12 - Percentage
+      - CM12 - Exclusions
+      - CM13
+      - CM14
+      - MM1
+      - MM2 - Numerator
+      - MM2 - Denominator
+      - MM2 - Percentage
+      - MM2 - Exclusions
+      - MM3 - Numerator
+      - MM3 - Denominator
+      - MM3 - Percentage
+      - MM4
+      - MM5 - Numerator
+      - MM5 - Denominator
+      - MM5 - Percentage
+      - MM6 - Numerator
+      - MM6 - Denominator
+      - MM6 - Percentage
+      - MM7 - Numerator
+      - MM7 - Denominator
+      - MM7 - Percentage
+      - MM8
+      - MM8 - Exclusions
+      - MM9
+      - MM9 - Exclusions
+      - MM10
+      - MM10 - Exclusions
+      dest: revision
+    - source: NPI
+      dest: npi
+      type: bigint
+    - source: Program Year
+      dest: program_year
+      type: int
+    - source: Payment Year
+      dest: payment_year
+      type: int
+    - source: Attestation Success Date
+      dest: attestation_success_date
+      type: string
+      max_length: 16
+    - source: EHR Certification Number
+      dest: ehr_certification_number
+      type: string
+      max_length: 30
+    - source: CCN
+      dest: ccn
+      type: string
+      max_length: 20
+    - source: CM1 - Numerator
+      dest: cm1_numerator
+      type: int
+    - source: CM1 - Denominator
+      dest: cm1_denominator
+      type: string
+      max_length: 14
+    - source: CM1  Percentage
+      dest: cm1_percentage
+      type: string
+      max_length: 8
+    - source: CM2
+      dest: cm2
+      type: string
+      max_length: 2
+    - source: CM3 - Numerator
+      dest: cm3_numerator
+      type: int
+    - source: CM3 - Denominator
+      dest: cm3_denominator
+      type: int
+    - source: CM3 - Percentage
+      dest: cm3_percentage
+      type: string
+      max_length: 8
+    - source: CM4 - Numerator
+      dest: cm4_numerator
+      type: int
+    - source: CM4 - Denominator
+      dest: cm4_denominator
+      type: int
+    - source: CM4 - Percentage
+      dest: cm4_percentage
+      type: string
+      max_length: 8
+    - source: CM5 - Numerator
+      dest: cm5_numerator
+      type: int
+    - source: CM5 - Denominator
+      dest: cm5_denominator
+      type: int
+    - source: CM5 - Percentage
+      dest: cm5_percentage
+      type: string
+      max_length: 8
+    - source: CM6 - Numerator
+      dest: cm6_numerator
+      type: int
+    - source: CM6 - Denominator
+      dest: cm6_denominator
+      type: int
+    - source: CM6 - Percentage
+      dest: cm6_percentage
+      type: string
+      max_length: 8
+    - source: CM7 - Numerator
+      dest: cm7_numerator
+      type: int
+    - source: CM7 - Denominator
+      dest: cm7_denominator
+      type: int
+    - source: CM7 - Percentage
+      dest: cm7_percentage
+      type: string
+      max_length: 8
+    - source: CM8 - Numerator
+      dest: cm8_numerator
+      type: string
+      max_length: 12
+    - source: CM8 - Denominator
+      dest: cm8_denominator
+      type: string
+      max_length: 12
+    - source: CM8  Percentage
+      dest: cm8_percentage
+      type: string
+      max_length: 8
+    - source: CM8 - Exclusions
+      dest: cm8_exclusions
+      type: string
+      max_length: 2
+    - source: CM9
+      dest: cm9
+      type: string
+      max_length: 2
+    - source: CM10
+      dest: cm10
+      type: string
+      max_length: 2
+    - source: CM11 - Numerator
+      dest: cm11_numerator
+      type: string
+      max_length: 10
+    - source: CM11 - Denominator
+      dest: cm11_denominator
+      type: string
+      max_length: 10
+    - source: CM11 - Percentage
+      dest: cm11_percentage
+      type: string
+      max_length: 8
+    - source: CM11 - Exclusions
+      dest: cm11_exclusions
+      type: string
+      max_length: 2
+    - source: CM12 - Numerator
+      dest: cm12_numerator
+      type: string
+      max_length: 12
+    - source: CM12 - Denominator
+      dest: cm12_denominator
+      type: string
+      max_length: 12
+    - source: CM12 - Percentage
+      dest: cm12_percentage
+      type: string
+      max_length: 8
+    - source: CM12 - Exclusions
+      dest: cm12_exclusions
+      type: string
+      max_length: 2
+    - source: CM13
+      dest: cm13
+      type: string
+      max_length: 2
+    - source: CM14
+      dest: cm14
+      type: string
+      max_length: 2
+    - source: MM1
+      dest: mm1
+      type: string
+      max_length: 2
+    - source: MM2 - Numerator
+      dest: mm2_numerator
+      type: string
+      max_length: 10
+    - source: MM2 - Denominator
+      dest: mm2_denominator
+      type: string
+      max_length: 10
+    - source: MM2 - Percentage
+      dest: mm2_percentage
+      type: string
+      max_length: 8
+    - source: MM2 - Exclusions
+      dest: mm2_exclusions
+      type: string
+      max_length: 2
+    - source: MM3 - Numerator
+      dest: mm3_numerator
+      type: string
+      max_length: 20
+    - source: MM3 - Denominator
+      dest: mm3_denominator
+      type: string
+      max_length: 20
+    - source: MM3 - Percentage
+      dest: mm3_percentage
+      type: string
+      max_length: 8
+    - source: MM4
+      dest: mm4
+      type: string
+      max_length: 2
+    - source: MM5 - Numerator
+      dest: mm5_numerator
+      type: int
+    - source: MM5 - Denominator
+      dest: mm5_denominator
+      type: int
+    - source: MM5 - Percentage
+      dest: mm5_percentage
+      type: string
+      max_length: 8
+    - source: MM6 - Numerator
+      dest: mm6_numerator
+      type: int
+    - source: MM6 - Denominator
+      dest: mm6_denominator
+      type: int
+    - source: MM6 - Percentage
+      dest: mm6_percentage
+      type: string
+      max_length: 8
+    - source: MM7 - Numerator
+      dest: mm7_numerator
+      type: int
+    - source: MM7 - Denominator
+      dest: mm7_denominator
+      type: int
+    - source: MM7 - Percentage
+      dest: mm7_percentage
+      type: string
+      max_length: 8
+    - source: MM8
+      dest: mm8
+      type: string
+      max_length: 2
+    - source: MM8 - Exclusions
+      dest: mm8_exclusions
+      type: string
+      max_length: 2
+    - source: MM9
+      dest: mm9
+      type: string
+      max_length: 2
+    - source: MM9 - Exclusions
+      dest: mm9_exclusions
+      type: string
+      max_length: 2
+    - source: MM10
+      dest: mm10
+      type: string
+      max_length: 2
+    - source: MM10 - Exclusions
+      dest: mm10_exclusions
+      type: string
+      max_length: 2
+- name: usgov.hhs.mu_eh_stage2_attestation
+  destinations:
+  - name: usgov_hhs_mu_eh_stage2_attestation
+    fields:
+    - source:
+      - NPI
+      - Program Year
+      - Payment Year Number
+      - Attestation Success Date
+      - EHR Certification Number
+      - CCN
+      - CM21A - Numerator
+      - CM21A - Denominator
+      - CM21A Percentage
+      - CM21B - Numerator
+      - CM21B - Denominator
+      - CM21B Percentage
+      - CM21C - Numerator
+      - CM21C - Denominator
+      - CM21C Percentage
+      - CM22 - Numerator
+      - CM22 - Denominator
+      - CM22 Percentage
+      - CM23 - Numerator
+      - CM23 - Denominator
+      - CM23 Percentage
+      - CM24 - Numerator
+      - CM24 - Denominator
+      - CM24 Percentage
+      - CM24 - Exclusion
+      - CM25A
+      - CM25B
+      - CM26 - Numerator
+      - CM26 - Denominator
+      - CM26 Percentage
+      - CM27
+      - CM28A - Numerator
+      - CM28A - Denominator
+      - CM28A Percentage
+      - CM28B - Numerator
+      - CM28B - Denominator
+      - CM28B Percentage
+      - CM28B - Exclusion
+      - CM29 - Numerator
+      - CM29 - Denominator
+      - CM29 Percentage
+      - CM30 - Numerator
+      - CM30 - Denominator
+      - CM30 Percentage
+      - CM31A - Numerator
+      - CM31A - Denominator
+      - CM31A Percentage
+      - CM31B - Numerator
+      - CM31B - Denominator
+      - CM31B Percentage
+      - CM31C
+      - CM32
+      - CM32 - Exclusion
+      - CM33
+      - CM33 - Exclusion
+      - CM34
+      - CM34 - Exclusion
+      - CM35
+      - CM36 - Numerator
+      - CM336 - Denominator
+      - CM36 Percentage
+      - CM36 - Exclusion
+      - MM21 - Numerator
+      - MM21 - Denominator
+      - MM21 Percentage
+      - MM21 - Exclusion
+      - MM22 - Numerator
+      - MM22 - Denominator
+      - MM22 Percentage
+      - MM23 - Numerator
+      - MM23 - Denominator
+      - MM23 Percentage
+      - MM24 - Numerator
+      - MM24 - Denominator
+      - MM24 Percentage
+      - MM24 - Exclusion
+      - MM25 - Numerator
+      - MM25 - Denominator
+      - MM25 Percentage
+      - MM26A - Numerator
+      - MM26A - Denominator
+      - MM26A Percentage
+      - MM26B - Numerator
+      - MM26B - Denominator
+      - MM26B Percentage
+      dest: id
+    - source:
+      - NPI
+      - Program Year
+      - Payment Year Number
+      - Attestation Success Date
+      - EHR Certification Number
+      - CCN
+      - CM21A - Numerator
+      - CM21A - Denominator
+      - CM21A Percentage
+      - CM21B - Numerator
+      - CM21B - Denominator
+      - CM21B Percentage
+      - CM21C - Numerator
+      - CM21C - Denominator
+      - CM21C Percentage
+      - CM22 - Numerator
+      - CM22 - Denominator
+      - CM22 Percentage
+      - CM23 - Numerator
+      - CM23 - Denominator
+      - CM23 Percentage
+      - CM24 - Numerator
+      - CM24 - Denominator
+      - CM24 Percentage
+      - CM24 - Exclusion
+      - CM25A
+      - CM25B
+      - CM26 - Numerator
+      - CM26 - Denominator
+      - CM26 Percentage
+      - CM27
+      - CM28A - Numerator
+      - CM28A - Denominator
+      - CM28A Percentage
+      - CM28B - Numerator
+      - CM28B - Denominator
+      - CM28B Percentage
+      - CM28B - Exclusion
+      - CM29 - Numerator
+      - CM29 - Denominator
+      - CM29 Percentage
+      - CM30 - Numerator
+      - CM30 - Denominator
+      - CM30 Percentage
+      - CM31A - Numerator
+      - CM31A - Denominator
+      - CM31A Percentage
+      - CM31B - Numerator
+      - CM31B - Denominator
+      - CM31B Percentage
+      - CM31C
+      - CM32
+      - CM32 - Exclusion
+      - CM33
+      - CM33 - Exclusion
+      - CM34
+      - CM34 - Exclusion
+      - CM35
+      - CM36 - Numerator
+      - CM336 - Denominator
+      - CM36 Percentage
+      - CM36 - Exclusion
+      - MM21 - Numerator
+      - MM21 - Denominator
+      - MM21 Percentage
+      - MM21 - Exclusion
+      - MM22 - Numerator
+      - MM22 - Denominator
+      - MM22 Percentage
+      - MM23 - Numerator
+      - MM23 - Denominator
+      - MM23 Percentage
+      - MM24 - Numerator
+      - MM24 - Denominator
+      - MM24 Percentage
+      - MM24 - Exclusion
+      - MM25 - Numerator
+      - MM25 - Denominator
+      - MM25 Percentage
+      - MM26A - Numerator
+      - MM26A - Denominator
+      - MM26A Percentage
+      - MM26B - Numerator
+      - MM26B - Denominator
+      - MM26B Percentage
+      dest: revision
+    - source: NPI
+      dest: npi
+      type: bigint
+    - source: Program Year
+      dest: program_year
+      type: int
+    - source: Payment Year Number
+      dest: payment_year_number
+      type: int
+    - source: Attestation Success Date
+      dest: attestation_success_date
+      type: string
+      max_length: 16
+    - source: EHR Certification Number
+      dest: ehr_certification_number
+      type: string
+      max_length: 30
+    - source: CCN
+      dest: ccn
+      type: string
+      max_length: 20
+    - source: CM21A - Numerator
+      dest: cm21a_numerator
+      type: int
+    - source: CM21A - Denominator
+      dest: cm21a_denominator
+      type: int
+    - source: CM21A Percentage
+      dest: cm21a_percentage
+      type: string
+      max_length: 8
+    - source: CM21B - Numerator
+      dest: cm21b_numerator
+      type: int
+    - source: CM21B - Denominator
+      dest: cm21b_denominator
+      type: int
+    - source: CM21B Percentage
+      dest: cm21b_percentage
+      type: string
+      max_length: 8
+    - source: CM21C - Numerator
+      dest: cm21c_numerator
+      type: int
+    - source: CM21C - Denominator
+      dest: cm21c_denominator
+      type: int
+    - source: CM21C Percentage
+      dest: cm21c_percentage
+      type: string
+      max_length: 8
+    - source: CM22 - Numerator
+      dest: cm22_numerator
+      type: int
+    - source: CM22 - Denominator
+      dest: cm22_denominator
+      type: int
+    - source: CM22 Percentage
+      dest: cm22_percentage
+      type: string
+      max_length: 8
+    - source: CM23 - Numerator
+      dest: cm23_numerator
+      type: int
+    - source: CM23 - Denominator
+      dest: cm23_denominator
+      type: int
+    - source: CM23 Percentage
+      dest: cm23_percentage
+      type: string
+      max_length: 8
+    - source: CM24 - Numerator
+      dest: cm24_numerator
+      type: int
+    - source: CM24 - Denominator
+      dest: cm24_denominator
+      type: int
+    - source: CM24 Percentage
+      dest: cm24_percentage
+      type: string
+      max_length: 8
+    - source: CM24 - Exclusion
+      dest: cm24_exclusion
+      type: string
+      max_length: 2
+    - source: CM25A
+      dest: cm25a
+      type: string
+      max_length: 2
+    - source: CM25B
+      dest: cm25b
+      type: string
+      max_length: 2
+    - source: CM26 - Numerator
+      dest: cm26_numerator
+      type: string
+      max_length: 20
+    - source: CM26 - Denominator
+      dest: cm26_denominator
+      type: string
+      max_length: 20
+    - source: CM26 Percentage
+      dest: cm26_percentage
+      type: string
+      max_length: 8
+    - source: CM27
+      dest: cm27
+      type: string
+      max_length: 2
+    - source: CM28A - Numerator
+      dest: cm28a_numerator
+      type: int
+    - source: CM28A - Denominator
+      dest: cm28a_denominator
+      type: int
+    - source: CM28A Percentage
+      dest: cm28a_percentage
+      type: string
+      max_length: 8
+    - source: CM28B - Numerator
+      dest: cm28b_numerator
+      type: int
+    - source: CM28B - Denominator
+      dest: cm28b_denominator
+      type: int
+    - source: CM28B Percentage
+      dest: cm28b_percentage
+      type: string
+      max_length: 8
+    - source: CM28B - Exclusion
+      dest: cm28b_exclusion
+      type: string
+      max_length: 2
+    - source: CM29 - Numerator
+      dest: cm29_numerator
+      type: int
+    - source: CM29 - Denominator
+      dest: cm29_denominator
+      type: int
+    - source: CM29 Percentage
+      dest: cm29_percentage
+      type: string
+      max_length: 8
+    - source: CM30 - Numerator
+      dest: cm30_numerator
+      type: int
+    - source: CM30 - Denominator
+      dest: cm30_denominator
+      type: int
+    - source: CM30 Percentage
+      dest: cm30_percentage
+      type: string
+      max_length: 8
+    - source: CM31A - Numerator
+      dest: cm31a_numerator
+      type: int
+    - source: CM31A - Denominator
+      dest: cm31a_denominator
+      type: int
+    - source: CM31A Percentage
+      dest: cm31a_percentage
+      type: string
+      max_length: 8
+    - source: CM31B - Numerator
+      dest: cm31b_numerator
+      type: int
+    - source: CM31B - Denominator
+      dest: cm31b_denominator
+      type: int
+    - source: CM31B Percentage
+      dest: cm31b_percentage
+      type: string
+      max_length: 8
+    - source: CM31C
+      dest: cm31c
+      type: string
+      max_length: 2
+    - source: CM32
+      dest: cm32
+      type: string
+      max_length: 2
+    - source: CM32 - Exclusion
+      dest: cm32_exclusion
+      type: string
+      max_length: 2
+    - source: CM33
+      dest: cm33
+      type: string
+      max_length: 2
+    - source: CM33 - Exclusion
+      dest: cm33_exclusion
+      type: string
+      max_length: 2
+    - source: CM34
+      dest: cm34
+      type: string
+      max_length: 2
+    - source: CM34 - Exclusion
+      dest: cm34_exclusion
+      type: string
+      max_length: 2
+    - source: CM35
+      dest: cm35
+      type: string
+      max_length: 2
+    - source: CM36 - Numerator
+      dest: cm36_numerator
+      type: int
+    - source: CM336 - Denominator
+      dest: cm336_denominator
+      type: int
+    - source: CM36 Percentage
+      dest: cm36_percentage
+      type: string
+      max_length: 8
+    - source: CM36 - Exclusion
+      dest: cm36_exclusion
+      type: string
+      max_length: 2
+    - source: MM21 - Numerator
+      dest: mm21_numerator
+      type: int
+    - source: MM21 - Denominator
+      dest: mm21_denominator
+      type: int
+    - source: MM21 Percentage
+      dest: mm21_percentage
+      type: string
+      max_length: 8
+    - source: MM21 - Exclusion
+      dest: mm21_exclusion
+      type: string
+      max_length: 2
+    - source: MM22 - Numerator
+      dest: mm22_numerator
+      type: int
+    - source: MM22 - Denominator
+      dest: mm22_denominator
+      type: int
+    - source: MM22 Percentage
+      dest: mm22_percentage
+      type: string
+      max_length: 8
+    - source: MM23 - Numerator
+      dest: mm23_numerator
+      type: int
+    - source: MM23 - Denominator
+      dest: mm23_denominator
+      type: int
+    - source: MM23 Percentage
+      dest: mm23_percentage
+      type: string
+      max_length: 8
+    - source: MM24 - Numerator
+      dest: mm24_numerator
+      type: int
+    - source: MM24 - Denominator
+      dest: mm24_denominator
+      type: int
+    - source: MM24 Percentage
+      dest: mm24_percentage
+      type: string
+      max_length: 8
+    - source: MM24 - Exclusion
+      dest: mm24_exclusion
+      type: string
+      max_length: 2
+    - source: MM25 - Numerator
+      dest: mm25_numerator
+      type: int
+    - source: MM25 - Denominator
+      dest: mm25_denominator
+      type: int
+    - source: MM25 Percentage
+      dest: mm25_percentage
+      type: string
+      max_length: 8
+    - source: MM26A - Numerator
+      dest: mm26a_numerator
+      type: int
+    - source: MM26A - Denominator
+      dest: mm26a_denominator
+      type: int
+    - source: MM26A Percentage
+      dest: mm26a_percentage
+      type: string
+      max_length: 8
+    - source: MM26B - Numerator
+      dest: mm26b_numerator
+      type: datetime
+    - source: MM26B - Denominator
+      dest: mm26b_denominator
+      type: datetime
+    - source: MM26B Percentage
+      dest: mm26b_percentage
+      type: datetime

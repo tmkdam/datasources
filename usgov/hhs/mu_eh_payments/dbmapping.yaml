@@ -1,0 +1,84 @@
+sources:
+- name: usgov.hhs.mu_eh_payments
+  destinations:
+  - name: usgov_hhs_mu_eh_payments
+    fields:
+    - source:
+      - PROVIDER NPI
+      - PROVIDER CCN
+      - PROVIDER / ORG NAME
+      - PROVIDER STATE
+      - PROVIDER CITY
+      - PROVIDER  ADDRESS
+      - PROVIDER ZIP 5 CD
+      - PROVIDER ZIP 4 CD
+      - PROVIDER PHONE NUM
+      - PROVIDER PHONE EXT
+      - STAGE NUMBER
+      - PROGRAM YEAR
+      - CALC PAYMENT  AMT ($)
+      dest: id
+    - source:
+      - PROVIDER NPI
+      - PROVIDER CCN
+      - PROVIDER / ORG NAME
+      - PROVIDER STATE
+      - PROVIDER CITY
+      - PROVIDER  ADDRESS
+      - PROVIDER ZIP 5 CD
+      - PROVIDER ZIP 4 CD
+      - PROVIDER PHONE NUM
+      - PROVIDER PHONE EXT
+      - STAGE NUMBER
+      - PROGRAM YEAR
+      - CALC PAYMENT  AMT ($)
+      dest: revision
+    - source: PROVIDER NPI
+      dest: provider_npi
+      type: string
+      max_length: 28
+    - source: PROVIDER CCN
+      dest: provider_ccn
+      type: int
+    - source: PROVIDER / ORG NAME
+      dest: provider_org_name
+      type: string
+      max_length: 140
+    - source: PROVIDER STATE
+      dest: provider_state
+      type: string
+      max_length: 40
+    - source: PROVIDER CITY
+      dest: provider_city
+      type: string
+      max_length: 44
+    - source: PROVIDER  ADDRESS
+      dest: provider_address
+      type: string
+      max_length: 156
+    - source: PROVIDER ZIP 5 CD
+      dest: provider_zip_5_cd
+      type: int
+    - source: PROVIDER ZIP 4 CD
+      dest: provider_zip_4_cd
+      type: string
+      max_length: 8
+    - source: PROVIDER PHONE NUM
+      dest: provider_phone_num
+      type: string
+      max_length: 28
+    - source: PROVIDER PHONE EXT
+      dest: provider_phone_ext
+      type: string
+      max_length: 10
+    - source: STAGE NUMBER
+      dest: stage_number
+      type: string
+      max_length: 14
+    - source: PROGRAM YEAR
+      dest: program_year
+      type: int
+    - source: CALC PAYMENT  AMT ($)
+      dest: calc_payment_amt
+      type: string
+      max_length: 28
