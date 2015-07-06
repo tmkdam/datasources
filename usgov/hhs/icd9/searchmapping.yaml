@@ -2,3 +2,4 @@
   pivot: usgov_hhs_icd_9_cm
   id: id
   search_id: code
+  public: true
