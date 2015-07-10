@@ -13,11 +13,11 @@ import (
 
 type Description struct {}
 
-var htmlUri = "http://nppes.viva-it.com/NPI_Files.html"
+var htmlUri = "http://download.cms.gov/nppes/NPI_Files.html"
 
 var ignore = regexp.MustCompile(`<\!\-\-(.|\n)*?\-\-\>`)
-var weeklyRegex = regexp.MustCompile(`http\:\/\/.*(NPPES_Data_Dissemination_\d+_\d+_Weekly).zip`)
-var monthlyRegex = regexp.MustCompile(`http\:\/\/.*(NPPES_Data_Dissemination_[a-zA-Z]+_\d+).zip`)
+var weeklyRegex = regexp.MustCompile(`(NPPES_Data_Dissemination_\d+_\d+_Weekly).zip`)
+var monthlyRegex = regexp.MustCompile(`(NPPES_Data_Dissemination_[a-zA-Z]+_\d+).zip`)
 
 func (d *Description) Available() ([]bloomsource.Source, error) {
   found := []bloomsource.Source{}
@@ -71,7 +71,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 
   version := strings.Replace(source.Version, "full-", "", 1)
 
-  uri := "http://nppes.viva-it.com/" + version + ".zip"
+  uri := "http://download.cms.gov/nppes/" + version + ".zip"
   zipPattern := regexp.MustCompile(`FileHeader.csv$`)
 
   reader, err := getFileReader(uri, zipPattern)
@@ -109,7 +109,7 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
 
 func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
   version := strings.Replace(strings.Replace(source.Version, "full-", "", 1), "incremental-", "", 1)
-  uri := "http://nppes.viva-it.com/" + version + ".zip"
+  uri := "http://download.cms.gov/nppes/" + version + ".zip"
   zipPattern := regexp.MustCompile(`\d+.csv$`)
 
   reader, err := getFileReader(uri, zipPattern)
