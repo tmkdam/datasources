@@ -3,3 +3,8 @@
   id: id
   search_id: code
   public: true
+  select:
+  - code
+  - formatted_code
+  - short_description
+  - long_description

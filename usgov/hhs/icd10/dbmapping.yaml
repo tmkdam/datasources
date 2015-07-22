@@ -7,17 +7,31 @@ sources:
       - code
       dest: id
     - source:
+      - position
       - code
+      - formatted_code
+      - billable
       - short_description
       - long_description
       dest: revision
+    - source: position
+      dest: position
+      type: string
+      max_length: 10
     - source: code
       dest: code
       type: string
-      max_length: 7
-    - source:
-      - code
-      dest: code_id
+      max_length: 14
+    - source: formatted_code
+      dest: formatted_code
+      type: string
+      max_length: 16
+    - source: billable
+      dest: billable
+      type: boolean
+      mapping:
+        "0": "false"
+        "1": "true"
     - source: short_description
       dest: short_description
       type: string
