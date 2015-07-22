@@ -1,0 +1,15 @@
+{
+   "code": {
+      "type": "string"
+   },
+   "formatted_code": {
+      "type": "string",
+      "index": "not_analyzed"
+   },
+   "long_description": {
+      "type": "string"
+   },
+   "short_description": {
+      "type": "string"
+   }
+}

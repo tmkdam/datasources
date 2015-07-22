@@ -4,25 +4,30 @@ sources:
   - name: usgov_hhs_icd_9_cm
     fields:
     - source:
-      - DIAGNOSIS CODE
+      - code
       dest: id
     - source:
-      - DIAGNOSIS CODE
-      - LONG DESCRIPTION
-      - SHORT DESCRIPTION
+      - code
+      - formatted_code
+      - long_description
+      - short_description
       dest: revision
-    - source: DIAGNOSIS CODE
+    - source: code
       dest: code
       type: string
-      max_length: 5
+      max_length: 10
     - source:
       - code
       dest: code_id
-    - source: SHORT DESCRIPTION
-      dest: short_description
+    - source: formatted_code
+      dest: formatted_code
       type: string
-      max_length: 48
-    - source: LONG DESCRIPTION
+      max_length: 12
+    - source: long_description
       dest: long_description
       type: string
       max_length: 444
+    - source: short_description
+      dest: short_description
+      type: string
+      max_length: 48
