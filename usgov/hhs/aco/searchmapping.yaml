@@ -7,6 +7,11 @@
     type: to_one
     dest_id: aco_id
     source_id: aco_id
+  - include: usgov_hhs_aco_performance_2014
+    name: year_2014
+    type: to_one
+    dest_id: aco_id
+    source_id: aco_id
   - include: usgov_hhs_aco_puf
     name: stats
     type: to_one

@@ -16,6 +16,288 @@ sources:
     - source:
       - Name
       dest: aco_id
+- name: usgov.hhs.aco_performance_2014
+  destinations:
+  - name: usgov_hhs_aco_performance_2014
+    fields:
+    - source:
+      - ACO Join Name
+      - 'ACO Name (LBN or DBA if applicable) '
+      - 'States Where Beneficiaries Reside '
+      - Agreement Start Date
+      - Track
+      - 'Participate in Advance Payment Model '
+      - ' Total Assigned Beneficiaries '
+      - Total Benchmark Expenditures
+      - Total Expenditures
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
+      - Total Benchmark Minus Assigned Beneficiary Expenditures as % of Total Benchmark
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures as % of Total Benchmark
+      - Generated Savings/Losses1/2
+      - Earned Shared Savings Payments/Owe Losses3/4
+      - Successfully Reported Quality5
+      - Quality Score6
+      - ACO-1
+      - ACO-2
+      - ACO-3
+      - ACO-4
+      - ACO-5
+      - ACO-6
+      - ACO-7
+      - ACO-8^
+      - ACO-9^
+      - ACO-10^
+      - ACO-11
+      - ACO-12
+      - ACO-13
+      - ACO-14
+      - ACO-15
+      - ACO-16
+      - ACO-17
+      - ACO-18
+      - ACO-19
+      - ACO-20
+      - ACO-21
+      - DM Comp-osite
+      - ACO-22
+      - ACO-23
+      - ACO-24
+      - ACO-25
+      - ACO-26
+      - ACO-27^
+      - ACO-28
+      - ACO-29
+      - ACO-30
+      - ACO-31
+      - CAD Comp-osite
+      - ACO-32
+      - ACO-33
+      dest: id
+    - source:
+      - ACO Join Name
+      - 'ACO Name (LBN or DBA if applicable) '
+      - 'States Where Beneficiaries Reside '
+      - Agreement Start Date
+      - Track
+      - 'Participate in Advance Payment Model '
+      - ' Total Assigned Beneficiaries '
+      - Total Benchmark Expenditures
+      - Total Expenditures
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
+      - Total Benchmark Minus Assigned Beneficiary Expenditures as % of Total Benchmark
+      - Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures as % of Total Benchmark
+      - Generated Savings/Losses1/2
+      - Earned Shared Savings Payments/Owe Losses3/4
+      - Successfully Reported Quality5
+      - Quality Score6
+      - ACO-1
+      - ACO-2
+      - ACO-3
+      - ACO-4
+      - ACO-5
+      - ACO-6
+      - ACO-7
+      - ACO-8^
+      - ACO-9^
+      - ACO-10^
+      - ACO-11
+      - ACO-12
+      - ACO-13
+      - ACO-14
+      - ACO-15
+      - ACO-16
+      - ACO-17
+      - ACO-18
+      - ACO-19
+      - ACO-20
+      - ACO-21
+      - DM Comp-osite
+      - ACO-22
+      - ACO-23
+      - ACO-24
+      - ACO-25
+      - ACO-26
+      - ACO-27^
+      - ACO-28
+      - ACO-29
+      - ACO-30
+      - ACO-31
+      - CAD Comp-osite
+      - ACO-32
+      - ACO-33
+      dest: revision
+    - source: ACO Join Name
+      dest: aco_join_name
+      type: string
+      max_length: 134
+    - source:
+      - ACO Join Name
+      dest: aco_id
+    - source: Expenditure per Beneficiary
+      dest: expenditure_per_beneficiary
+      type: decimal
+    - source: Actual Savings per Beneficiary
+      dest: actual_savings_per_beneficiary
+      type: decimal
+    - source: 'ACO Name (LBN or DBA if applicable) '
+      dest: aco_name_lbn_or_dba_if_applicable
+      type: string
+      max_length: 148
+    - source: 'States Where Beneficiaries Reside '
+      dest: states_where_beneficiaries_reside
+      type: string
+      max_length: 262
+    - source: Agreement Start Date
+      dest: agreement_start_date
+      type: datetime
+    - source: Track
+      dest: track
+      type: string
+      max_length: 14
+    - source: 'Participate in Advance Payment Model '
+      dest: participate_in_advance_payment_model
+      type: string
+      max_length: 8
+    - source: ' Total Assigned Beneficiaries '
+      dest: total_assigned_beneficiaries
+      type: int
+    - source: Total Benchmark Expenditures
+      dest: total_benchmark_expenditures
+      type: decimal
+    - source: Total Expenditures
+      dest: total_expenditures
+      type: decimal
+    - source: Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures
+      dest: total_benchmark_expenditures_minus_total_assigned_beneficiary_expenditures
+      type: decimal
+    - source: Total Benchmark Minus Assigned Beneficiary Expenditures as % of Total
+        Benchmark
+      dest: total_benchmark_minus_assigned_beneficiary_expenditures_as_of_total_benchmark
+      type: decimal
+    - source: Total Benchmark Expenditures Minus Total Assigned Beneficiary Expenditures as % of Total Benchmark
+      dest: total_bench_expend_minus_total_assigned_beneficiary_expend_as_of_total_bench
+      type: decimal
+    - source: Generated Savings/Losses1/2
+      dest: generated_savings_losses1_2
+      type: decimal
+    - source: Earned Shared Savings Payments/Owe Losses3/4
+      dest: earned_shared_savings_payments_owe_losses3_4
+      type: decimal
+    - source: Successfully Reported Quality5
+      dest: successfully_reported_quality5
+      type: string
+      max_length: 6
+    - source: Quality Score6
+      dest: quality_score6
+      type: decimal
+    - source: ACO-1
+      dest: aco_1
+      type: decimal
+    - source: ACO-2
+      dest: aco_2
+      type: decimal
+    - source: ACO-3
+      dest: aco_3
+      type: decimal
+    - source: ACO-4
+      dest: aco_4
+      type: decimal
+    - source: ACO-5
+      dest: aco_5
+      type: decimal
+    - source: ACO-6
+      dest: aco_6
+      type: decimal
+    - source: ACO-7
+      dest: aco_7
+      type: decimal
+    - source: ACO-8^
+      dest: aco_8
+      type: decimal
+    - source: ACO-9^
+      dest: aco_9
+      type: decimal
+    - source: ACO-10^
+      dest: aco_10
+      type: decimal
+    - source: ACO-11
+      dest: aco_11
+      type: decimal
+    - source: ACO-12
+      dest: aco_12
+      type: decimal
+    - source: ACO-13
+      dest: aco_13
+      type: decimal
+    - source: ACO-14
+      dest: aco_14
+      type: decimal
+    - source: ACO-15
+      dest: aco_15
+      type: decimal
+    - source: ACO-16
+      dest: aco_16
+      type: decimal
+    - source: ACO-17
+      dest: aco_17
+      type: decimal
+    - source: ACO-18
+      dest: aco_18
+      type: decimal
+    - source: ACO-19
+      dest: aco_19
+      type: decimal
+    - source: ACO-20
+      dest: aco_20
+      type: decimal
+    - source: ACO-21
+      dest: aco_21
+      type: decimal
+    - source: DM Comp-osite
+      dest: dm_comp_osite
+      type: decimal
+    - source: ACO-22
+      dest: aco_22
+      type: decimal
+    - source: ACO-23
+      dest: aco_23
+      type: decimal
+    - source: ACO-24
+      dest: aco_24
+      type: decimal
+    - source: ACO-25
+      dest: aco_25
+      type: decimal
+    - source: ACO-26
+      dest: aco_26
+      type: decimal
+    - source: ACO-27^
+      dest: aco_27
+      type: decimal
+    - source: ACO-28
+      dest: aco_28
+      type: decimal
+    - source: ACO-29
+      dest: aco_29
+      type: decimal
+    - source: ACO-30
+      dest: aco_30
+      type: decimal
+    - source: ACO-31
+      dest: aco_31
+      type: decimal
+    - source: CAD Comp-osite
+      dest: cad_comp_osite
+      type: decimal
+    - source: ACO-32
+      dest: aco_32
+      type: decimal
+    - source: ACO-33
+      dest: aco_33
+      type: decimal
+    - source: Total Measure Points
+      dest: total_points
+      type: decimal
 - name: usgov.hhs.aco_year1
   destinations:
   - name: usgov_hhs_aco_year1
