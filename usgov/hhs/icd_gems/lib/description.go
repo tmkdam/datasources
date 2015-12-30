@@ -88,12 +88,12 @@ var schema10 = []helpers.TabField{
 func (d *Description) Available() ([]bloomsource.Source, error) {
   return []bloomsource.Source{
     bloomsource.Source{
-      Name: "usgov.hhs.icd_9_gems",
-      Version: "2015-00",
+      Name: "usgov.hhs.icd_10_gems",
+      Version: "2016-00",
     },
     bloomsource.Source{
-      Name: "usgov.hhs.icd_10_gems",
-      Version: "2015-00",
+      Name: "usgov.hhs.icd_9_gems",
+      Version: "2016-00",
     },
   }, nil
 }
@@ -124,15 +124,16 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
 }
 
 func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-  url := "http://www.cms.gov/Medicare/Coding/ICD10/Downloads/DiagnosisGEMs_2015.zip"
+  url := "https://www.cms.gov/Medicare/Coding/ICD10/Downloads/2016-General-Equivalence-Mappings.zip"
+  
   var fileMatch *regexp.Regexp
   var schema []helpers.TabField
 
   if source.Name == "usgov.hhs.icd_9_gems" {
-    fileMatch = regexp.MustCompile(`2015_I10gem.txt$`)
+    fileMatch = regexp.MustCompile(`2016_I10gem.txt$`)
     schema = schema10
   } else {
-    fileMatch = regexp.MustCompile(`2015_I9gem.txt$`)
+    fileMatch = regexp.MustCompile(`2016_I9gem.txt$`)
     schema = schema9
   }
 
