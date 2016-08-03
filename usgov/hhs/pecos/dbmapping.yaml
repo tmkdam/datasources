@@ -1,0 +1,58 @@
+sources:
+- name: usgov.hhs.pecos
+  destinations:
+  - name: usgov_hhs_pecoses
+    fields:
+    - source:
+      - npi
+      dest: id
+    - source:
+      - npi
+      dest: revision
+    - source: npi
+      dest: npi
+      type: bigint
+    - source: last_name
+      dest: last_name
+      type: string
+    - source: first_name
+      dest: first_name
+      type: string
+- name: usgov.hhs.pecos_pendingreview
+  destinations:
+  - name: usgov_hhs_pecos_pendingreviews
+    fields:
+    - source:
+      - npi
+      dest: id
+    - source:
+      - npi
+      dest: revision
+    - source: npi
+      dest: npi
+      type: bigint
+    - source: last_name
+      dest: last_name
+      type: string
+    - source: first_name
+      dest: first_name
+      type: string
+- name: usgov.hhs.pecos_pmd
+  destinations:
+  - name: usgov_hhs_pecos_pmds
+    fields:
+    - source:
+      - npi
+      dest: id
+    - source:
+      - npi
+      dest: revision
+    - source: npi
+      dest: npi
+      type: bigint
+    - source: last_name
+      dest: last_name
+      type: string
+    - source: first_name
+      dest: first_name
+      type: string

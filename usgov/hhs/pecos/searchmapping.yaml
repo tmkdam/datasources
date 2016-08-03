@@ -1,0 +1,14 @@
+- name: usgov.hhs.pecos
+  pivot: usgov_hhs_npis
+  id: id
+  search_id: npi
+  public: true
+  select:
+  - usgov_hhs_npis.npi
+  - CASE WHEN usgov_hhs_pecos_pendingreviews.npi IS NOT NULL THEN true ELSE false END AS pending_review
+  - CASE WHEN usgov_hhs_pecoses.npi IS NOT NULL THEN true ELSE false END AS pecos
+  - CASE WHEN usgov_hhs_pecos_pmds.npi IS NOT NULL THEN true ELSE false END AS pmd
+  joins:
+  - join: usgov_hhs_pecoses
+  - join: usgov_hhs_pecos_pmds
+  - join: usgov_hhs_pecos_pendingreviews
