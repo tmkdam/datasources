@@ -81,7 +81,7 @@ func main() {
 	file.WriteString("all:\n")
 	file.WriteString("\tmkdir -p $(GOPATH)/bin/linux_amd64/bloomsources/\n")
 	file.WriteString("\tcp $(GOPATH)/src/bitbucket.org/gocodo/bloomsources/config.toml $(GOPATH)/bin/linux_amd64/bloomsources\n")
-	file.WriteString("\tgox -osarch=\"linux/amd64\" -output $(GOPATH)/bin/linux_amd64/bloomsources/runner bitbucket.org/gocodo/bloomsources/runner\n")
+	file.WriteString("\tenv GOOS=linux GOARCH=amd64 go build -o $(GOPATH)/bin/linux_amd64/bloomsources/runner bitbucket.org/gocodo/bloomsources/runner\n")
 
 	for _, packageName := range packages {
 		folderName := strings.Replace(packageName, "bitbucket.org/gocodo/bloomsources/", "", 1)
@@ -89,7 +89,7 @@ func main() {
 		parts := strings.Split(packageName, "/")
 		execName := parts[len(parts) - 1]
 		file.WriteString("\tmkdir -p /$(GOPATH)/bin/linux_amd64/bloomsources/sources/" + folderName + "\n")
-		file.WriteString("\tgox -osarch=\"linux/amd64\" -output $(GOPATH)/bin/linux_amd64/bloomsources/sources/" + folderName + "/" + execName + " " + packageName + "\n")
+		file.WriteString("\tenv GOOS=linux GOARCH=amd64 go build -o $(GOPATH)/bin/linux_amd64/bloomsources/sources/" + folderName + "/" + execName + " " + packageName + "\n")
 		file.WriteString("\tcp $(GOPATH)/src/" + packageName + "/dbmapping.yaml $(GOPATH)/bin/linux_amd64/bloomsources/sources/" + folderName + "\n")
 		file.WriteString("\tcp $(GOPATH)/src/" + packageName + "/searchmapping.yaml $(GOPATH)/bin/linux_amd64/bloomsources/sources/" + folderName + "\n")
 	}
