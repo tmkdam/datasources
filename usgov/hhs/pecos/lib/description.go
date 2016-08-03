@@ -11,6 +11,7 @@ import (
 	"bitbucket.org/gocodo/bloomsource"
 	"bitbucket.org/gocodo/bloomsource/helpers"
 	"strconv"
+	"bufio"
 
 	"fmt"
 )
@@ -101,8 +102,11 @@ func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader
 	  if err != nil {
 	    return nil, err
 	  }
+	  skiplineReader := bufio.NewReader(nonPhyFileReader)
 
-		fileReader := io.MultiReader(phyFileReader, strings.NewReader("\n"), nonPhyFileReader)
+	  skiplineReader.ReadLine()
+
+		fileReader := io.MultiReader(phyFileReader, strings.NewReader("\n"), skiplineReader)
 
 		reader = helpers.NewCsvReader(fileReader)
 	case "usgov.hhs.pecos_pmd":
