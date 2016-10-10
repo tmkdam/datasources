@@ -8,3 +8,5 @@
   - formatted_code
   - short_description
   - long_description
+  - billable
+  - position
