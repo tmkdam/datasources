@@ -2,8 +2,8 @@ package lib
 
 import (
 	"os"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
  	"github.com/spf13/viper"
 )
 
@@ -16,21 +16,21 @@ var sourceToFiles = map[string]string {
 	"usgov.hhs.ahrq.md_sid_2011.severity": "MD_SID_2011_SEVERITY.asc",
 }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-	return []bloomsource.Source{
-			bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+	return []dataloading.Source{
+			dataloading.Source{
 				Name: "usgov.hhs.ahrq.md_sid_2011.chgs",
 				Version: "001",
 			},
-			bloomsource.Source{
+			dataloading.Source{
 				Name: "usgov.hhs.ahrq.md_sid_2011.core",
 				Version: "001",
 			},
-			bloomsource.Source{
+			dataloading.Source{
 				Name: "usgov.hhs.ahrq.md_sid_2011.dx_pr_grps",
 				Version: "001",
 			},
-			bloomsource.Source{
+			dataloading.Source{
 				Name: "usgov.hhs.ahrq.md_sid_2011.severity",
 				Version: "001",
 			},
@@ -52,7 +52,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 	return fieldNames, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
 	tabFields, err := buildSchema(source.Name)
 	if err != nil {
 		return nil, err

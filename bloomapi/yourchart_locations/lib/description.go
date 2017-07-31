@@ -4,19 +4,19 @@ import (
   "os"
   "errors"
   "encoding/csv"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "bloomapi.epic.mychart_locations",
       Version: "2015-05-27",
     },
-    bloomsource.Source{
+    dataloading.Source{
       Name: "bloomapi.epic.mychart_location_states",
       Version: "2015-05-27",
     },
@@ -34,7 +34,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
     return nil, errors.New("Source not found: " + sourceName)
   }
 
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
 
   fileReader, err := os.Open(path)
@@ -55,13 +55,13 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   uri, ok := urls[source.Name]
   if !ok {
     return nil, errors.New("Source not found: " + source.Name)
   }
 
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
 
   fileReader, err := os.Open(path)

@@ -5,9 +5,9 @@ import (
   "os"
   "encoding/csv"
   "regexp"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
-  "bitbucket.org/gocodo/bloomsources/usgov/hhs/cclf/schema"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
+  "github.com/bloomapi/datasources/usgov/hhs/cclf/schema"
  	"github.com/spf13/viper"
  	"errors"
 )
@@ -53,8 +53,8 @@ var sourceFields = map[string]*schema.Cclf {
 	"usgov.hhs.cclf_bene_xref": schema.BeneXref,
 }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-	sources := []bloomsource.Source{}
+func (d *Description) Available() ([]dataloading.Source, error) {
+	sources := []dataloading.Source{}
 
 	cclfDir := viper.GetString("cclfDir")
 
@@ -71,7 +71,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 					sourceName := sourceNames[fileNum]
 
 					if sourceName != "" {
-						sources = append(sources, bloomsource.Source{
+						sources = append(sources, dataloading.Source{
 							Name: sourceName,
 							Version: fileVersion,
 							Action: "upsert",
@@ -88,7 +88,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 	}
 
 	if _, err := os.Stat(cclfDir + "/uid_to_hicn.csv"); err == nil {
-		sources = append(sources, bloomsource.Source{
+		sources = append(sources, dataloading.Source{
 				Name: "usgov.hhs.cclf.uid_to_hicn",
 				Version: "2015-01",
 				Action: "sync",
@@ -96,7 +96,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 	}
 
 	if _, err := os.Stat(cclfDir + "/uid_beneficiaries.csv"); err == nil {
-		sources = append(sources, bloomsource.Source{
+		sources = append(sources, dataloading.Source{
 				Name: "usgov.hhs.cclf.uid_beneficiaries",
 				Version: "2015-01",
 				Action: "sync",
@@ -144,7 +144,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
 	cclfDir := viper.GetString("cclfDir")
 	var path string
 

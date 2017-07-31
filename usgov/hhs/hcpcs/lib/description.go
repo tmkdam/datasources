@@ -6,15 +6,15 @@ import (
   "regexp"
   "bytes"
   "archive/zip"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.hcpcs",
       Version: "2015-00",
     },
@@ -48,7 +48,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 }
 
 func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -62,7 +62,7 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
   return reader, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   reader, err := getFileReader("http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets/Downloads/2015-Annual-Alpha-Numeric-HCPCS-File.zip", regexp.MustCompile(`HCPC2015_CONTR_ANWEB_v2.xlsx$`))
   if err != nil {
     return nil, err

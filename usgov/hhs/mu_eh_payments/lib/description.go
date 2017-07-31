@@ -4,15 +4,15 @@ import (
   "io"
   "regexp"
   "encoding/csv"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.mu_eh_payments",
       Version: "2015-01-01",
     },
@@ -20,7 +20,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 }
 
 func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -57,7 +57,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   uri := "http://www.cms.gov/Regulations-and-Guidance/Legislation/EHRIncentivePrograms/Downloads/EH_ProvidersPaidByEHRProgram_Dec2014.zip"
   zipPattern := regexp.MustCompile(`EH_ProvidersPaidByEHR_12_2014_FINAL.csv$`)
 

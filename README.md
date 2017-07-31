@@ -13,7 +13,7 @@ To build the loader binaries + runner:
 1. Run `go run configure.go`
 2. Run `make` (make sure that your GOPATH environment variable is set)
 
-Every binary requires access to a local copy of `config.toml`, `dbmapping.yaml`, and `searchmapping.yaml`. Alternatively, you can reference a folder that contains `config.toml` by setting the environment variable `BLOOM_CONFIG`. For example, the following would be used to add a data source to BloomAPI (from the directory output by make `go/bin/linux_amd64/bloomsources/sources/usgov.hhs.npi`):
+Every binary requires access to a local copy of `config.toml`, `dbmapping.yaml`, and `searchmapping.yaml`. Alternatively, you can reference a folder that contains `config.toml` by setting the environment variable `BLOOM_CONFIG`. For example, the following would be used to add a data source to BloomAPI (from the directory output by make `go/bin/linux_amd64/datasources/sources/usgov.hhs.npi`):
 
 ```
 BLOOM_CONFIG=../../ ./npi bootstrap

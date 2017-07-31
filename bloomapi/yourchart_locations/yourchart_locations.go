@@ -1,10 +1,10 @@
 package main
 
 import (
-	"bitbucket.org/gocodo/bloomsource"
-	"bitbucket.org/gocodo/bloomsources/bloomapi/yourchart_locations/lib"
+	"github.com/bloomapi/dataloading"
+	"github.com/bloomapi/datasources/bloomapi/yourchart_locations/lib"
 )
 
 func main() {
-	bloomsource.CreateCmd(&lib.Description{})
+	dataloading.CreateCmd(&lib.Description{})
 }

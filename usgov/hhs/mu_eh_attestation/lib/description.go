@@ -4,8 +4,8 @@ import (
   "os"
   "errors"
   "encoding/csv"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 var stageOne = "https://s3.amazonaws.com/gocodo/usgov/hhs/mu/201504+EH+Stage+1+PUF.csv"
@@ -13,13 +13,13 @@ var stageTwo = "https://s3.amazonaws.com/gocodo/usgov/hhs/mu/201504+EH+Stage+2+P
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.mu_eh_stage1_attestation",
       Version: "2015-01-01",
     },
-    bloomsource.Source{
+    dataloading.Source{
       Name: "usgov.hhs.mu_eh_stage2_attestation",
       Version: "2015-01-01",
     },
@@ -36,7 +36,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
     return nil, errors.New("Unknown datasource name")
   }
 
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -61,7 +61,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   var uri string
   if source.Name == "usgov.hhs.mu_eh_stage1_attestation" {
     uri = stageOne
@@ -71,7 +71,7 @@ func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader
     return nil, errors.New("Unknown datasource name")
   }
 
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err

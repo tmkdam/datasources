@@ -1,10 +1,10 @@
 package main
 
 import (
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsources/usgov/hhs/mu_eh_attestation/lib"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/datasources/usgov/hhs/mu_eh_attestation/lib"
 )
 
 func main() {
-  bloomsource.CreateCmd(&lib.Description{})
+  dataloading.CreateCmd(&lib.Description{})
 }

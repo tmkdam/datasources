@@ -1,10 +1,10 @@
 package main
 
 import (
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsources/usgov/hhs/ahrq/md_sid_2011/lib"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/datasources/usgov/hhs/ahrq/md_sid_2011/lib"
 )
 
 func main() {
-  bloomsource.CreateCmd(&lib.Description{})
+  dataloading.CreateCmd(&lib.Description{})
 }

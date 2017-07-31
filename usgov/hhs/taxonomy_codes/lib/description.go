@@ -4,23 +4,23 @@ import (
   "io"
   "regexp"
   "errors"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.medicare_specialty_codes",
       Version: "2014-09",
     },
-    bloomsource.Source{
+    dataloading.Source{
       Name: "usgov.hhs.nucc_taxonomy_codes",
       Version: "2014-09",
     },
-    bloomsource.Source{
+    dataloading.Source{
       Name: "usgov.hhs.medicare_specialty_to_nucc_taxonomy",
       Version: "2014-09",
     },
@@ -41,7 +41,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 }
 
 func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -55,7 +55,7 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
   return reader, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   var zipPattern *regexp.Regexp
   switch(source.Name){
   case "usgov.hhs.medicare_specialty_codes":

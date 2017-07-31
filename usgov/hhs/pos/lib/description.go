@@ -8,8 +8,8 @@ import (
   "regexp"
   "strings"
   "encoding/csv"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
@@ -31,7 +31,7 @@ var shortCapMonths = map[string]string{
   "DEC": "Dec",
 }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
+func (d *Description) Available() ([]dataloading.Source, error) {
   resp, err := http.Get("http://www.cms.gov/Research-Statistics-Data-and-Systems/Downloadable-Public-Use-Files/Provider-of-Services/index.html")
   if err != nil {
     return nil, err
@@ -47,7 +47,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 
   monthlyMatches := downloadRegex.FindAllStringSubmatch(bodyS, -1)
 
-  sources := []bloomsource.Source{}
+  sources := []dataloading.Source{}
 
   for _, match := range monthlyMatches {
     month := match[1]
@@ -60,7 +60,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 
     version := date.Format("2006-01")
 
-    sources = append(sources, bloomsource.Source{
+    sources = append(sources, dataloading.Source{
       Name: "usgov.hhs.pos",
       Version: version,
     })
@@ -93,8 +93,8 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func getFileReader(source bloomsource.Source) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+func getFileReader(source dataloading.Source) (io.Reader, error) {
+  downloader := dataloading.NewDownloader("data/", nil)
   zipPattern := regexp.MustCompile(`\.csv$`)
 
   d, err := time.Parse("2006-01", source.Version)
@@ -118,7 +118,7 @@ func getFileReader(source bloomsource.Source) (io.Reader, error) {
   return reader, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   reader, err := getFileReader(source)
   if err != nil {
     return nil, err

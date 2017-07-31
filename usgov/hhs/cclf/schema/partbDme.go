@@ -1,6 +1,6 @@
 package schema
 
-import "bitbucket.org/gocodo/bloomsource/helpers"
+import "github.com/bloomapi/dataloading/helpers"
 
 var PartbDme = &Cclf{
 	Versions: []string{

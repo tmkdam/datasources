@@ -8,8 +8,8 @@ import (
   "errors"
   "regexp"
   "time"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
@@ -204,7 +204,7 @@ func GetBody() (string, error) {
   return string(body), nil
 }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
+func (d *Description) Available() ([]dataloading.Source, error) {
   bodyS, err := GetBody()
   if err != nil {
     return nil, err
@@ -217,10 +217,10 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
     return nil, err
   }
 
-  sources := make([]bloomsource.Source, len(sourceDescs))
+  sources := make([]dataloading.Source, len(sourceDescs))
 
   for i, sourceDesc := range sourceDescs {
-    sources[i] = bloomsource.Source{
+    sources[i] = dataloading.Source{
       Name: rootSourceName + sourceDesc.SourceName,
       Version: t.Format(time.RFC3339),
     }
@@ -230,7 +230,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 }
 
 func getFileReader(uri string, stringPattern string) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -285,7 +285,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   bodyS, err := GetBody()
   if err != nil {
     return nil, err

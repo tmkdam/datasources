@@ -1,10 +1,10 @@
 package main
 
 import (
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsources/usgov/hhs/hosp_comp/lib"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/datasources/usgov/hhs/hosp_comp/lib"
 )
 
 func main() {
-  bloomsource.CreateCmd(&lib.Description{})
+  dataloading.CreateCmd(&lib.Description{})
 }

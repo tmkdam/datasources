@@ -3,17 +3,17 @@ package lib
 import (
   "os"
   "encoding/csv"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
 var url = "https://s3.amazonaws.com/gocodo/usgov/hhs/icd/icd-9-cm.csv"
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.icd_9_cm",
       Version: "2014-00",
     },
@@ -21,7 +21,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 }
 
 func (d *Description) FieldNames(sourceName string) ([]string, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(url)
   if err != nil {
     return nil, err
@@ -46,8 +46,8 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(url)
   if err != nil {
     return nil, err

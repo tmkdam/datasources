@@ -1,7 +1,7 @@
 package lib
 
 import (
-	"bitbucket.org/gocodo/bloomsource/helpers"
+	"github.com/bloomapi/dataloading/helpers"
 	"io"
 	"strconv"
 	"strings"

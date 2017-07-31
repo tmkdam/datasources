@@ -2,15 +2,15 @@ package lib
 
 import (
   "os"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "nucc.hcpt",
       Version: "2015-01",
     },
@@ -21,8 +21,8 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
   return []string{ "Code", "Type", "Classification", "Specialization", "Definition", "Notes" }, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch("http://www.nucc.org/images/stories/CSV/nucc_taxonomy_150.csv")
   if err != nil {
     return nil, err

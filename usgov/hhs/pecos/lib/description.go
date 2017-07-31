@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 	"errors"
-	"bitbucket.org/gocodo/bloomsource"
-	"bitbucket.org/gocodo/bloomsource/helpers"
+	"github.com/bloomapi/dataloading"
+	"github.com/bloomapi/dataloading/helpers"
 	"strconv"
 	"bufio"
 
@@ -27,7 +27,7 @@ var uris = map[string]string {
 
 var columns = []string{ "npi", "last_name", "first_name" }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
+func (d *Description) Available() ([]dataloading.Source, error) {
 	resp, err := http.Get("https://data.cms.gov/api/views/qcn7-gc3g")
 	if err != nil {
 		return nil, err
@@ -44,16 +44,16 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 	version := strconv.FormatFloat(info["viewLastModified"].(float64), 'f', 0, 64)
 	fmt.Println(version)
 
-	return []bloomsource.Source{
-		bloomsource.Source{
+	return []dataloading.Source{
+		dataloading.Source{
 			Name: "usgov.hhs.pecos",
 			Version: version,
 		},
-		bloomsource.Source{
+		dataloading.Source{
 			Name: "usgov.hhs.pecos_pendingreview",
 			Version: version,
 		},
-		bloomsource.Source{
+		dataloading.Source{
 			Name: "usgov.hhs.pecos_pmd",
 			Version: version,
 		},
@@ -64,12 +64,12 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 	return columns, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
-	var reader bloomsource.ValueReader
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
+	var reader dataloading.ValueReader
 
 	switch (source.Name) {
 	case "usgov.hhs.pecos":
-		downloader := bloomsource.NewDownloader("data/", nil)
+		downloader := dataloading.NewDownloader("data/", nil)
 	  path, err := downloader.Fetch(uris["PECOS"])
 	  if err != nil {
 	    return nil, err
@@ -82,7 +82,7 @@ func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader
 
 	  reader = helpers.NewCsvReader(fileReader)
 	case "usgov.hhs.pecos_pendingreview":
-		downloader := bloomsource.NewDownloader("data/", nil)
+		downloader := dataloading.NewDownloader("data/", nil)
 	  phyPath, err := downloader.Fetch(uris["PECOS-PhysiciansPendingReview"])
 	  if err != nil {
 	    return nil, err
@@ -110,7 +110,7 @@ func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader
 
 		reader = helpers.NewCsvReader(fileReader)
 	case "usgov.hhs.pecos_pmd":
-		downloader := bloomsource.NewDownloader("data/", nil)
+		downloader := dataloading.NewDownloader("data/", nil)
 	  path, err := downloader.Fetch(uris["PECOS-PMD"])
 	  if err != nil {
 	    return nil, err

@@ -3,7 +3,7 @@ package main
 import (
 	"database/sql"
 	"github.com/gocodo/bloomdb"
-	"bitbucket.org/gocodo/bloomsource"
+	"github.com/bloomapi/dataloading"
 	"gopkg.in/yaml.v2"
 	"github.com/spf13/viper"
 	"io/ioutil"
@@ -76,7 +76,7 @@ func main() {
 		return
 	}
 
-	mapping := bloomsource.SourceMapping{}
+	mapping := dataloading.SourceMapping{}
 	err = yaml.Unmarshal(file, &mapping)
 	if err != nil {
 		fmt.Println(err)

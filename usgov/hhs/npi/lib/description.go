@@ -7,8 +7,8 @@ import (
   "encoding/csv"
   "strings"
   "regexp"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
@@ -19,8 +19,8 @@ var ignore = regexp.MustCompile(`<\!\-\-(.|\n)*?\-\-\>`)
 var weeklyRegex = regexp.MustCompile(`(NPPES_Data_Dissemination_\d+_\d+_Weekly).zip`)
 var monthlyRegex = regexp.MustCompile(`(NPPES_Data_Dissemination_[a-zA-Z]+_\d+).zip`)
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  found := []bloomsource.Source{}
+func (d *Description) Available() ([]dataloading.Source, error) {
+  found := []dataloading.Source{}
 
   resp, err := http.Get(htmlUri)
   if err != nil {
@@ -42,7 +42,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
   var monthly string
   if len(monthlyMatches) > 0 {
     monthly = monthlyMatches[1]
-    found = append(found, bloomsource.Source{
+    found = append(found, dataloading.Source{
       "usgov.hhs.npi",
       "full-" + monthly,
       "sync",
@@ -51,7 +51,7 @@ func (d *Description) Available() ([]bloomsource.Source, error) {
 
   for _, weeklyMatch := range weeklyMatches {
     if len(weeklyMatch) > 0 {
-      found = append(found, bloomsource.Source{
+      found = append(found, dataloading.Source{
         "usgov.hhs.npi",
         "incremental-" + weeklyMatch[1],
         "upsert",
@@ -93,7 +93,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 }
 
 func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -107,7 +107,7 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
   return reader, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   version := strings.Replace(strings.Replace(source.Version, "full-", "", 1), "incremental-", "", 1)
   uri := "http://download.cms.gov/nppes/" + version + ".zip"
   zipPattern := regexp.MustCompile(`\d+.csv$`)

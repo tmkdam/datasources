@@ -3,17 +3,17 @@ package lib
 import (
   "io"
   "regexp"
-  "bitbucket.org/gocodo/bloomsource"
-  "bitbucket.org/gocodo/bloomsource/helpers"
+  "github.com/bloomapi/dataloading"
+  "github.com/bloomapi/dataloading/helpers"
 )
 
 type Description struct {}
 
 var fields = []string{ "NPI Number1", "NPI Number2", "Pair Count", "Bene Count", "Same Day Count" }
 
-func (d *Description) Available() ([]bloomsource.Source, error) {
-  return []bloomsource.Source{
-    bloomsource.Source{
+func (d *Description) Available() ([]dataloading.Source, error) {
+  return []dataloading.Source{
+    dataloading.Source{
       Name: "usgov.hhs.phyreferral",
       Version: "2014-00",
     },
@@ -25,7 +25,7 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 }
 
 func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
-  downloader := bloomsource.NewDownloader("data/", nil)
+  downloader := dataloading.NewDownloader("data/", nil)
   path, err := downloader.Fetch(uri)
   if err != nil {
     return nil, err
@@ -39,7 +39,7 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
   return reader, nil
 }
 
-func (d *Description) Reader(source bloomsource.Source) (bloomsource.ValueReader, error) {
+func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   fileMatch := regexp.MustCompile(`Physician-Referrals-2013-2014-DAYS30.txt$`)
   reader, err := getFileReader("https://s3.amazonaws.com/gocodo/usgov/hhs/phyreferral/physician-referrals-2013-2014-days30.zip", fileMatch)
   if err != nil {
