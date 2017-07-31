@@ -36,3 +36,9 @@ Every command will have the commands:
 * `drop`: drops the database tables and related metadata
 * `search-drop`: drops the ElasticSearch index for this source
 * `schema`: Generates a raw schema file for the datasource (given an implementation of fetch functionality). This is a tool for development rather than for use in production.
+
+If you want to run multiple datasources at once, you can use the `runner`. If you built using the makefile, you'll already have an example of how the directories + config have to be setup to work at `$GOPATH/bin/linux_amd64/datasources`. From this directory, on a linux machine, just run `./runner` to see the available commands.
+
+* `bootstrap` will run `bootstrap` for each source listed in config.toml
+* `fetch` will run `fetch` for each source listed in config.toml
+* `update` will run `fetch` followed by `search-index` for each source listed in config.toml
