@@ -77,7 +77,8 @@ func main() {
 	}
 	defer file.Close()
 
-  file.WriteString("export PATH := /usr/local/gonative/go/bin:$(PATH)\n\n")
+	file.WriteString("export PATH := /usr/local/gonative/go/bin:$(PATH)\n\n")
+	file.WriteString("GOPATH ?= $(HOME)/go\n\n")
 	file.WriteString("all:\n")
 	file.WriteString("\tmkdir -p $(GOPATH)/bin/linux_amd64/bloomsources/\n")
 	file.WriteString("\tcp $(GOPATH)/src/bitbucket.org/gocodo/bloomsources/config.toml $(GOPATH)/bin/linux_amd64/bloomsources\n")
