@@ -12,7 +12,9 @@ import (
 var ignoreList = []string {
 	"github.com/bloomapi/datasources/runner",
 	"github.com/bloomapi/datasources/usgov/hhs/cclf",
+	"github.com/bloomapi/datasources/usgov/hhs/ahrq/md_sid_2011",
 	"github.com/bloomapi/datasources/usgov/hhs/hcris",
+	"github.com/bloomapi/datasources/usgov/hhs/phyreferral",
 	"github.com/bloomapi/datasources/usgov/hhs/hosp_comp",
 	"github.com/bloomapi/datasources/usgov/hhs/mu_attestation",
 	"github.com/bloomapi/datasources/usgov/hhs/mu_report",
@@ -124,9 +126,9 @@ clean:
 	}
 	defer configFile.Close()
 
-	configFile.WriteString(`sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+	configFile.WriteString(`sqlConnStr = "postgres://postgres@db/bloomapi?sslmode=disable"
 searchHosts = [
-  "localhost"
+  "search"
 ]
 sourceBinaries = [
 `)

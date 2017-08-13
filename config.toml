@@ -1,12 +1,11 @@
-sqlConnStr = "postgres://localhost/bloomapi?sslmode=disable"
+sqlConnStr = "postgres://postgres@db/bloomapi?sslmode=disable"
 searchHosts = [
-  "localhost"
+  "search"
 ]
 sourceBinaries = [
 "./sources/bloomapi.yourchart_locations/yourchart_locations",
 "./sources/nucc.hcpt/hcpt",
 "./sources/usgov.hhs.aco/aco",
-"./sources/usgov.hhs.ahrq.md_sid_2011/md_sid_2011",
 "./sources/usgov.hhs.hcpcs/hcpcs",
 "./sources/usgov.hhs.icd10/icd10",
 "./sources/usgov.hhs.icd9/icd9",
@@ -15,7 +14,6 @@ sourceBinaries = [
 "./sources/usgov.hhs.npi/npi",
 "./sources/usgov.hhs.pecos/pecos",
 "./sources/usgov.hhs.phycomp/phycomp",
-"./sources/usgov.hhs.phyreferral/phyreferral",
 "./sources/usgov.hhs.pos/pos",
 "./sources/usgov.hhs.taxonomy_codes/taxonomy_codes",
 ]
