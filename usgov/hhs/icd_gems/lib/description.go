@@ -124,16 +124,16 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
 }
 
 func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
-  url := "https://www.cms.gov/Medicare/Coding/ICD10/Downloads/2017-GEM-DC.zip"
+  url := "https://www.cms.gov/Medicare/Coding/ICD10/Downloads/2018-ICD-10-CM-General-Equivalence-Mappings.zip"
   
   var fileMatch *regexp.Regexp
   var schema []helpers.TabField
 
   if source.Name == "usgov.hhs.icd_9_gems" {
-    fileMatch = regexp.MustCompile(`2017_I10gem.txt$`)
+    fileMatch = regexp.MustCompile(`2018_I10gem.txt$`)
     schema = schema10
   } else {
-    fileMatch = regexp.MustCompile(`2017_I9gem.txt$`)
+    fileMatch = regexp.MustCompile(`2018_I9gem.txt$`)
     schema = schema9
   }
 

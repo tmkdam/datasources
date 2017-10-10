@@ -9,14 +9,13 @@ import (
 
 type Description struct {}
 
-//var url = "https://s3.amazonaws.com/gocodo/usgov/hhs/icd/icd-10-cm.csv"
-var url = "https://s3.amazonaws.com/gocodo/usgov/hhs/icd/icd-10-cm-2017.csv"
+var url = "https://s3.amazonaws.com/gocodo/usgov/hhs/icd/icd-10-cm-2018.csv"
 
 func (d *Description) Available() ([]dataloading.Source, error) {
   return []dataloading.Source{
     dataloading.Source{
       Name: "usgov.hhs.icd_10_cm",
-      Version: "2017-00",
+      Version: "2018-00",
     },
   }, nil
 }
