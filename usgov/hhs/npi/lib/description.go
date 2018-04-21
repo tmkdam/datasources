@@ -71,7 +71,14 @@ func (d *Description) FieldNames(sourceName string) ([]string, error) {
 
   version := strings.Replace(source.Version, "full-", "", 1)
 
-  uri := "http://download.cms.gov/nppes/" + version + ".zip"
+  var uri string
+  if version == "NPPES_Data_Dissemination_April_2018" {
+    // NPPES published April as DEFLATE64, recompressed to DEFLATE to be supported by Go
+    uri = "https://s3.amazonaws.com/bloomapi-public-data/NPPES_Data_Dissemination_April_2018.zip"
+  } else {
+    uri = "http://download.cms.gov/nppes/" + version + ".zip"
+  }
+
   zipPattern := regexp.MustCompile(`FileHeader.csv$`)
 
   reader, err := getFileReader(uri, zipPattern)
@@ -109,7 +116,15 @@ func getFileReader(uri string, zipPattern *regexp.Regexp) (io.Reader, error) {
 
 func (d *Description) Reader(source dataloading.Source) (dataloading.ValueReader, error) {
   version := strings.Replace(strings.Replace(source.Version, "full-", "", 1), "incremental-", "", 1)
-  uri := "http://download.cms.gov/nppes/" + version + ".zip"
+
+  var uri string
+  if version == "NPPES_Data_Dissemination_April_2018" {
+    // NPPES published April as DEFLATE64, recompressed to DEFLATE to be supported by Go
+    uri = "https://s3.amazonaws.com/bloomapi-public-data/NPPES_Data_Dissemination_April_2018.zip"
+  } else {
+    uri = "http://download.cms.gov/nppes/" + version + ".zip"
+  }
+
   zipPattern := regexp.MustCompile(`\d+.csv$`)
 
   reader, err := getFileReader(uri, zipPattern)
