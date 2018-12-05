@@ -9,7 +9,7 @@ import (
 
 type Description struct {}
 
-var url = "https://s3.amazonaws.com/gocodo/usgov/hhs/icd/icd-10-cm-2018.csv"
+var url = "http://192.168.0.17:3000/icd-10-cm-2019.csv"
 
 func (d *Description) Available() ([]dataloading.Source, error) {
   return []dataloading.Source{
